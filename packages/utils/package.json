@@ -2,5 +2,6 @@
   "name": "utils",
   "version": "0.0.1",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "a7e67f1fbf289d20a690b2c0d2c60dcf7e94e479"
 }
