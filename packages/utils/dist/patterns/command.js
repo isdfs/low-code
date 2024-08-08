@@ -1,0 +1,59 @@
+"use strict";
+/**
+ * 命令模式管理器，用于封装和执行命令。
+ *
+ * @template R - 命令执行的结果类型。
+ * @returns {{
+*   execute: (command: () => R) => R,
+*   undo: () => R | undefined,
+*   redo: () => R | undefined,
+*   clearHistory: () => void
+* }} - 包含执行命令、撤销命令、重做命令和清除历史记录的方法。
+*
+* @example
+* const commandManager = createCommandManager<number>();
+* const add = () => 1 + 1;
+* commandManager.execute(add); // 返回 2
+* commandManager.undo(); // 返回 undefined，因为没有撤销
+* commandManager.redo(); // 返回 undefined，因为没有重做
+*/
+function createCommandManager() {
+    var history = [];
+    var undoStack = [];
+    return {
+        execute: function (command) {
+            var result = command();
+            history.push({ command: command, result: result });
+            undoStack = []; // 清空重做栈，因为新的命令执行后，旧的重做历史不再有效
+            return result;
+        },
+        undo: function () {
+            var lastCommand = history.pop();
+            if (lastCommand) {
+                undoStack.push(lastCommand);
+                return lastCommand.result;
+            }
+            return undefined;
+        },
+        redo: function () {
+            var commandToRedo = undoStack.pop();
+            if (commandToRedo) {
+                var result = commandToRedo.command();
+                history.push({ command: commandToRedo.command, result: result });
+                return result;
+            }
+            return undefined;
+        },
+        clearHistory: function () {
+            history = [];
+            undoStack = [];
+        }
+    };
+}
+// 使用示例
+// const commandManager = createCommandManager<number>();
+// const add = () => 1 + 1;
+// console.log(commandManager.execute(add)); // 输出: 2
+// console.log(commandManager.undo()); // 输出: 2
+// console.log(commandManager.redo()); // 输出: 2
+// commandManager.clearHistory();

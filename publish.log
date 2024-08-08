@@ -1,0 +1,4 @@
+lerna notice cli v8.1.8
+lerna info versioning independent
+lerna notice Current HEAD is already released, skipping change detection.
+lerna success No changed packages to publish
