@@ -1,6 +1,6 @@
 {
   "name": "@low-code/vue",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "license": "MIT",
   "gitHead": "1816ab801a53b8c5c985d63f239f7eb95a1aee15"
