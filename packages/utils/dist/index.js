@@ -1,9 +1,7 @@
 "use strict";
 // src/index.ts
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isNumber = isNumber;
-exports.capitalize = capitalize;
-exports.debounce = debounce;
+exports.debounce = exports.capitalize = exports.isNumber = void 0;
 /**
  * 检查一个值是否为数字
  * @param {any} value - 要检查的值
@@ -12,6 +10,7 @@ exports.debounce = debounce;
 function isNumber(value) {
     return typeof value === 'number' && !isNaN(value);
 }
+exports.isNumber = isNumber;
 /**
  * 将字符串的首字母大写
  * @param {string} str - 要转换的字符串
@@ -23,6 +22,7 @@ function capitalize(str) {
     }
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
+exports.capitalize = capitalize;
 /**
  * 防抖函数
  * @param {Function} func - 要防抖的函数
@@ -44,3 +44,4 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+exports.debounce = debounce;
