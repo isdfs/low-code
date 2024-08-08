@@ -1,10 +1,16 @@
 {
-  "name": "utils",
-  "version": "0.0.1",
-  "main": "index.js",
+  "name": "@low-code/utils",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "af7cd2d632d6d13706f62e6dea222c7ba819feb7"
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0"
+  }
 }
