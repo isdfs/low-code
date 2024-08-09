@@ -32,6 +32,7 @@ function generateDynamicForm(formData, labels, validators, formElement) {
         input.value = String(formData[key]);
         input.addEventListener('input', function () {
             var _a, _b;
+            // @ts-ignore
             var validation = (0, validateForm_1.validateForm)((_a = {}, _a[key] = input.value, _a), (_b = {},
                 _b[key] = validators[key],
                 _b));

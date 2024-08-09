@@ -34,7 +34,7 @@ export function finiteStateMachine<S, E>(
    }
 
    function transition(event: E) {
-       const nextState = config.states[currentState]?.on[event];
+       const nextState = (config.states[currentState] as any)?.on[event];
        if (nextState) {
            currentState = nextState;
        } else {

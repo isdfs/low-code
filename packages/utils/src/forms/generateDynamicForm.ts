@@ -36,7 +36,8 @@ export function generateDynamicForm<T>(
         input.value = String(formData[key as keyof T]);
 
         input.addEventListener('input', () => {
-            const validation = validateForm({ [key]: input.value } as Partial<T>, {
+            // @ts-ignore
+            const validation = validateForm({ [key]: input.value } as unknown as Partial<T>, {
                 [key]: validators[key as keyof T],
             } as Record<keyof T, (value: any) => string | null>);
 

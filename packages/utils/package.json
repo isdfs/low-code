@@ -12,7 +12,7 @@
     "generate": "node ./script/generate-index.js",
     "build": "tsc && node build.js",
     "release": "yarn prerelease && standard-version --no-verify && yarn publish --no-git-checks",
-    "tsdoc": "typedoc",
+    "tsdoc": "typedoc --tsconfig tsconfig.typedoc.json",
     "update-readme": "node update-readme.js",
     "postrelease": "git push --follow-tags origin main && git push origin --tags",
     "commit-changes": "git diff-index --quiet HEAD || (git add . && git commit -m 'chore(docs): update docs and build outputs')",
@@ -28,12 +28,14 @@
   "devDependencies": {
     "esbuild": "^0.23.0",
     "standard-version": "^9.3.2",
-    "typedoc": "^0.22.10",
-    "typescript": "^4.0.0"
+    "typedoc": "0.22.4",
+    "typedoc-plugin-markdown": "3.11.7",
+    "typescript": "4.7"
   },
   "dependencies": {
     "@types/jest": "^29.5.12",
     "jest": "^29.7.0",
-    "ts-jest": "^29.2.4"
+    "ts-jest": "^29.2.4",
+    "typescript": "4.7"
   }
 }

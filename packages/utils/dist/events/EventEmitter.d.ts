@@ -1,4 +1,4 @@
-type Listener = (...args: any[]) => void;
+declare type Listener = (...args: any[]) => void;
 /**
  * 简单的事件发布/订阅模式实现
  */

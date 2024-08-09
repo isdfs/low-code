@@ -26,7 +26,7 @@ export function dependencyInjector<T extends Record<string, any>>() {
        if (!dependencies.has(key)) {
            throw new Error(`Dependency '${String(key)}' not found`);
        }
-       return dependencies.get(key)!;
+       return dependencies.get(key) as any;
    }
 
    function inject<K extends keyof T>(key: K): T[K] {

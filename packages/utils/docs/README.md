@@ -1,6 +1,3 @@
-
-
-<!-- DOCS_START -->
 @isdfs-low-code/utils - v0.0.3
 
 # @isdfs-low-code/utils - v0.0.3
@@ -4112,5 +4109,3 @@ worker.terminate();
 #### Defined in
 
 [workers/workerManager.ts:15](https://github.com/isdfs/low-code/blob/8afb1a6/packages/utils/src/workers/workerManager.ts#L15)
-
-<!-- DOCS_END -->

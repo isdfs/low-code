@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const docsPath = path.join(__dirname, 'docs', 'index.html'); // 指向生成的 HTML 文件
+const docsPath = path.join(__dirname, 'docs', 'README.md'); // 指向生成的 Markdown 文件
 const readmePath = path.join(__dirname, 'README.md');
 
 function updateReadme() {
@@ -16,8 +16,20 @@ function updateReadme() {
   const startMarker = '<!-- DOCS_START -->';
   const endMarker = '<!-- DOCS_END -->';
 
-  const startIndex = readmeContent.indexOf(startMarker) + startMarker.length;
-  const endIndex = readmeContent.indexOf(endMarker);
+  let startIndex = readmeContent.indexOf(startMarker);
+  let endIndex = readmeContent.indexOf(endMarker);
+
+  if (startIndex === -1 || endIndex === -1) {
+    // 如果没有找到标记，则在README.md末尾添加标记
+    console.log('Markers not found. Adding markers to the end of README.md.');
+    startIndex = readmeContent.length;
+    readmeContent += `\n\n${startMarker}\n${endMarker}\n`;
+    startIndex = readmeContent.indexOf(startMarker) + startMarker.length;
+    endIndex = readmeContent.indexOf(endMarker);
+  } else {
+    // 如果找到标记，则更新内容
+    startIndex += startMarker.length;
+  }
 
   const newReadmeContent = readmeContent.slice(0, startIndex) +
                            '\n' + docContent + '\n' +
