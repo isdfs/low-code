@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.3 (2024-08-09)
+
+
+### Features
+
+* xxx ([329193e](https://github.com/isdfs/low-code/commit/329193e3cbe9cc72de11f5bf412db011725ef723))
+
 ### 0.0.2 (2024-08-09)
 
 
