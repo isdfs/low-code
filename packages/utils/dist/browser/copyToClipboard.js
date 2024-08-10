@@ -38,13 +38,19 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.copyToClipboard = void 0;
 /**
- * 将文本复制到剪贴板。
+ * 复制文本到剪贴板。
+ *
+ * 该方法可以将指定的文本复制到用户的剪贴板中。适用于需要用户复制内容的场景。
  *
  * @param {string} text - 要复制的文本。
- * @returns {Promise<void>} 复制操作的Promise。
+ * @returns {Promise<void>} 返回一个 Promise，当文本成功复制到剪贴板时，Promise 解析。
  *
  * @example
- * copyToClipboard('Hello World').then(() => console.log('Text copied!'));
+ * ```
+ * copyToClipboard('Hello, World!')
+ *   .then(() => console.log('文本已成功复制到剪贴板！'))
+ *   .catch(err => console.error('复制失败:', err));
+ * ```
  */
 function copyToClipboard(text) {
     return __awaiter(this, void 0, void 0, function () {
@@ -56,12 +62,12 @@ function copyToClipboard(text) {
                     return [4 /*yield*/, navigator.clipboard.writeText(text)];
                 case 1:
                     _a.sent();
-                    console.log('Text copied to clipboard');
+                    console.log('Text copied to clipboard:', text);
                     return [3 /*break*/, 3];
                 case 2:
                     err_1 = _a.sent();
-                    console.error('Failed to copy text: ', err_1);
-                    return [3 /*break*/, 3];
+                    console.error('Failed to copy text to clipboard:', err_1);
+                    throw err_1;
                 case 3: return [2 /*return*/];
             }
         });

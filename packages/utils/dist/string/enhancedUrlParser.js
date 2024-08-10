@@ -1,0 +1,65 @@
+"use strict";
+/**
+ * @module EnhancedURLParser
+ * @description 扩展的URL解析与构建功能，支持解析复杂URL，添加多个参数，并支持路径的动态拼接。
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EnhancedURLParser = void 0;
+var EnhancedURLParser = /** @class */ (function () {
+    function EnhancedURLParser() {
+    }
+    /**
+     * @description 从URL字符串中提取域名
+     * @param url 要解析的URL字符串
+     * @returns 提取到的域名
+     * @example
+     * const domain = EnhancedURLParser.extractDomain('https://sub.example.com/path');
+     * console.log('Domain:', domain); // 输出 "example.com"
+     */
+    EnhancedURLParser.extractDomain = function (url) {
+        var hostname = new URL(url).hostname;
+        var domainParts = hostname.split('.').slice(-2);
+        return domainParts.join('.');
+    };
+    /**
+     * @description 构建包含多个查询参数的URL
+     * @param baseURL 基础URL
+     * @param params 查询参数对象
+     * @returns 构建好的URL字符串
+     * @example
+     * const url = EnhancedURLParser.buildWithMultipleParams('https://example.com', { name: 'John', age: 30 });
+     * console.log('Constructed URL:', url); // 输出 "https://example.com?name=John&age=30"
+     */
+    EnhancedURLParser.buildWithMultipleParams = function (baseURL, params) {
+        var url = new URL(baseURL);
+        Object.entries(params).forEach(function (_a) {
+            var key = _a[0], value = _a[1];
+            url.searchParams.set(key, String(value));
+        });
+        return url.toString();
+    };
+    /**
+     * @description 动态拼接多个路径段，生成完整的URL路径
+     * @param segments 要拼接的路径段数组
+     * @returns 拼接后的完整路径
+     * @example
+     * const path = EnhancedURLParser.joinPathSegments(['/path', 'to', '/resource']);
+     * console.log('Joined Path:', path); // 输出 "/path/to/resource"
+     */
+    EnhancedURLParser.joinPathSegments = function (segments) {
+        return segments.map(function (segment) { return segment.replace(/(^\/|\/$)/g, ''); }).join('/');
+    };
+    return EnhancedURLParser;
+}());
+exports.EnhancedURLParser = EnhancedURLParser;
+// 示例用法
+/*
+const domain = EnhancedURLParser.extractDomain('https://sub.example.com/path');
+console.log('Domain:', domain); // 输出 "example.com"
+
+const url = EnhancedURLParser.buildWithMultipleParams('https://example.com', { name: 'John', age: 30 });
+console.log('Constructed URL:', url); // 输出 "https://example.com?name=John&age=30"
+
+const path = EnhancedURLParser.joinPathSegments(['/path', 'to', '/resource']);
+console.log('Joined Path:', path); // 输出 "/path/to/resource"
+*/

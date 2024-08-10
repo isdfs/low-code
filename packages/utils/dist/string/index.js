@@ -1,52 +1,39 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.truncate = exports.reverseString = exports.kebabCase = exports.capitalize = exports.camelCaseToSnakeCase = void 0;
-/**
- * 将驼峰命名转换为蛇形命名。
- * @param str - 需要转换的驼峰命名字符串。
- * @returns 转换后的蛇形命名字符串。
- */
+exports.truncate = exports.similarity = exports.findFirstUniqueChar = exports.fuzzyContains = exports.equalsIgnoreCase = exports.isPalindrome = exports.reverse = exports.pad = exports.toCamelCase = exports.toSnakeCase = exports.format = exports.reverseString = exports.kebabCase = exports.capitalize = exports.camelCaseToSnakeCase = exports.asyncProcess = exports.groupBySize = exports.multiMatch = void 0;
+var advancedStringOps_1 = require("./advancedStringOps");
+Object.defineProperty(exports, "multiMatch", { enumerable: true, get: function () { return advancedStringOps_1.multiMatch; } });
+var advancedStringOps_2 = require("./advancedStringOps");
+Object.defineProperty(exports, "groupBySize", { enumerable: true, get: function () { return advancedStringOps_2.groupBySize; } });
+var advancedStringOps_3 = require("./advancedStringOps");
+Object.defineProperty(exports, "asyncProcess", { enumerable: true, get: function () { return advancedStringOps_3.asyncProcess; } });
 var camelCaseToSnakeCase_1 = require("./camelCaseToSnakeCase");
 Object.defineProperty(exports, "camelCaseToSnakeCase", { enumerable: true, get: function () { return camelCaseToSnakeCase_1.camelCaseToSnakeCase; } });
-/**
- * 将字符串的首字母大写。
- *
- * @param str - 要转换的字符串。
- * @returns 首字母大写后的字符串。
- */
 var capitalize_1 = require("./capitalize");
 Object.defineProperty(exports, "capitalize", { enumerable: true, get: function () { return capitalize_1.capitalize; } });
-/**
- * 将字符串转换为 kebab-case（短横线连接的形式）。
- *
- * @param str - 要转换的字符串。
- * @returns 转换后的 kebab-case 字符串。
- */
 var kebabCase_1 = require("./kebabCase");
 Object.defineProperty(exports, "kebabCase", { enumerable: true, get: function () { return kebabCase_1.kebabCase; } });
-/**
- * 反转字符串。
- *
- * @param {string} str - 要反转的字符串。
- * @returns {string} 反转后的字符串。
- *
- * @example
- * const reversed = reverseString('hello');
- * console.log(reversed); // 'olleh'
- */
 var reverseString_1 = require("./reverseString");
 Object.defineProperty(exports, "reverseString", { enumerable: true, get: function () { return reverseString_1.reverseString; } });
-/**
- * 截断字符串并添加省略号（如果需要）。
- *
- * @param {string} str - 要截断的字符串。
- * @param {number} maxLength - 字符串的最大长度。
- * @param {string} [suffix='...'] - 要添加的后缀（默认是'...'）。
- * @returns {string} 截断后的字符串。
- *
- * @example
- * const truncated = truncate('This is a long string', 10);
- * console.log(truncated); // 'This is...'
- */
+var stringFormatter_1 = require("./stringFormatter");
+Object.defineProperty(exports, "format", { enumerable: true, get: function () { return stringFormatter_1.format; } });
+var stringFormatter_2 = require("./stringFormatter");
+Object.defineProperty(exports, "toSnakeCase", { enumerable: true, get: function () { return stringFormatter_2.toSnakeCase; } });
+var stringFormatter_3 = require("./stringFormatter");
+Object.defineProperty(exports, "toCamelCase", { enumerable: true, get: function () { return stringFormatter_3.toCamelCase; } });
+var stringFormatter_4 = require("./stringFormatter");
+Object.defineProperty(exports, "pad", { enumerable: true, get: function () { return stringFormatter_4.pad; } });
+var stringFormatter_5 = require("./stringFormatter");
+Object.defineProperty(exports, "reverse", { enumerable: true, get: function () { return stringFormatter_5.reverse; } });
+var stringFormatter_6 = require("./stringFormatter");
+Object.defineProperty(exports, "isPalindrome", { enumerable: true, get: function () { return stringFormatter_6.isPalindrome; } });
+var stringSearch_1 = require("./stringSearch");
+Object.defineProperty(exports, "equalsIgnoreCase", { enumerable: true, get: function () { return stringSearch_1.equalsIgnoreCase; } });
+var stringSearch_2 = require("./stringSearch");
+Object.defineProperty(exports, "fuzzyContains", { enumerable: true, get: function () { return stringSearch_2.fuzzyContains; } });
+var stringSearch_3 = require("./stringSearch");
+Object.defineProperty(exports, "findFirstUniqueChar", { enumerable: true, get: function () { return stringSearch_3.findFirstUniqueChar; } });
+var stringSearch_4 = require("./stringSearch");
+Object.defineProperty(exports, "similarity", { enumerable: true, get: function () { return stringSearch_4.similarity; } });
 var truncate_1 = require("./truncate");
 Object.defineProperty(exports, "truncate", { enumerable: true, get: function () { return truncate_1.truncate; } });

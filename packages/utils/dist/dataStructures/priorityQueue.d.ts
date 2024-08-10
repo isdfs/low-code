@@ -1,27 +1,47 @@
 /**
- * 优先队列，用于按照优先级顺序处理任务。
+ * 优先队列模块，实现了基于最小堆的优先队列。
+ */
+export declare class PriorityQueue<T> {
+    private heap;
+    /**
+     * 检查队列是否为空。
+     * @returns 如果队列为空，返回true；否则返回false。
+     */
+    isEmpty(): boolean;
+    /**
+     * 向队列中添加元素。
+     * @param value 要添加的元素。
+     * @param priority 元素的优先级，数值越小优先级越高。
+     */
+    enqueue(value: T, priority: number): void;
+    /**
+     * 从队列中取出优先级最高的元素。
+     * @returns 优先级最高的元素，如果队列为空则返回null。
+     */
+    dequeue(): T | null;
+    /**
+     * 上浮操作，维持最小堆性质。
+     * @param index 要上浮的元素索引。
+     * @private
+     */
+    private bubbleUp;
+    /**
+     * 下沉操作，维持最小堆性质。
+     * @param index 要下沉的元素索引。
+     * @private
+     */
+    private sinkDown;
+}
+/**
+ * 使用示例：
+ * ```typescript
+ * const pq = new PriorityQueue<string>();
+ * pq.enqueue('Task A', 2);
+ * pq.enqueue('Task B', 1);
+ * pq.enqueue('Task C', 3);
  *
- * @template T - 队列元素的类型。
- * @param {Array<{ item: T, priority: number }>} [initialElements] - 初始元素及其优先级的数组。
- * @returns {{
-*   enqueue: (item: T, priority: number) => void,
-*   dequeue: () => T | undefined,
-*   peek: () => T | undefined,
-*   size: () => number
-* }} - 包含入队、出队、查看队首元素和获取队列大小的方法。
-*
-* @example
-* const pq = priorityQueue<string>();
-* pq.enqueue('task1', 2);
-* pq.enqueue('task2', 1);
-* console.log(pq.dequeue()); // 'task2'
-*/
-export declare function priorityQueue<T>(initialElements?: Array<{
-    item: T;
-    priority: number;
-}>): {
-    enqueue: (item: T, priority: number) => void;
-    dequeue: () => T | undefined;
-    peek: () => T | undefined;
-    size: () => number;
-};
+ * while (!pq.isEmpty()) {
+ *   console.log(pq.dequeue()); // 输出顺序: Task B, Task A, Task C
+ * }
+ * ```
+ */

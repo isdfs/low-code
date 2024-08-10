@@ -1,55 +1,108 @@
 "use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.priorityQueue = void 0;
 /**
- * 优先队列，用于按照优先级顺序处理任务。
- *
- * @template T - 队列元素的类型。
- * @param {Array<{ item: T, priority: number }>} [initialElements] - 初始元素及其优先级的数组。
- * @returns {{
-*   enqueue: (item: T, priority: number) => void,
-*   dequeue: () => T | undefined,
-*   peek: () => T | undefined,
-*   size: () => number
-* }} - 包含入队、出队、查看队首元素和获取队列大小的方法。
-*
-* @example
-* const pq = priorityQueue<string>();
-* pq.enqueue('task1', 2);
-* pq.enqueue('task2', 1);
-* console.log(pq.dequeue()); // 'task2'
-*/
-function priorityQueue(initialElements) {
-    var elements = initialElements ? __spreadArray([], initialElements, true) : [];
-    function enqueue(item, priority) {
-        elements.push({ item: item, priority: priority });
-        elements.sort(function (a, b) { return a.priority - b.priority; });
+ * 优先队列模块，实现了基于最小堆的优先队列。
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PriorityQueue = void 0;
+var PriorityQueue = /** @class */ (function () {
+    function PriorityQueue() {
+        this.heap = [];
     }
-    function dequeue() {
-        var _a;
-        return (_a = elements.shift()) === null || _a === void 0 ? void 0 : _a.item;
-    }
-    function peek() {
-        var _a;
-        return (_a = elements[0]) === null || _a === void 0 ? void 0 : _a.item;
-    }
-    function size() {
-        return elements.length;
-    }
-    return {
-        enqueue: enqueue,
-        dequeue: dequeue,
-        peek: peek,
-        size: size,
+    /**
+     * 检查队列是否为空。
+     * @returns 如果队列为空，返回true；否则返回false。
+     */
+    PriorityQueue.prototype.isEmpty = function () {
+        return this.heap.length === 0;
     };
-}
-exports.priorityQueue = priorityQueue;
+    /**
+     * 向队列中添加元素。
+     * @param value 要添加的元素。
+     * @param priority 元素的优先级，数值越小优先级越高。
+     */
+    PriorityQueue.prototype.enqueue = function (value, priority) {
+        var element = { value: value, priority: priority };
+        this.heap.push(element);
+        this.bubbleUp(this.heap.length - 1);
+    };
+    /**
+     * 从队列中取出优先级最高的元素。
+     * @returns 优先级最高的元素，如果队列为空则返回null。
+     */
+    PriorityQueue.prototype.dequeue = function () {
+        if (this.isEmpty()) {
+            return null;
+        }
+        var min = this.heap[0];
+        var end = this.heap.pop();
+        if (this.heap.length > 0) {
+            this.heap[0] = end;
+            this.sinkDown(0);
+        }
+        return min.value;
+    };
+    /**
+     * 上浮操作，维持最小堆性质。
+     * @param index 要上浮的元素索引。
+     * @private
+     */
+    PriorityQueue.prototype.bubbleUp = function (index) {
+        var element = this.heap[index];
+        while (index > 0) {
+            var parentIndex = Math.floor((index - 1) / 2);
+            var parent_1 = this.heap[parentIndex];
+            if (element.priority >= parent_1.priority)
+                break;
+            this.heap[parentIndex] = element;
+            this.heap[index] = parent_1;
+            index = parentIndex;
+        }
+    };
+    /**
+     * 下沉操作，维持最小堆性质。
+     * @param index 要下沉的元素索引。
+     * @private
+     */
+    PriorityQueue.prototype.sinkDown = function (index) {
+        var length = this.heap.length;
+        var element = this.heap[index];
+        while (true) {
+            var leftChildIdx = 2 * index + 1;
+            var rightChildIdx = 2 * index + 2;
+            var swap = null;
+            if (leftChildIdx < length) {
+                var leftChild = this.heap[leftChildIdx];
+                if (leftChild.priority < element.priority) {
+                    swap = leftChildIdx;
+                }
+            }
+            if (rightChildIdx < length) {
+                var rightChild = this.heap[rightChildIdx];
+                if ((swap === null && rightChild.priority < element.priority) ||
+                    (swap !== null && rightChild.priority < this.heap[swap].priority)) {
+                    swap = rightChildIdx;
+                }
+            }
+            if (swap === null)
+                break;
+            this.heap[index] = this.heap[swap];
+            this.heap[swap] = element;
+            index = swap;
+        }
+    };
+    return PriorityQueue;
+}());
+exports.PriorityQueue = PriorityQueue;
+/**
+ * 使用示例：
+ * ```typescript
+ * const pq = new PriorityQueue<string>();
+ * pq.enqueue('Task A', 2);
+ * pq.enqueue('Task B', 1);
+ * pq.enqueue('Task C', 3);
+ *
+ * while (!pq.isEmpty()) {
+ *   console.log(pq.dequeue()); // 输出顺序: Task B, Task A, Task C
+ * }
+ * ```
+ */

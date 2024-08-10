@@ -1,43 +1,91 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getQueryParam = exports.detectDevice = exports.detectBrowser = exports.copyToClipboard = void 0;
-/**
- * 将文本复制到剪贴板。
- *
- * @param {string} text - 要复制的文本。
- * @returns {Promise<void>} 复制操作的Promise。
- *
- * @example
- * copyToClipboard('Hello World').then(() => console.log('Text copied!'));
- */
+exports.monitorVisibilityChange = exports.isPageVisible = exports.scrollToBottom = exports.scrollToTop = exports.captureScreenshot = exports.printPage = exports.getPluginDetails = exports.isPluginInstalled = exports.getInstalledPlugins = exports.requestPermission = exports.checkPermission = exports.getDOMContentLoadedTime = exports.getFirstPaint = exports.monitorPerformance = exports.monitorPageFocusChange = exports.isPageFocused = exports.restrictInput = exports.monitorNetworkSpeed = exports.removeLocalStorage = exports.getLocalStorage = exports.setLocalStorage = exports.getUserAgentInfo = exports.getQueryParam = exports.getCurrentPosition = exports.isFullscreen = exports.toggleFullscreen = exports.restoreFormData = exports.autoSaveFormData = exports.isFeatureSupported = exports.stopDeviceOrientationMonitoring = exports.monitorDeviceOrientation = exports.detectDevice = exports.detectBrowser = exports.monitorDarkModeChange = exports.isDarkMode = exports.copyToClipboard = exports.deleteCookie = exports.getCookie = exports.setCookie = exports.enableContextMenu = exports.disableContextMenu = exports.readClipboardContent = exports.monitorOnlineStatus = exports.isOnline = void 0;
+var checkOnlineStatus_1 = require("./checkOnlineStatus");
+Object.defineProperty(exports, "isOnline", { enumerable: true, get: function () { return checkOnlineStatus_1.isOnline; } });
+var checkOnlineStatus_2 = require("./checkOnlineStatus");
+Object.defineProperty(exports, "monitorOnlineStatus", { enumerable: true, get: function () { return checkOnlineStatus_2.monitorOnlineStatus; } });
+var clipboard_1 = require("./clipboard");
+Object.defineProperty(exports, "readClipboardContent", { enumerable: true, get: function () { return clipboard_1.readClipboardContent; } });
+var contextMenu_1 = require("./contextMenu");
+Object.defineProperty(exports, "disableContextMenu", { enumerable: true, get: function () { return contextMenu_1.disableContextMenu; } });
+var contextMenu_2 = require("./contextMenu");
+Object.defineProperty(exports, "enableContextMenu", { enumerable: true, get: function () { return contextMenu_2.enableContextMenu; } });
+var cookieManager_1 = require("./cookieManager");
+Object.defineProperty(exports, "setCookie", { enumerable: true, get: function () { return cookieManager_1.setCookie; } });
+var cookieManager_2 = require("./cookieManager");
+Object.defineProperty(exports, "getCookie", { enumerable: true, get: function () { return cookieManager_2.getCookie; } });
+var cookieManager_3 = require("./cookieManager");
+Object.defineProperty(exports, "deleteCookie", { enumerable: true, get: function () { return cookieManager_3.deleteCookie; } });
 var copyToClipboard_1 = require("./copyToClipboard");
 Object.defineProperty(exports, "copyToClipboard", { enumerable: true, get: function () { return copyToClipboard_1.copyToClipboard; } });
-/**
- * 检测用户当前使用的浏览器类型及版本。
- * @returns 包含浏览器名称和版本的对象。
- */
+var darkMode_1 = require("./darkMode");
+Object.defineProperty(exports, "isDarkMode", { enumerable: true, get: function () { return darkMode_1.isDarkMode; } });
+var darkMode_2 = require("./darkMode");
+Object.defineProperty(exports, "monitorDarkModeChange", { enumerable: true, get: function () { return darkMode_2.monitorDarkModeChange; } });
 var detectBrowser_1 = require("./detectBrowser");
 Object.defineProperty(exports, "detectBrowser", { enumerable: true, get: function () { return detectBrowser_1.detectBrowser; } });
-/**
- * 检测用户的设备类型（桌面、平板、手机）。
- *
- * @returns {'desktop' | 'tablet' | 'mobile'} 返回检测到的设备类型。
- *
- * @example
- * const deviceType = detectDevice();
- * console.log(deviceType); // 'mobile'（根据实际设备返回）
- */
 var detectDevice_1 = require("./detectDevice");
 Object.defineProperty(exports, "detectDevice", { enumerable: true, get: function () { return detectDevice_1.detectDevice; } });
-/**
- * 从URL中获取指定的查询参数值。
- *
- * @param {string} paramName - 要获取的查询参数名称。
- * @returns {string | null} 查询参数的值，如果不存在则返回null。
- *
- * @example
- * const value = getQueryParam('token');
- * console.log(value); // 例如：'abc123'
- */
+var deviceOrientation_1 = require("./deviceOrientation");
+Object.defineProperty(exports, "monitorDeviceOrientation", { enumerable: true, get: function () { return deviceOrientation_1.monitorDeviceOrientation; } });
+var deviceOrientation_2 = require("./deviceOrientation");
+Object.defineProperty(exports, "stopDeviceOrientationMonitoring", { enumerable: true, get: function () { return deviceOrientation_2.stopDeviceOrientationMonitoring; } });
+var featureDetection_1 = require("./featureDetection");
+Object.defineProperty(exports, "isFeatureSupported", { enumerable: true, get: function () { return featureDetection_1.isFeatureSupported; } });
+var formAutoSave_1 = require("./formAutoSave");
+Object.defineProperty(exports, "autoSaveFormData", { enumerable: true, get: function () { return formAutoSave_1.autoSaveFormData; } });
+var formAutoSave_2 = require("./formAutoSave");
+Object.defineProperty(exports, "restoreFormData", { enumerable: true, get: function () { return formAutoSave_2.restoreFormData; } });
+var fullscreen_1 = require("./fullscreen");
+Object.defineProperty(exports, "toggleFullscreen", { enumerable: true, get: function () { return fullscreen_1.toggleFullscreen; } });
+var fullscreen_2 = require("./fullscreen");
+Object.defineProperty(exports, "isFullscreen", { enumerable: true, get: function () { return fullscreen_2.isFullscreen; } });
+var getGeolocation_1 = require("./getGeolocation");
+Object.defineProperty(exports, "getCurrentPosition", { enumerable: true, get: function () { return getGeolocation_1.getCurrentPosition; } });
 var getQueryParam_1 = require("./getQueryParam");
 Object.defineProperty(exports, "getQueryParam", { enumerable: true, get: function () { return getQueryParam_1.getQueryParam; } });
+var getUserAgentInfo_1 = require("./getUserAgentInfo");
+Object.defineProperty(exports, "getUserAgentInfo", { enumerable: true, get: function () { return getUserAgentInfo_1.getUserAgentInfo; } });
+var localStorageManager_1 = require("./localStorageManager");
+Object.defineProperty(exports, "setLocalStorage", { enumerable: true, get: function () { return localStorageManager_1.setLocalStorage; } });
+var localStorageManager_2 = require("./localStorageManager");
+Object.defineProperty(exports, "getLocalStorage", { enumerable: true, get: function () { return localStorageManager_2.getLocalStorage; } });
+var localStorageManager_3 = require("./localStorageManager");
+Object.defineProperty(exports, "removeLocalStorage", { enumerable: true, get: function () { return localStorageManager_3.removeLocalStorage; } });
+var networkSpeed_1 = require("./networkSpeed");
+Object.defineProperty(exports, "monitorNetworkSpeed", { enumerable: true, get: function () { return networkSpeed_1.monitorNetworkSpeed; } });
+var nputRestrictions_1 = require("./nputRestrictions");
+Object.defineProperty(exports, "restrictInput", { enumerable: true, get: function () { return nputRestrictions_1.restrictInput; } });
+var pageFocus_1 = require("./pageFocus");
+Object.defineProperty(exports, "isPageFocused", { enumerable: true, get: function () { return pageFocus_1.isPageFocused; } });
+var pageFocus_2 = require("./pageFocus");
+Object.defineProperty(exports, "monitorPageFocusChange", { enumerable: true, get: function () { return pageFocus_2.monitorPageFocusChange; } });
+var performanceMonitor_1 = require("./performanceMonitor");
+Object.defineProperty(exports, "monitorPerformance", { enumerable: true, get: function () { return performanceMonitor_1.monitorPerformance; } });
+var performanceMonitor_2 = require("./performanceMonitor");
+Object.defineProperty(exports, "getFirstPaint", { enumerable: true, get: function () { return performanceMonitor_2.getFirstPaint; } });
+var performanceMonitor_3 = require("./performanceMonitor");
+Object.defineProperty(exports, "getDOMContentLoadedTime", { enumerable: true, get: function () { return performanceMonitor_3.getDOMContentLoadedTime; } });
+var permissions_1 = require("./permissions");
+Object.defineProperty(exports, "checkPermission", { enumerable: true, get: function () { return permissions_1.checkPermission; } });
+var permissions_2 = require("./permissions");
+Object.defineProperty(exports, "requestPermission", { enumerable: true, get: function () { return permissions_2.requestPermission; } });
+var pluginDetector_1 = require("./pluginDetector");
+Object.defineProperty(exports, "getInstalledPlugins", { enumerable: true, get: function () { return pluginDetector_1.getInstalledPlugins; } });
+var pluginDetector_2 = require("./pluginDetector");
+Object.defineProperty(exports, "isPluginInstalled", { enumerable: true, get: function () { return pluginDetector_2.isPluginInstalled; } });
+var pluginDetector_3 = require("./pluginDetector");
+Object.defineProperty(exports, "getPluginDetails", { enumerable: true, get: function () { return pluginDetector_3.getPluginDetails; } });
+var printPage_1 = require("./printPage");
+Object.defineProperty(exports, "printPage", { enumerable: true, get: function () { return printPage_1.printPage; } });
+var screenshot_1 = require("./screenshot");
+Object.defineProperty(exports, "captureScreenshot", { enumerable: true, get: function () { return screenshot_1.captureScreenshot; } });
+var scroll_1 = require("./scroll");
+Object.defineProperty(exports, "scrollToTop", { enumerable: true, get: function () { return scroll_1.scrollToTop; } });
+var scroll_2 = require("./scroll");
+Object.defineProperty(exports, "scrollToBottom", { enumerable: true, get: function () { return scroll_2.scrollToBottom; } });
+var visibilityMonitor_1 = require("./visibilityMonitor");
+Object.defineProperty(exports, "isPageVisible", { enumerable: true, get: function () { return visibilityMonitor_1.isPageVisible; } });
+var visibilityMonitor_2 = require("./visibilityMonitor");
+Object.defineProperty(exports, "monitorVisibilityChange", { enumerable: true, get: function () { return visibilityMonitor_2.monitorVisibilityChange; } });

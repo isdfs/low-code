@@ -1,14 +1,28 @@
 /**
- * 分段执行动画序列，为每个动画增加延迟。
- *
- * @param {Array<() => Promise<void>>} animations - 包含一系列返回Promise的动画函数。
- * @param {number} delay - 每个动画之间的延迟时间（毫秒）。
- * @returns {Promise<void>} 返回一个Promise，表示所有动画执行完毕。
- *
- * @example
- * const fadeIn = () => new Promise(resolve => setTimeout(() => { console.log('Fade In'); resolve(); }, 1000));
- * const move = () => new Promise(resolve => setTimeout(() => { console.log('Move'); resolve(); }, 1000));
- * const fadeOut = () => new Promise(resolve => setTimeout(() => { console.log('Fade Out'); resolve(); }, 1000));
- * staggeredSequencer([fadeIn, move, fadeOut], 500).then(() => console.log('All animations done'));
+ * StaggeredSequencer 是交错动画序列器，用于以交错方式执行一组动画。
  */
-export declare function staggeredSequencer(animations: Array<() => Promise<void>>, delay: number): Promise<void>;
+declare class StaggeredSequencer {
+    private animations;
+    private staggerTime;
+    constructor(staggerTime: number);
+    /**
+     * addAnimation 方法用于向序列器中添加动画。
+     * @param animation - 要添加的 KeyframeAnimation 实例。
+     */
+    addAnimation(animation: KeyframeAnimation): void;
+    /**
+     * start 方法以交错方式开始所有动画。
+     */
+    start(): void;
+}
+/**
+* 使用示例：
+* const staggeredSequencer = new StaggeredSequencer(200);
+* const anim1 = new KeyframeAnimation(element1, { duration: 500 });
+* const anim2 = new KeyframeAnimation(element2, { duration: 500 });
+* const anim3 = new KeyframeAnimation(element3, { duration: 500 });
+* staggeredSequencer.addAnimation(anim1);
+* staggeredSequencer.addAnimation(anim2);
+* staggeredSequencer.addAnimation(anim3);
+* staggeredSequencer.start(); // 以 200ms 的间隔交错启动每个动画
+*/
