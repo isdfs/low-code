@@ -32,7 +32,6 @@
     "esbuild": "^0.23.0",
     "standard-version": "^9.3.2",
     "typedoc": "0.22.4",
-    "typedoc-plugin-markdown": "3.11.7",
     "typescript": "4.7"
   },
   "dependencies": {
@@ -42,6 +41,7 @@
     "pdf-lib": "^1.17.1",
     "qrcode": "^1.5.4",
     "ts-jest": "^29.2.4",
+    "typedoc-plugin-markdown": "3.11.7",
     "typescript": "4.7"
   }
 }
