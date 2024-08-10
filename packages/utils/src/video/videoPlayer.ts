@@ -87,7 +87,7 @@ export function stopVideo(video: HTMLVideoElement): void {
 * toggleFullscreen(video);
 * ```
 */
-export function toggleFullscreen(video: HTMLVideoElement): void {
+export function toggleFullscreen2(video: HTMLVideoElement): void {
   if (!document.fullscreenElement) {
       video.requestFullscreen().catch(err => console.error(`无法进入全屏模式: ${err.message}`));
   } else {

@@ -1,39 +1,121 @@
-/**
- * 将文本复制到剪贴板。
- *
- * @param {string} text - 要复制的文本。
- * @returns {Promise<void>} 复制操作的Promise。
- *
- * @example
- * copyToClipboard('Hello World').then(() => console.log('Text copied!'));
- */
+
+
+export { isOnline } from './checkOnlineStatus';
+
+export { monitorOnlineStatus } from './checkOnlineStatus';
+
+export { readClipboardContent } from './clipboard';
+
+export { disableContextMenu } from './contextMenu';
+
+export { enableContextMenu } from './contextMenu';
+
+export { setCookie } from './cookieManager';
+
+export { getCookie } from './cookieManager';
+
+export { deleteCookie } from './cookieManager';
+
 export { copyToClipboard } from './copyToClipboard';
 
-/**
- * 检测用户当前使用的浏览器类型及版本。
- * @returns 包含浏览器名称和版本的对象。
- */
+export { isDarkMode } from './darkMode';
+
+export { monitorDarkModeChange } from './darkMode';
+
+
+
 export { detectBrowser } from './detectBrowser';
 
-/**
- * 检测用户的设备类型（桌面、平板、手机）。
- *
- * @returns {'desktop' | 'tablet' | 'mobile'} 返回检测到的设备类型。
- *
- * @example
- * const deviceType = detectDevice();
- * console.log(deviceType); // 'mobile'（根据实际设备返回）
- */
 export { detectDevice } from './detectDevice';
 
-/**
- * 从URL中获取指定的查询参数值。
- *
- * @param {string} paramName - 要获取的查询参数名称。
- * @returns {string | null} 查询参数的值，如果不存在则返回null。
- *
- * @example
- * const value = getQueryParam('token');
- * console.log(value); // 例如：'abc123'
- */
+export { monitorDeviceOrientation } from './deviceOrientation';
+
+export { stopDeviceOrientationMonitoring } from './deviceOrientation';
+
+
+
+
+
+
+
+
+
+export { isFeatureSupported } from './featureDetection';
+
+export { autoSaveFormData } from './formAutoSave';
+
+export { restoreFormData } from './formAutoSave';
+
+export { toggleFullscreen } from './fullscreen';
+
+export { isFullscreen } from './fullscreen';
+
+export { getCurrentPosition } from './getGeolocation';
+
 export { getQueryParam } from './getQueryParam';
+
+export { getUserAgentInfo } from './getUserAgentInfo';
+
+
+
+export { setLocalStorage } from './localStorageManager';
+
+export { getLocalStorage } from './localStorageManager';
+
+export { removeLocalStorage } from './localStorageManager';
+
+
+
+export { monitorNetworkSpeed } from './networkSpeed';
+
+
+
+
+
+export { restrictInput } from './nputRestrictions';
+
+
+
+
+
+export { isPageFocused } from './pageFocus';
+
+export { monitorPageFocusChange } from './pageFocus';
+
+
+
+export { monitorPerformance } from './performanceMonitor';
+
+export { getFirstPaint } from './performanceMonitor';
+
+export { getDOMContentLoadedTime } from './performanceMonitor';
+
+export { checkPermission } from './permissions';
+
+export { requestPermission } from './permissions';
+
+export { getInstalledPlugins } from './pluginDetector';
+
+export { isPluginInstalled } from './pluginDetector';
+
+export { getPluginDetails } from './pluginDetector';
+
+export { printPage } from './printPage';
+
+export { captureScreenshot } from './screenshot';
+
+export { scrollToTop } from './scroll';
+
+export { scrollToBottom } from './scroll';
+
+
+
+
+
+
+
+
+
+export { isPageVisible } from './visibilityMonitor';
+
+export { monitorVisibilityChange } from './visibilityMonitor';

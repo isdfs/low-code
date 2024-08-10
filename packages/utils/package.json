@@ -9,7 +9,7 @@
     "access": "public"
   },
   "scripts": {
-    "generate:index": "node ./script/generate-index.js",
+    "generate:index": "node ./script/generate-index2.js",
     "generate:doc": "sh ./script/generate-docs.sh",
     "build": "tsc && node build.js",
     "release": "yarn prerelease && standard-version --no-verify && yarn publish --no-git-checks",
