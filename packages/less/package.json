@@ -1,0 +1,15 @@
+{
+  "name": "@isdfs-low-code/less",
+  "version": "0.0.1",
+  "main": "dist/index.css",
+  "license": "MIT",
+  "scripts": {
+    "build": "lessc src/index.less dist/index.css --clean-css",
+    "watch": "lessc src/index.less dist/index.css --clean-css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "less": "^4.1.2",
+    "less-plugin-clean-css": "^1.5.1"
+  }
+}
