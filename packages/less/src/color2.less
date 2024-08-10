@@ -1,0 +1,99 @@
+// 定义调色板
+@color-primary: #1abc9c; // 主要色调，常用于主要按钮、链接等
+@color-secondary: #e74c3c; // 次要色调，常用于次要按钮、警示等
+@color-accent: #f39c12; // 强调色，常用于强调信息或提示
+@color-contrast: #8e44ad; // 对比色，常用于与主要色调形成对比的部分
+
+// 定义中性色调
+@color-black: #1d1d1d; // 纯黑色，用于深色背景或文本
+@color-white: #ffffff; // 纯白色，用于浅色背景或文本
+@color-gray-dark: #34495e; // 深灰色，适用于主要文本或标题
+@color-gray: #95a5a6; // 灰色，适用于次要文本或边框
+@color-gray-light: #dfe6e9; // 浅灰色，适用于背景或分隔线
+@color-gray-lighter: #ecf0f1; // 更浅的灰色，用于大面积背景或弱化元素
+
+// 定义文本颜色
+@text-color-primary: @color-black; // 主文本颜色，通常用于正文内容
+@text-color-secondary: @color-gray-dark; // 次文本颜色，用于次要信息
+@text-color-muted: @color-gray; // 弱化文本颜色，用于提示、注释等
+
+// 定义状态颜色
+@color-success: #27ae60; // 成功状态颜色，通常用于表示成功、通过等
+@color-error: #c0392b; // 错误状态颜色，通常用于表示错误、失败等
+@color-warning: #d35400; // 警告状态颜色，通常用于提醒或警告
+@color-info: #2980b9; // 信息状态颜色，通常用于提示信息
+
+// 定义背景颜色
+@background-color-primary: @color-white; // 主背景色，通常用于主要内容区
+@background-color-secondary: @color-gray-lighter; // 次背景色，用于侧边栏或辅助区
+@background-color-dark: @color-black; // 深色背景，用于对比区域或反转颜色方案
+
+// 定义边框颜色
+@border-color: @color-gray-light; // 通用边框颜色
+@border-color-dark: @color-gray-dark; // 深色边框颜色
+@border-color-muted: @color-gray-lighter; // 弱化的边框颜色
+
+// 定义按钮颜色
+@button-color-primary: @color-primary; // 主要按钮颜色
+@button-color-secondary: @color-secondary; // 次要按钮颜色
+@button-color-accent: @color-accent; // 强调按钮颜色
+@button-color-disabled: @color-gray-light; // 禁用按钮颜色
+
+// 定义渐变色
+@gradient-primary: linear-gradient(45deg, @color-primary, darken(@color-primary, 10%)); // 主色调的渐变色
+@gradient-secondary: linear-gradient(45deg, @color-secondary, darken(@color-secondary, 10%)); // 次色调的渐变色
+@gradient-accent: linear-gradient(45deg, @color-accent, darken(@color-accent, 10%)); // 强调色的渐变色
+@gradient-dark: linear-gradient(45deg, @color-gray-dark, darken(@color-gray-dark, 10%)); // 深色调的渐变色
+
+// 定义阴影颜色
+@shadow-light: rgba(0, 0, 0, 0.15); // 浅色阴影
+@shadow-medium: rgba(0, 0, 0, 0.3); // 中等阴影
+@shadow-dark: rgba(0, 0, 0, 0.5); // 深色阴影
+@shadow-heavy: rgba(0, 0, 0, 0.7); // 强烈的阴影，用于浮动效果明显的元素
+
+// 将 Less 变量映射到 CSS 变量
+:root {
+  --color-primary: @color-primary;
+  --color-secondary: @color-secondary;
+  --color-accent: @color-accent;
+  --color-contrast: @color-contrast;
+
+  --color-black: @color-black;
+  --color-white: @color-white;
+  --color-gray-dark: @color-gray-dark;
+  --color-gray: @color-gray;
+  --color-gray-light: @color-gray-light;
+  --color-gray-lighter: @color-gray-lighter;
+
+  --text-color-primary: @text-color-primary;
+  --text-color-secondary: @text-color-secondary;
+  --text-color-muted: @text-color-muted;
+
+  --color-success: @color-success;
+  --color-error: @color-error;
+  --color-warning: @color-warning;
+  --color-info: @color-info;
+
+  --background-color-primary: @background-color-primary;
+  --background-color-secondary: @background-color-secondary;
+  --background-color-dark: @background-color-dark;
+
+  --border-color: @border-color;
+  --border-color-dark: @border-color-dark;
+  --border-color-muted: @border-color-muted;
+
+  --button-color-primary: @button-color-primary;
+  --button-color-secondary: @button-color-secondary;
+  --button-color-accent: @button-color-accent;
+  --button-color-disabled: @button-color-disabled;
+
+  --gradient-primary: @gradient-primary;
+  --gradient-secondary: @gradient-secondary;
+  --gradient-accent: @gradient-accent;
+  --gradient-dark: @gradient-dark;
+
+  --shadow-light: @shadow-light;
+  --shadow-medium: @shadow-medium;
+  --shadow-dark: @shadow-dark;
+  --shadow-heavy: @shadow-heavy;
+}

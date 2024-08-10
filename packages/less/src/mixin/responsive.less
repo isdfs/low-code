@@ -1,0 +1,70 @@
+// 文件名: responsive.less
+
+/* 
+  Mixin: responsive
+  功能描述:
+    创建一个简单的媒体查询 mixin，用于响应式设计。
+  参数:
+    @breakpoint: 响应式断点，默认值为 768px。
+    @content: 媒体查询内的内容。
+*/
+.responsive(@breakpoint: 768px, @content) {
+  @media (max-width: @breakpoint) {
+    @content();
+  }
+}
+
+/* 
+  Mixin: hide-on-mobile
+  功能描述:
+    隐藏元素在移动设备上显示。
+  参数:
+    @breakpoint: 响应式断点，默认值为 768px。
+*/
+.hide-on-mobile(@breakpoint: 768px) {
+  @media (max-width: @breakpoint) {
+    display: none;
+  }
+}
+
+/* 
+  Mixin: column-width
+  功能描述:
+    快速设置响应式网格系统的列宽。
+  参数:
+    @cols: 列数，默认值为 12。
+    @total-cols: 总列数，默认值为 12。
+*/
+.column-width(@cols: 12, @total-cols: 12) {
+  width: percentage(@cols / @total-cols);
+}
+
+/* 
+  Mixin: full-width-on-mobile
+  功能描述:
+    在移动设备上将元素宽度设置为 100%。
+  参数:
+    @breakpoint: 响应式断点，默认值为 768px。
+*/
+.full-width-on-mobile(@breakpoint: 768px) {
+  @media (max-width: @breakpoint) {
+    width: 100%;
+  }
+}
+
+/* 
+  Mixin: responsive-text
+  功能描述:
+    在不同设备上调整文本大小。
+  参数:
+    @base-size: 基础字体大小，默认值为 16px。
+    @mobile-size: 移动设备上的字体大小，默认值为 14px。
+    @breakpoint: 响应式断点，默认值为 768px。
+*/
+.responsive-text(@base-size: 16px, @mobile-size: 14px, @breakpoint: 768px) {
+  font-size: @base-size;
+
+  @media (max-width: @breakpoint) {
+    font-size: @mobile-size;
+  }
+}

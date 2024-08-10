@@ -1,0 +1,95 @@
+// 文件名: progress-bar.less
+
+/* 
+  Mixin: progress-bar
+  功能描述:
+    设置进度条的基础样式。
+  参数:
+    @bg-color: 进度条背景颜色，默认值为浅灰色 (#f0f0f0)。
+    @height: 进度条高度，默认值为 20px。
+*/
+.progress-bar(@bg-color: #f0f0f0, @height: 20px) {
+  background-color: @bg-color;
+  border-radius: 10px;
+  height: @height;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 
+  Mixin: progress
+  功能描述:
+    设置进度条的进度部分样式。
+  参数:
+    @progress-color: 进度部分颜色，默认值为蓝色 (#3498db)。
+    @percent: 进度百分比，默认值为 50%。
+*/
+.progress(@progress-color: #3498db, @percent: 50%) {
+  background-color: @progress-color;
+  width: @percent;
+  height: 100%;
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* 
+  Mixin: progress-striped
+  功能描述:
+    设置条纹样式的进度条。
+  参数:
+    @stripe-color: 条纹颜色，默认值为 rgba(255, 255, 255, 0.15)。
+*/
+.progress-striped(@stripe-color: rgba(255, 255, 255, 0.15)) {
+  background-image: linear-gradient(45deg, @stripe-color 25%, transparent 25%, transparent 50%, @stripe-color 50%, @stripe-color 75%, transparent 75%, transparent);
+  background-size: 40px 40px;
+}
+
+/* 
+  Mixin: progress-animated
+  功能描述:
+    为进度条添加动画效果，使其看起来在移动。
+  参数:
+    @animation-duration: 动画持续时间，默认值为 1s。
+*/
+.progress-animated(@animation-duration: 1s) {
+  animation: progress-bar-stripes @animation-duration linear infinite;
+  
+  @keyframes progress-bar-stripes {
+    from { background-position: 40px 0; }
+    to { background-position: 0 0; }
+  }
+}
+
+/* 
+  Mixin: progress-rounded
+  功能描述:
+    设置圆形进度条的样式。
+  参数:
+    @size: 进度条的直径，默认值为 100px。
+    @track-color: 进度条轨道颜色，默认值为浅灰色 (#f0f0f0)。
+    @progress-color: 进度部分颜色，默认值为蓝色 (#3498db)。
+    @percent: 进度百分比，默认值为 50%。
+*/
+.progress-rounded(@size: 100px, @track-color: #f0f0f0, @progress-color: #3498db, @percent: 50%) {
+  width: @size;
+  height: @size;
+  border-radius: 50%;
+  background-color: @track-color;
+  position: relative;
+  
+  &::before {
+    content: '';
+    width: @size;
+    height: @size;
+    border-radius: 50%;
+    background-color: @progress-color;
+    clip: rect(0, calc(@size / 2), @size, 0);
+    transform: rotate(calc(@percent * 3.6deg));
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

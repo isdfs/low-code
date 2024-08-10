@@ -1,0 +1,105 @@
+// 文件名: alert.less
+
+/* 
+  Mixin: alert
+  功能描述:
+    设置警告框的基础样式。
+  参数:
+    @bg-color: 警告框背景颜色，默认值为浅黄色 (#fff3cd)。
+    @text-color: 警告框文本颜色，默认值为深黄色 (#856404)。
+    @border-color: 警告框边框颜色，默认值为浅黄色 (#ffeeba)。
+*/
+.alert(@bg-color: #fff3cd, @text-color: #856404, @border-color: #ffeeba) {
+  background-color: @bg-color;
+  color: @text-color;
+  border: 1px solid @border-color;
+  padding: 15px;
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* 
+  Mixin: alert-success
+  功能描述:
+    设置成功类型的警告框样式。
+  参数:
+    @bg-color: 背景颜色，默认值为浅绿色 (#d4edda)。
+    @text-color: 文本颜色，默认值为深绿色 (#155724)。
+    @border-color: 边框颜色，默认值为浅绿色 (#c3e6cb)。
+*/
+.alert-success(@bg-color: #d4edda, @text-color: #155724, @border-color: #c3e6cb) {
+  .alert(@bg-color, @text-color, @border-color);
+}
+
+/* 
+  Mixin: alert-danger
+  功能描述:
+    设置危险类型的警告框样式。
+  参数:
+    @bg-color: 背景颜色，默认值为浅红色 (#f8d7da)。
+    @text-color: 文本颜色，默认值为深红色 (#721c24)。
+    @border-color: 边框颜色，默认值为浅红色 (#f5c6cb)。
+*/
+.alert-danger(@bg-color: #f8d7da, @text-color: #721c24, @border-color: #f5c6cb) {
+  .alert(@bg-color, @text-color, @border-color);
+}
+
+/* 
+  Mixin: alert-warning
+  功能描述:
+    设置警告类型的警告框样式。
+  参数:
+    @bg-color: 背景颜色，默认值为浅黄色 (#fff3cd)。
+    @text-color: 文本颜色，默认值为深黄色 (#856404)。
+    @border-color: 边框颜色，默认值为浅黄色 (#ffeeba)。
+*/
+.alert-warning(@bg-color: #fff3cd, @text-color: #856404, @border-color: #ffeeba) {
+  .alert(@bg-color, @text-color, @border-color);
+}
+
+/* 
+  Mixin: alert-info
+  功能描述:
+    设置信息类型的警告框样式。
+  参数:
+    @bg-color: 背景颜色，默认值为浅蓝色 (#d1ecf1)。
+    @text-color: 文本颜色，默认值为深蓝色 (#0c5460)。
+    @border-color: 边框颜色，默认值为浅蓝色 (#bee5eb)。
+*/
+.alert-info(@bg-color: #d1ecf1, @text-color: #0c5460, @border-color: #bee5eb) {
+  .alert(@bg-color, @text-color, @border-color);
+}
+
+/* 
+  Mixin: alert-title
+  功能描述:
+    设置警告框标题的样式。
+  参数:
+    @font-size: 标题字体大小，默认值为 18px。
+*/
+.alert-title(@font-size: 18px) {
+  font-size: @font-size;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* 
+  Mixin: alert-close
+  功能描述:
+    设置警告框关闭按钮的样式。
+  参数:
+    @size: 按钮大小，默认值为 20px。
+    @color: 按钮颜色，默认值为当前文本颜色。
+*/
+.alert-close(@size: 20px, @color: inherit) {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: @size;
+  color: @color;
+  border: none;
+  background: none;
+  padding: 0;
+}

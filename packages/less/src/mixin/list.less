@@ -1,0 +1,88 @@
+// 文件名: list.less
+
+/* 
+  Mixin: list-reset
+  功能描述:
+    移除列表的默认样式（如内边距、项目符号等）。
+  参数:
+    无。
+*/
+.list-reset {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 
+  Mixin: list-spacing
+  功能描述:
+    设置列表项目之间的间距。
+  参数:
+    @spacing: 列表项目之间的间距，默认值为 10px。
+*/
+.list-spacing(@spacing: 10px) {
+  li {
+    margin-bottom: @spacing;
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* 
+  Mixin: ordered-list
+  功能描述:
+    设置有序列表的样式，包括数字格式和间距。
+  参数:
+    @type: 列表数字格式，默认值为 decimal。
+    @spacing: 列表项之间的间距，默认值为 10px。
+*/
+.ordered-list(@type: decimal, @spacing: 10px) {
+  list-style-type: @type;
+  margin-left: 20px;
+
+  li {
+    margin-bottom: @spacing;
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* 
+  Mixin: icon-list
+  功能描述:
+    创建一个图标列表，将图标放置在每个列表项的左侧。
+  参数:
+    @icon-url: 图标的 URL，默认值为空。
+    @icon-size: 图标大小，默认值为 16px。
+*/
+.icon-list(@icon-url: '', @icon-size: 16px) {
+  li {
+    padding-left: @icon-size + 10px;
+    background-image: url(@icon-url);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: @icon-size @icon-size;
+  }
+}
+
+/* 
+  Mixin: inline-list
+  功能描述:
+    将列表项水平排列，适用于导航或菜单。
+  参数:
+    @spacing: 列表项之间的间距，默认值为 15px。
+*/
+.inline-list(@spacing: 15px) {
+  li {
+    display: inline-block;
+    margin-right: @spacing;
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+}

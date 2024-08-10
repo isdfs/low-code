@@ -1,0 +1,122 @@
+// 文件名: navbar-menu.less
+
+/* 
+  Mixin: navbar-menu
+  功能描述:
+    设置导航菜单的基础样式。
+  参数:
+    @bg-color: 菜单背景颜色，默认值为黑色 (#333)。
+    @text-color: 菜单文本颜色，默认值为白色 (#fff)。
+    @padding: 菜单项的内边距，默认值为 10px 20px。
+*/
+.navbar-menu(@bg-color: #333, @text-color: #fff, @padding: 10px 20px) {
+  background-color: @bg-color;
+  color: @text-color;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  margin: 0;
+
+  li {
+    padding: @padding;
+    cursor: pointer;
+
+    &:hover {
+      background-color: lighten(@bg-color, 10%);
+    }
+  }
+}
+
+/* 
+  Mixin: navbar-menu-inline
+  功能描述:
+    设置导航菜单项水平排列的样式。
+  参数:
+    @spacing: 菜单项之间的间距，默认值为 15px。
+*/
+.navbar-menu-inline(@spacing: 15px) {
+  li {
+    display: inline-block;
+    margin-right: @spacing;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: navbar-menu-dropdown
+  功能描述:
+    设置导航菜单下拉菜单的样式。
+  参数:
+    @bg-color: 下拉菜单背景颜色，默认值为黑色 (#333)。
+    @text-color: 下拉菜单文本颜色，默认值为白色 (#fff)。
+    @padding: 下拉菜单项的内边距，默认值为 10px 20px。
+    @hover-bg-color: 悬停时的背景颜色，默认值为灰色 (#444)。
+*/
+.navbar-menu-dropdown(@bg-color: #333, @text-color: #fff, @padding: 10px 20px, @hover-bg-color: #444) {
+  position: absolute;
+  display: none;
+  background-color: @bg-color;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+
+  li {
+    padding: @padding;
+    color: @text-color;
+
+    &:hover {
+      background-color: @hover-bg-color;
+    }
+  }
+
+  .navbar-menu-item:hover & {
+    display: block;
+  }
+}
+
+/* 
+  Mixin: navbar-menu-item
+  功能描述:
+    设置导航菜单项的样式。
+  参数:
+    @text-color: 菜单项文本颜色，默认值为当前颜色。
+    @hover-text-color: 悬停时的文本颜色，默认值为浅色 (#ddd)。
+*/
+.navbar-menu-item(@text-color: inherit, @hover-text-color: #ddd) {
+  color: @text-color;
+  text-decoration: none;
+
+  &:hover {
+    color: @hover-text-color;
+  }
+}
+
+/* 
+  Mixin: navbar-menu-toggler
+  功能描述:
+    设置导航菜单的切换按钮样式，适用于移动端菜单。
+  参数:
+    @size: 切换按钮的大小，默认值为 24px。
+    @color: 按钮颜色，默认值为当前颜色。
+*/
+.navbar-menu-toggler(@size: 24px, @color: inherit) {
+  width: @size;
+  height: @size;
+  cursor: pointer;
+  background-color: @color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    margin: 4px 0;
+  }
+}

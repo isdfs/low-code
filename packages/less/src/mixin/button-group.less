@@ -1,0 +1,130 @@
+// 文件名: button-group.less
+
+/* 
+  Mixin: button-group
+  功能描述:
+    设置按钮组的基础样式，使按钮彼此紧邻排列。
+  参数:
+    @spacing: 按钮之间的间距，默认值为 0。
+*/
+.button-group(@spacing: 0) {
+  display: inline-flex;
+  align-items: center;
+  gap: @spacing;
+
+  button {
+    margin-right: 0;
+
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: button-group-vertical
+  功能描述:
+    创建垂直排列的按钮组。
+  参数:
+    @spacing: 按钮之间的垂直间距，默认值为 0。
+*/
+.button-group-vertical(@spacing: 0) {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: @spacing;
+
+  button {
+    margin-bottom: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+
+    &:first-child {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: button-group-justified
+  功能描述:
+    使按钮组的按钮宽度均分，适用于自适应布局。
+  参数:
+    无。
+*/
+.button-group-justified {
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    flex: 1;
+    text-align: center;
+
+    &:not(:first-child) {
+      margin-left: -1px;
+    }
+
+    &:first-child {
+      border-right: 1px solid currentColor;
+    }
+
+    &:last-child {
+      border-left: 1px solid currentColor;
+    }
+  }
+}
+
+/* 
+  Mixin: button-group-outlined
+  功能描述:
+    设置按钮组的轮廓样式，使按钮之间有明确的边界。
+  参数:
+    @border-color: 按钮组的边框颜色，默认值为浅灰色 (#ddd)。
+*/
+.button-group-outlined(@border-color: #ddd) {
+  button {
+    border: 1px solid @border-color;
+
+    &:not(:last-child) {
+      border-right: none;
+    }
+
+    &:first-child {
+      border-radius: 4px 0 0 4px;
+    }
+
+    &:last-child {
+      border-radius: 0 4px 4px 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+  }
+}

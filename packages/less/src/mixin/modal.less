@@ -1,0 +1,102 @@
+// 文件名: modal.less
+
+/* 
+  Mixin: modal
+  功能描述:
+    设置模态框的基础样式，包括背景色、边框和阴影。
+  参数:
+    @bg-color: 模态框背景颜色，默认值为白色 (#fff)。
+    @border-color: 模态框边框颜色，默认值为浅灰色 (#ddd)。
+    @shadow-color: 模态框阴影颜色，默认值为 rgba(0, 0, 0, 0.2)。
+*/
+.modal(@bg-color: #fff, @border-color: #ddd, @shadow-color: rgba(0, 0, 0, 0.2)) {
+  background-color: @bg-color;
+  border: 1px solid @border-color;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px @shadow-color;
+  padding: 20px;
+  max-width: 500px;
+  margin: 50px auto;
+  position: relative;
+  z-index: 1050;
+}
+
+/* 
+  Mixin: modal-header
+  功能描述:
+    设置模态框头部的样式，包括背景色和内边距。
+  参数:
+    @bg-color: 头部背景颜色，默认值为浅灰色 (#f5f5f5)。
+    @padding: 内边距，默认值为 15px。
+*/
+.modal-header(@bg-color: #f5f5f5, @padding: 15px) {
+  background-color: @bg-color;
+  padding: @padding;
+  border-bottom: 1px solid darken(@bg-color, 10%);
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 
+  Mixin: modal-body
+  功能描述:
+    设置模态框主体内容的样式，包括内边距。
+  参数:
+    @padding: 内边距，默认值为 20px。
+*/
+.modal-body(@padding: 20px) {
+  padding: @padding;
+}
+
+/* 
+  Mixin: modal-footer
+  功能描述:
+    设置模态框底部的样式，包括背景色和内边距。
+  参数:
+    @bg-color: 底部背景颜色，默认值为浅灰色 (#f5f5f5)。
+    @padding: 内边距，默认值为 15px。
+*/
+.modal-footer(@bg-color: #f5f5f5, @padding: 15px) {
+  background-color: @bg-color;
+  padding: @padding;
+  border-top: 1px solid darken(@bg-color, 10%);
+  text-align: right;
+}
+
+/* 
+  Mixin: modal-backdrop
+  功能描述:
+    设置模态框的遮罩层样式。
+  参数:
+    @bg-color: 遮罩层背景颜色，默认值为黑色半透明 (#000, 0.5)。
+*/
+.modal-backdrop(@bg-color: rgba(0, 0, 0, 0.5)) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: @bg-color;
+  z-index: 1040;
+}
+
+/* 
+  Mixin: modal-close
+  功能描述:
+    设置模态框关闭按钮的样式。
+  参数:
+    @size: 按钮大小，默认值为 24px。
+    @color: 按钮颜色，默认值为黑色 (#333)。
+*/
+.modal-close(@size: 24px, @color: #333) {
+  cursor: pointer;
+  font-size: @size;
+  color: @color;
+  border: none;
+  background: none;
+  padding: 0;
+  line-height: 1;
+}

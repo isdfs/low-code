@@ -1,0 +1,117 @@
+// 文件名: scrollbar.less
+
+/* 
+  Mixin: scrollbar
+  功能描述:
+    自定义滚动条的样式。
+  参数:
+    @width: 滚动条的宽度，默认值为 8px。
+    @track-color: 滚动条轨道的颜色，默认值为浅灰色 (#f0f0f0)。
+    @thumb-color: 滚动条滑块的颜色，默认值为深灰色 (#888)。
+    @thumb-radius: 滚动条滑块的圆角半径，默认值为 4px。
+*/
+.scrollbar(@width: 8px, @track-color: #f0f0f0, @thumb-color: #888, @thumb-radius: 4px) {
+  &::-webkit-scrollbar {
+    width: @width;
+    height: @width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: @track-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: @thumb-color;
+    border-radius: @thumb-radius;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: darken(@thumb-color, 10%);
+  }
+}
+
+/* 
+  Mixin: scrollbar-horizontal
+  功能描述:
+    自定义水平滚动条的样式。
+  参数:
+    @height: 滚动条的高度，默认值为 8px。
+    @track-color: 滚动条轨道的颜色，默认值为浅灰色 (#f0f0f0)。
+    @thumb-color: 滚动条滑块的颜色，默认值为深灰色 (#888)。
+    @thumb-radius: 滚动条滑块的圆角半径，默认值为 4px。
+*/
+.scrollbar-horizontal(@height: 8px, @track-color: #f0f0f0, @thumb-color: #888, @thumb-radius: 4px) {
+  &::-webkit-scrollbar {
+    height: @height;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: @track-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: @thumb-color;
+    border-radius: @thumb-radius;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: darken(@thumb-color, 10%);
+  }
+}
+
+/* 
+  Mixin: scrollbar-vertical
+  功能描述:
+    自定义垂直滚动条的样式。
+  参数:
+    @width: 滚动条的宽度，默认值为 8px。
+    @track-color: 滚动条轨道的颜色，默认值为浅灰色 (#f0f0f0)。
+    @thumb-color: 滚动条滑块的颜色，默认值为深灰色 (#888)。
+    @thumb-radius: 滚动条滑块的圆角半径，默认值为 4px。
+*/
+.scrollbar-vertical(@width: 8px, @track-color: #f0f0f0, @thumb-color: #888, @thumb-radius: 4px) {
+  &::-webkit-scrollbar {
+    width: @width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: @track-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: @thumb-color;
+    border-radius: @thumb-radius;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: darken(@thumb-color, 10%);
+  }
+}
+
+/* 
+  Mixin: scrollbar-rounded
+  功能描述:
+    设置滚动条为圆形滑块样式。
+  参数:
+    @width: 滚动条的宽度，默认值为 8px。
+    @track-color: 滚动条轨道的颜色，默认值为浅灰色 (#f0f0f0)。
+    @thumb-color: 滚动条滑块的颜色，默认值为深灰色 (#888)。
+*/
+.scrollbar-rounded(@width: 8px, @track-color: #f0f0f0, @thumb-color: #888) {
+  &::-webkit-scrollbar {
+    width: @width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: @track-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: @thumb-color;
+    border-radius: 50%;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: darken(@thumb-color, 10%);
+  }
+}

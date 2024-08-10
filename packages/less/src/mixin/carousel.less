@@ -1,0 +1,139 @@
+// 文件名: carousel.less
+
+/* 
+  Mixin: carousel
+  功能描述:
+    设置轮播图的基础样式。
+  参数:
+    @width: 轮播图的宽度，默认值为 100%。
+    @height: 轮播图的高度，默认值为 400px。
+*/
+.carousel(@width: 100%, @height: 400px) {
+  width: @width;
+  height: @height;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 
+  Mixin: carousel-item
+  功能描述:
+    设置轮播图项目的样式。
+  参数:
+    @transition-duration: 轮播图切换的动画持续时间，默认值为 0.5s。
+*/
+.carousel-item(@transition-duration: 0.5s) {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform @transition-duration ease;
+  backface-visibility: hidden;
+}
+
+/* 
+  Mixin: carousel-arrow
+  功能描述:
+    设置轮播图导航箭头的样式。
+  参数:
+    @size: 箭头的大小，默认值为 40px。
+    @color: 箭头的颜色，默认值为白色 (#fff)。
+    @bg-color: 箭头背景颜色，默认值为黑色半透明 (#000, 0.5)。
+*/
+.carousel-arrow(@size: 40px, @color: #fff, @bg-color: rgba(0, 0, 0, 0.5)) {
+  width: @size;
+  height: @size;
+  background-color: @bg-color;
+  color: @color;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 1000;
+
+  &.prev {
+    left: 10px;
+  }
+
+  &.next {
+    right: 10px;
+  }
+}
+
+/* 
+  Mixin: carousel-indicators
+  功能描述:
+    设置轮播图分页指示器的样式。
+  参数:
+    @size: 指示器的大小，默认值为 12px。
+    @active-color: 活动指示器的颜色，默认值为白色 (#fff)。
+    @inactive-color: 非活动指示器的颜色，默认值为浅灰色 (#bbb)。
+*/
+.carousel-indicators(@size: 12px, @active-color: #fff, @inactive-color: #bbb) {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  span {
+    width: @size;
+    height: @size;
+    background-color: @inactive-color;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &.active {
+      background-color: @active-color;
+    }
+  }
+}
+
+/* 
+  Mixin: carousel-fade
+  功能描述:
+    设置轮播图项目的淡入淡出效果。
+  参数:
+    @transition-duration: 淡入淡出动画的持续时间，默认值为 0.5s。
+*/
+.carousel-fade(@transition-duration: 0.5s) {
+  .carousel-item {
+    opacity: 0;
+    transition: opacity @transition-duration ease;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+/* 
+  Mixin: carousel-slide
+  功能描述:
+    设置轮播图项目的滑动切换效果。
+  参数:
+    @transition-duration: 滑动动画的持续时间，默认值为 0.5s。
+*/
+.carousel-slide(@transition-duration: 0.5s) {
+  .carousel-item {
+    transform: translateX(100%);
+    transition: transform @transition-duration ease;
+
+    &.active {
+      transform: translateX(0);
+    }
+
+    &.prev {
+      transform: translateX(-100%);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+/* 
+  Mixin: box-shadow
+  功能描述:
+    为元素添加阴影效果，默认使用轻微阴影。
+  参数:
+    @x: 水平方向的阴影偏移，默认值为 0px。
+    @y: 垂直方向的阴影偏移，默认值为 2px。
+    @blur: 模糊半径，默认值为 5px。
+    @spread: 扩展半径，默认值为 0px。
+    @color: 阴影颜色，默认值为 rgba(0, 0, 0, 0.2)。
+*/
+.box-shadow(@x: 0px, @y: 2px, @blur: 5px, @spread: 0px, @color: rgba(0, 0, 0, 0.2)) {
+  box-shadow: @x @y @blur @spread @color;
+}

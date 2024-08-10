@@ -1,0 +1,60 @@
+// 文件名: border.less
+
+/* 
+  Mixin: border-radius
+  功能描述:
+    为元素设置圆角效果。
+  参数:
+    @radius: 圆角半径，默认值为 4px。
+*/
+.border-radius(@radius: 4px) {
+  border-radius: @radius;
+}
+
+/* 
+  Mixin: border
+  功能描述:
+    快速为元素设置边框，默认 1px 实线边框，颜色为浅灰色。
+  参数:
+    @width: 边框宽度，默认值为 1px。
+    @style: 边框样式，默认值为 solid。
+    @color: 边框颜色，默认值为 #ccc。
+*/
+.border(@width: 1px, @style: solid, @color: #ccc) {
+  border: @width @style @color;
+}
+
+/* 
+  Mixin: dashed-border
+  功能描述:
+    为元素设置虚线边框，默认 2px 虚线边框，颜色为浅灰色。
+  参数:
+    @width: 边框宽度，默认值为 2px。
+    @color: 边框颜色，默认值为 #ccc。
+*/
+.dashed-border(@width: 2px, @color: #ccc) {
+  border: @width dashed @color;
+}
+
+/* 
+  Mixin: double-border
+  功能描述:
+    为元素设置双线边框，默认 3px 双线边框，颜色为浅灰色。
+  参数:
+    @width: 边框宽度，默认值为 3px。
+    @color: 边框颜色，默认值为 #ccc。
+*/
+.double-border(@width: 3px, @color: #ccc) {
+  border: @width double @color;
+}
+
+/* 
+  Mixin: border-none
+  功能描述:
+    移除元素的边框。
+  参数:
+    无。
+*/
+.border-none {
+  border: none;
+}

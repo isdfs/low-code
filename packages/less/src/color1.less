@@ -1,0 +1,86 @@
+// 定义主色调
+@primary-color: #3498db; // 主要的品牌色或主题色
+@secondary-color: #2ecc71; // 次要颜色
+@tertiary-color: #9b59b6; // 辅助颜色
+@quaternary-color: #e67e22; // 第四颜色，用于强调或警示
+
+// 定义中性色调
+@black: #000000; // 纯黑色
+@white: #ffffff; // 纯白色
+@gray-dark: #2c3e50; // 深灰色
+@gray: #7f8c8d; // 中性灰色
+@gray-light: #bdc3c7; // 浅灰色
+@gray-lighter: #ecf0f1; // 更浅的灰色，用于背景或边框
+
+// 定义文本颜色
+@text-primary: @gray-dark; // 主文本颜色，通常用于正文内容
+@text-secondary: @gray; // 次文本颜色，用于辅助信息或次要内容
+@text-muted: @gray-light; // 弱化文本颜色，用于提示、注释等
+
+// 定义状态颜色
+@success-color: #2ecc71; // 成功状态颜色
+@error-color: #e74c3c; // 错误状态颜色
+@warning-color: #f39c12; // 警告状态颜色
+@info-color: @primary-color; // 信息状态颜色，使用主色调
+
+// 定义背景颜色
+@background-primary: @white; // 主背景色，通常用于主要内容区
+@background-secondary: @gray-lighter; // 次背景色，用于侧边栏或辅助区
+@background-dark: @gray-dark; // 深色背景，用于对比区域或反转颜色方案
+
+// 定义边框颜色
+@border-color: @gray-light; // 通用边框颜色
+@border-color-dark: @gray-dark; // 深色边框颜色
+@border-color-muted: @gray-lighter; // 弱化的边框颜色
+
+// 定义渐变色
+@gradient-primary: linear-gradient(45deg, @primary-color, darken(@primary-color, 10%)); // 主色调的渐变色
+@gradient-secondary: linear-gradient(45deg, @secondary-color, darken(@secondary-color, 10%)); // 次色调的渐变色
+@gradient-tertiary: linear-gradient(45deg, @tertiary-color, darken(@tertiary-color, 10%)); // 辅助色调的渐变色
+@gradient-dark: linear-gradient(45deg, @gray-dark, darken(@gray-dark, 10%)); // 深色调的渐变色
+
+// 定义阴影颜色
+@shadow-light: rgba(0, 0, 0, 0.1); // 浅色阴影
+@shadow-dark: rgba(0, 0, 0, 0.25); // 深色阴影
+@shadow-heavy: rgba(0, 0, 0, 0.4); // 强烈的阴影，用于浮动效果明显的元素
+
+// 将 Less 变量映射到 CSS 变量
+:root {
+  --primary-color: @primary-color;
+  --secondary-color: @secondary-color;
+  --tertiary-color: @tertiary-color;
+  --quaternary-color: @quaternary-color;
+
+  --black: @black;
+  --white: @white;
+  --gray-dark: @gray-dark;
+  --gray: @gray;
+  --gray-light: @gray-light;
+  --gray-lighter: @gray-lighter;
+
+  --text-primary: @text-primary;
+  --text-secondary: @text-secondary;
+  --text-muted: @text-muted;
+
+  --success-color: @success-color;
+  --error-color: @error-color;
+  --warning-color: @warning-color;
+  --info-color: @info-color;
+
+  --background-primary: @background-primary;
+  --background-secondary: @background-secondary;
+  --background-dark: @background-dark;
+
+  --border-color: @border-color;
+  --border-color-dark: @border-color-dark;
+  --border-color-muted: @border-color-muted;
+
+  --gradient-primary: @gradient-primary;
+  --gradient-secondary: @gradient-secondary;
+  --gradient-tertiary: @gradient-tertiary;
+  --gradient-dark: @gradient-dark;
+
+  --shadow-light: @shadow-light;
+  --shadow-dark: @shadow-dark;
+  --shadow-heavy: @shadow-heavy;
+}

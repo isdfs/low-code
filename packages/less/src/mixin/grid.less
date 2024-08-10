@@ -1,0 +1,87 @@
+// 文件名: grid.less
+
+/* 
+  Mixin: grid-container
+  功能描述:
+    设置网格布局的容器样式，通常用于包裹网格列。
+  参数:
+    @max-width: 网格容器的最大宽度，默认值为 1200px。
+    @padding: 容器的内边距，默认值为 15px。
+*/
+.grid-container(@max-width: 1200px, @padding: 15px) {
+  max-width: @max-width;
+  margin: 0 auto;
+  padding: 0 @padding;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 15px;
+}
+
+/* 
+  Mixin: grid-column
+  功能描述:
+    设置网格列的宽度。
+  参数:
+    @cols: 列数，默认值为 12。
+    @total-cols: 总列数，默认值为 12。
+*/
+.grid-column(@cols: 12, @total-cols: 12) {
+  grid-column: span @cols / span @total-cols;
+}
+
+/* 
+  Mixin: grid-gap
+  功能描述:
+    设置网格列之间的间距。
+  参数:
+    @gap: 网格列之间的间距，默认值为 15px。
+*/
+.grid-gap(@gap: 15px) {
+  grid-gap: @gap;
+}
+
+/* 
+  Mixin: grid-offset
+  功能描述:
+    设置网格列的偏移量。
+  参数:
+    @cols: 偏移的列数，默认值为 0。
+    @total-cols: 总列数，默认值为 12。
+*/
+.grid-offset(@cols: 0, @total-cols: 12) {
+  margin-left: percentage(@cols / @total-cols);
+}
+
+/* 
+  Mixin: grid-align-center
+  功能描述:
+    设置网格列内容的居中对齐。
+  参数:
+    无。
+*/
+.grid-align-center {
+  justify-items: center;
+  align-items: center;
+}
+
+/* 
+  Mixin: grid-align-top
+  功能描述:
+    设置网格列内容的顶部对齐。
+  参数:
+    无。
+*/
+.grid-align-top {
+  align-items: start;
+}
+
+/* 
+  Mixin: grid-align-bottom
+  功能描述:
+    设置网格列内容的底部对齐。
+  参数:
+    无。
+*/
+.grid-align-bottom {
+  align-items: end;
+}

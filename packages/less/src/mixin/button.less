@@ -1,0 +1,77 @@
+// 文件名: button.less
+
+/* 
+  Mixin: button
+  功能描述:
+    为按钮设置基础样式。
+  参数:
+    @bg-color: 背景颜色，默认值为灰色 (#ccc)。
+    @text-color: 文本颜色，默认值为白色 (#fff)。
+*/
+.button(@bg-color: #ccc, @text-color: #fff) {
+  background-color: @bg-color;
+  color: @text-color;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: lighten(@bg-color, 10%);
+  }
+}
+
+/* 
+  Mixin: button-outline
+  功能描述:
+    创建一个具有边框的轮廓按钮。
+  参数:
+    @border-color: 边框颜色，默认值为黑色 (#000)。
+    @text-color: 文本颜色，默认值为黑色 (#000)。
+*/
+.button-outline(@border-color: #000, @text-color: #000) {
+  background-color: transparent;
+  color: @text-color;
+  padding: 10px 20px;
+  border: 2px solid @border-color;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: @border-color;
+    color: #fff;
+  }
+}
+
+/* 
+  Mixin: button-disabled
+  功能描述:
+    设置按钮的禁用状态。
+  参数:
+    @bg-color: 背景颜色，默认值为浅灰色 (#e0e0e0)。
+    @text-color: 文本颜色，默认值为深灰色 (#aaa)。
+*/
+.button-disabled(@bg-color: #e0e0e0, @text-color: #aaa) {
+  background-color: @bg-color;
+  color: @text-color;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* 
+  Mixin: button-icon
+  功能描述:
+    为按钮添加图标（左侧）。
+  参数:
+    @icon-url: 图标的 URL，默认值为空。
+    @icon-size: 图标的尺寸，默认值为 16px。
+*/
+.button-icon(@icon-url: '', @icon-size: 16px) {
+  padding-left: @icon-size + 10px;
+  background-image: url(@icon-url);
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: @icon-size @icon-size;
+}

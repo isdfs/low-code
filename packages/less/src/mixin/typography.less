@@ -1,0 +1,64 @@
+// 文件名: typography.less
+
+/* 
+  Mixin: font-size
+  功能描述:
+    快速设置字体大小。
+  参数:
+    @size: 字体大小，默认值为 16px。
+*/
+.font-size(@size: 16px) {
+  font-size: @size;
+}
+
+/* 
+  Mixin: line-height
+  功能描述:
+    快速设置行高。
+  参数:
+    @height: 行高，默认值为 1.5。
+*/
+.line-height(@height: 1.5) {
+  line-height: @height;
+}
+
+/* 
+  Mixin: text-align
+  功能描述:
+    设置文本的对齐方式。
+  参数:
+    @align: 文本对齐方式，默认值为左对齐。
+*/
+.text-align(@align: left) {
+  text-align: @align;
+}
+
+/* 
+  Mixin: first-letter
+  功能描述:
+    设置段落的首字母样式，如首字下沉效果。
+  参数:
+    @size: 首字母的字体大小，默认值为 2em。
+    @color: 首字母的颜色，默认值为当前文本颜色。
+    @float: 首字母的浮动方向，默认值为左。
+*/
+.first-letter(@size: 2em, @color: inherit, @float: left) {
+  &::first-letter {
+    font-size: @size;
+    color: @color;
+    float: @float;
+    margin-right: 0.1em;
+    line-height: 1;
+  }
+}
+
+/* 
+  Mixin: text-decoration
+  功能描述:
+    设置文本装饰，如下划线、删除线等。
+  参数:
+    @decoration: 装饰类型，默认值为无。
+*/
+.text-decoration(@decoration: none) {
+  text-decoration: @decoration;
+}

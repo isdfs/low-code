@@ -1,0 +1,74 @@
+// 文件名: table.less
+
+/* 
+  Mixin: table-layout
+  功能描述:
+    为表格设置基础布局和样式。
+  参数:
+    @border-color: 表格边框颜色，默认值为浅灰色 (#ddd)。
+*/
+.table-layout(@border-color: #ddd) {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid @border-color;
+}
+
+/* 
+  Mixin: table-header
+  功能描述:
+    设置表格表头的样式。
+  参数:
+    @bg-color: 表头背景颜色，默认值为浅灰色 (#f5f5f5)。
+    @text-color: 表头文本颜色，默认值为黑色 (#333)。
+*/
+.table-header(@bg-color: #f5f5f5, @text-color: #333) {
+  background-color: @bg-color;
+  color: @text-color;
+  text-align: left;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* 
+  Mixin: table-row
+  功能描述:
+    设置表格行的样式。
+  参数:
+    @hover-bg-color: 悬停时的背景颜色，默认值为浅灰色 (#f9f9f9)。
+*/
+.table-row(@hover-bg-color: #f9f9f9) {
+  border-bottom: 1px solid #ddd;
+
+  &:hover {
+    background-color: @hover-bg-color;
+  }
+}
+
+/* 
+  Mixin: table-striped
+  功能描述:
+    设置表格的斑马纹样式（隔行变色）。
+  参数:
+    @stripe-color: 斑马纹颜色，默认值为浅灰色 (#fafafa)。
+*/
+.table-striped(@stripe-color: #fafafa) {
+  tr:nth-child(odd) {
+    background-color: @stripe-color;
+  }
+}
+
+/* 
+  Mixin: table-bordered
+  功能描述:
+    为表格和单元格添加边框。
+  参数:
+    @border-color: 边框颜色，默认值为浅灰色 (#ddd)。
+*/
+.table-bordered(@border-color: #ddd) {
+  border: 1px solid @border-color;
+
+  th, td {
+    border: 1px solid @border-color;
+    padding: 10px;
+  }
+}

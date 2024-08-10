@@ -1,0 +1,825 @@
+// 文件名: flex.less
+
+/* 
+  Mixin: flex-container
+  功能描述:
+    设置为一个 Flexbox 容器。
+  参数:
+    @direction: 子项的排列方向，默认值为行排列 (row)。
+    @wrap: 子项的换行方式，默认值为不换行 (nowrap)。
+*/
+.flex-container(@direction: row, @wrap: nowrap) {
+  display: flex;
+  flex-direction: @direction;
+  flex-wrap: @wrap;
+}
+
+/* 
+  Mixin: flex-direction-row
+  功能描述:
+    设置子项的排列方向为行排列 (row)。
+  参数:
+    无。
+*/
+.flex-direction-row {
+  flex-direction: row;
+}
+
+/* 
+  Mixin: flex-direction-column
+  功能描述:
+    设置子项的排列方向为列排列 (column)。
+  参数:
+    无。
+*/
+.flex-direction-column {
+  flex-direction: column;
+}
+
+/* 
+  Mixin: flex-wrap
+  功能描述:
+    设置子项的换行方式。
+  参数:
+    @wrap: 子项的换行方式，默认值为换行 (wrap)。
+*/
+.flex-wrap(@wrap: wrap) {
+  flex-wrap: @wrap;
+}
+
+/* 
+  Mixin: flex-justify-content
+  功能描述:
+    设置子项在主轴上的分布方式。
+  参数:
+    @justify: 子项的分布方式，默认值为居中对齐 (center)。
+*/
+.flex-justify-content(@justify: center) {
+  justify-content: @justify;
+}
+
+/* 
+  Mixin: flex-align-items
+  功能描述:
+    设置子项在交叉轴上的对齐方式。
+  参数:
+    @align: 子项的对齐方式，默认值为居中对齐 (center)。
+*/
+.flex-align-items(@align: center) {
+  align-items: @align;
+}
+
+/* 
+  Mixin: flex-align-content
+  功能描述:
+    设置多行子项在交叉轴上的对齐方式。
+  参数:
+    @align: 多行子项的对齐方式，默认值为居中对齐 (center)。
+*/
+.flex-align-content(@align: center) {
+  align-content: @align;
+}
+
+/* 
+  Mixin: flex-center
+  功能描述:
+    快速居中对齐子项，水平和垂直方向均居中。
+  参数:
+    无。
+*/
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 
+  Mixin: flex-space-between
+  功能描述:
+    子项在主轴上均匀分布，两端对齐，中间有间距。
+  参数:
+    无。
+*/
+.flex-space-between {
+  justify-content: space-between;
+}
+
+/* 
+  Mixin: flex-space-around
+  功能描述:
+    子项在主轴上均匀分布，两端留有等量空间。
+  参数:
+    无。
+*/
+.flex-space-around {
+  justify-content: space-around;
+}
+
+/* 
+  Mixin: flex-space-evenly
+  功能描述:
+    子项在主轴上均匀分布，每个子项之间的间距相等。
+  参数:
+    无。
+*/
+.flex-space-evenly {
+  justify-content: space-evenly;
+}
+
+/* 
+  Mixin: flex-grow
+  功能描述:
+    设置子项的增长因子，使其在主轴方向上扩展以填充可用空间。
+  参数:
+    @factor: 增长因子，默认值为 1。
+*/
+.flex-grow(@factor: 1) {
+  flex-grow: @factor;
+}
+
+/* 
+  Mixin: flex-shrink
+  功能描述:
+    设置子项的收缩因子，使其在主轴方向上收缩以适应可用空间。
+  参数:
+    @factor: 收缩因子，默认值为 1。
+*/
+.flex-shrink(@factor: 1) {
+  flex-shrink: @factor;
+}
+
+/* 
+  Mixin: flex-basis
+  功能描述:
+    设置子项的基础宽度或高度。
+  参数:
+    @basis: 基础宽度或高度，默认值为 auto。
+*/
+.flex-basis(@basis: auto) {
+  flex-basis: @basis;
+}
+
+/* 
+  Mixin: flex-order
+  功能描述:
+    设置子项的显示顺序。
+  参数:
+    @order: 显示顺序，默认值为 0。
+*/
+.flex-order(@order: 0) {
+  order: @order;
+}
+
+/* 
+  Mixin: flex-item
+  功能描述:
+    快速设置子项的成长、收缩和基础尺寸。
+  参数:
+    @grow: 成长因子，默认值为 1。
+    @shrink: 收缩因子，默认值为 1。
+    @basis: 基础尺寸，默认值为 auto。
+*/
+.flex-item(@grow: 1, @shrink: 1, @basis: auto) {
+  flex: @grow @shrink @basis;
+}
+
+/* 
+  Mixin: flex-full-width
+  功能描述:
+    设置子项占据整个容器宽度。
+  参数:
+    无。
+*/
+.flex-full-width {
+  flex-basis: 100%;
+}
+
+/* 
+  Mixin: flex-auto
+  功能描述:
+    设置子项根据内容自动调整大小。
+  参数:
+    无。
+*/
+.flex-auto {
+  flex: 1 1 auto;
+}
+
+/* 
+  Mixin: flex-none
+  功能描述:
+    禁止子项在主轴方向上扩展或收缩，保持其初始大小。
+  参数:
+    无。
+*/
+.flex-none {
+  flex: none;
+}
+
+
+/* 
+  Mixin: flex-left-layout
+  功能描述:
+    创建一个常见的左侧布局，其中左侧为固定宽度的侧边栏，右侧为自适应宽度的主内容区域。
+  参数:
+    @sidebar-width: 侧边栏的宽度，默认值为 250px。
+    @sidebar-align: 侧边栏的对齐方式，默认值为 flex-start。
+    @content-align: 主内容区域的对齐方式，默认值为 flex-start。
+*/
+.flex-left-layout(@sidebar-width: 250px, @sidebar-align: flex-start, @content-align: flex-start) {
+  display: flex;
+  
+  .sidebar {
+    flex: 0 0 @sidebar-width;
+    align-self: @sidebar-align;
+  }
+  
+  .content {
+    flex: 1;
+    align-self: @content-align;
+  }
+}
+
+/* 
+  Mixin: flex-left-right-layout
+  功能描述:
+    创建一个包含左侧和右侧布局的容器，左侧为固定宽度的侧边栏，右侧为自适应宽度的主内容区域，底部为固定高度的底部。
+  参数:
+    @sidebar-width: 侧边栏的宽度，默认值为 250px。
+    @footer-height: 底部的高度，默认值为 60px。
+    @sidebar-align: 侧边栏的对齐方式，默认值为 flex-start。
+    @content-align: 主内容区域的对齐方式，默认值为 flex-start。
+    @footer-align: 底部的对齐方式，默认值为 flex-start。
+*/
+.flex-left-right-layout(@sidebar-width: 250px, @footer-height: 60px, @sidebar-align: flex-start, @content-align: flex-start, @footer-align: flex-start) {
+  display: flex;
+  flex-direction: column;
+  
+  .main {
+    display: flex;
+    flex: 1;
+    
+    .sidebar {
+      flex: 0 0 @sidebar-width;
+      align-self: @sidebar-align;
+    }
+    
+    .content {
+      flex: 1;
+      align-self: @content-align;
+    }
+  }
+  
+  .footer {
+    height: @footer-height;
+    align-self: @footer-align;
+  }
+}
+
+/* 
+  Mixin: flex-center-vertical-horizontal
+  功能描述:
+    创建一个全屏的容器，子项在水平和垂直方向上均居中对齐。
+  参数:
+    @height: 容器的高度，默认值为 100vh。
+    @width: 容器的宽度，默认值为 100vw。
+*/
+.flex-center-vertical-horizontal(@height: 100vh, @width: 100vw) {
+  display: flex;
+  height: @height;
+  width: @width;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 
+  Mixin: flex-responsive-layout
+  功能描述:
+    创建一个响应式布局，在小屏幕下将子项堆叠在一起，在大屏幕下将子项水平排列。
+  参数:
+    @direction-small: 小屏幕下的排列方向，默认值为 column。
+    @direction-large: 大屏幕下的排列方向，默认值为 row。
+    @breakpoint: 切换布局的屏幕宽度，默认值为 768px。
+*/
+.flex-responsive-layout(@direction-small: column, @direction-large: row, @breakpoint: 768px) {
+  display: flex;
+  flex-direction: @direction-small;
+  
+  @media (min-width: @breakpoint) {
+    flex-direction: @direction-large;
+  }
+}
+
+/* 
+  Mixin: flex-grid
+  功能描述:
+    创建一个基于 Flexbox 的网格布局，每个子项均匀分布并保持一致的间距。
+  参数:
+    @columns: 列数，默认值为 4。
+    @gap: 子项之间的间距，默认值为 16px。
+*/
+.flex-grid(@columns: 4, @gap: 16px) {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -@gap / 2;
+  
+  > * {
+    flex: 1 1 calc(100% / @columns - @gap);
+    margin: @gap / 2;
+  }
+}
+
+/* 
+  Mixin: flex-main-sidebar-layout
+  功能描述:
+    创建一个主内容区域和侧边栏布局，主内容区域占据大部分空间，侧边栏占据固定宽度。
+  参数:
+    @sidebar-width: 侧边栏的宽度，默认值为 300px。
+    @sidebar-align: 侧边栏的对齐方式，默认值为 flex-start。
+    @main-align: 主内容区域的对齐方式，默认值为 flex-start。
+*/
+.flex-main-sidebar-layout(@sidebar-width: 300px, @sidebar-align: flex-start, @main-align: flex-start) {
+  display: flex;
+  
+  .sidebar {
+    flex: 0 0 @sidebar-width;
+    align-self: @sidebar-align;
+  }
+  
+  .main {
+    flex: 1;
+    align-self: @main-align;
+  }
+}
+
+/* 
+  Mixin: flex-vertical-center
+  功能描述:
+    创建一个容器，使子项在垂直方向上居中对齐。
+  参数:
+    @height: 容器的高度，默认值为 100vh。
+*/
+.flex-vertical-center(@height: 100vh) {
+  display: flex;
+  height: @height;
+  align-items: center;
+}
+
+/* 
+  Mixin: flex-horizontal-center
+  功能描述:
+    创建一个容器，使子项在水平方向上居中对齐。
+  参数:
+    @width: 容器的宽度，默认值为 100vw。
+*/
+.flex-horizontal-center(@width: 100vw) {
+  display: flex;
+  width: @width;
+  justify-content: center;
+}
+
+/* 
+  Mixin: flex-alternate-layout
+  功能描述:
+    创建一个交替排列的布局，每个子项在主轴上有不同的对齐方式，偶数子项靠左对齐，奇数子项靠右对齐。
+  参数:
+    @justify-even: 偶数子项的对齐方式，默认值为 flex-start。
+    @justify-odd: 奇数子项的对齐方式，默认值为 flex-end。
+*/
+.flex-alternate-layout(@justify-even: flex-start, @justify-odd: flex-end) {
+  display: flex;
+  flex-direction: column;
+  
+  > *:nth-child(even) {
+    align-self: @justify-even;
+  }
+  
+  > *:nth-child(odd) {
+    align-self: @justify-odd;
+  }
+}
+
+/* 
+  Mixin: flex-row-gap
+  功能描述:
+    创建一个在行间设置间距的 Flexbox 布局。
+  参数:
+    @row-gap: 行间距，默认值为 20px。
+*/
+.flex-row-gap(@row-gap: 20px) {
+  display: flex;
+  flex-wrap: wrap;
+  
+  > * {
+    margin-bottom: @row-gap;
+  }
+  
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* 
+  Mixin: flex-accordion
+  功能描述:
+    创建一个折叠式的布局，其中只有一个子项可见，其他子项折叠隐藏。
+  参数:
+    @active-index: 当前可见子项的索引，默认值为 0。
+    @collapsed-height: 折叠状态下的高度，默认值为 0。
+*/
+.flex-accordion(@active-index: 0, @collapsed-height: 0) {
+  display: flex;
+  flex-direction: column;
+  
+  > * {
+    overflow: hidden;
+    transition: height 0.3s ease;
+  }
+  
+  > *:nth-child(@active-index + 1) {
+    height: auto;
+  }
+  
+  > *:not(:nth-child(@active-index + 1)) {
+    height: @collapsed-height;
+  }
+}
+
+/* 
+  Mixin: flex-card-layout
+  功能描述:
+    创建一个卡片布局，卡片之间有固定间距，并且响应式排列。
+  参数:
+    @columns: 列数，默认值为 3。
+    @gap: 卡片之间的间距，默认值为 20px。
+    @breakpoint: 切换布局的屏幕宽度，默认值为 768px。
+*/
+.flex-card-layout(@columns: 3, @gap: 20px, @breakpoint: 768px) {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -@gap / 2;
+  
+  > * {
+    flex: 1 1 calc(100% / @columns - @gap);
+    margin: @gap / 2;
+  }
+  
+  @media (max-width: @breakpoint) {
+    > * {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+/* 
+  Mixin: flex-grid-auto
+  功能描述:
+    创建一个基于 Flexbox 的网格布局，网格项的尺寸由内容自动决定。
+  参数:
+    @columns: 列数，默认值为 3。
+    @gap: 网格项之间的间距，默认值为 20px。
+*/
+.flex-grid-auto(@columns: 3, @gap: 20px) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: @gap;
+  
+  > * {
+    flex: 1 1 calc(100% / @columns - @gap);
+  }
+}
+
+/* 
+  Mixin: flex-dynamic-gap
+  功能描述:
+    创建一个动态间距的布局，子项之间的间距随着容器宽度变化而自动调整。
+  参数:
+    @min-gap: 最小间距，默认值为 10px。
+    @max-gap: 最大间距，默认值为 50px。
+    @breakpoint: 切换布局的屏幕宽度，默认值为 768px。
+*/
+.flex-dynamic-gap(@min-gap: 10px, @max-gap: 50px, @breakpoint: 768px) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: @min-gap;
+  
+  @media (min-width: @breakpoint) {
+    gap: calc(@min-gap + (100vw - @breakpoint) * (@max-gap - @min-gap) / (1920 - @breakpoint));
+  }
+}
+
+/* 
+  Mixin: flex-vertical-center-responsive
+  功能描述:
+    创建一个响应式垂直居中布局，在小屏幕下垂直居中，在大屏幕下顶部对齐。
+  参数:
+    @small-screen: 小屏幕下的对齐方式，默认值为 center。
+    @large-screen: 大屏幕下的对齐方式，默认值为 flex-start。
+    @breakpoint: 切换布局的屏幕宽度，默认值为 768px。
+*/
+.flex-vertical-center-responsive(@small-screen: center, @large-screen: flex-start, @breakpoint: 768px) {
+  display: flex;
+  height: 100vh;
+  align-items: @small-screen;
+  
+  @media (min-width: @breakpoint) {
+    align-items: @large-screen;
+  }
+}
+
+/* 
+  Mixin: flex-cards
+  功能描述:
+    创建一个灵活的卡片布局，卡片宽度在大屏幕上固定，在小屏幕上自适应。
+  参数:
+    @card-width: 卡片宽度，默认值为 300px。
+    @gap: 卡片之间的间距，默认值为 16px。
+    @breakpoint: 切换布局的屏幕宽度，默认值为 768px。
+*/
+.flex-cards(@card-width: 300px, @gap: 16px, @breakpoint: 768px) {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -@gap / 2;
+  
+  > * {
+    flex: 0 0 @card-width;
+    margin: @gap / 2;
+  }
+  
+  @media (max-width: @breakpoint) {
+    > * {
+      flex: 1 1 auto;
+      margin: @gap / 2;
+    }
+  }
+}
+
+/* 
+  Mixin: flex-column-reverse-responsive
+  功能描述:
+    创建一个响应式的列反向布局，在小屏幕下为列反向排列，在大屏幕下为标准列排列。
+  参数:
+    @direction-small: 小屏幕下的排列方向，默认值为 column-reverse。
+    @direction-large: 大屏幕下的排列方向，默认值为 column。
+    @breakpoint: 切换布局的屏幕宽度，默认值为 768px。
+*/
+.flex-column-reverse-responsive(@direction-small: column-reverse, @direction-large: column, @breakpoint: 768px) {
+  display: flex;
+  flex-direction: @direction-small;
+  
+  @media (min-width: @breakpoint) {
+    flex-direction: @direction-large;
+  }
+}
+
+/* 
+  Mixin: flex-absolute-layout
+  功能描述:
+    创建一个绝对定位的布局，子项在容器内绝对定位，可以灵活调整位置。
+  参数:
+    @position: 子项的位置，默认值为 top-left。
+    @top: 顶部位置，默认值为 0。
+    @right: 右侧位置，默认值为 0。
+    @bottom: 底部位置，默认值为 0。
+    @left: 左侧位置，默认值为 0。
+*/
+/* 
+  Mixin: flex-absolute-layout
+  功能描述:
+    创建一个绝对定位的布局，子项在容器内绝对定位，可以灵活调整位置。
+  参数:
+    @position: 子项的位置，默认值为 top-left。
+    @top: 顶部位置，默认值为 0。
+    @right: 右侧位置，默认值为 0。
+    @bottom: 底部位置，默认值为 0。
+    @left: 左侧位置，默认值为 0。
+*/
+.flex-absolute-layout(@position: top-left, @top: 0, @right: 0, @bottom: 0, @left: 0) {
+  display: flex;
+  position: relative;
+  
+  > * {
+    position: absolute;
+    
+    // 使用嵌套规则处理不同的位置
+    &.top-left {
+      top: @top;
+      left: @left;
+    }
+    
+    &.top-right {
+      top: @top;
+      right: @right;
+    }
+    
+    &.bottom-left {
+      bottom: @bottom;
+      left: @left;
+    }
+    
+    &.bottom-right {
+      bottom: @bottom;
+      right: @right;
+    }
+    
+    &.center {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+
+/* 
+  Mixin: flex-overlay
+  功能描述:
+    创建一个覆盖层布局，通常用于模态框或覆盖内容。覆盖层在中心位置并覆盖全屏。
+  参数:
+    @background-color: 背景颜色，默认值为 rgba(0, 0, 0, 0.5)。
+    @z-index: 层级值，默认值为 1000。
+*/
+.flex-overlay(@background-color: rgba(0, 0, 0, 0.5), @z-index: 1000) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: @background-color;
+  z-index: @z-index;
+}
+
+
+/* 
+  Mixin: flex-stack
+  功能描述:
+    创建一个堆叠布局，所有子项在主轴方向上堆叠，并支持设置间距。
+  参数:
+    @direction: 子项的堆叠方向，默认值为 column。
+    @gap: 子项之间的间距，默认值为 16px。
+*/
+.flex-stack(@direction: column, @gap: 16px) {
+  display: flex;
+  flex-direction: @direction;
+  gap: @gap;
+}
+
+/* 
+  Mixin: flex-overlay-position
+  功能描述:
+    创建一个覆盖层布局，子项绝对定位于覆盖层的不同位置。
+  参数:
+    @overlay-background: 覆盖层背景颜色，默认值为 rgba(0, 0, 0, 0.5)。
+    @z-index: 覆盖层的层级，默认值为 1000。
+    @position: 子项的位置，默认值为 center。
+    @top: 顶部位置，默认值为 0。
+    @right: 右侧位置，默认值为 0。
+    @bottom: 底部位置，默认值为 0。
+    @left: 左侧位置，默认值为 0。
+*/
+/* 
+  Mixin: flex-overlay-position
+  功能描述:
+    创建一个覆盖层布局，子项绝对定位于覆盖层的不同位置。
+  参数:
+    @overlay-background: 覆盖层背景颜色，默认值为 rgba(0, 0, 0, 0.5)。
+    @z-index: 覆盖层的层级，默认值为 1000。
+    @position: 子项的位置，默认值为 center。
+    @top: 顶部位置，默认值为 0。
+    @right: 右侧位置，默认值为 0。
+    @bottom: 底部位置，默认值为 0。
+    @left: 左侧位置，默认值为 0。
+*/
+.flex-overlay-position(
+  @overlay-background: rgba(0, 0, 0, 0.5),
+  @z-index: 1000,
+  @position: center,
+  @top: 0,
+  @right: 0,
+  @bottom: 0,
+  @left: 0
+) {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: @overlay-background;
+  z-index: @z-index;
+  justify-content: center;
+  align-items: center;
+
+  > * {
+    position: absolute;
+    
+    &.top-left {
+      top: @top;
+      left: @left;
+    }
+    
+    &.top-right {
+      top: @top;
+      right: @right;
+    }
+    
+    &.bottom-left {
+      bottom: @bottom;
+      left: @left;
+    }
+    
+    &.bottom-right {
+      bottom: @bottom;
+      right: @right;
+    }
+    
+    &.center {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+
+/* 
+  Mixin: flex-responsive-grid
+  功能描述:
+    创建一个响应式的网格布局，网格项在不同屏幕宽度下有不同的列数。
+  参数:
+    @columns: 默认列数，默认值为 3。
+    @column-small: 小屏幕下的列数，默认值为 1。
+    @column-medium: 中等屏幕下的列数，默认值为 2。
+    @gap: 网格项之间的间距，默认值为 16px。
+    @breakpoint-small: 小屏幕下的宽度，默认值为 576px。
+    @breakpoint-medium: 中等屏幕下的宽度，默认值为 768px。
+*/
+.flex-responsive-grid(
+  @columns: 3,
+  @column-small: 1,
+  @column-medium: 2,
+  @gap: 16px,
+  @breakpoint-small: 576px,
+  @breakpoint-medium: 768px
+) {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -@gap / 2;
+  
+  > * {
+    flex: 1 1 calc(100% / @columns - @gap);
+    margin: @gap / 2;
+  }
+  
+  @media (max-width: @breakpoint-medium) {
+    > * {
+      flex: 1 1 calc(100% / @column-medium - @gap);
+    }
+  }
+  
+  @media (max-width: @breakpoint-small) {
+    > * {
+      flex: 1 1 calc(100% / @column-small - @gap);
+    }
+  }
+}
+
+/* 
+  Mixin: flex-grid-gap
+  功能描述:
+    创建一个网格布局，网格项有固定的行间距和列间距。
+  参数:
+    @columns: 列数，默认值为 3。
+    @row-gap: 行间距，默认值为 16px。
+    @column-gap: 列间距，默认值为 16px。
+*/
+.flex-grid-gap(@columns: 3, @row-gap: 16px, @column-gap: 16px) {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -@row-gap / 2 - @column-gap / 2;
+  
+  > * {
+    flex: 1 1 calc(100% / @columns - @column-gap);
+    margin: @row-gap / 2 @column-gap / 2;
+  }
+}
+
+/* 
+  Mixin: flex-auto-layout
+  功能描述:
+    创建一个自动布局，子项根据内容自动调整大小，并保持一致的间距。
+  参数:
+    @gap: 子项之间的间距，默认值为 16px。
+*/
+.flex-auto-layout(@gap: 16px) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: @gap;
+  
+  > * {
+    flex: 1 1 auto;
+  }
+}

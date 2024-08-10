@@ -1,0 +1,75 @@
+// 文件名: layout.less
+
+/* 
+  Mixin: flex-center
+  功能描述:
+    创建一个 Flexbox 布局，将子元素居中对齐（水平和垂直）。
+  参数:
+    无。
+*/
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 
+  Mixin: flex-column
+  功能描述:
+    创建一个垂直排列的 Flexbox 布局。
+  参数:
+    @align: 子元素在主轴上的对齐方式，默认值为 center。
+*/
+.flex-column(@align: center) {
+  display: flex;
+  flex-direction: column;
+  align-items: @align;
+}
+
+/* 
+  Mixin: grid
+  功能描述:
+    设置一个简单的栅格系统。
+  参数:
+    @columns: 栅格列数，默认值为 12。
+    @gap: 栅格之间的间距，默认值为 16px。
+*/
+.grid(@columns: 12, @gap: 16px) {
+  display: grid;
+  grid-template-columns: repeat(@columns, 1fr);
+  gap: @gap;
+}
+
+/* 
+  Mixin: aspect-ratio
+  功能描述:
+    创建一个具有固定宽高比的容器，宽度百分比设置，高度自动计算。
+  参数:
+    @ratio: 宽高比（宽/高），默认值为 16/9。
+*/
+.aspect-ratio(@ratio: 16/9) {
+  position: relative;
+  width: 100%;
+  padding-bottom: (1 / @ratio) * 100%;
+  
+  & > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* 
+  Mixin: container
+  功能描述:
+    创建一个响应式的容器，最大宽度为 1200px。
+  参数:
+    @padding: 容器的内边距，默认值为 16px。
+*/
+.container(@padding: 16px) {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 @padding;
+}

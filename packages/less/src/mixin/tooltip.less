@@ -1,0 +1,138 @@
+// 文件名: tooltip.less
+
+/* 
+  Mixin: tooltip
+  功能描述:
+    设置工具提示的基础样式。
+  参数:
+    @bg-color: 提示背景颜色，默认值为黑色 (#333)。
+    @text-color: 提示文本颜色，默认值为白色 (#fff)。
+    @padding: 提示的内边距，默认值为 5px 10px。
+    @border-radius: 提示的圆角半径，默认值为 4px。
+*/
+.tooltip(@bg-color: #333, @text-color: #fff, @padding: 5px 10px, @border-radius: 4px) {
+  background-color: @bg-color;
+  color: @text-color;
+  padding: @padding;
+  border-radius: @border-radius;
+  font-size: 12px;
+  position: absolute;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+/* 
+  Mixin: tooltip-top
+  功能描述:
+    设置工具提示在元素上方显示的样式。
+  参数:
+    @offset: 提示与元素之间的距离，默认值为 8px。
+*/
+.tooltip-top(@offset: 8px) {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: @offset;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: @bg-color transparent transparent transparent;
+  }
+}
+
+/* 
+  Mixin: tooltip-bottom
+  功能描述:
+    设置工具提示在元素下方显示的样式。
+  参数:
+    @offset: 提示与元素之间的距离，默认值为 8px。
+*/
+.tooltip-bottom(@offset: 8px) {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: @offset;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent @bg-color transparent;
+  }
+}
+
+/* 
+  Mixin: tooltip-left
+  功能描述:
+    设置工具提示在元素左侧显示的样式。
+  参数:
+    @offset: 提示与元素之间的距离，默认值为 8px。
+*/
+.tooltip-left(@offset: 8px) {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: @offset;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent @bg-color;
+  }
+}
+
+/* 
+  Mixin: tooltip-right
+  功能描述:
+    设置工具提示在元素右侧显示的样式。
+  参数:
+    @offset: 提示与元素之间的距离，默认值为 8px。
+*/
+.tooltip-right(@offset: 8px) {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: @offset;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent @bg-color transparent transparent;
+  }
+}
+
+/* 
+  Mixin: tooltip-animated
+  功能描述:
+    为工具提示添加淡入淡出动画效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.3s。
+*/
+.tooltip-animated(@duration: 0.3s) {
+  opacity: 0;
+  transition: opacity @duration ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}

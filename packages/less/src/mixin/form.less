@@ -1,0 +1,106 @@
+// 文件名: form.less
+
+/* 
+  Mixin: form-group
+  功能描述:
+    为表单组设置基础样式，包括内边距和排列方式。
+  参数:
+    @margin-bottom: 表单组之间的间距，默认值为 15px。
+*/
+.form-group(@margin-bottom: 15px) {
+  margin-bottom: @margin-bottom;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+  Mixin: input
+  功能描述:
+    设置输入框的基础样式。
+  参数:
+    @border-color: 输入框边框颜色，默认值为浅灰色 (#ccc)。
+    @focus-border-color: 输入框获得焦点时的边框颜色，默认值为主色调 (#3498db)。
+*/
+.input(@border-color: #ccc, @focus-border-color: #3498db) {
+  border: 1px solid @border-color;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: @focus-border-color;
+    outline: none;
+  }
+}
+
+/* 
+  Mixin: select
+  功能描述:
+    设置选择框的基础样式。
+  参数:
+    @border-color: 选择框边框颜色，默认值为浅灰色 (#ccc)。
+    @focus-border-color: 选择框获得焦点时的边框颜色，默认值为主色调 (#3498db)。
+*/
+.select(@border-color: #ccc, @focus-border-color: #3498db) {
+  border: 1px solid @border-color;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  appearance: none;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: @focus-border-color;
+    outline: none;
+  }
+}
+
+/* 
+  Mixin: textarea
+  功能描述:
+    设置文本区域的基础样式。
+  参数:
+    @border-color: 文本区域边框颜色，默认值为浅灰色 (#ccc)。
+    @focus-border-color: 文本区域获得焦点时的边框颜色，默认值为主色调 (#3498db)。
+*/
+.textarea(@border-color: #ccc, @focus-border-color: #3498db) {
+  border: 1px solid @border-color;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: @focus-border-color;
+    outline: none;
+  }
+}
+
+/* 
+  Mixin: form-submit
+  功能描述:
+    设置表单提交按钮的样式。
+  参数:
+    @bg-color: 按钮背景颜色，默认值为主色调 (#3498db)。
+    @text-color: 按钮文本颜色，默认值为白色 (#fff)。
+*/
+.form-submit(@bg-color: #3498db, @text-color: #fff) {
+  background-color: @bg-color;
+  color: @text-color;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: lighten(@bg-color, 10%);
+  }
+}
