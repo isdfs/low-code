@@ -46,7 +46,7 @@ class PersistentRBTree<K, V> {
   insert(key: K, value: V): PersistentRBTree<K, V> {
       const newRoot = this.insertNode(this.root, key, value);
       newRoot.color = 'black'; // 根节点必须是黑色
-      return new PersistentRBTree(newRoot);
+      return new (PersistentRBTree as any)(newRoot);
   }
 
   /**
@@ -88,7 +88,7 @@ class PersistentRBTree<K, V> {
    * @param node - 要检查的节点。
    * @returns 如果节点是红色，返回 true；否则返回 false。
    */
-  private isRed(node: PersistentRBTreeNode<K, V> | null): boolean {
+  private isRed(node: PersistentRBTreeNode<K, V> | null | any): boolean {
       return node?.color === 'red';
   }
 

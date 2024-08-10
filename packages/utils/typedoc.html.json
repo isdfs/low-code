@@ -1,0 +1,9 @@
+{
+  "entryPoints": ["src/index.ts"],
+  "out": "docs/html", 
+  "tsconfig": "tsconfig.json",
+  "theme": "default", 
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "excludeProtected": true
+}
