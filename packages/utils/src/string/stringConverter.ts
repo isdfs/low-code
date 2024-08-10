@@ -44,7 +44,7 @@ export class StringConverter {
    * ```
    */
   static objectToXml(obj: Record<string, any>): string {
-      const toXml = (v: any, tagName: string) => {
+      const toXml = (v: any, tagName: string): any => {
           if (typeof v === 'object' && v !== null) {
               return `<${tagName}>${Object.entries(v).map(([key, value]) => toXml(value, key)).join('')}</${tagName}>`;
           }

@@ -25,7 +25,7 @@ export async function readClipboardContent(): Promise<string> {
       } else {
           throw new Error('未授予读取剪贴板的权限');
       }
-  } catch (error) {
+  } catch (error: any) {
       throw new Error(`无法读取剪贴板内容: ${error.message}`);
   }
 }

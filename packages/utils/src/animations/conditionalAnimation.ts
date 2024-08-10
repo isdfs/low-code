@@ -15,7 +15,7 @@ class ConditionalAnimation {
   private condition: () => boolean;
   private animation: KeyframeAnimation;
   private checkInterval: number;
-  private intervalId: number | null = null;
+  private intervalId: any | number | null = null;
 
   constructor(options: ConditionalAnimationOptions, checkInterval: number = 100) {
       this.condition = options.condition;

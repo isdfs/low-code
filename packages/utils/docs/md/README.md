@@ -4,6 +4,11 @@
 
 ## Table of contents
 
+### Classes
+
+- [AnimationSequencer](classes/AnimationSequencer.md)
+- [PriorityQueue](classes/PriorityQueue.md)
+
 ### Functions
 
 - [accessControl](README.md#accesscontrol)
@@ -92,7 +97,6 @@
 - [parallelLimit](README.md#parallellimit)
 - [pipe](README.md#pipe)
 - [policyEvaluator](README.md#policyevaluator)
-- [priorityQueue](README.md#priorityqueue)
 - [priorityTaskQueue](README.md#prioritytaskqueue)
 - [readCSVFile](README.md#readcsvfile)
 - [readFile](README.md#readfile)
@@ -105,10 +109,8 @@
 - [rotateImage](README.md#rotateimage)
 - [saveFile](README.md#savefile)
 - [scrollToElement](README.md#scrolltoelement)
-- [sequencer](README.md#sequencer)
 - [shuffle](README.md#shuffle)
 - [sortByKey](README.md#sortbykey)
-- [staggeredSequencer](README.md#staggeredsequencer)
 - [strategy](README.md#strategy)
 - [taskScheduler](README.md#taskscheduler)
 - [throttle](README.md#throttle)
@@ -166,7 +168,7 @@ console.log(acl.canAccess('delete')); // true
 
 #### Defined in
 
-[security/accessControl.ts:21](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/security/accessControl.ts#L21)
+[security/accessControl.ts:21](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/security/accessControl.ts#L21)
 
 ___
 
@@ -195,7 +197,7 @@ console.log(newDate); // 当前日期加上10天
 
 #### Defined in
 
-[date/addDays.ts:12](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/date/addDays.ts#L12)
+[date/addDays.ts:12](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/date/addDays.ts#L12)
 
 ___
 
@@ -235,7 +237,7 @@ console.log(strategies.execute('square', -2)); // 输出: Square: 4
 
 #### Defined in
 
-[patterns/advancedStrategy.ts:18](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/patterns/advancedStrategy.ts#L18)
+[patterns/advancedStrategy.ts:18](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/patterns/advancedStrategy.ts#L18)
 
 ___
 
@@ -278,38 +280,32 @@ console.log(aggregated); // { fruit: 30, vegetable: 15 }
 
 #### Defined in
 
-[data/aggregateBy.ts:21](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/data/aggregateBy.ts#L21)
+[data/aggregateBy.ts:21](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/data/aggregateBy.ts#L21)
 
 ___
 
 ### animateElement
 
-▸ **animateElement**(`element`, `animationName`, `duration?`): `Promise`<`void`\>
+▸ **animateElement**(`element`, `type`, `duration?`, `callback?`): `void`
 
-使用CSS动画动画化指定的元素。
-
-**`example`**
-animateElement(document.getElementById('myElement')!, 'bounce', 500).then(() => {
-  console.log('Animation finished');
-});
+animateElement 函数用于对指定元素应用动画效果。
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `element` | `HTMLElement` | `undefined` | 要动画化的元素。 |
-| `animationName` | `string` | `undefined` | 动画名称（对应CSS类名）。 |
-| `duration` | `number` | `1000` | - |
+| `element` | `HTMLElement` | `undefined` | 要应用动画的 DOM 元素。 |
+| `type` | `AnimationType` | `undefined` | 要应用的动画类型。 |
+| `duration` | `number` | `500` | 动画持续时间（毫秒）。 |
+| `callback?` | () => `void` | `undefined` | 动画结束后的回调函数。 |
 
 #### Returns
 
-`Promise`<`void`\>
-
-动画完成后的Promise。
+`void`
 
 #### Defined in
 
-[animations/animateElement.ts:14](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/animations/animateElement.ts#L14)
+[animations/animateElement.ts:19](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/animations/animateElement.ts#L19)
 
 ___
 
@@ -333,7 +329,7 @@ ___
 
 #### Defined in
 
-[animations/animateScrollTo.ts:7](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/animations/animateScrollTo.ts#L7)
+[animations/animateScrollTo.ts:7](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/animations/animateScrollTo.ts#L7)
 
 ___
 
@@ -368,7 +364,7 @@ applyWatermark(blob, 'My Watermark').then(watermarkedBlob => {
 
 #### Defined in
 
-[images/applyWatermark.ts:18](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/images/applyWatermark.ts#L18)
+[images/applyWatermark.ts:18](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/images/applyWatermark.ts#L18)
 
 ___
 
@@ -397,7 +393,7 @@ Blob 对象
 
 #### Defined in
 
-[files/base64ToBlob.ts:14](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/files/base64ToBlob.ts#L14)
+[files/base64ToBlob.ts:14](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/files/base64ToBlob.ts#L14)
 
 ___
 
@@ -427,7 +423,7 @@ File 对象
 
 #### Defined in
 
-[files/base64ToFile.ts:17](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/files/base64ToFile.ts#L17)
+[files/base64ToFile.ts:17](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/files/base64ToFile.ts#L17)
 
 ___
 
@@ -457,7 +453,7 @@ console.log(imageFile);
 
 #### Defined in
 
-[files/base64ToImageFile.ts:17](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/files/base64ToImageFile.ts#L17)
+[files/base64ToImageFile.ts:17](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/files/base64ToImageFile.ts#L17)
 
 ___
 
@@ -493,7 +489,7 @@ batchRequest([request1, request2], 1).then(results => console.log(results));
 
 #### Defined in
 
-[network/batchRequest.ts:14](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/network/batchRequest.ts#L14)
+[network/batchRequest.ts:14](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/network/batchRequest.ts#L14)
 
 ___
 
@@ -521,7 +517,7 @@ base64 编码字符串
 
 #### Defined in
 
-[files/blobToBase64.ts:13](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/files/blobToBase64.ts#L13)
+[files/blobToBase64.ts:13](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/files/blobToBase64.ts#L13)
 
 ___
 
@@ -551,7 +547,7 @@ File 对象
 
 #### Defined in
 
-[files/blobToFile.ts:15](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/files/blobToFile.ts#L15)
+[files/blobToFile.ts:15](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/files/blobToFile.ts#L15)
 
 ___
 
@@ -599,7 +595,7 @@ setTimeout(() => console.log(cache.get('key')), 6000); // undefined
 
 #### Defined in
 
-[cache/cacheWithTTL.ts:19](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/cache/cacheWithTTL.ts#L19)
+[cache/cacheWithTTL.ts:19](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/cache/cacheWithTTL.ts#L19)
 
 ___
 
@@ -623,7 +619,7 @@ ___
 
 #### Defined in
 
-[string/camelCaseToSnakeCase.ts:6](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/string/camelCaseToSnakeCase.ts#L6)
+[string/camelCaseToSnakeCase.ts:6](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/string/camelCaseToSnakeCase.ts#L6)
 
 ___
 
@@ -647,7 +643,7 @@ ___
 
 #### Defined in
 
-[string/capitalize.ts:7](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/string/capitalize.ts#L7)
+[string/capitalize.ts:7](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/string/capitalize.ts#L7)
 
 ___
 
@@ -678,7 +674,7 @@ ___
 
 #### Defined in
 
-[array/chunk.ts:8](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/array/chunk.ts#L8)
+[array/chunk.ts:8](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/array/chunk.ts#L8)
 
 ___
 
@@ -704,7 +700,7 @@ ___
 
 #### Defined in
 
-[number/clamp.ts:9](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/number/clamp.ts#L9)
+[number/clamp.ts:9](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/number/clamp.ts#L9)
 
 ___
 
@@ -733,7 +729,7 @@ compressImage(imageFile, 0.8).then(blob => console.log(blob));
 
 #### Defined in
 
-[images/compressImage.ts:14](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/images/compressImage.ts#L14)
+[images/compressImage.ts:14](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/images/compressImage.ts#L14)
 
 ___
 
@@ -741,10 +737,16 @@ ___
 
 ▸ **copyToClipboard**(`text`): `Promise`<`void`\>
 
-将文本复制到剪贴板。
+复制文本到剪贴板。
+
+该方法可以将指定的文本复制到用户的剪贴板中。适用于需要用户复制内容的场景。
 
 **`example`**
-copyToClipboard('Hello World').then(() => console.log('Text copied!'));
+```
+copyToClipboard('Hello, World!')
+  .then(() => console.log('文本已成功复制到剪贴板！'))
+  .catch(err => console.error('复制失败:', err));
+```
 
 #### Parameters
 
@@ -756,11 +758,11 @@ copyToClipboard('Hello World').then(() => console.log('Text copied!'));
 
 `Promise`<`void`\>
 
-复制操作的Promise。
+返回一个 Promise，当文本成功复制到剪贴板时，Promise 解析。
 
 #### Defined in
 
-[browser/copyToClipboard.ts:10](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/browser/copyToClipboard.ts#L10)
+[browser/copyToClipboard.ts:16](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/browser/copyToClipboard.ts#L16)
 
 ___
 
@@ -797,7 +799,7 @@ responsive.onChange(() => console.log('Viewport size changed'));
 
 #### Defined in
 
-[responsive/breakpoints.ts:15](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/responsive/breakpoints.ts#L15)
+[responsive/breakpoints.ts:15](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/responsive/breakpoints.ts#L15)
 
 ___
 
@@ -843,7 +845,7 @@ configManager.reload(); // 手动触发配置加载
 
 #### Defined in
 
-[config/configManager.ts:18](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/config/configManager.ts#L18)
+[config/configManager.ts:18](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/config/configManager.ts#L18)
 
 ___
 
@@ -885,7 +887,7 @@ eventBus.off('event1', listener);
 
 #### Defined in
 
-[events/eventBus.ts:19](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/events/eventBus.ts#L19)
+[events/eventBus.ts:19](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/events/eventBus.ts#L19)
 
 ___
 
@@ -925,7 +927,7 @@ eventReplayer.replay(); // 重放记录的事件
 
 #### Defined in
 
-[events/eventReplayer.ts:17](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/events/eventReplayer.ts#L17)
+[events/eventReplayer.ts:17](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/events/eventReplayer.ts#L17)
 
 ___
 
@@ -967,7 +969,7 @@ console.log(i18n.t('hello')); // "Bonjour"
 
 #### Defined in
 
-[i18n/createI18n.ts:20](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/i18n/createI18n.ts#L20)
+[i18n/createI18n.ts:20](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/i18n/createI18n.ts#L20)
 
 ___
 
@@ -1010,7 +1012,7 @@ console.log(localeManager.t('hello')); // 输出: Hello
 
 #### Defined in
 
-[i18n/localeManager.ts:16](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/i18n/localeManager.ts#L16)
+[i18n/localeManager.ts:16](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/i18n/localeManager.ts#L16)
 
 ___
 
@@ -1053,7 +1055,7 @@ logger.setLevel('warn');
 
 #### Defined in
 
-[logging/logger.ts:19](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/logging/logger.ts#L19)
+[logging/logger.ts:19](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/logging/logger.ts#L19)
 
 ___
 
@@ -1087,7 +1089,7 @@ logger.log('Service resolved');
 
 #### Defined in
 
-[di/serviceContainer.ts:16](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/di/serviceContainer.ts#L16)
+[di/serviceContainer.ts:16](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/di/serviceContainer.ts#L16)
 
 ___
 
@@ -1128,7 +1130,7 @@ console.log(snapshotManager.rollback()); // { count: 1 }
 
 #### Defined in
 
-[data/snapshotManager.ts:18](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/data/snapshotManager.ts#L18)
+[data/snapshotManager.ts:18](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/data/snapshotManager.ts#L18)
 
 ___
 
@@ -1174,7 +1176,7 @@ console.log(store.getState()); // { count: 1 }
 
 #### Defined in
 
-[state/createStore.ts:18](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/state/createStore.ts#L18)
+[state/createStore.ts:18](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/state/createStore.ts#L18)
 
 ___
 
@@ -1216,7 +1218,7 @@ ws.send({ action: 'subscribe', channel: 'updates' });
 
 #### Defined in
 
-[network/createWebSocket.ts:20](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/network/createWebSocket.ts#L20)
+[network/createWebSocket.ts:20](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/network/createWebSocket.ts#L20)
 
 ___
 
@@ -1250,7 +1252,7 @@ cropImage(blob, 10, 10, 200, 200).then(croppedBlob => {
 
 #### Defined in
 
-[images/cropImage.ts:17](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/images/cropImage.ts#L17)
+[images/cropImage.ts:17](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/images/cropImage.ts#L17)
 
 ___
 
@@ -1297,7 +1299,7 @@ console.log(storage.getItem('key')); // 42
 
 #### Defined in
 
-[storage/crossPlatformStorage.ts:18](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/storage/crossPlatformStorage.ts#L18)
+[storage/crossPlatformStorage.ts:18](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/storage/crossPlatformStorage.ts#L18)
 
 ___
 
@@ -1335,7 +1337,7 @@ dataSynchronizer(fetchData, updateLocal, compare).then(() => console.log('Data s
 
 #### Defined in
 
-[sync/dataSynchronizer.ts:16](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/sync/dataSynchronizer.ts#L16)
+[sync/dataSynchronizer.ts:16](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/sync/dataSynchronizer.ts#L16)
 
 ___
 
@@ -1380,7 +1382,7 @@ window.addEventListener('scroll', debouncedFunc);
 
 #### Defined in
 
-[performance/debounce.ts:12](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/performance/debounce.ts#L12)
+[performance/debounce.ts:12](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/performance/debounce.ts#L12)
 
 ___
 
@@ -1423,7 +1425,7 @@ document.getElementById('myButton')!.addEventListener('click', debouncedClick);
 
 #### Defined in
 
-[events/debounceEvent.ts:14](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/events/debounceEvent.ts#L14)
+[events/debounceEvent.ts:14](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/events/debounceEvent.ts#L14)
 
 ___
 
@@ -1465,7 +1467,7 @@ debouncedFetch('term').then(response => console.log(response));
 
 #### Defined in
 
-[data/debouncePromises.ts:13](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/data/debouncePromises.ts#L13)
+[data/debouncePromises.ts:13](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/data/debouncePromises.ts#L13)
 
 ___
 
@@ -1493,7 +1495,7 @@ const decrypted = decrypt('khoor', 3); // hello
 
 #### Defined in
 
-[security/encrypt.ts:30](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/security/encrypt.ts#L30)
+[security/encrypt.ts:30](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/security/encrypt.ts#L30)
 
 ___
 
@@ -1523,7 +1525,7 @@ ___
 
 #### Defined in
 
-[object/deepClone.ts:7](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/object/deepClone.ts#L7)
+[object/deepClone.ts:7](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/object/deepClone.ts#L7)
 
 ___
 
@@ -1558,7 +1560,7 @@ console.log(clone); // { a: 1, b: { c: 2 } }
 
 #### Defined in
 
-[utility/deepClone.ts:12](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/utility/deepClone.ts#L12)
+[utility/deepClone.ts:12](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/utility/deepClone.ts#L12)
 
 ___
 
@@ -1588,7 +1590,7 @@ ___
 
 #### Defined in
 
-[data/deepFreeze.ts:6](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/data/deepFreeze.ts#L6)
+[data/deepFreeze.ts:6](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/data/deepFreeze.ts#L6)
 
 ___
 
@@ -1624,7 +1626,7 @@ console.log(merged); // { a: 1, b: { x: 1, y: 2 }, c: 3 }
 
 #### Defined in
 
-[data/deepMerge.ts:14](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/data/deepMerge.ts#L14)
+[data/deepMerge.ts:14](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/data/deepMerge.ts#L14)
 
 ___
 
@@ -1665,7 +1667,7 @@ console.log(merged); // { a: 3, b: { c: 2, d: 3 } }
 
 #### Defined in
 
-[data/deepMergeWithRules.ts:19](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/data/deepMergeWithRules.ts#L19)
+[data/deepMergeWithRules.ts:19](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/data/deepMergeWithRules.ts#L19)
 
 ___
 
@@ -1695,7 +1697,7 @@ delegate(document.body, 'button', 'click', (event) => {
 
 #### Defined in
 
-[events/delegate.ts:14](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/events/delegate.ts#L14)
+[events/delegate.ts:14](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/events/delegate.ts#L14)
 
 ___
 
@@ -1736,7 +1738,7 @@ const logger = di.inject('logger');
 
 #### Defined in
 
-[di/dependencyInjector.ts:18](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/di/dependencyInjector.ts#L18)
+[di/dependencyInjector.ts:18](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/di/dependencyInjector.ts#L18)
 
 ___
 
@@ -1759,7 +1761,7 @@ ___
 
 #### Defined in
 
-[browser/detectBrowser.ts:5](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/browser/detectBrowser.ts#L5)
+[browser/detectBrowser.ts:5](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/browser/detectBrowser.ts#L5)
 
 ___
 
@@ -1781,7 +1783,7 @@ console.log(deviceType); // 'mobile'（根据实际设备返回）
 
 #### Defined in
 
-[browser/detectDevice.ts:10](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/browser/detectDevice.ts#L10)
+[browser/detectDevice.ts:10](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/browser/detectDevice.ts#L10)
 
 ___
 
@@ -1808,7 +1810,7 @@ downloadImage(blob, 'download.png');
 
 #### Defined in
 
-[images/downloadImage.ts:13](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/images/downloadImage.ts#L13)
+[images/downloadImage.ts:13](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/images/downloadImage.ts#L13)
 
 ___
 
@@ -1853,7 +1855,7 @@ console.log(result); // { isValid: true, errors: {} }
 
 #### Defined in
 
-[forms/dynamicFormValidator.ts:18](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/forms/dynamicFormValidator.ts#L18)
+[forms/dynamicFormValidator.ts:18](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/forms/dynamicFormValidator.ts#L18)
 
 ___
 
@@ -1881,7 +1883,7 @@ const encrypted = encrypt('hello', 3); // khoor
 
 #### Defined in
 
-[security/encrypt.ts:13](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/security/encrypt.ts#L13)
+[security/encrypt.ts:13](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/security/encrypt.ts#L13)
 
 ___
 
@@ -1907,7 +1909,7 @@ fadeIn(document.getElementById('myElement')!, 500);
 
 #### Defined in
 
-[ui/fadeIn.ts:10](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/ui/fadeIn.ts#L10)
+[ui/fadeIn.ts:10](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/ui/fadeIn.ts#L10)
 
 ___
 
@@ -1933,7 +1935,7 @@ fadeOut(document.getElementById('myElement')!, 500);
 
 #### Defined in
 
-[ui/fadeOut.ts:10](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/ui/fadeOut.ts#L10)
+[ui/fadeOut.ts:10](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/ui/fadeOut.ts#L10)
 
 ___
 
@@ -1965,7 +1967,7 @@ fetchWithTimeout('https://api.example.com/data', {}, 5000)
 
 #### Defined in
 
-[network/fetchWithTimeout.ts:15](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/network/fetchWithTimeout.ts#L15)
+[network/fetchWithTimeout.ts:15](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/network/fetchWithTimeout.ts#L15)
 
 ___
 
@@ -1993,7 +1995,7 @@ base64 编码字符串
 
 #### Defined in
 
-[files/fileToBase64.ts:13](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/files/fileToBase64.ts#L13)
+[files/fileToBase64.ts:13](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/files/fileToBase64.ts#L13)
 
 ___
 
@@ -2021,7 +2023,7 @@ Blob 对象
 
 #### Defined in
 
-[files/fileToBlob.ts:13](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/files/fileToBlob.ts#L13)
+[files/fileToBlob.ts:13](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/files/fileToBlob.ts#L13)
 
 ___
 
@@ -2074,7 +2076,7 @@ console.log(fsm.getState()); // 'running'
 
 #### Defined in
 
-[state/finiteStateMachine.ts:27](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/state/finiteStateMachine.ts#L27)
+[state/finiteStateMachine.ts:27](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/state/finiteStateMachine.ts#L27)
 
 ___
 
@@ -2104,7 +2106,7 @@ ___
 
 #### Defined in
 
-[array/flatten.ts:7](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/array/flatten.ts#L7)
+[array/flatten.ts:7](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/array/flatten.ts#L7)
 
 ___
 
@@ -2136,7 +2138,7 @@ flipImage(blob, true, false).then(flippedBlob => {
 
 #### Defined in
 
-[images/flipImage.ts:15](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/images/flipImage.ts#L15)
+[images/flipImage.ts:15](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/images/flipImage.ts#L15)
 
 ___
 
@@ -2165,7 +2167,7 @@ console.log(formattedDate); // 例如：2024-08-09
 
 #### Defined in
 
-[date/formatDate.ts:12](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/date/formatDate.ts#L12)
+[date/formatDate.ts:12](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/date/formatDate.ts#L12)
 
 ___
 
@@ -2205,7 +2207,7 @@ generateDynamicForm(formData, labels, validators, document.getElementById('myFor
 
 #### Defined in
 
-[forms/generateDynamicForm.ts:22](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/forms/generateDynamicForm.ts#L22)
+[forms/generateDynamicForm.ts:22](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/forms/generateDynamicForm.ts#L22)
 
 ___
 
@@ -2229,7 +2231,7 @@ ___
 
 #### Defined in
 
-[security/generateSecureToken.ts:6](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/security/generateSecureToken.ts#L6)
+[security/generateSecureToken.ts:6](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/security/generateSecureToken.ts#L6)
 
 ___
 
@@ -2262,7 +2264,7 @@ console.log(offset); // { top: 100, left: 50 }
 
 #### Defined in
 
-[dom/getElementOffset.ts:11](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/dom/getElementOffset.ts#L11)
+[dom/getElementOffset.ts:11](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/dom/getElementOffset.ts#L11)
 
 ___
 
@@ -2290,7 +2292,7 @@ console.log(value); // 例如：'abc123'
 
 #### Defined in
 
-[browser/getQueryParam.ts:11](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/browser/getQueryParam.ts#L11)
+[browser/getQueryParam.ts:11](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/browser/getQueryParam.ts#L11)
 
 ___
 
@@ -2334,7 +2336,7 @@ console.log(grouped);
 
 #### Defined in
 
-[data/groupBy.ts:24](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/data/groupBy.ts#L24)
+[data/groupBy.ts:24](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/data/groupBy.ts#L24)
 
 ___
 
@@ -2358,7 +2360,7 @@ GET 请求
 
 #### Defined in
 
-[http/httpRequest.ts:34](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/http/httpRequest.ts#L34)
+[http/httpRequest.ts:34](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/http/httpRequest.ts#L34)
 
 ___
 
@@ -2383,7 +2385,7 @@ POST 请求
 
 #### Defined in
 
-[http/httpRequest.ts:45](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/http/httpRequest.ts#L45)
+[http/httpRequest.ts:45](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/http/httpRequest.ts#L45)
 
 ___
 
@@ -2413,7 +2415,7 @@ httpRequest('https://jsonplaceholder.typicode.com/todos/1')
 
 #### Defined in
 
-[http/httpRequest.ts:15](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/http/httpRequest.ts#L15)
+[http/httpRequest.ts:15](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/http/httpRequest.ts#L15)
 
 ___
 
@@ -2441,7 +2443,7 @@ base64 编码字符串
 
 #### Defined in
 
-[files/imageToBase64.ts:15](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/files/imageToBase64.ts#L15)
+[files/imageToBase64.ts:15](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/files/imageToBase64.ts#L15)
 
 ___
 
@@ -2469,7 +2471,7 @@ console.log(valid); // true
 
 #### Defined in
 
-[validation/isEmail.ts:11](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/validation/isEmail.ts#L11)
+[validation/isEmail.ts:11](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/validation/isEmail.ts#L11)
 
 ___
 
@@ -2497,7 +2499,7 @@ console.log(empty); // true
 
 #### Defined in
 
-[validation/isEmpty.ts:11](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/validation/isEmpty.ts#L11)
+[validation/isEmpty.ts:11](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/validation/isEmpty.ts#L11)
 
 ___
 
@@ -2525,7 +2527,7 @@ console.log(isEmpty); // true
 
 #### Defined in
 
-[utility/isEmptyObject.ts:11](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/utility/isEmptyObject.ts#L11)
+[utility/isEmptyObject.ts:11](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/utility/isEmptyObject.ts#L11)
 
 ___
 
@@ -2549,7 +2551,7 @@ value is number
 
 #### Defined in
 
-[number/isNumber.ts:7](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/number/isNumber.ts#L7)
+[number/isNumber.ts:7](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/number/isNumber.ts#L7)
 
 ___
 
@@ -2573,7 +2575,7 @@ item is object
 
 #### Defined in
 
-[object/merge.ts:35](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/object/merge.ts#L35)
+[object/merge.ts:35](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/object/merge.ts#L35)
 
 ___
 
@@ -2601,7 +2603,7 @@ console.log(isValid); // true
 
 #### Defined in
 
-[validation/isPhoneNumber.ts:11](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/validation/isPhoneNumber.ts#L11)
+[validation/isPhoneNumber.ts:11](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/validation/isPhoneNumber.ts#L11)
 
 ___
 
@@ -2629,7 +2631,7 @@ console.log(isValid); // true
 
 #### Defined in
 
-[validation/isURL.ts:11](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/validation/isURL.ts#L11)
+[validation/isURL.ts:11](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/validation/isURL.ts#L11)
 
 ___
 
@@ -2653,7 +2655,7 @@ ___
 
 #### Defined in
 
-[string/kebabCase.ts:7](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/string/kebabCase.ts#L7)
+[string/kebabCase.ts:7](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/string/kebabCase.ts#L7)
 
 ___
 
@@ -2703,7 +2705,7 @@ console.log(cache.get('b')); // undefined
 
 #### Defined in
 
-[cache/lruCache.ts:22](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/cache/lruCache.ts#L22)
+[cache/lruCache.ts:22](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/cache/lruCache.ts#L22)
 
 ___
 
@@ -2748,7 +2750,7 @@ console.log(memoizedFunc(5)); // 10 (cached)
 
 #### Defined in
 
-[cache/memoize.ts:16](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/cache/memoize.ts#L16)
+[cache/memoize.ts:16](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/cache/memoize.ts#L16)
 
 ___
 
@@ -2779,7 +2781,7 @@ ___
 
 #### Defined in
 
-[object/merge.ts:8](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/object/merge.ts#L8)
+[object/merge.ts:8](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/object/merge.ts#L8)
 
 ___
 
@@ -2816,7 +2818,7 @@ console.log(result); // [1, 2, 3, 4, 5]
 
 #### Defined in
 
-[data/mergeAndDeduplicate.ts:17](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/data/mergeAndDeduplicate.ts#L17)
+[data/mergeAndDeduplicate.ts:17](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/data/mergeAndDeduplicate.ts#L17)
 
 ___
 
@@ -2858,7 +2860,7 @@ stream.complete();
 
 #### Defined in
 
-[data/observableStream.ts:19](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/data/observableStream.ts#L19)
+[data/observableStream.ts:19](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/data/observableStream.ts#L19)
 
 ___
 
@@ -2904,7 +2906,7 @@ ___
 
 #### Defined in
 
-[performance/once.ts:6](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/performance/once.ts#L6)
+[performance/once.ts:6](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/performance/once.ts#L6)
 
 ___
 
@@ -2942,7 +2944,7 @@ const page3 = paginate(data, 3, 3); // [7, 8, 9]
 
 #### Defined in
 
-[data/paginate.ts:18](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/data/paginate.ts#L18)
+[data/paginate.ts:18](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/data/paginate.ts#L18)
 
 ___
 
@@ -2973,7 +2975,7 @@ ___
 
 #### Defined in
 
-[async/parallelLimit.ts:7](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/async/parallelLimit.ts#L7)
+[async/parallelLimit.ts:7](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/async/parallelLimit.ts#L7)
 
 ___
 
@@ -3026,7 +3028,7 @@ console.log(result); // 36
 
 #### Defined in
 
-[data/pipe.ts:15](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/data/pipe.ts#L15)
+[data/pipe.ts:15](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/data/pipe.ts#L15)
 
 ___
 
@@ -3070,55 +3072,7 @@ console.log(evaluator.evaluate('canDelete')); // true
 
 #### Defined in
 
-[security/policyEvaluator.ts:22](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/security/policyEvaluator.ts#L22)
-
-___
-
-### priorityQueue
-
-▸ **priorityQueue**<`T`\>(`initialElements?`): `Object`
-
-优先队列，用于按照优先级顺序处理任务。
-
-**`example`**
-const pq = priorityQueue<string>();
-pq.enqueue('task1', 2);
-pq.enqueue('task2', 1);
-console.log(pq.dequeue()); // 'task2'
-
-#### Type parameters
-
-| Name | Description |
-| :------ | :------ |
-| `T` | 队列元素的类型。 |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `initialElements?` | { `item`: `T` ; `priority`: `number`  }[] |
-
-#### Returns
-
-`Object`
-
-{{
-  enqueue: (item: T, priority: number) => void,
-  dequeue: () => T | undefined,
-  peek: () => T | undefined,
-  size: () => number
-}} - 包含入队、出队、查看队首元素和获取队列大小的方法。
-
-| Name | Type |
-| :------ | :------ |
-| `dequeue` | () => `T` \| `undefined` |
-| `enqueue` | (`item`: `T`, `priority`: `number`) => `void` |
-| `peek` | () => `T` \| `undefined` |
-| `size` | () => `number` |
-
-#### Defined in
-
-[dataStructures/priorityQueue.ts:19](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/dataStructures/priorityQueue.ts#L19)
+[security/policyEvaluator.ts:22](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/security/policyEvaluator.ts#L22)
 
 ___
 
@@ -3161,7 +3115,7 @@ taskQueue.processAll(task => console.log(task)); // 输出: 'task2', 'task1', 't
 
 #### Defined in
 
-[scheduler/priorityTaskQueue.ts:19](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/scheduler/priorityTaskQueue.ts#L19)
+[scheduler/priorityTaskQueue.ts:19](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/scheduler/priorityTaskQueue.ts#L19)
 
 ___
 
@@ -3185,7 +3139,7 @@ ___
 
 #### Defined in
 
-[files/readCSVFile.ts:6](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/files/readCSVFile.ts#L6)
+[files/readCSVFile.ts:6](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/files/readCSVFile.ts#L6)
 
 ___
 
@@ -3213,7 +3167,7 @@ readFile(file).then(content => console.log(content)); // "Hello, world!"
 
 #### Defined in
 
-[files/fileReader.ts:13](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/files/fileReader.ts#L13)
+[files/fileReader.ts:13](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/files/fileReader.ts#L13)
 
 ___
 
@@ -3246,7 +3200,7 @@ fileInput.addEventListener('change', async () => {
 
 #### Defined in
 
-[files/readFileAsText.ts:16](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/files/readFileAsText.ts#L16)
+[files/readFileAsText.ts:16](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/files/readFileAsText.ts#L16)
 
 ___
 
@@ -3276,7 +3230,7 @@ resizeImage(imageFile, 200, 200).then(blob => console.log(blob));
 
 #### Defined in
 
-[images/resizeImage.ts:15](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/images/resizeImage.ts#L15)
+[images/resizeImage.ts:15](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/images/resizeImage.ts#L15)
 
 ___
 
@@ -3316,7 +3270,7 @@ retry(fetchData, 3, 1000).then(data => console.log(data)).catch(err => console.e
 
 #### Defined in
 
-[async/retry.ts:18](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/async/retry.ts#L18)
+[async/retry.ts:18](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/async/retry.ts#L18)
 
 ___
 
@@ -3343,7 +3297,7 @@ ___
 
 #### Defined in
 
-[network/retryFetch.ts:9](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/network/retryFetch.ts#L9)
+[network/retryFetch.ts:9](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/network/retryFetch.ts#L9)
 
 ___
 
@@ -3371,7 +3325,7 @@ console.log(reversed); // 'olleh'
 
 #### Defined in
 
-[string/reverseString.ts:11](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/string/reverseString.ts#L11)
+[string/reverseString.ts:11](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/string/reverseString.ts#L11)
 
 ___
 
@@ -3412,7 +3366,7 @@ console.log(rbac.getRoles()); // ['admin']
 
 #### Defined in
 
-[security/roleBasedAccessControl.ts:18](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/security/roleBasedAccessControl.ts#L18)
+[security/roleBasedAccessControl.ts:18](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/security/roleBasedAccessControl.ts#L18)
 
 ___
 
@@ -3443,7 +3397,7 @@ rotateImage(blob, 90).then(rotatedBlob => {
 
 #### Defined in
 
-[images/rotateImage.ts:14](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/images/rotateImage.ts#L14)
+[images/rotateImage.ts:14](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/images/rotateImage.ts#L14)
 
 ___
 
@@ -3467,7 +3421,7 @@ ___
 
 #### Defined in
 
-[files/fileReader.ts:29](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/files/fileReader.ts#L29)
+[files/fileReader.ts:29](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/files/fileReader.ts#L29)
 
 ___
 
@@ -3490,37 +3444,7 @@ ___
 
 #### Defined in
 
-[dom/scrollToElement.ts:6](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/dom/scrollToElement.ts#L6)
-
-___
-
-### sequencer
-
-▸ **sequencer**(`animations`): `Promise`<`void`\>
-
-动画序列器，用于按顺序执行一组动画。
-
-**`example`**
-const fadeIn = () => new Promise(resolve => setTimeout(() => { console.log('Fade In'); resolve(); }, 1000));
-const move = () => new Promise(resolve => setTimeout(() => { console.log('Move'); resolve(); }, 1000));
-const fadeOut = () => new Promise(resolve => setTimeout(() => { console.log('Fade Out'); resolve(); }, 1000));
-sequencer([fadeIn, move, fadeOut]).then(() => console.log('All animations done'));
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `animations` | () => `Promise`<`void`\>[] | 包含一系列返回Promise的动画函数。 |
-
-#### Returns
-
-`Promise`<`void`\>
-
-返回一个Promise，表示所有动画执行完毕。
-
-#### Defined in
-
-[animations/sequencer.ts:13](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/animations/sequencer.ts#L13)
+[dom/scrollToElement.ts:6](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/dom/scrollToElement.ts#L6)
 
 ___
 
@@ -3554,7 +3478,7 @@ console.log(shuffledArray); // [3, 5, 1, 4, 2]（示例，顺序随机）
 
 #### Defined in
 
-[array/shuffle.ts:11](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/array/shuffle.ts#L11)
+[array/shuffle.ts:11](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/array/shuffle.ts#L11)
 
 ___
 
@@ -3591,38 +3515,7 @@ console.log(sorted); // [{ name: 'Bob', age: 22 }, { name: 'Alice', age: 25 }]
 
 #### Defined in
 
-[data/sortByKey.ts:15](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/data/sortByKey.ts#L15)
-
-___
-
-### staggeredSequencer
-
-▸ **staggeredSequencer**(`animations`, `delay`): `Promise`<`void`\>
-
-分段执行动画序列，为每个动画增加延迟。
-
-**`example`**
-const fadeIn = () => new Promise(resolve => setTimeout(() => { console.log('Fade In'); resolve(); }, 1000));
-const move = () => new Promise(resolve => setTimeout(() => { console.log('Move'); resolve(); }, 1000));
-const fadeOut = () => new Promise(resolve => setTimeout(() => { console.log('Fade Out'); resolve(); }, 1000));
-staggeredSequencer([fadeIn, move, fadeOut], 500).then(() => console.log('All animations done'));
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `animations` | () => `Promise`<`void`\>[] | 包含一系列返回Promise的动画函数。 |
-| `delay` | `number` | 每个动画之间的延迟时间（毫秒）。 |
-
-#### Returns
-
-`Promise`<`void`\>
-
-返回一个Promise，表示所有动画执行完毕。
-
-#### Defined in
-
-[animations/staggeredSequencer.ts:14](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/animations/staggeredSequencer.ts#L14)
+[data/sortByKey.ts:15](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/data/sortByKey.ts#L15)
 
 ___
 
@@ -3662,7 +3555,7 @@ console.log(strategies.execute('square', 4)); // 输出: Square: 16
 
 #### Defined in
 
-[patterns/strategy.ts:18](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/patterns/strategy.ts#L18)
+[patterns/strategy.ts:18](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/patterns/strategy.ts#L18)
 
 ___
 
@@ -3697,7 +3590,7 @@ scheduler.cancel(task); // 取消任务
 
 #### Defined in
 
-[scheduler/taskScheduler.ts:17](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/scheduler/taskScheduler.ts#L17)
+[scheduler/taskScheduler.ts:17](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/scheduler/taskScheduler.ts#L17)
 
 ___
 
@@ -3742,7 +3635,7 @@ window.addEventListener('resize', throttledFunc);
 
 #### Defined in
 
-[performance/throttle.ts:12](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/performance/throttle.ts#L12)
+[performance/throttle.ts:12](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/performance/throttle.ts#L12)
 
 ___
 
@@ -3768,7 +3661,7 @@ toggleClass(document.getElementById('myElement')!, 'active');
 
 #### Defined in
 
-[dom/toggleClass.ts:10](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/dom/toggleClass.ts#L10)
+[dom/toggleClass.ts:10](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/dom/toggleClass.ts#L10)
 
 ___
 
@@ -3810,7 +3703,7 @@ console.log(tree); // [{ id: 1, parentId: null, name: 'Root', children: [{ id: 2
 
 #### Defined in
 
-[data/transformTree.ts:20](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/data/transformTree.ts#L20)
+[data/transformTree.ts:20](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/data/transformTree.ts#L20)
 
 ___
 
@@ -3840,7 +3733,7 @@ console.log(truncated); // 'This is...'
 
 #### Defined in
 
-[string/truncate.ts:13](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/string/truncate.ts#L13)
+[string/truncate.ts:13](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/string/truncate.ts#L13)
 
 ___
 
@@ -3874,7 +3767,7 @@ console.log(uniqueArray); // [1, 2, 3, 4]
 
 #### Defined in
 
-[array/unique.ts:11](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/array/unique.ts#L11)
+[array/unique.ts:11](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/array/unique.ts#L11)
 
 ___
 
@@ -3905,7 +3798,7 @@ uploadImage(file, 'https://example.com/upload')
 
 #### Defined in
 
-[images/uploadImage.ts:14](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/images/uploadImage.ts#L14)
+[images/uploadImage.ts:14](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/images/uploadImage.ts#L14)
 
 ___
 
@@ -3927,7 +3820,7 @@ console.log(id); // 'e.g. 123e4567-e89b-12d3-a456-426614174000'
 
 #### Defined in
 
-[helpers/uuid.ts:10](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/helpers/uuid.ts#L10)
+[helpers/uuid.ts:10](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/helpers/uuid.ts#L10)
 
 ___
 
@@ -3971,7 +3864,7 @@ console.log(result); // { isValid: false, errors: { password: 'Password too shor
 
 #### Defined in
 
-[forms/validateForm.ts:17](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/forms/validateForm.ts#L17)
+[forms/validateForm.ts:17](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/forms/validateForm.ts#L17)
 
 ___
 
@@ -4006,7 +3899,7 @@ console.log(result);
 
 #### Defined in
 
-[validation/validateForm.ts:36](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/validation/validateForm.ts#L36)
+[validation/validateForm.ts:36](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/validation/validateForm.ts#L36)
 
 ___
 
@@ -4035,7 +3928,7 @@ ___
 
 #### Defined in
 
-[security/validatePassword.ts:11](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/security/validatePassword.ts#L11)
+[security/validatePassword.ts:11](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/security/validatePassword.ts#L11)
 
 ___
 
@@ -4071,7 +3964,7 @@ vfs.deleteFile('/path/to/file.txt');
 
 #### Defined in
 
-[files/virtualFileSystem.ts:17](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/files/virtualFileSystem.ts#L17)
+[files/virtualFileSystem.ts:17](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/files/virtualFileSystem.ts#L17)
 
 ___
 
@@ -4108,4 +4001,4 @@ worker.terminate();
 
 #### Defined in
 
-[workers/workerManager.ts:15](https://github.com/isdfs/low-code/blob/6837ff3/packages/utils/src/workers/workerManager.ts#L15)
+[workers/workerManager.ts:15](https://github.com/isdfs/low-code/blob/13d528d/packages/utils/src/workers/workerManager.ts#L15)

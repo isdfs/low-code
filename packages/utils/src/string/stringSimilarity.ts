@@ -49,8 +49,8 @@ export class StringSimilarity {
    * console.log('Jaccard Similarity:', similarity); // 输出 0.2
    */
   static jaccardSimilarity(str1: string, str2: string): number {
-      const set1 = new Set(str1.split(''));
-      const set2 = new Set(str2.split(''));
+      const set1: any = new Set(str1.split(''));
+      const set2: any = new Set(str2.split(''));
       const intersection = new Set([...set1].filter(x => set2.has(x)));
       const union = new Set([...set1, ...set2]);
       return intersection.size / union.size;

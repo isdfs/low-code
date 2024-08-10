@@ -19,9 +19,10 @@
  */
 export function autoSaveFormData(form: HTMLFormElement, storageKey: string): void {
   form.addEventListener('input', () => {
-      const formData = new FormData(form);
-      const data = Array.from(formData.entries()).reduce((acc, [key, value]) => {
-          acc[key] = value;
+      const formData: any = new FormData(form);
+      let d: any = Array.from(formData.entries())
+      const data = d.reduce((acc: any, [key, value]: any) => {
+          (acc)[key] = value;
           return acc;
       }, {} as Record<string, string>);
       localStorage.setItem(storageKey, JSON.stringify(data));

@@ -26,7 +26,7 @@ class AnimationQueue {
    */
   private runNextAnimation() {
       if (this.currentIndex >= this.queue.length) return;
-      const animation = this.queue[this.currentIndex++];
+      const animation: any = this.queue[this.currentIndex++];
       animation.start();
 
       setTimeout(() => {

@@ -29,7 +29,7 @@ export async function checkPermission(permissionName: string): Promise<Permissio
   try {
       const status = await navigator.permissions.query({ name: permissionName as PermissionName });
       return status;
-  } catch (error) {
+  } catch (error: any) {
       throw new Error(`无法检测权限状态: ${error.message}`);
   }
 }

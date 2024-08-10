@@ -18,4 +18,4 @@
  * pq.enqueue('task2', 1);
  * console.log(pq.dequeue()); // 'task2'
  */
-export { priorityQueue } from './priorityQueue';
+export { PriorityQueue } from './priorityQueue';

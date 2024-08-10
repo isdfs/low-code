@@ -45,6 +45,6 @@ export function getFirstPaint(): number {
 * ```
 */
 export function getDOMContentLoadedTime(): number {
-  const entries = performance.getEntriesByType('navigation');
+  const entries: any = performance.getEntriesByType('navigation');
   return entries.length > 0 ? entries[0].domContentLoadedEventEnd : 0;
 }

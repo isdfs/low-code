@@ -30,7 +30,7 @@ class HistoryManager {
       this.history.forward();
   }
 
-  getCurrentState(): HistoryState | null {
+  getCurrentState(): any {
       return this.history.state;
   }
 

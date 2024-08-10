@@ -56,7 +56,7 @@ class ServiceWorkerManager {
    * 获取当前 Service Worker 的注册信息。
    * @returns {Promise<ServiceWorkerRegistration | null>} 返回 Service Worker 注册信息。
    */
-  async getRegistration(): Promise<ServiceWorkerRegistration | null> {
+  async getRegistration() {
       return await navigator.serviceWorker.getRegistration(this.swUrl);
   }
 

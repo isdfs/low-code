@@ -18,7 +18,7 @@ export class StringCompression {
      * ```
      */
     static compress(input: string): string {
-        const compressedData = deflate(input, { to: 'string' });
+        const compressedData = (deflate as any)(input, { to: 'string' });
         return btoa(compressedData);
     }
 
@@ -34,7 +34,7 @@ export class StringCompression {
      */
     static decompress(compressedInput: string): string {
         const compressedData = atob(compressedInput);
-        const decompressedData = inflate(compressedData, { to: 'string' });
+        const decompressedData = inflate((compressedData as any), { to: 'string' });
         return decompressedData;
     }
 }

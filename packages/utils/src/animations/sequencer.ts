@@ -11,7 +11,7 @@ interface AnimationStep {
 /**
 * AnimationSequencer 用于管理和执行动画序列的类。
 */
-class AnimationSequencer {
+export class AnimationSequencer {
   private steps: AnimationStep[] = [];
 
   /**

@@ -28,10 +28,10 @@ export async function captureScreenshot(element: HTMLElement): Promise<string> {
           canvas.width = rect.width;
           canvas.height = rect.height;
 
-          context?.drawImage(document.documentElement, -rect.left, -rect.top);
+          context?.drawImage(document.documentElement as any, -rect.left, -rect.top);
 
           resolve(canvas.toDataURL('image/png'));
-      } catch (error) {
+      } catch (error: any) {
           reject(`截图失败: ${error.message}`);
       }
   });

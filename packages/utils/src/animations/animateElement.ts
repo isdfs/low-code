@@ -16,7 +16,7 @@ enum AnimationType {
 * @param duration - 动画持续时间（毫秒）。
 * @param callback - 动画结束后的回调函数。
 */
-function animateElement(
+export function animateElement(
   element: HTMLElement,
   type: AnimationType,
   duration: number = 500,

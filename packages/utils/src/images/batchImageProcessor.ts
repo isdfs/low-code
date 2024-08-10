@@ -9,7 +9,7 @@ class BatchImageProcessor {
     private formatConverter: typeof ImageFormatConverter;
 
     constructor() {
-        this.formatConverter = new ImageFormatConverter();
+        this.formatConverter = new (ImageFormatConverter as any)();
     }
 
     /**

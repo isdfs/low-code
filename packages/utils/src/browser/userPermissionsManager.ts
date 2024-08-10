@@ -11,7 +11,7 @@ class UserPermissionsManager {
      * @param {PermissionName} permission - 要请求的权限名称。
      * @returns {Promise<PermissionStatus>} 权限状态的 Promise 对象。
      */
-    async requestPermission(permission: PermissionName): Promise<PermissionStatus> {
+    async requestPermission(permission: PermissionName) {
         if (permission === 'notifications') {
             const result = await Notification.requestPermission();
             return { state: result };

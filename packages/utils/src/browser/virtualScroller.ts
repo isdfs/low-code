@@ -13,8 +13,8 @@ class VirtualScroller {
   private content: HTMLElement;
   private itemHeight: number;
   private containerHeight: number;
-  private itemCount: number;
-  private totalHeight: number;
+  private itemCount: any;
+  private totalHeight: any;
   private startIndex: number = 0;
   private endIndex: number = 0;
 
