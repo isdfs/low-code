@@ -32,9 +32,9 @@
             background-color: #e9ecef;
         }
         .content {
-            margin-left: 270px; /* Sidebar width + some margin */
+            margin-left: 270px;
             padding: 20px;
-            width: calc(100% - 270px); /* Sidebar width + some margin */
+            width: calc(100% - 270px);
         }
         .group-title {
             font-size: 24px;
@@ -42,6 +42,7 @@
             margin-top: 40px;
             padding-top: 10px;
             border-top: 1px solid #ddd;
+            cursor: pointer;
         }
         .card {
             border: 1px solid #ccc;
@@ -49,6 +50,9 @@
             margin: 10px 0;
             box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -62,6 +66,7 @@
     <div class="content">
         <h1>Generated Divs for Each Style</h1>
 <div id="未命名" class="group-title">未命名</div>
+<div id="未命名-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -556,8 +561,10 @@
 </div>
 <div class="card auto-flip-scale">
     <p>auto-flip-scale</p>
+</div>
 </div>
 <div id="alert.less" class="group-title">alert.less</div>
+<div id="alert.less-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -1625,8 +1632,10 @@
 </div>
 <div class="card auto-slide-fade">
     <p>auto-slide-fade</p>
+</div>
 </div>
 <div id="accordion.less" class="group-title">accordion.less</div>
+<div id="accordion.less-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -2301,8 +2310,10 @@
 </div>
 <div class="card auto-blur-in">
     <p>auto-blur-in</p>
+</div>
 </div>
 <div id="animation.less" class="group-title">animation.less</div>
+<div id="animation.less-content" class="hidden">
 <div class="card auto-light-speed-out">
     <p>auto-light-speed-out</p>
 </div>
@@ -9448,8 +9459,10 @@
 </div>
 <div class="card auto-earthquake">
     <p>auto-earthquake</p>
+</div>
 </div>
 <div id="border.less" class="group-title">border.less</div>
+<div id="border.less-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -10194,7 +10207,9 @@
 <div class="card auto-font-properties">
     <p>auto-font-properties</p>
 </div>
+</div>
 <div id="badge.less" class="group-title">badge.less</div>
+<div id="badge.less-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -11011,7 +11026,9 @@
 <div class="card auto-font-clip">
     <p>auto-font-clip</p>
 </div>
+</div>
 <div id="background.less" class="group-title">background.less</div>
+<div id="background.less-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -11813,7 +11830,9 @@
 <div class="card auto-font-gradient">
     <p>auto-font-gradient</p>
 </div>
+</div>
 <div id="button-group.less" class="group-title">button-group.less</div>
+<div id="button-group.less-content" class="hidden">
 <div class="card auto-button-group-vertical">
     <p>auto-button-group-vertical</p>
 </div>
@@ -12291,7 +12310,9 @@
 <div class="card auto-flip-out">
     <p>auto-flip-out</p>
 </div>
+</div>
 <div id="box-shadow.less" class="group-title">box-shadow.less</div>
+<div id="box-shadow.less-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -12763,7 +12784,9 @@
 <div class="card auto-flip-in">
     <p>auto-flip-in</p>
 </div>
+</div>
 <div id="button.less" class="group-title">button.less</div>
+<div id="button.less-content" class="hidden">
 <div class="card auto-button-icon">
     <p>auto-button-icon</p>
 </div>
@@ -13448,7 +13471,9 @@
 <div class="card auto-tada">
     <p>auto-tada</p>
 </div>
+</div>
 <div id="font.less" class="group-title">font.less</div>
+<div id="font.less-content" class="hidden">
 <div class="card auto-line-height">
     <p>auto-line-height</p>
 </div>
@@ -19572,7 +19597,9 @@
 <div class="card auto-generate-text-decorations text-decoration-line-through">
     <p>auto-generate-text-decorations text-decoration-line-through</p>
 </div>
+</div>
 <div id="carousel.less" class="group-title">carousel.less</div>
+<div id="carousel.less-content" class="hidden">
 <div class="card active">
     <p>active</p>
 </div>
@@ -20563,7 +20590,9 @@
 <div class="card auto-flex-align-content">
     <p>auto-flex-align-content</p>
 </div>
+</div>
 <div id="card.less" class="group-title">card.less</div>
+<div id="card.less-content" class="hidden">
 <div class="card auto-card-title">
     <p>auto-card-title</p>
 </div>
@@ -21212,7 +21241,9 @@
 <div class="card auto-pulse">
     <p>auto-pulse</p>
 </div>
+</div>
 <div id="grid.less" class="group-title">grid.less</div>
+<div id="grid.less-content" class="hidden">
 <div class="card auto-grid-gap">
     <p>auto-grid-gap</p>
 </div>
@@ -21789,7 +21820,9 @@
 <div class="card auto-flip">
     <p>auto-flip</p>
 </div>
+</div>
 <div id="form-controls.less" class="group-title">form-controls.less</div>
+<div id="form-controls.less-content" class="hidden">
 <div class="card auto-form-switch">
     <p>auto-form-switch</p>
 </div>
@@ -22471,7 +22504,9 @@
 <div class="card auto-rotate">
     <p>auto-rotate</p>
 </div>
+</div>
 <div id="flex.less" class="group-title">flex.less</div>
+<div id="flex.less-content" class="hidden">
 <div class="card auto-flex-align-items">
     <p>auto-flex-align-items</p>
 </div>
@@ -28106,7 +28141,9 @@
 <div class="card auto-select">
     <p>auto-select</p>
 </div>
+</div>
 <div id="layout.less" class="group-title">layout.less</div>
+<div id="layout.less-content" class="hidden">
 <div class="card auto-container">
     <p>auto-container</p>
 </div>
@@ -28707,7 +28744,9 @@
 <div class="card auto-zoom-out">
     <p>auto-zoom-out</p>
 </div>
+</div>
 <div id="form.less" class="group-title">form.less</div>
+<div id="form.less-content" class="hidden">
 <div class="card auto-textarea">
     <p>auto-textarea</p>
 </div>
@@ -29344,7 +29383,9 @@
 <div class="card auto-media-aligned">
     <p>auto-media-aligned</p>
 </div>
+</div>
 <div id="list.less" class="group-title">list.less</div>
+<div id="list.less-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -29786,7 +29827,9 @@
 <div class="card auto-zoom-in">
     <p>auto-zoom-in</p>
 </div>
+</div>
 <div id="list-group.less" class="group-title">list-group.less</div>
+<div id="list-group.less-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -30309,7 +30352,9 @@
 <div class="card auto-navbar-menu">
     <p>auto-navbar-menu</p>
 </div>
+</div>
 <div id="navbar.less" class="group-title">navbar.less</div>
+<div id="navbar.less-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -30901,7 +30946,9 @@
 <div class="card auto-navbar-menu-dropdown">
     <p>auto-navbar-menu-dropdown</p>
 </div>
+</div>
 <div id="media-object.less" class="group-title">media-object.less</div>
+<div id="media-object.less-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -31514,7 +31561,9 @@
 <div class="card auto-full-width-on-mobile">
     <p>auto-full-width-on-mobile</p>
 </div>
+</div>
 <div id="navbar-menu.less" class="group-title">navbar-menu.less</div>
+<div id="navbar-menu.less-content" class="hidden">
 <div class="card auto-navbar-menu-toggler">
     <p>auto-navbar-menu-toggler</p>
 </div>
@@ -32076,7 +32125,9 @@
 <div class="card auto-accordion-body">
     <p>auto-accordion-body</p>
 </div>
+</div>
 <div id="responsive.less" class="group-title">responsive.less</div>
+<div id="responsive.less-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -32593,7 +32644,9 @@
 <div class="card auto-pagination-active">
     <p>auto-pagination-active</p>
 </div>
+</div>
 <div id="progress-bar.less" class="group-title">progress-bar.less</div>
+<div id="progress-bar.less-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -33098,7 +33151,9 @@
 <div class="card auto-modal-header">
     <p>auto-modal-header</p>
 </div>
+</div>
 <div id="pagination.less" class="group-title">pagination.less</div>
+<div id="pagination.less-content" class="hidden">
 <div class="card auto-pagination-ellipsis">
     <p>auto-pagination-ellipsis</p>
 </div>
@@ -33615,7 +33670,9 @@
 <div class="card auto-modal-close">
     <p>auto-modal-close</p>
 </div>
+</div>
 <div id="modal.less" class="group-title">modal.less</div>
+<div id="modal.less-content" class="hidden">
 <div class="card auto-modal-close">
     <p>auto-modal-close</p>
 </div>
@@ -34078,7 +34135,9 @@
 <div class="card auto-alert-title">
     <p>auto-alert-title</p>
 </div>
+</div>
 <div id="scrollbar.less" class="group-title">scrollbar.less</div>
+<div id="scrollbar.less-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -34493,7 +34552,9 @@
 <div class="card auto-alert-info">
     <p>auto-alert-info</p>
 </div>
+</div>
 <div id="tooltip.less" class="group-title">tooltip.less</div>
+<div id="tooltip.less-content" class="hidden">
 <div class="card auto-tooltip-animated">
     <p>auto-tooltip-animated</p>
 </div>
@@ -34980,7 +35041,9 @@
 <div class="card auto-alert-warning">
     <p>auto-alert-warning</p>
 </div>
+</div>
 <div id="text.less" class="group-title">text.less</div>
+<div id="text.less-content" class="hidden">
 <div class="card accordion-item">
     <p>accordion-item</p>
 </div>
@@ -35425,7 +35488,9 @@
 <div class="card auto-table-layout">
     <p>auto-table-layout</p>
 </div>
+</div>
 <div id="table.less" class="group-title">table.less</div>
+<div id="table.less-content" class="hidden">
 <div class="card auto-table-bordered">
     <p>auto-table-bordered</p>
 </div>
@@ -35858,7 +35923,9 @@
 <div class="card auto-alert-success">
     <p>auto-alert-success</p>
 </div>
+</div>
 <div id="typography.less" class="group-title">typography.less</div>
+<div id="typography.less-content" class="hidden">
 <div class="card auto-text-decoration">
     <p>auto-text-decoration</p>
 </div>
@@ -36279,7 +36346,9 @@
 <div class="card auto-alert">
     <p>auto-alert</p>
 </div>
+</div>
 <div id="tabs.less" class="group-title">tabs.less</div>
+<div id="tabs.less-content" class="hidden">
 <div class="card auto-tab-content-vertical">
     <p>auto-tab-content-vertical</p>
 </div>
@@ -36700,6 +36769,7 @@
 <div class="card media-body">
     <p>media-body</p>
 </div>
+</div>
 
     </div>
     <script>
@@ -36715,6 +36785,17 @@
                     });
                 } else {
                     console.error('Target element not found for:', targetId);
+                }
+            });
+        });
+
+        // 折叠和展开内容
+        document.querySelectorAll('.group-title').forEach(title => {
+            title.addEventListener('click', function() {
+                const contentId = this.getAttribute('id') + '-content';
+                const contentElement = document.getElementById(contentId);
+                if (contentElement) {
+                    contentElement.classList.toggle('hidden');
                 }
             });
         });

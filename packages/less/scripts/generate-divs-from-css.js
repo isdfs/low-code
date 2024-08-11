@@ -94,9 +94,9 @@ fs.readFile(cssFilePath, 'utf8', (err, data) => {
             background-color: #e9ecef;
         }
         .content {
-            margin-left: 270px; /* Sidebar width + some margin */
+            margin-left: 270px;
             padding: 20px;
-            width: calc(100% - 270px); /* Sidebar width + some margin */
+            width: calc(100% - 270px);
         }
         .group-title {
             font-size: 24px;
@@ -104,6 +104,12 @@ fs.readFile(cssFilePath, 'utf8', (err, data) => {
             margin-top: 40px;
             padding-top: 10px;
             border-top: 1px solid #ddd;
+            cursor: pointer;
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+            background-color: #f8f9fa;
+            z-index: 100;
         }
         .card {
             border: 1px solid #ccc;
@@ -111,6 +117,9 @@ fs.readFile(cssFilePath, 'utf8', (err, data) => {
             margin: 10px 0;
             box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -124,15 +133,17 @@ fs.readFile(cssFilePath, 'utf8', (err, data) => {
     <div class="content">
         <h1>Generated Divs for Each Style</h1>\n`;
 
-    // 生成每个文件分组的 HTML 结构
+    // 生成每个文件分组的 HTML 结构，默认情况下折叠
     for (const group in structure) {
         if (structure[group].length > 0) {
             htmlContent += `<div id="${group}" class="group-title">${group}</div>\n`;
+            htmlContent += `<div id="${group}-content">\n`;
             structure[group].forEach(className => {
                 htmlContent += `<div class="card ${className}">\n`;
                 htmlContent += `    <p>${className}</p>\n`;
                 htmlContent += `</div>\n`;
             });
+            htmlContent += `</div>\n`;
         }
     }
 
@@ -151,6 +162,17 @@ fs.readFile(cssFilePath, 'utf8', (err, data) => {
                     });
                 } else {
                     console.error('Target element not found for:', targetId);
+                }
+            });
+        });
+
+        // 折叠和展开内容
+        document.querySelectorAll('.group-title').forEach(title => {
+            title.addEventListener('click', function() {
+                const contentId = this.getAttribute('id') + '-content';
+                const contentElement = document.getElementById(contentId);
+                if (contentElement) {
+                    contentElement.classList.toggle('hidden');
                 }
             });
         });
