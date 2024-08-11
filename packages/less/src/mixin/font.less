@@ -38,8 +38,8 @@
   参数:
     @height: 行高，默认值为 normal。
 */
-.line-height(@height: normal) {
-  line-height: @height;
+.line-height(@aaa: 1.2) {
+  line-height: @aaa;
 }
 
 /* 
@@ -887,13 +887,13 @@
 
 
 /* Mixin to generate font size classes */
-.font-size(@size) {
+.font-size(@size: 16px) {
   font-size: @size;
 }
 
 /* Generate font size classes from 1 to 100 */
 /* Mixin to apply font size */
-.font-size(@size) {
+.font-size(@size: 16px) {
   font-size: @size;
 }
 
@@ -959,7 +959,7 @@
 
 
 /* Mixin to apply border width */
-.border-width(@value) {
+.border-width(@value: 12px) {
   border-width: @value;
 }
 
@@ -1000,19 +1000,19 @@
 }
 
 /* Generate gradient classes with different color combinations */
-.generate-gradients() {
-  @colors: #ff0000, #00ff00, #0000ff;
+// .generate-gradients() {
+//   @colors: #ff0000, #00ff00, #0000ff;
 
-  .each(@colors, {
-    @color1: @value;
-    .each(@colors, {
-      @color2: @value;
-      .gradient-@{color1}-@{color2} {
-        .background-gradient(@color1, @color2);
-      }
-    });
-  });
-}
+//   .each(@colors, {
+//     @color1: @value;
+//     .each(@colors, {
+//       @color2: @value;
+//       .gradient-@{color1}-@{color2} {
+//         .background-gradient(@color1, @color2);
+//       }
+//     });
+//   });
+// }
 
 // .generate-gradients();
 

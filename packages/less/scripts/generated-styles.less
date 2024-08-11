@@ -1,0 +1,1381 @@
+@import "../src/mixin/accordion.less";
+@import "../src/mixin/alert.less";
+@import "../src/mixin/animation.less";
+@import "../src/mixin/background.less";
+@import "../src/mixin/badge.less";
+@import "../src/mixin/border.less";
+@import "../src/mixin/box-shadow.less";
+@import "../src/mixin/button-group.less";
+@import "../src/mixin/button.less";
+@import "../src/mixin/card.less";
+@import "../src/mixin/carousel.less";
+@import "../src/mixin/flex.less";
+@import "../src/mixin/font.less";
+@import "../src/mixin/form-controls.less";
+@import "../src/mixin/form.less";
+@import "../src/mixin/grid.less";
+@import "../src/mixin/layout.less";
+@import "../src/mixin/list-group.less";
+@import "../src/mixin/list.less";
+@import "../src/mixin/media-object.less";
+@import "../src/mixin/modal.less";
+@import "../src/mixin/navbar-menu.less";
+@import "../src/mixin/navbar.less";
+@import "../src/mixin/pagination.less";
+@import "../src/mixin/progress-bar.less";
+@import "../src/mixin/responsive.less";
+@import "../src/mixin/scrollbar.less";
+@import "../src/mixin/table.less";
+@import "../src/mixin/tabs.less";
+@import "../src/mixin/text.less";
+@import "../src/mixin/tooltip.less";
+@import "../src/mixin/typography.less";
+
+/* 文件名: alert.less */
+.auto-alert {
+  .alert(#fff3cd, #856404, #ffeeba);
+}
+
+.auto-alert-success {
+  .alert-success(#d4edda, #155724, #c3e6cb);
+}
+
+.auto-alert-danger {
+  .alert-danger(#f8d7da, #721c24, #f5c6cb);
+}
+
+.auto-alert-warning {
+  .alert-warning(#fff3cd, #856404, #ffeeba);
+}
+
+.auto-alert-info {
+  .alert-info(#d1ecf1, #0c5460, #bee5eb);
+}
+
+.auto-alert-title {
+  .alert-title(18px);
+}
+
+.auto-alert-close {
+  .alert-close(20px, inherit);
+}
+
+/* 文件名: accordion.less */
+.auto-accordion {
+  .accordion(#ddd);
+}
+
+.auto-accordion-header {
+  .accordion-header(#f5f5f5, #333);
+}
+
+.auto-accordion-body {
+  .accordion-body(15px);
+}
+
+/* 文件名: animation.less */
+.auto-fade-in {
+  .fade-in(0.5s, 0s);
+}
+
+.auto-fade-out {
+  .fade-out(0.5s, 0s);
+}
+
+.auto-slide-in {
+  .slide-in(0.5s, 100px);
+}
+
+.auto-zoom-in {
+  .zoom-in(0.5s, 1.1);
+}
+
+.auto-slide-out {
+  .slide-out(0.5s, 100px);
+}
+
+.auto-zoom-out {
+  .zoom-out(0.5s, 0.9);
+}
+
+.auto-bounce {
+  .bounce(1s, 3);
+}
+
+.auto-rotate {
+  .rotate(0.5s, 360deg);
+}
+
+.auto-flip {
+  .flip(0.5s, horizontal);
+}
+
+.auto-pulse {
+  .pulse(1s, 1.2);
+}
+
+.auto-shake {
+  .shake(0.5s, 5px);
+}
+
+.auto-wobble {
+  .wobble(1s, 15deg);
+}
+
+.auto-tada {
+  .tada(1s, 10deg);
+}
+
+.auto-flip-in {
+  .flip-in(0.5s, horizontal);
+}
+
+.auto-flip-out {
+  .flip-out(0.5s, horizontal);
+}
+
+.auto-swing {
+  .swing(1s, 20px);
+}
+
+.auto-fade-slide {
+  .fade-slide(0.75s, 50px);
+}
+
+.auto-flip-bounce {
+  .flip-bounce(1s, horizontal, 20px);
+}
+
+.auto-bounce-in {
+  .bounce-in(0.75s, 30px);
+}
+
+.auto-rotate-in {
+  .rotate-in(0.5s, 360deg);
+}
+
+.auto-rotate-out {
+  .rotate-out(0.5s, 360deg);
+}
+
+.auto-flip-scale {
+  .flip-scale(1s, horizontal, 1.2);
+}
+
+.auto-slide-fade {
+  .slide-fade(0.75s, 50px);
+}
+
+.auto-bounce-out {
+  .bounce-out(0.75s, 30px);
+}
+
+.auto-light-speed-in {
+  .light-speed-in(1s, left);
+}
+
+.auto-light-speed-out {
+  .light-speed-out(1s, left);
+}
+
+.auto-flip-flop {
+  .flip-flop(1s, horizontal, 20px);
+}
+
+.auto-zoom-fade {
+  .zoom-fade(0.75s, 1.2);
+}
+
+.auto-blur-in {
+  .blur-in(0.75s, 10px);
+}
+
+.auto-blur-out {
+  .blur-out(0.75s, 10px);
+}
+
+.auto-shake {
+  .shake(0.5s, 10px);
+}
+
+.auto-roll-in {
+  .roll-in(1s, 100px);
+}
+
+.auto-bounce-in-left {
+  .bounce-in-left(0.75s, 30px);
+}
+
+.auto-bounce-in-right {
+  .bounce-in-right(0.75s, 30px);
+}
+
+.auto-pulse-scale {
+  .pulse-scale(2s, 1.2);
+}
+
+.auto-swing {
+  .swing(1s, 20px);
+}
+
+.auto-expand-collapse {
+  .expand-collapse(0.75s, 0.5, 1);
+}
+
+.auto-slide-up {
+  .slide-up(0.75s, 100px);
+}
+
+.auto-slide-down {
+  .slide-down(0.75s, 100px);
+}
+
+.auto-rotate-scale {
+  .rotate-scale(1s, 0.5, 1.2, 360deg);
+}
+
+.auto-pulse-opacity {
+  .pulse-opacity(1.5s, 0.2, 1);
+}
+
+.auto-rotate-bounce {
+  .rotate-bounce(1s, 20px, 360deg);
+}
+
+.auto-flip-horizontal {
+  .flip-horizontal(0.75s);
+}
+
+.auto-flip-vertical {
+  .flip-vertical(0.75s);
+}
+
+.auto-color-change {
+  .color-change(1s, #ff0000, #0000ff);
+}
+
+.auto-skew {
+  .skew(0.5s, 20deg, 0deg);
+}
+
+.auto-heartbeat {
+  .heartbeat(1.5s, 1.3);
+}
+
+.auto-zoom-spin {
+  .zoom-spin(1s, 0.5, 1.5, 360deg);
+}
+
+.auto-roll-out {
+  .roll-out(1s, 100px);
+}
+
+.auto-jitter {
+  .jitter(0.75s, 5px);
+}
+
+.auto-flash-text {
+  .flash-text(1s, #ff0000, #0000ff);
+}
+
+.auto-slide-flip {
+  .slide-flip(0.75s, 50px, horizontal);
+}
+
+.auto-zoom-bounce {
+  .zoom-bounce(1s, 1.2, 20px);
+}
+
+.auto-rotate-blur {
+  .rotate-blur(1s, 360deg, 5px);
+}
+
+.auto-wave {
+  .wave(2s, 20px);
+}
+
+.auto-rotate-pulse {
+  .rotate-pulse(2s, 1.5, 360deg);
+}
+
+.auto-shake-y {
+  .shake-y(0.75s, 10px);
+}
+
+.auto-stretch {
+  .stretch(1s, 1.5, 1);
+}
+
+.auto-bounce-scale {
+  .bounce-scale(1s, 1.2, 20px);
+}
+
+.auto-zigzag {
+  .zigzag(2s, 50px);
+}
+
+.auto-bounce-skew {
+  .bounce-skew(1.5s, 15deg, 0deg, 20px);
+}
+
+.auto-flash-background {
+  .flash-background(1.5s, #ffcc00, #cc00ff);
+}
+
+.auto-fade-spin {
+  .fade-spin(1s, 720deg);
+}
+
+.auto-grow-shrink {
+  .grow-shrink(2s, 1, 0.8);
+}
+
+.auto-move-in-circle {
+  .move-in-circle(2s, 50px);
+}
+
+.auto-bounce-rotate {
+  .bounce-rotate(1s, 20px, 360deg);
+}
+
+.auto-wave-text {
+  .wave-text(2s, 10px);
+}
+
+.auto-complex-slide {
+  .complex-slide(1.5s, 100px, 100px, 360deg);
+}
+
+.auto-exploding-fade {
+  .exploding-fade(2s, 1.5, 10px);
+}
+
+.auto-pendulum {
+  .pendulum(2s, 45deg);
+}
+
+.auto-exploding-box {
+  .exploding-box(3s, 2, 200px);
+}
+
+.auto-earthquake {
+  .earthquake(1s, 10px);
+}
+
+.auto-hologram {
+  .hologram(3s, #00ffcc, #ff66cc);
+}
+
+.auto-shifting-hue {
+  .shifting-hue(3s, #ff0000, #0000ff);
+}
+
+.auto-infinite-spiral {
+  .infinite-spiral(3s, 720deg);
+}
+
+/* 文件名: border.less */
+.auto-border-radius {
+  .border-radius(4px);
+}
+
+.auto-border {
+  .border(1px, solid, #ccc);
+}
+
+.auto-dashed-border {
+  .dashed-border(2px, #ccc);
+}
+
+.auto-double-border {
+  .double-border(3px, #ccc);
+}
+
+/* 文件名: badge.less */
+.auto-badge {
+  .badge(#e74c3c, #fff, 5px 10px);
+}
+
+.auto-badge-large {
+  .badge-large(#e74c3c, #fff, 8px 15px);
+}
+
+.auto-badge-rounded {
+  .badge-rounded(#e74c3c, #fff, 20px);
+}
+
+.auto-badge-pill {
+  .badge-pill(#3498db, #fff, 5px 15px);
+}
+
+.auto-badge-outline {
+  .badge-outline(#3498db, #3498db, 5px 10px);
+}
+
+/* 文件名: background.less */
+.auto-background-color {
+  .background-color(#f0f0f0);
+}
+
+.auto-gradient-background {
+  .gradient-background(#eee, #333, 90deg);
+}
+
+.auto-full-width-background {
+  .full-width-background(#f0f0f0);
+}
+
+.auto-image-background {
+  .image-background(none, cover, center);
+}
+
+.auto-transparent-background {
+  .transparent-background(0.5);
+}
+
+/* 文件名: button-group.less */
+.auto-button-group {
+  .button-group(0);
+}
+
+.auto-button-group-vertical {
+  .button-group-vertical(0);
+}
+
+.auto-button-group-outlined {
+  .button-group-outlined(#ddd);
+}
+
+/* 文件名: box-shadow.less */
+/* 文件名: button.less */
+.auto-button {
+  .button(#ccc, #fff);
+}
+
+.auto-button-outline {
+  .button-outline(#000, #000);
+}
+
+.auto-button-disabled {
+  .button-disabled(#e0e0e0, #aaa);
+}
+
+.auto-button-icon {
+  .button-icon('', 16px);
+}
+
+/* 文件名: font.less */
+.auto-font-family {
+  .font-family('Arial, sans-serif');
+}
+
+.auto-font-size {
+  .font-size(16px);
+}
+
+.auto-font-weight {
+  .font-weight(normal);
+}
+
+.auto-line-height {
+  .line-height(1.2);
+}
+
+.auto-text-align {
+  .text-align(left);
+}
+
+.auto-text-transform {
+  .text-transform(none);
+}
+
+.auto-text-decoration {
+  .text-decoration(none);
+}
+
+.auto-font-style {
+  .font-style(normal);
+}
+
+.auto-font-variant {
+  .font-variant(normal);
+}
+
+.auto-font-properties {
+  .font-properties('Arial, sans-serif', 16px, normal, normal, left, none, none, normal, normal);
+}
+
+.auto-font-responsive-size {
+  .font-responsive-size(14px, 24px, 320px, 1200px);
+}
+
+.auto-font-smooth {
+  .font-smooth(antialiased);
+}
+
+.auto-font-clip {
+  .font-clip(ellipsis);
+}
+
+.auto-font-spacing {
+  .font-spacing(0px, 0px);
+}
+
+.auto-font-transform {
+  .font-transform(none);
+}
+
+.auto-font-hover {
+  .font-hover(#000, underline, italic);
+}
+
+.auto-font-tracking {
+  .font-tracking(0);
+}
+
+.auto-font-gradient {
+  .font-gradient(#000, #fff, to right);
+}
+
+.auto-font-kerning {
+  .font-kerning(auto);
+}
+
+.auto-font-smooth {
+  .font-smooth(antialiased);
+}
+
+.auto-font-ellipsis {
+  .font-ellipsis(1);
+}
+
+.auto-font-hover-gradient {
+  .font-hover-gradient(#000, #fff, to right);
+}
+
+.auto-font-spacing-responsive {
+  .font-spacing-responsive(0px, 2px, 320px, 1200px);
+}
+
+.auto-font-underline {
+  .font-underline(#000, solid, 1px);
+}
+
+.auto-font-background-clip {
+  .font-background-clip(#000);
+}
+
+.auto-font-opacity {
+  .font-opacity(1);
+}
+
+.auto-font-transform-scale {
+  .font-transform-scale(1);
+}
+
+.auto-font-letter-spacing-responsive {
+  .font-letter-spacing-responsive(0px, 2px, 320px, 1200px);
+}
+
+.auto-font-underline-hover {
+  .font-underline-hover(#000, solid, 1px);
+}
+
+.auto-font-transition {
+  .font-transition(all, 0.3s, ease);
+}
+
+.auto-font-ellipsis-multi-line {
+  .font-ellipsis-multi-line(2);
+}
+
+.auto-font-line-height-responsive {
+  .font-line-height-responsive(1.2, 1.8, 320px, 1200px);
+}
+
+.auto-font-text-clip {
+  .font-text-clip(ellipse);
+}
+
+.auto-font-transform-rotate {
+  .font-transform-rotate(0deg);
+}
+
+.auto-font-blur {
+  .font-blur(2px);
+}
+
+.auto-font-vertical-align {
+  .font-vertical-align(middle);
+}
+
+.auto-font-background {
+  .font-background(#f0f0f0, 2px);
+}
+
+.auto-font-transform-translate {
+  .font-transform-translate(0, 0);
+}
+
+.auto-font-transform-skew {
+  .font-transform-skew(0deg, 0deg);
+}
+
+.auto-font-outline {
+  .font-outline(#000, 1px);
+}
+
+.auto-font-letter-spacing {
+  .font-letter-spacing(0px);
+}
+
+.auto-font-letter-spacing-default {
+  .font-letter-spacing-default();
+}
+
+.auto-font-letter-spacing-alternative {
+  .font-letter-spacing-alternative();
+}
+
+.auto-font-letter-spacing-animated {
+  .font-letter-spacing-animated(0px, 1px, 0.5s, ease-in-out);
+}
+
+.auto-font-line-height {
+  .font-line-height(1.2);
+}
+
+.auto-font-line-height-default {
+  .font-line-height-default();
+}
+
+.auto-font-line-height-alternative {
+  .font-line-height-alternative();
+}
+
+.auto-font-transform-case {
+  .font-transform-case(none);
+}
+
+.auto-font-weight-responsive {
+  .font-weight-responsive(400, 700, 320px, 1200px);
+}
+
+.auto-font-color-gradient {
+  .font-color-gradient(#000, #fff);
+}
+
+.auto-font-transform-scale-hover {
+  .font-transform-scale-hover(1.1);
+}
+
+.auto-font-border {
+  .font-border(#000, 1px, solid);
+}
+
+.auto-font-background-clip {
+  .font-background-clip(text);
+}
+
+.auto-font-background-clip-text {
+  .font-background-clip-text();
+}
+
+.auto-font-background-clip-border-box {
+  .font-background-clip-border-box();
+}
+
+.auto-font-size {
+  .font-size(16px);
+}
+
+.auto-font-size {
+  .font-size(16px);
+}
+
+.auto-margin {
+  .margin(default-value);
+}
+
+.auto-generate-margins {
+  .generate-margins();
+}
+
+.auto-width {
+  .width(default-value);
+}
+
+.auto-height {
+  .height(default-value);
+}
+
+.auto-generate-dimensions {
+  .generate-dimensions();
+}
+
+.auto-border-width {
+  .border-width(12px);
+}
+
+.auto-generate-border-widths {
+  .generate-border-widths();
+}
+
+.auto-border-radius {
+  .border-radius(default-value);
+}
+
+.auto-generate-border-radius {
+  .generate-border-radius();
+}
+
+.auto-background-gradient {
+  .background-gradient(blue, red);
+}
+
+.auto-font-weight {
+  .font-weight(default-value);
+}
+
+.auto-generate-font-weights {
+  .generate-font-weights();
+}
+
+.auto-text-shadow {
+  .text-shadow(default-value, default-value, default-value, default-value);
+}
+
+.auto-generate-text-shadows {
+  .generate-text-shadows();
+}
+
+.auto-line-height {
+  .line-height(default-value);
+}
+
+.auto-generate-line-heights {
+  .generate-line-heights();
+}
+
+.auto-box-sizing {
+  .box-sizing(default-value);
+}
+
+.auto-generate-box-sizings {
+  .generate-box-sizings();
+}
+
+.auto-line-height {
+  .line-height(default-value);
+}
+
+.auto-generate-line-heights {
+  .generate-line-heights();
+}
+
+.auto-text-align {
+  .text-align(default-value);
+}
+
+.auto-generate-text-aligns {
+  .generate-text-aligns();
+}
+
+.auto-text-decoration {
+  .text-decoration(default-value);
+}
+
+.auto-generate-text-decorations {
+  .generate-text-decorations();
+}
+
+.auto-text-transform {
+  .text-transform(default-value);
+}
+
+.auto-generate-text-transforms {
+  .generate-text-transforms();
+}
+
+.auto-box-shadow {
+  .box-shadow(default-value, default-value, default-value, default-value, default-value);
+}
+
+/* 文件名: carousel.less */
+.auto-carousel {
+  .carousel(100%, 400px);
+}
+
+.auto-carousel-item {
+  .carousel-item(0.5s);
+}
+
+.auto-carousel-indicators {
+  .carousel-indicators(12px, #fff, #bbb);
+}
+
+.auto-carousel-fade {
+  .carousel-fade(0.5s);
+}
+
+.auto-carousel-slide {
+  .carousel-slide(0.5s);
+}
+
+/* 文件名: card.less */
+.auto-card-header {
+  .card-header(#f5f5f5, 15px);
+}
+
+.auto-card-body {
+  .card-body(20px, 16px);
+}
+
+.auto-card-footer {
+  .card-footer(#f5f5f5, 15px);
+}
+
+.auto-card-title {
+  .card-title(24px, #333);
+}
+
+/* 文件名: grid.less */
+.auto-grid-container {
+  .grid-container(1200px, 15px);
+}
+
+.auto-grid-column {
+  .grid-column(12, 12);
+}
+
+.auto-grid-gap {
+  .grid-gap(15px);
+}
+
+/* 文件名: form-controls.less */
+.auto-form-input {
+  .form-input(#ccc, #3498db, 10px);
+}
+
+.auto-form-checkbox {
+  .form-checkbox(#ccc, #3498db);
+}
+
+.auto-form-radio {
+  .form-radio(#ccc, #3498db);
+}
+
+.auto-form-select {
+  .form-select(#ccc, #3498db, 10px);
+}
+
+.auto-form-switch {
+  .form-switch(#ccc, #3498db, #fff);
+}
+
+/* 文件名: flex.less */
+.auto-flex-container {
+  .flex-container(row, nowrap);
+}
+
+.auto-flex-wrap {
+  .flex-wrap(wrap);
+}
+
+.auto-flex-justify-content {
+  .flex-justify-content(center);
+}
+
+.auto-flex-align-items {
+  .flex-align-items(center);
+}
+
+.auto-flex-align-content {
+  .flex-align-content(center);
+}
+
+.auto-flex-grow {
+  .flex-grow(1);
+}
+
+.auto-flex-shrink {
+  .flex-shrink(1);
+}
+
+.auto-flex-basis {
+  .flex-basis(auto);
+}
+
+.auto-flex-order {
+  .flex-order(0);
+}
+
+.auto-flex-item {
+  .flex-item(1, 1, auto);
+}
+
+.auto-flex-left-layout {
+  .flex-left-layout(250px, flex-start, flex-start);
+}
+
+.auto-flex-left-right-layout {
+  .flex-left-right-layout(250px, 60px, flex-start, flex-start, flex-start);
+}
+
+.auto-flex-center-vertical-horizontal {
+  .flex-center-vertical-horizontal(100vh, 100vw);
+}
+
+.auto-flex-responsive-layout {
+  .flex-responsive-layout(column, row, 768px);
+}
+
+.auto-flex-grid {
+  .flex-grid(4, 16px);
+}
+
+.auto-flex-main-sidebar-layout {
+  .flex-main-sidebar-layout(300px, flex-start, flex-start);
+}
+
+.auto-flex-vertical-center {
+  .flex-vertical-center(100vh);
+}
+
+.auto-flex-horizontal-center {
+  .flex-horizontal-center(100vw);
+}
+
+.auto-flex-alternate-layout {
+  .flex-alternate-layout(flex-start, flex-end);
+}
+
+.auto-flex-row-gap {
+  .flex-row-gap(20px);
+}
+
+.auto-flex-card-layout {
+  .flex-card-layout(3, 20px, 768px);
+}
+
+.auto-flex-grid-auto {
+  .flex-grid-auto(3, 20px);
+}
+
+.auto-flex-dynamic-gap {
+  .flex-dynamic-gap(10px, 50px, 768px);
+}
+
+.auto-flex-vertical-center-responsive {
+  .flex-vertical-center-responsive(center, flex-start, 768px);
+}
+
+.auto-flex-cards {
+  .flex-cards(300px, 16px, 768px);
+}
+
+.auto-flex-column-reverse-responsive {
+  .flex-column-reverse-responsive(column-reverse, column, 768px);
+}
+
+.auto-flex-absolute-layout {
+  .flex-absolute-layout(top-left, 0, 0, 0, 0);
+}
+
+.auto-flex-stack {
+  .flex-stack(column, 16px);
+}
+
+.auto-flex-responsive-grid {
+  .flex-responsive-grid(3, 1, 2, 16px, 576px, 768px);
+}
+
+.auto-flex-grid-gap {
+  .flex-grid-gap(3, 16px, 16px);
+}
+
+.auto-flex-auto-layout {
+  .flex-auto-layout(16px);
+}
+
+.auto-flex-multiline-layout {
+  .flex-multiline-layout(4, 20px, 768px);
+}
+
+.auto-flex-masonry-layout {
+  .flex-masonry-layout(3, 16px);
+}
+
+.auto-flex-fixed-content-layout {
+  .flex-fixed-content-layout(250px, 60px, 60px);
+}
+
+.auto-flex-nested-container {
+  .flex-nested-container(row, column, 16px);
+}
+
+.auto-flex-double-grid-layout {
+  .flex-double-grid-layout(3, 4, 20px, 16px, 768px);
+}
+
+.auto-flex-floating-panel {
+  .flex-floating-panel(right-bottom, 300px, auto, 100);
+}
+
+.auto-flex-fullscreen-responsive-layout {
+  .flex-fullscreen-responsive-layout(row, column, 768px);
+}
+
+.auto-flex-split-screen-layout {
+  .flex-split-screen-layout(horizontal, 50%);
+}
+
+.auto-flex-adaptive-navbar {
+  .flex-adaptive-navbar(768px);
+}
+
+.auto-flex-aspect-ratio {
+  .flex-aspect-ratio(100%, 16/9);
+}
+
+.auto-flex-responsive-navbar-content {
+  .flex-responsive-navbar-content(top, 60px, 768px);
+}
+
+.auto-flex-collapsible-sidebar {
+  .flex-collapsible-sidebar(250px, 50px, 0.3s);
+}
+
+.auto-flex-multi-layer-responsive-grid {
+  .flex-multi-layer-responsive-grid(3, 2, 1, 16px, 1024px, 768px);
+}
+
+.auto-flex-diagonal-layout {
+  .flex-diagonal-layout(100%, 300px, #f5f5f5, 45deg);
+}
+
+.auto-flex-vertical-horizontal-grid {
+  .flex-vertical-horizontal-grid(2, 3, 16px);
+}
+
+.auto-flex-flow-layout {
+  .flex-flow-layout(10px);
+}
+
+/* 文件名: layout.less */
+.auto-flex-column {
+  .flex-column(center);
+}
+
+.auto-grid {
+  .grid(12, 16px);
+}
+
+.auto-aspect-ratio {
+  .aspect-ratio(16/9);
+}
+
+.auto-container {
+  .container(16px);
+}
+
+/* 文件名: form.less */
+.auto-form-group {
+  .form-group(15px);
+}
+
+.auto-input {
+  .input(#ccc, #3498db);
+}
+
+.auto-select {
+  .select(#ccc, #3498db);
+}
+
+.auto-textarea {
+  .textarea(#ccc, #3498db);
+}
+
+.auto-form-submit {
+  .form-submit(#3498db, #fff);
+}
+
+/* 文件名: list.less */
+.auto-list-spacing {
+  .list-spacing(10px);
+}
+
+.auto-ordered-list {
+  .ordered-list(decimal, 10px);
+}
+
+.auto-icon-list {
+  .icon-list('', 16px);
+}
+
+.auto-inline-list {
+  .inline-list(15px);
+}
+
+/* 文件名: list-group.less */
+.auto-list-group {
+  .list-group(#ddd);
+}
+
+.auto-list-group-item {
+  .list-group-item(10px 15px, #ddd);
+}
+
+.auto-list-group-hover {
+  .list-group-hover(#f5f5f5);
+}
+
+.auto-list-group-active {
+  .list-group-active(#3498db, #fff);
+}
+
+.auto-list-group-striped {
+  .list-group-striped(#fafafa);
+}
+
+/* 文件名: navbar.less */
+.auto-navbar {
+  .navbar(#333, #fff);
+}
+
+.auto-navbar-item {
+  .navbar-item(#3498db);
+}
+
+.auto-navbar-brand {
+  .navbar-brand(24px, bold);
+}
+
+.auto-navbar-dropdown {
+  .navbar-dropdown(#fff, #333, #f5f5f5);
+}
+
+/* 文件名: media-object.less */
+.auto-media {
+  .media(10px);
+}
+
+.auto-media-reverse {
+  .media-reverse(10px);
+}
+
+.auto-media-img {
+  .media-img(64px, 64px, 4px);
+}
+
+.auto-media-aligned {
+  .media-aligned(flex-start);
+}
+
+/* 文件名: navbar-menu.less */
+.auto-navbar-menu {
+  .navbar-menu(#333, #fff, 10px 20px);
+}
+
+.auto-navbar-menu-inline {
+  .navbar-menu-inline(15px);
+}
+
+.auto-navbar-menu-dropdown {
+  .navbar-menu-dropdown(#333, #fff, 10px 20px, #444);
+}
+
+.auto-navbar-menu-item {
+  .navbar-menu-item(inherit, #ddd);
+}
+
+.auto-navbar-menu-toggler {
+  .navbar-menu-toggler(24px, inherit);
+}
+
+/* 文件名: responsive.less */
+.auto-hide-on-mobile {
+  .hide-on-mobile(768px);
+}
+
+.auto-full-width-on-mobile {
+  .full-width-on-mobile(768px);
+}
+
+.auto-responsive-text {
+  .responsive-text(16px, 14px, 768px);
+}
+
+/* 文件名: progress-bar.less */
+.auto-progress-bar {
+  .progress-bar(#f0f0f0, 20px);
+}
+
+.auto-progress {
+  .progress(#3498db, 50%);
+}
+
+.auto-progress-animated {
+  .progress-animated(1s);
+}
+
+.auto-progress-rounded {
+  .progress-rounded(100px, #f0f0f0, #3498db, 50%);
+}
+
+/* 文件名: pagination.less */
+.auto-pagination {
+  .pagination(10px);
+}
+
+.auto-pagination-item {
+  .pagination-item(#fff, #ddd, #333);
+}
+
+.auto-pagination-active {
+  .pagination-active(#3498db, #fff);
+}
+
+.auto-pagination-disabled {
+  .pagination-disabled(#f0f0f0, #aaa);
+}
+
+.auto-pagination-ellipsis {
+  .pagination-ellipsis(#999);
+}
+
+/* 文件名: modal.less */
+.auto-modal-header {
+  .modal-header(#f5f5f5, 15px);
+}
+
+.auto-modal-body {
+  .modal-body(20px);
+}
+
+.auto-modal-footer {
+  .modal-footer(#f5f5f5, 15px);
+}
+
+.auto-modal-close {
+  .modal-close(24px, #333);
+}
+
+/* 文件名: scrollbar.less */
+.auto-scrollbar {
+  .scrollbar(8px, #f0f0f0, #888, 4px);
+}
+
+.auto-scrollbar-horizontal {
+  .scrollbar-horizontal(8px, #f0f0f0, #888, 4px);
+}
+
+.auto-scrollbar-vertical {
+  .scrollbar-vertical(8px, #f0f0f0, #888, 4px);
+}
+
+.auto-scrollbar-rounded {
+  .scrollbar-rounded(8px, #f0f0f0, #888);
+}
+
+/* 文件名: tooltip.less */
+.auto-tooltip {
+  .tooltip(#333, #fff, 5px 10px, 4px);
+}
+
+.auto-tooltip-top {
+  .tooltip-top(8px, #333);
+}
+
+.auto-tooltip-bottom {
+  .tooltip-bottom(8px, #333);
+}
+
+.auto-tooltip-left {
+  .tooltip-left(8px, #333);
+}
+
+.auto-tooltip-right {
+  .tooltip-right(8px, #333);
+}
+
+.auto-tooltip-animated {
+  .tooltip-animated(0.3s);
+}
+
+/* 文件名: text.less */
+.auto-text-color {
+  .text-color(#333);
+}
+
+.auto-text-truncate {
+  .text-truncate(2, 1.5);
+}
+
+.auto-text-align {
+  .text-align(left);
+}
+
+.auto-bold-text {
+  .bold-text(bold);
+}
+
+/* 文件名: table.less */
+.auto-table-layout {
+  .table-layout(#ddd);
+}
+
+.auto-table-header {
+  .table-header(#f5f5f5, #333);
+}
+
+.auto-table-row {
+  .table-row(#f9f9f9);
+}
+
+.auto-table-striped {
+  .table-striped(#fafafa);
+}
+
+.auto-table-bordered {
+  .table-bordered(#ddd);
+}
+
+/* 文件名: typography.less */
+.auto-font-size {
+  .font-size(16px);
+}
+
+.auto-line-height {
+  .line-height(1.5);
+}
+
+.auto-text-align {
+  .text-align(left);
+}
+
+.auto-first-letter {
+  .first-letter(2em, inherit, left);
+}
+
+.auto-text-decoration {
+  .text-decoration(none);
+}
+
+/* 文件名: tabs.less */
+.auto-tabs {
+  .tabs(#ddd, #3498db);
+}
+
+.auto-tabs-vertical {
+  .tabs-vertical(#ddd, #3498db);
+}
+
+.auto-tab-content {
+  .tab-content(20px);
+}
+
+.auto-tab-content-vertical {
+  .tab-content-vertical(20px);
+}
+
