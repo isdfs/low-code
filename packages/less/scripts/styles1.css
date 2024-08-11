@@ -1,0 +1,3601 @@
+/* 
+  Mixin: accordion
+  功能描述:
+    设置折叠面板的基础样式，使面板堆叠排列。
+  参数:
+    @border-color: 面板边框颜色，默认值为浅灰色 (#ddd)。
+*/
+/* 
+  Mixin: accordion-item
+  功能描述:
+    设置折叠面板项的样式。
+  参数:
+    无。
+*/
+.accordion-item {
+  border-bottom: 1px solid #ddd;
+}
+.accordion-item:last-child {
+  border-bottom: none;
+}
+/* 
+  Mixin: accordion-header
+  功能描述:
+    设置折叠面板标题的样式，使其可点击以展开/折叠内容。
+  参数:
+    @bg-color: 标题背景颜色，默认值为浅灰色 (#f5f5f5)。
+    @text-color: 标题文本颜色，默认值为黑色 (#333)。
+*/
+/* 
+  Mixin: accordion-body
+  功能描述:
+    设置折叠面板内容的样式。
+  参数:
+    @padding: 内容的内边距，默认值为 15px。
+*/
+/* 
+  Mixin: accordion-collapsed
+  功能描述:
+    设置折叠面板在折叠状态下的样式。
+  参数:
+    无。
+*/
+.accordion-collapsed {
+  display: none;
+}
+/* 
+  Mixin: accordion-expanded
+  功能描述:
+    设置折叠面板在展开状态下的样式。
+  参数:
+    无。
+*/
+.accordion-expanded {
+  display: block;
+}
+/* 
+  Mixin: alert
+  功能描述:
+    设置警告框的基础样式。
+  参数:
+    @bg-color: 警告框背景颜色，默认值为浅黄色 (#fff3cd)。
+    @text-color: 警告框文本颜色，默认值为深黄色 (#856404)。
+    @border-color: 警告框边框颜色，默认值为浅黄色 (#ffeeba)。
+*/
+/* 
+  Mixin: alert-success
+  功能描述:
+    设置成功类型的警告框样式。
+  参数:
+    @bg-color: 背景颜色，默认值为浅绿色 (#d4edda)。
+    @text-color: 文本颜色，默认值为深绿色 (#155724)。
+    @border-color: 边框颜色，默认值为浅绿色 (#c3e6cb)。
+*/
+/* 
+  Mixin: alert-danger
+  功能描述:
+    设置危险类型的警告框样式。
+  参数:
+    @bg-color: 背景颜色，默认值为浅红色 (#f8d7da)。
+    @text-color: 文本颜色，默认值为深红色 (#721c24)。
+    @border-color: 边框颜色，默认值为浅红色 (#f5c6cb)。
+*/
+/* 
+  Mixin: alert-warning
+  功能描述:
+    设置警告类型的警告框样式。
+  参数:
+    @bg-color: 背景颜色，默认值为浅黄色 (#fff3cd)。
+    @text-color: 文本颜色，默认值为深黄色 (#856404)。
+    @border-color: 边框颜色，默认值为浅黄色 (#ffeeba)。
+*/
+/* 
+  Mixin: alert-info
+  功能描述:
+    设置信息类型的警告框样式。
+  参数:
+    @bg-color: 背景颜色，默认值为浅蓝色 (#d1ecf1)。
+    @text-color: 文本颜色，默认值为深蓝色 (#0c5460)。
+    @border-color: 边框颜色，默认值为浅蓝色 (#bee5eb)。
+*/
+/* 
+  Mixin: alert-title
+  功能描述:
+    设置警告框标题的样式。
+  参数:
+    @font-size: 标题字体大小，默认值为 18px。
+*/
+/* 
+  Mixin: alert-close
+  功能描述:
+    设置警告框关闭按钮的样式。
+  参数:
+    @size: 按钮大小，默认值为 20px。
+    @color: 按钮颜色，默认值为当前文本颜色。
+*/
+/* 
+  Mixin: fade-in
+  功能描述:
+    为元素添加淡入效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @delay: 动画延迟时间，默认值为 0s。
+*/
+/* 
+  Mixin: fade-out
+  功能描述:
+    为元素添加淡出效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @delay: 动画延迟时间，默认值为 0s。
+*/
+/* 
+  Mixin: slide-in
+  功能描述:
+    为元素添加从左侧滑入的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @distance: 滑动距离，默认值为 100px。
+*/
+/* 
+  Mixin: zoom-in
+  功能描述:
+    为元素添加缩放进入效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @scale: 缩放比例，默认值为 1.1。
+*/
+/* 
+  Mixin: slide-out
+  功能描述:
+    为元素添加从右侧滑出的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @distance: 滑动距离，默认值为 100px。
+*/
+/* 
+  Mixin: zoom-out
+  功能描述:
+    为元素添加缩放退出效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @scale: 缩放比例，默认值为 0.9。
+*/
+/* 
+  Mixin: bounce
+  功能描述:
+    为元素添加弹跳效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @times: 弹跳次数，默认值为 3。
+*/
+/* 
+  Mixin: rotate
+  功能描述:
+    为元素添加旋转效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @degree: 旋转角度，默认值为 360deg。
+*/
+/* 
+  Mixin: flip
+  功能描述:
+    为元素添加翻转效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @direction: 翻转方向，可选值：'horizontal' 或 'vertical'，默认值为 'horizontal'。
+*/
+/* 
+  Mixin: pulse
+  功能描述:
+    为元素添加脉冲效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @scale: 脉冲缩放比例，默认值为 1.2。
+*/
+/* 
+  Mixin: shake
+  功能描述:
+    为元素添加震动效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @intensity: 震动强度，默认值为 5px。
+*/
+/* 
+  Mixin: wobble
+  功能描述:
+    为元素添加摇摆效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @intensity: 摇摆强度，默认值为 15deg。
+*/
+/* 
+  Mixin: tada
+  功能描述:
+    为元素添加振动效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @intensity: 振动强度，默认值为 10deg。
+*/
+/* 
+  Mixin: flip-in
+  功能描述:
+    为元素添加翻转进入效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @direction: 翻转方向，可选值：'horizontal' 或 'vertical'，默认值为 'horizontal'。
+*/
+/* 
+  Mixin: flip-out
+  功能描述:
+    为元素添加翻转退出效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @direction: 翻转方向，可选值：'horizontal' 或 'vertical'，默认值为 'horizontal'。
+*/
+/* 
+  Mixin: swing
+  功能描述:
+    为元素添加摆动效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @intensity: 摆动强度，默认值为 20deg。
+*/
+/* 
+  Mixin: pulse-background
+  功能描述:
+    为元素添加背景脉冲效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @color: 背景脉冲颜色，默认值为 rgba(255, 0, 0, 0.2)。
+*/
+/* 
+  Mixin: fade-slide
+  功能描述:
+    为元素添加淡入淡出滑动效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @distance: 滑动距离，默认值为 50px。
+*/
+/* 
+  Mixin: flip-bounce
+  功能描述:
+    为元素添加翻转和弹跳的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @flipDirection: 翻转方向，可选值：'horizontal' 或 'vertical'，默认值为 'horizontal'。
+    @bounceHeight: 弹跳高度，默认值为 20px。
+*/
+/* 
+  Mixin: bounce-in
+  功能描述:
+    为元素添加弹跳进入效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @bounceHeight: 弹跳高度，默认值为 30px。
+*/
+/* 
+  Mixin: rotate-in
+  功能描述:
+    为元素添加旋转进入效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @degree: 旋转角度，默认值为 360deg。
+*/
+/* 
+  Mixin: rotate-out
+  功能描述:
+    为元素添加旋转退出效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @degree: 旋转角度，默认值为 360deg。
+*/
+/* 
+  Mixin: flip-scale
+  功能描述:
+    为元素添加翻转和缩放的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @flipDirection: 翻转方向，可选值：'horizontal' 或 'vertical'，默认值为 'horizontal'。
+    @scale: 缩放比例，默认值为 1.2。
+*/
+/* 
+  Mixin: pulse-color
+  功能描述:
+    为元素添加颜色脉冲效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @color: 脉冲颜色，默认值为 rgba(0, 255, 0, 0.3)。
+*/
+/* 
+  Mixin: slide-fade
+  功能描述:
+    为元素添加滑动和淡入的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @distance: 滑动距离，默认值为 50px。
+*/
+/* 
+  Mixin: bounce-out
+  功能描述:
+    为元素添加弹跳退出效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @bounceHeight: 弹跳高度，默认值为 30px。
+*/
+/* 
+  Mixin: light-speed-in
+  功能描述:
+    为元素添加光速进入效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @direction: 进入方向，可选值：'left', 'right', 'top', 'bottom'，默认值为 'left'。
+*/
+/* 
+  Mixin: light-speed-out
+  功能描述:
+    为元素添加光速退出效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @direction: 退出方向，可选值：'left', 'right', 'top', 'bottom'，默认值为 'left'。
+*/
+/* 
+  Mixin: flip-flop
+  功能描述:
+    为元素添加翻转和弹跳的效果组合。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @flipDirection: 翻转方向，可选值：'horizontal' 或 'vertical'，默认值为 'horizontal'。
+    @bounceHeight: 弹跳高度，默认值为 20px。
+*/
+/* 
+  Mixin: zoom-fade
+  功能描述:
+    为元素添加缩放和淡入的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @scale: 缩放比例，默认值为 1.2。
+*/
+/* 
+  Mixin: blur-in
+  功能描述:
+    为元素添加模糊进入效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @blur: 模糊程度，默认值为 10px。
+*/
+/* 
+  Mixin: blur-out
+  功能描述:
+    为元素添加模糊退出效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @blur: 模糊程度，默认值为 10px。
+*/
+/* 
+  Mixin: shake
+  功能描述:
+    为元素添加摇晃效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @intensity: 摇晃强度，默认值为 10px。
+*/
+/* 
+  Mixin: roll-in
+  功能描述:
+    为元素添加滚动进入效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @distance: 滚动距离，默认值为 100px。
+*/
+/* 
+  Mixin: bounce-in-left
+  功能描述:
+    为元素添加从左侧弹跳进入效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @bounceHeight: 弹跳高度，默认值为 30px。
+*/
+/* 
+  Mixin: bounce-in-right
+  功能描述:
+    为元素添加从右侧弹跳进入效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @bounceHeight: 弹跳高度，默认值为 30px。
+*/
+/* 
+  Mixin: pulse-scale
+  功能描述:
+    为元素添加缩放脉冲效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @scale: 缩放比例，默认值为 1.2。
+*/
+/* 
+  Mixin: flash
+  功能描述:
+    为元素添加闪烁效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @color: 闪烁颜色，默认值为 rgba(255, 255, 255, 0.8)。
+*/
+/* 
+  Mixin: swing
+  功能描述:
+    为元素添加摆动效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @amplitude: 摆动幅度，默认值为 20px。
+*/
+/* 
+  Mixin: expand-collapse
+  功能描述:
+    为元素添加扩展和收缩的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @scaleStart: 初始缩放比例，默认值为 0.5。
+    @scaleEnd: 结束缩放比例，默认值为 1。
+*/
+/* 
+  Mixin: slide-up
+  功能描述:
+    为元素添加从下往上滑动的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @distance: 滑动距离，默认值为 100px。
+*/
+/* 
+  Mixin: slide-down
+  功能描述:
+    为元素添加从上往下滑动的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @distance: 滑动距离，默认值为 100px。
+*/
+/* 
+  Mixin: rotate-scale
+  功能描述:
+    为元素添加旋转和缩放的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @scaleStart: 初始缩放比例，默认值为 0.5。
+    @scaleEnd: 结束缩放比例，默认值为 1.2。
+    @rotate: 旋转角度，默认值为 360deg。
+*/
+/* 
+  Mixin: pulse-opacity
+  功能描述:
+    为元素添加透明度脉冲效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1.5s。
+    @minOpacity: 最小透明度，默认值为 0.2。
+    @maxOpacity: 最大透明度，默认值为 1。
+*/
+/* 
+  Mixin: pulse-border
+  功能描述:
+    为元素添加边框脉冲效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @borderWidth: 边框宽度，默认值为 2px。
+    @borderColor: 边框颜色，默认值为 rgba(0, 0, 0, 0.5)。
+*/
+/* 
+  Mixin: rotate-bounce
+  功能描述:
+    为元素添加旋转和弹跳的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @bounceHeight: 弹跳高度，默认值为 20px。
+    @rotate: 旋转角度，默认值为 360deg。
+*/
+/* 
+  Mixin: flip-horizontal
+  功能描述:
+    为元素添加水平翻转效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+*/
+/* 
+  Mixin: flip-vertical
+  功能描述:
+    为元素添加垂直翻转效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+*/
+/* 
+  Mixin: color-change
+  功能描述:
+    为元素添加颜色变化效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @colorStart: 起始颜色，默认值为 #ff0000。
+    @colorEnd: 结束颜色，默认值为 #0000ff。
+*/
+/* 
+  Mixin: skew
+  功能描述:
+    为元素添加倾斜效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @skewX: X轴倾斜角度，默认值为 20deg。
+    @skewY: Y轴倾斜角度，默认值为 0deg。
+*/
+/* 
+  Mixin: heartbeat
+  功能描述:
+    为元素添加心跳效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1.5s。
+    @scale: 缩放比例，默认值为 1.3。
+*/
+/* 
+  Mixin: zoom-spin
+  功能描述:
+    为元素添加缩放和旋转的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @scaleStart: 初始缩放比例，默认值为 0.5。
+    @scaleEnd: 结束缩放比例，默认值为 1.5。
+    @rotate: 旋转角度，默认值为 360deg。
+*/
+/* 
+  Mixin: roll-out
+  功能描述:
+    为元素添加滚动退出效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @distance: 滚动距离，默认值为 100px。
+*/
+/* 
+  Mixin: ripple
+  功能描述:
+    为元素添加涟漪效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @scale: 涟漪缩放比例，默认值为 2。
+    @color: 涟漪颜色，默认值为 rgba(0, 0, 0, 0.1)。
+*/
+/* 
+  Mixin: jitter
+  功能描述:
+    为元素添加抖动效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @intensity: 抖动强度，默认值为 5px。
+*/
+/* 
+  Mixin: flash-text
+  功能描述:
+    为文字添加闪烁效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @colorStart: 起始颜色，默认值为 #ff0000。
+    @colorEnd: 结束颜色，默认值为 #0000ff。
+*/
+/* 
+  Mixin: slide-flip
+  功能描述:
+    为元素添加滑动和翻转的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @distance: 滑动距离，默认值为 50px。
+    @flipDirection: 翻转方向，可选值：'horizontal' 或 'vertical'，默认值为 'horizontal'。
+*/
+/* 
+  Mixin: zoom-bounce
+  功能描述:
+    为元素添加缩放和弹跳的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @scale: 缩放比例，默认值为 1.2。
+    @bounceHeight: 弹跳高度，默认值为 20px。
+*/
+/* 
+  Mixin: rotate-blur
+  功能描述:
+    为元素添加旋转和模糊的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @rotate: 旋转角度，默认值为 360deg。
+    @blur: 模糊程度，默认值为 5px。
+*/
+/* 
+  Mixin: wave
+  功能描述:
+    为元素添加波浪效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @amplitude: 波浪幅度，默认值为 20px。
+*/
+/* 
+  Mixin: rotate-pulse
+  功能描述:
+    为元素添加旋转和脉冲的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @scale: 脉冲缩放比例，默认值为 1.5。
+    @rotate: 旋转角度，默认值为 360deg。
+*/
+/* 
+  Mixin: shake-y
+  功能描述:
+    为元素添加纵向摇晃效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @intensity: 摇晃强度，默认值为 10px。
+*/
+/* 
+  Mixin: stretch
+  功能描述:
+    为元素添加拉伸效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @scaleX: 水平拉伸比例，默认值为 1.5。
+    @scaleY: 垂直拉伸比例，默认值为 1。
+*/
+/* 
+  Mixin: bounce-scale
+  功能描述:
+    为元素添加缩放和弹跳的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @scale: 缩放比例，默认值为 1.2。
+    @bounceHeight: 弹跳高度，默认值为 20px。
+*/
+/* 
+  Mixin: zigzag
+  功能描述:
+    为元素添加之字形移动效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @amplitude: 移动幅度，默认值为 50px。
+*/
+/* 
+  Mixin: bounce-skew
+  功能描述:
+    为元素添加弹跳和倾斜的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1.5s。
+    @skewX: X轴倾斜角度，默认值为 15deg。
+    @skewY: Y轴倾斜角度，默认值为 0deg。
+    @bounceHeight: 弹跳高度，默认值为 20px。
+*/
+/* 
+  Mixin: flash-background
+  功能描述:
+    为元素添加背景色闪烁效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1.5s。
+    @colorStart: 起始背景色，默认值为 #ffcc00。
+    @colorEnd: 结束背景色，默认值为 #cc00ff。
+*/
+/* 
+  Mixin: fade-spin
+  功能描述:
+    为元素添加淡入和旋转的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @rotate: 旋转角度，默认值为 720deg。
+*/
+/* 
+  Mixin: grow-shrink
+  功能描述:
+    为元素添加生长和收缩的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @scaleStart: 初始缩放比例，默认值为 1。
+    @scaleEnd: 结束缩放比例，默认值为 0.8。
+*/
+/* 
+  Mixin: move-in-circle
+  功能描述:
+    为元素添加圆形路径移动效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @radius: 圆的半径，默认值为 50px。
+*/
+/* 
+  Mixin: bounce-rotate
+  功能描述:
+    为元素添加弹跳和旋转的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @bounceHeight: 弹跳高度，默认值为 20px。
+    @rotate: 旋转角度，默认值为 360deg。
+*/
+/* 
+  Mixin: wave-text
+  功能描述:
+    为文本添加波浪效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @amplitude: 波浪幅度，默认值为 10px。
+*/
+/* 
+  Mixin: complex-slide
+  功能描述:
+    为元素添加复杂的滑动效果，结合多轴滑动、淡入淡出、旋转等效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1.5s。
+    @xDistance: X轴滑动距离，默认值为 100px。
+    @yDistance: Y轴滑动距离，默认值为 100px。
+    @rotate: 旋转角度，默认值为 360deg。
+*/
+/* 
+  Mixin: exploding-fade
+  功能描述:
+    为元素添加“爆炸”效果，从中间扩散并淡出。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @scale: 缩放比例，默认值为 1.5。
+    @blur: 模糊程度，默认值为 10px。
+*/
+/* 
+  Mixin: pendulum
+  功能描述:
+    为元素添加钟摆摆动效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @angle: 摆动角度，默认值为 45deg。
+*/
+/* 
+  Mixin: exploding-box
+  功能描述:
+    为元素添加“盒子爆炸”效果，模拟盒子从中心扩展和分裂。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @scale: 缩放比例，默认值为 2。
+    @spreadDistance: 扩展距离，默认值为 200px。
+*/
+/* 
+  Mixin: 3d-flip
+  功能描述:
+    为元素添加 3D 翻转效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @rotateX: X轴旋转角度，默认值为 180deg。
+    @rotateY: Y轴旋转角度，默认值为 180deg。
+    @perspective: 视距，默认值为 1000px。
+*/
+/* 
+  Mixin: starburst
+  功能描述:
+    为元素添加“星爆”效果，从中心点发出光芒四射的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2.5s。
+    @scale: 缩放比例，默认值为 3。
+    @blur: 模糊程度，默认值为 20px。
+    @color: 光芒颜色，默认值为 rgba(255, 255, 0, 0.7)。
+*/
+/* 
+  Mixin: earthquake
+  功能描述:
+    为元素添加“地震”效果，模拟地震时的剧烈抖动。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @intensity: 抖动强度，默认值为 10px。
+*/
+/* 
+  Mixin: morphing-shape
+  功能描述:
+    为元素添加形状变化效果，模拟从一种形状平滑过渡到另一种形状。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @shapeStart: 初始形状的 clip-path 值。
+    @shapeEnd: 结束形状的 clip-path 值。
+*/
+/* 
+  Mixin: spotlight
+  功能描述:
+    为元素添加聚光灯效果，模拟光线从中心点扩展并聚焦。
+  参数:
+    @duration: 动画持续时间，默认值为 2.5s。
+    @color: 聚光灯颜色，默认值为 rgba(255, 255, 255, 0.8)。
+    @blur: 模糊程度，默认值为 30px。
+*/
+/* 
+  Mixin: liquid-flow
+  功能描述:
+    为元素添加液体流动效果，模拟液体从一边流向另一边的波浪效果。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @colorStart: 起始颜色，默认值为 rgba(0, 123, 255, 0.8)。
+    @colorEnd: 结束颜色，默认值为 rgba(0, 123, 255, 0.2)。
+*/
+/* 
+  Mixin: firework
+  功能描述:
+    为元素添加“烟火”效果，模拟元素从一个点发散并消失的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @colors: 烟火颜色数组，默认值为 #ff5733, #ffbd33, #75ff33。
+
+// .firework(@duration: 2s, @colors: #ff5733, #ffbd33, #75ff33) {
+//   position: relative;
+//   overflow: visible;
+
+//   &::before, &::after {
+//     content: '';
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     width: 10px;
+//     height: 10px;
+//     background: radial-gradient(circle, @colors...);
+//     border-radius: 50%;
+//     transform: translate(-50%, -50%) scale(0);
+//     animation: firework @duration ease-out;
+//   }
+
+//   &::after {
+//     animation-delay: 0.2s;
+//   }
+
+//   @keyframes firework {
+//     0% {
+//       transform: translate(-50%, -50%) scale(0);
+//       opacity: 1;
+//     }
+//     50% {
+//       transform: translate(-50%, -50%) scale(5);
+//       opacity: 0.7;
+//     }
+//     100% {
+//       transform: translate(-50%, -50%) scale(0);
+//       opacity: 0;
+//     }
+//   }
+// }
+
+
+*/
+/* 
+  Mixin: hologram
+  功能描述:
+    为元素添加全息投影效果，模拟光的反射和折射。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @colorStart: 初始颜色，默认值为 #00ffcc。
+    @colorEnd: 结束颜色，默认值为 #ff66cc。
+*/
+/* 
+  Mixin: nebula
+  功能描述:
+    为元素添加星云效果，模拟元素周围充满旋转的光雾和星星。
+  参数:
+    @duration: 动画持续时间，默认值为 4s。
+    @color1: 星云颜色1，默认值为 rgba(255, 69, 0, 0.7)。
+    @color2: 星云颜色2，默认值为 rgba(148, 0, 211, 0.7)。
+*/
+/* 
+  Mixin: particle-swarm
+  功能描述:
+    为元素添加粒子群效果，模拟粒子在空间中随机运动。
+  参数:
+    @duration: 动画持续时间，默认值为 5s。
+    @particleColor: 粒子颜色，默认值为 rgba(255, 255, 255, 0.8)。
+    @particleSize: 粒子大小，默认值为 3px。
+    @particleCount: 粒子数量，默认值为 50。
+*/
+/* 
+  Mixin: aura
+  功能描述:
+    为元素添加光环效果，模拟一种柔和的光晕围绕元素。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @color: 光环颜色，默认值为 rgba(0, 255, 0, 0.5)。
+    @blur: 模糊程度，默认值为 15px。
+*/
+/* 
+  Mixin: fractal-zoom
+  功能描述:
+    为元素添加分形缩放效果，模拟无限缩放的分形图案。
+  参数:
+    @duration: 动画持续时间，默认值为 4s。
+    @fractalColor: 分形颜色，默认值为 rgba(0, 191, 255, 0.5)。
+    @scale: 缩放比例，默认值为 2。
+*/
+/* 
+  Mixin: galaxy-spin
+  功能描述:
+    为元素添加银河旋转效果，模拟星星围绕中心旋转。
+  参数:
+    @duration: 动画持续时间，默认值为 5s。
+    @starColor: 星星颜色，默认值为 rgba(255, 255, 255, 0.7)。
+    @starSize: 星星大小，默认值为 2px。
+    @starCount: 星星数量，默认值为 100。
+*/
+/* 
+  Mixin: holographic-shine
+  功能描述:
+    为元素添加全息光泽效果，模拟光线在表面反射和移动的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @shineColor: 光泽颜色，默认值为 rgba(255, 255, 255, 0.3)。
+*/
+/* 
+  Mixin: plasma-flow
+  功能描述:
+    为元素添加等离子流动效果，模拟等离子体在元素周围流动和变化。
+  参数:
+    @duration: 动画持续时间，默认值为 4s。
+    @plasmaColorStart: 等离子体颜色起始值，默认值为 rgba(255, 0, 255, 0.7)。
+    @plasmaColorEnd: 等离子体颜色结束值，默认值为 rgba(0, 255, 255, 0.7)。
+*/
+/* 
+  Mixin: cosmic-pulse
+  功能描述:
+    为元素添加宇宙脉动效果，模拟宇宙能量从中心向外扩散。
+  参数:
+    @duration: 动画持续时间，默认值为 4s。
+    @color1: 第一脉冲颜色，默认值为 rgba(255, 215, 0, 0.7)。
+    @color2: 第二脉冲颜色，默认值为 rgba(0, 191, 255, 0.7)。
+*/
+/* 
+  Mixin: pulse-glow
+  功能描述:
+    为元素添加脉冲光效，模拟元素的光晕随时间脉动。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @glowColor: 光晕颜色，默认值为 rgba(255, 255, 0, 0.7)。
+    @glowSize: 光晕大小，默认值为 20px。
+*/
+/* 
+  Mixin: shifting-hue
+  功能描述:
+    为元素添加颜色变换效果，模拟颜色的连续过渡。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @startColor: 起始颜色，默认值为 #ff0000。
+    @endColor: 结束颜色，默认值为 #0000ff。
+*/
+/* 
+  Mixin: glass-reflection
+  功能描述:
+    为元素添加玻璃反光效果，模拟光线在玻璃表面的反射。
+  参数:
+    @duration: 动画持续时间，默认值为 2.5s。
+    @reflectionColor: 反射颜色，默认值为 rgba(255, 255, 255, 0.5)。
+    @reflectionAngle: 反射角度，默认值为 45deg。
+*/
+/* 
+  Mixin: infinite-spiral
+  功能描述:
+    为元素添加无限旋转效果，模拟元素围绕中心点的无尽旋转。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @rotationAngle: 旋转角度，默认值为 720deg。
+*/
+/* 
+  Mixin: shimmer
+  功能描述:
+    为元素添加闪光效果，模拟光线在元素表面的掠过。
+  参数:
+    @duration: 动画持续时间，默认值为 1.5s。
+    @shimmerColor: 闪光颜色，默认值为 rgba(255, 255, 255, 0.6)。
+*/
+/* 
+  Mixin: light-beam
+  功能描述:
+    为元素添加光束效果，模拟从元素中心向外发射的光束。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @beamColor: 光束颜色，默认值为 rgba(255, 255, 255, 0.7)。
+*/
+/* 
+  Mixin: crystalize
+  功能描述:
+    为元素添加结晶效果，模拟结晶的形成和消失。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @crystalColor: 结晶颜色，默认值为 rgba(173, 216, 230, 0.7)。
+*/
+/* 
+  Mixin: solar-flare
+  功能描述:
+    为元素添加太阳耀斑效果，模拟光线从中心向外爆发。
+  参数:
+    @duration: 动画持续时间，默认值为 2.5s。
+    @flareColor: 耀斑颜色，默认值为 rgba(255, 140, 0, 0.8)。
+*/
+/* 
+  Mixin: frost-effect
+  功能描述:
+    为元素添加冰霜效果，模拟冰晶覆盖元素表面的过程。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @frostColor: 冰霜颜色，默认值为 rgba(135, 206, 250, 0.6)。
+*/
+/* 
+  Mixin: aurora
+  功能描述:
+    为元素添加极光效果，模拟北极光的柔和变化。
+  参数:
+    @duration: 动画持续时间，默认值为 4s。
+    @auroraColor1: 极光颜色1，默认值为 rgba(0, 255, 127, 0.7)。
+    @auroraColor2: 极光颜色2，默认值为 rgba(0, 191, 255, 0.7)。
+*/
+/* 
+  Mixin: lava-flow
+  功能描述:
+    为元素添加熔岩流动效果，模拟熔岩在元素表面流动。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @lavaColor1: 熔岩颜色1，默认值为 rgba(255, 69, 0, 0.8)。
+    @lavaColor2: 熔岩颜色2，默认值为 rgba(255, 140, 0, 0.8)。
+*/
+/* 
+  Mixin: dimensional-warp
+  功能描述:
+    为元素添加维度扭曲效果，模拟空间的拉伸和扭曲。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @warpColor1: 扭曲颜色1，默认值为 rgba(138, 43, 226, 0.8)。
+    @warpColor2: 扭曲颜色2，默认值为 rgba(75, 0, 130, 0.8)。
+*/
+/* 
+  Mixin: meteor-shower
+  功能描述:
+    为元素添加流星雨效果，模拟流星划过天空。
+  参数:
+    @duration: 动画持续时间，默认值为 4s。
+    @meteorColor: 流星颜色，默认值为 rgba(255, 255, 255, 0.8)。
+*/
+/* 
+  Mixin: radioactive-glow
+  功能描述:
+    为元素添加放射性光效，模拟辐射发光的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2.5s。
+    @glowColor: 光效颜色，默认值为 rgba(0, 255, 0, 0.7)。
+    @glowSize: 光效大小，默认值为 30px。
+*/
+/* 
+  Mixin: temporal-distortion
+  功能描述:
+    为元素添加时间扭曲效果，模拟时间流动的不连续性。
+  参数:
+    @duration: 动画持续时间，默认值为 5s。
+    @distortColor: 扭曲颜色，默认值为 rgba(255, 255, 255, 0.8)。
+*/
+/* 
+  Mixin: cosmic-ray
+  功能描述:
+    为元素添加宇宙射线效果，模拟高速运动的光线穿过元素。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @rayColor: 射线颜色，默认值为 rgba(255, 255, 255, 0.8)。
+*/
+/* 
+  Mixin: background-color
+  功能描述:
+    快速为元素设置背景颜色。
+  参数:
+    @color: 背景颜色，默认值为浅灰色 (#f0f0f0)。
+*/
+/* 
+  Mixin: gradient-background
+  功能描述:
+    为元素添加线性渐变背景，默认从左到右的灰色渐变。
+  参数:
+    @start-color: 渐变开始的颜色，默认值为浅灰色 (#eee)。
+    @end-color: 渐变结束的颜色，默认值为深灰色 (#333)。
+    @angle: 渐变角度，默认值为 90 度（从左到右）。
+*/
+/* 
+  Mixin: full-width-background
+  功能描述:
+    将背景颜色或图像设置为全宽度。
+  参数:
+    @bg: 背景颜色或图像，默认值为浅灰色 (#f0f0f0)。
+*/
+/* 
+  Mixin: image-background
+  功能描述:
+    为元素设置背景图像，并根据需要进行调整。
+  参数:
+    @image-url: 背景图像的 URL，默认无图像。
+    @size: 背景图像的尺寸，默认值为 cover。
+    @position: 背景图像的位置，默认值为 center。
+*/
+/* 
+  Mixin: transparent-background
+  功能描述:
+    设置透明背景。
+  参数:
+    @opacity: 透明度，默认值为 0.5。
+*/
+/* 
+  Mixin: badge
+  功能描述:
+    设置徽章的基础样式。
+  参数:
+    @bg-color: 徽章背景颜色，默认值为红色 (#e74c3c)。
+    @text-color: 徽章文本颜色，默认值为白色 (#fff)。
+    @padding: 徽章的内边距，默认值为 5px 10px。
+*/
+/* 
+  Mixin: badge-large
+  功能描述:
+    设置较大的徽章样式。
+  参数:
+    @bg-color: 徽章背景颜色，默认值为红色 (#e74c3c)。
+    @text-color: 徽章文本颜色，默认值为白色 (#fff)。
+    @padding: 徽章的内边距，默认值为 8px 15px。
+*/
+/* 
+  Mixin: badge-rounded
+  功能描述:
+    设置圆形徽章的样式。
+  参数:
+    @bg-color: 徽章背景颜色，默认值为红色 (#e74c3c)。
+    @text-color: 徽章文本颜色，默认值为白色 (#fff)。
+    @size: 徽章的大小，默认值为 20px。
+*/
+/* 
+  Mixin: badge-pill
+  功能描述:
+    设置药丸形状的徽章样式。
+  参数:
+    @bg-color: 徽章背景颜色，默认值为蓝色 (#3498db)。
+    @text-color: 徽章文本颜色，默认值为白色 (#fff)。
+    @padding: 徽章的内边距，默认值为 5px 15px。
+*/
+/* 
+  Mixin: badge-outline
+  功能描述:
+    设置轮廓徽章的样式。
+  参数:
+    @border-color: 徽章边框颜色，默认值为蓝色 (#3498db)。
+    @text-color: 徽章文本颜色，默认值为蓝色 (#3498db)。
+    @padding: 徽章的内边距，默认值为 5px 10px。
+*/
+/* 
+  Mixin: border-radius
+  功能描述:
+    为元素添加圆角效果，默认半径为 4px。
+  参数:
+    @radius: 圆角半径，默认值为 4px。
+*/
+/* 
+  Mixin: border-radius
+  功能描述:
+    为元素设置圆角效果。
+  参数:
+    @radius: 圆角半径，默认值为 4px。
+*/
+/* 
+  Mixin: border
+  功能描述:
+    快速为元素设置边框，默认 1px 实线边框，颜色为浅灰色。
+  参数:
+    @width: 边框宽度，默认值为 1px。
+    @style: 边框样式，默认值为 solid。
+    @color: 边框颜色，默认值为 #ccc。
+*/
+/* 
+  Mixin: dashed-border
+  功能描述:
+    为元素设置虚线边框，默认 2px 虚线边框，颜色为浅灰色。
+  参数:
+    @width: 边框宽度，默认值为 2px。
+    @color: 边框颜色，默认值为 #ccc。
+*/
+/* 
+  Mixin: double-border
+  功能描述:
+    为元素设置双线边框，默认 3px 双线边框，颜色为浅灰色。
+  参数:
+    @width: 边框宽度，默认值为 3px。
+    @color: 边框颜色，默认值为 #ccc。
+*/
+/* 
+  Mixin: border-none
+  功能描述:
+    移除元素的边框。
+  参数:
+    无。
+*/
+.border-none {
+  border: none;
+}
+/* 
+  Mixin: box-shadow
+  功能描述:
+    为元素添加阴影效果，默认使用轻微阴影。
+  参数:
+    @x: 水平方向的阴影偏移，默认值为 0px。
+    @y: 垂直方向的阴影偏移，默认值为 2px。
+    @blur: 模糊半径，默认值为 5px。
+    @spread: 扩展半径，默认值为 0px。
+    @color: 阴影颜色，默认值为 rgba(0, 0, 0, 0.2)。
+*/
+/* 
+  Mixin: button-group
+  功能描述:
+    设置按钮组的基础样式，使按钮彼此紧邻排列。
+  参数:
+    @spacing: 按钮之间的间距，默认值为 0。
+*/
+/* 
+  Mixin: button-group-vertical
+  功能描述:
+    创建垂直排列的按钮组。
+  参数:
+    @spacing: 按钮之间的垂直间距，默认值为 0。
+*/
+/* 
+  Mixin: button-group-justified
+  功能描述:
+    使按钮组的按钮宽度均分，适用于自适应布局。
+  参数:
+    无。
+*/
+.button-group-justified {
+  display: flex;
+  justify-content: space-between;
+}
+.button-group-justified button {
+  flex: 1;
+  text-align: center;
+}
+.button-group-justified button:not(:first-child) {
+  margin-left: -1px;
+}
+.button-group-justified button:first-child {
+  border-right: 1px solid currentColor;
+}
+.button-group-justified button:last-child {
+  border-left: 1px solid currentColor;
+}
+/* 
+  Mixin: button-group-outlined
+  功能描述:
+    设置按钮组的轮廓样式，使按钮之间有明确的边界。
+  参数:
+    @border-color: 按钮组的边框颜色，默认值为浅灰色 (#ddd)。
+*/
+/* 
+  Mixin: button
+  功能描述:
+    为按钮设置基础样式。
+  参数:
+    @bg-color: 背景颜色，默认值为灰色 (#ccc)。
+    @text-color: 文本颜色，默认值为白色 (#fff)。
+*/
+/* 
+  Mixin: button-outline
+  功能描述:
+    创建一个具有边框的轮廓按钮。
+  参数:
+    @border-color: 边框颜色，默认值为黑色 (#000)。
+    @text-color: 文本颜色，默认值为黑色 (#000)。
+*/
+/* 
+  Mixin: button-disabled
+  功能描述:
+    设置按钮的禁用状态。
+  参数:
+    @bg-color: 背景颜色，默认值为浅灰色 (#e0e0e0)。
+    @text-color: 文本颜色，默认值为深灰色 (#aaa)。
+*/
+/* 
+  Mixin: button-icon
+  功能描述:
+    为按钮添加图标（左侧）。
+  参数:
+    @icon-url: 图标的 URL，默认值为空。
+    @icon-size: 图标的尺寸，默认值为 16px。
+*/
+/* 
+  Mixin: card
+  功能描述:
+    为卡片设置基础样式，包括边框、内边距和阴影。
+  参数:
+    @bg-color: 卡片背景颜色，默认值为白色 (#fff)。
+    @border-color: 卡片边框颜色，默认值为浅灰色 (#ddd)。
+    @shadow-color: 卡片阴影颜色，默认值为 rgba(0, 0, 0, 0.1)。
+*/
+/* 
+  Mixin: card-header
+  功能描述:
+    设置卡片头部的样式，包括背景色和内边距。
+  参数:
+    @bg-color: 头部背景颜色，默认值为浅灰色 (#f5f5f5)。
+    @padding: 内边距，默认值为 15px。
+*/
+/* 
+  Mixin: card-body
+  功能描述:
+    设置卡片主体内容的样式，包括内边距和字体大小。
+  参数:
+    @padding: 内边距，默认值为 20px。
+    @font-size: 字体大小，默认值为 16px。
+*/
+/* 
+  Mixin: card-footer
+  功能描述:
+    设置卡片底部的样式，包括背景色和内边距。
+  参数:
+    @bg-color: 底部背景颜色，默认值为浅灰色 (#f5f5f5)。
+    @padding: 内边距，默认值为 15px。
+*/
+/* 
+  Mixin: card-title
+  功能描述:
+    设置卡片标题的样式，包括字体大小和颜色。
+  参数:
+    @font-size: 标题字体大小，默认值为 24px。
+    @text-color: 标题颜色，默认值为黑色 (#333)。
+*/
+/* 
+  Mixin: carousel
+  功能描述:
+    设置轮播图的基础样式。
+  参数:
+    @width: 轮播图的宽度，默认值为 100%。
+    @height: 轮播图的高度，默认值为 400px。
+*/
+/* 
+  Mixin: carousel-item
+  功能描述:
+    设置轮播图项目的样式。
+  参数:
+    @transition-duration: 轮播图切换的动画持续时间，默认值为 0.5s。
+*/
+/* 
+  Mixin: carousel-arrow
+  功能描述:
+    设置轮播图导航箭头的样式。
+  参数:
+    @size: 箭头的大小，默认值为 40px。
+    @color: 箭头的颜色，默认值为白色 (#fff)。
+    @bg-color: 箭头背景颜色，默认值为黑色半透明 (#000, 0.5)。
+*/
+/* 
+  Mixin: carousel-indicators
+  功能描述:
+    设置轮播图分页指示器的样式。
+  参数:
+    @size: 指示器的大小，默认值为 12px。
+    @active-color: 活动指示器的颜色，默认值为白色 (#fff)。
+    @inactive-color: 非活动指示器的颜色，默认值为浅灰色 (#bbb)。
+*/
+/* 
+  Mixin: carousel-fade
+  功能描述:
+    设置轮播图项目的淡入淡出效果。
+  参数:
+    @transition-duration: 淡入淡出动画的持续时间，默认值为 0.5s。
+*/
+/* 
+  Mixin: carousel-slide
+  功能描述:
+    设置轮播图项目的滑动切换效果。
+  参数:
+    @transition-duration: 滑动动画的持续时间，默认值为 0.5s。
+*/
+/* 
+  Mixin: flex-container
+  功能描述:
+    设置为一个 Flexbox 容器。
+  参数:
+    @direction: 子项的排列方向，默认值为行排列 (row)。
+    @wrap: 子项的换行方式，默认值为不换行 (nowrap)。
+*/
+/* 
+  Mixin: flex-direction-row
+  功能描述:
+    设置子项的排列方向为行排列 (row)。
+  参数:
+    无。
+*/
+.flex-direction-row {
+  flex-direction: row;
+}
+/* 
+  Mixin: flex-direction-column
+  功能描述:
+    设置子项的排列方向为列排列 (column)。
+  参数:
+    无。
+*/
+.flex-direction-column {
+  flex-direction: column;
+}
+/* 
+  Mixin: flex-wrap
+  功能描述:
+    设置子项的换行方式。
+  参数:
+    @wrap: 子项的换行方式，默认值为换行 (wrap)。
+*/
+/* 
+  Mixin: flex-justify-content
+  功能描述:
+    设置子项在主轴上的分布方式。
+  参数:
+    @justify: 子项的分布方式，默认值为居中对齐 (center)。
+*/
+/* 
+  Mixin: flex-align-items
+  功能描述:
+    设置子项在交叉轴上的对齐方式。
+  参数:
+    @align: 子项的对齐方式，默认值为居中对齐 (center)。
+*/
+/* 
+  Mixin: flex-align-content
+  功能描述:
+    设置多行子项在交叉轴上的对齐方式。
+  参数:
+    @align: 多行子项的对齐方式，默认值为居中对齐 (center)。
+*/
+/* 
+  Mixin: flex-center
+  功能描述:
+    快速居中对齐子项，水平和垂直方向均居中。
+  参数:
+    无。
+*/
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 
+  Mixin: flex-space-between
+  功能描述:
+    子项在主轴上均匀分布，两端对齐，中间有间距。
+  参数:
+    无。
+*/
+.flex-space-between {
+  justify-content: space-between;
+}
+/* 
+  Mixin: flex-space-around
+  功能描述:
+    子项在主轴上均匀分布，两端留有等量空间。
+  参数:
+    无。
+*/
+.flex-space-around {
+  justify-content: space-around;
+}
+/* 
+  Mixin: flex-space-evenly
+  功能描述:
+    子项在主轴上均匀分布，每个子项之间的间距相等。
+  参数:
+    无。
+*/
+.flex-space-evenly {
+  justify-content: space-evenly;
+}
+/* 
+  Mixin: flex-grow
+  功能描述:
+    设置子项的增长因子，使其在主轴方向上扩展以填充可用空间。
+  参数:
+    @factor: 增长因子，默认值为 1。
+*/
+/* 
+  Mixin: flex-shrink
+  功能描述:
+    设置子项的收缩因子，使其在主轴方向上收缩以适应可用空间。
+  参数:
+    @factor: 收缩因子，默认值为 1。
+*/
+/* 
+  Mixin: flex-basis
+  功能描述:
+    设置子项的基础宽度或高度。
+  参数:
+    @basis: 基础宽度或高度，默认值为 auto。
+*/
+/* 
+  Mixin: flex-order
+  功能描述:
+    设置子项的显示顺序。
+  参数:
+    @order: 显示顺序，默认值为 0。
+*/
+/* 
+  Mixin: flex-item
+  功能描述:
+    快速设置子项的成长、收缩和基础尺寸。
+  参数:
+    @grow: 成长因子，默认值为 1。
+    @shrink: 收缩因子，默认值为 1。
+    @basis: 基础尺寸，默认值为 auto。
+*/
+/* 
+  Mixin: flex-full-width
+  功能描述:
+    设置子项占据整个容器宽度。
+  参数:
+    无。
+*/
+.flex-full-width {
+  flex-basis: 100%;
+}
+/* 
+  Mixin: flex-auto
+  功能描述:
+    设置子项根据内容自动调整大小。
+  参数:
+    无。
+*/
+.flex-auto {
+  flex: 1 1 auto;
+}
+/* 
+  Mixin: flex-none
+  功能描述:
+    禁止子项在主轴方向上扩展或收缩，保持其初始大小。
+  参数:
+    无。
+*/
+.flex-none {
+  flex: none;
+}
+/* 
+  Mixin: flex-left-layout
+  功能描述:
+    创建一个常见的左侧布局，其中左侧为固定宽度的侧边栏，右侧为自适应宽度的主内容区域。
+  参数:
+    @sidebar-width: 侧边栏的宽度，默认值为 250px。
+    @sidebar-align: 侧边栏的对齐方式，默认值为 flex-start。
+    @content-align: 主内容区域的对齐方式，默认值为 flex-start。
+*/
+/* 
+  Mixin: flex-left-right-layout
+  功能描述:
+    创建一个包含左侧和右侧布局的容器，左侧为固定宽度的侧边栏，右侧为自适应宽度的主内容区域，底部为固定高度的底部。
+  参数:
+    @sidebar-width: 侧边栏的宽度，默认值为 250px。
+    @footer-height: 底部的高度，默认值为 60px。
+    @sidebar-align: 侧边栏的对齐方式，默认值为 flex-start。
+    @content-align: 主内容区域的对齐方式，默认值为 flex-start。
+    @footer-align: 底部的对齐方式，默认值为 flex-start。
+*/
+/* 
+  Mixin: flex-center-vertical-horizontal
+  功能描述:
+    创建一个全屏的容器，子项在水平和垂直方向上均居中对齐。
+  参数:
+    @height: 容器的高度，默认值为 100vh。
+    @width: 容器的宽度，默认值为 100vw。
+*/
+/* 
+  Mixin: flex-responsive-layout
+  功能描述:
+    创建一个响应式布局，在小屏幕下将子项堆叠在一起，在大屏幕下将子项水平排列。
+  参数:
+    @direction-small: 小屏幕下的排列方向，默认值为 column。
+    @direction-large: 大屏幕下的排列方向，默认值为 row。
+    @breakpoint: 切换布局的屏幕宽度，默认值为 768px。
+*/
+/* 
+  Mixin: flex-grid
+  功能描述:
+    创建一个基于 Flexbox 的网格布局，每个子项均匀分布并保持一致的间距。
+  参数:
+    @columns: 列数，默认值为 4。
+    @gap: 子项之间的间距，默认值为 16px。
+*/
+/* 
+  Mixin: flex-main-sidebar-layout
+  功能描述:
+    创建一个主内容区域和侧边栏布局，主内容区域占据大部分空间，侧边栏占据固定宽度。
+  参数:
+    @sidebar-width: 侧边栏的宽度，默认值为 300px。
+    @sidebar-align: 侧边栏的对齐方式，默认值为 flex-start。
+    @main-align: 主内容区域的对齐方式，默认值为 flex-start。
+*/
+/* 
+  Mixin: flex-vertical-center
+  功能描述:
+    创建一个容器，使子项在垂直方向上居中对齐。
+  参数:
+    @height: 容器的高度，默认值为 100vh。
+*/
+/* 
+  Mixin: flex-horizontal-center
+  功能描述:
+    创建一个容器，使子项在水平方向上居中对齐。
+  参数:
+    @width: 容器的宽度，默认值为 100vw。
+*/
+/* 
+  Mixin: flex-alternate-layout
+  功能描述:
+    创建一个交替排列的布局，每个子项在主轴上有不同的对齐方式，偶数子项靠左对齐，奇数子项靠右对齐。
+  参数:
+    @justify-even: 偶数子项的对齐方式，默认值为 flex-start。
+    @justify-odd: 奇数子项的对齐方式，默认值为 flex-end。
+*/
+/* 
+  Mixin: flex-row-gap
+  功能描述:
+    创建一个在行间设置间距的 Flexbox 布局。
+  参数:
+    @row-gap: 行间距，默认值为 20px。
+*/
+/* 
+  Mixin: flex-card-layout
+  功能描述:
+    创建一个卡片布局，卡片之间有固定间距，并且响应式排列。
+  参数:
+    @columns: 列数，默认值为 3。
+    @gap: 卡片之间的间距，默认值为 20px。
+    @breakpoint: 切换布局的屏幕宽度，默认值为 768px。
+*/
+/* 
+  Mixin: flex-grid-auto
+  功能描述:
+    创建一个基于 Flexbox 的网格布局，网格项的尺寸由内容自动决定。
+  参数:
+    @columns: 列数，默认值为 3。
+    @gap: 网格项之间的间距，默认值为 20px。
+*/
+/* 
+  Mixin: flex-dynamic-gap
+  功能描述:
+    创建一个动态间距的布局，子项之间的间距随着容器宽度变化而自动调整。
+  参数:
+    @min-gap: 最小间距，默认值为 10px。
+    @max-gap: 最大间距，默认值为 50px。
+    @breakpoint: 切换布局的屏幕宽度，默认值为 768px。
+*/
+/* 
+  Mixin: flex-vertical-center-responsive
+  功能描述:
+    创建一个响应式垂直居中布局，在小屏幕下垂直居中，在大屏幕下顶部对齐。
+  参数:
+    @small-screen: 小屏幕下的对齐方式，默认值为 center。
+    @large-screen: 大屏幕下的对齐方式，默认值为 flex-start。
+    @breakpoint: 切换布局的屏幕宽度，默认值为 768px。
+*/
+/* 
+  Mixin: flex-cards
+  功能描述:
+    创建一个灵活的卡片布局，卡片宽度在大屏幕上固定，在小屏幕上自适应。
+  参数:
+    @card-width: 卡片宽度，默认值为 300px。
+    @gap: 卡片之间的间距，默认值为 16px。
+    @breakpoint: 切换布局的屏幕宽度，默认值为 768px。
+*/
+/* 
+  Mixin: flex-column-reverse-responsive
+  功能描述:
+    创建一个响应式的列反向布局，在小屏幕下为列反向排列，在大屏幕下为标准列排列。
+  参数:
+    @direction-small: 小屏幕下的排列方向，默认值为 column-reverse。
+    @direction-large: 大屏幕下的排列方向，默认值为 column。
+    @breakpoint: 切换布局的屏幕宽度，默认值为 768px。
+*/
+/* 
+  Mixin: flex-absolute-layout
+  功能描述:
+    创建一个绝对定位的布局，子项在容器内绝对定位，可以灵活调整位置。
+  参数:
+    @position: 子项的位置，默认值为 top-left。
+    @top: 顶部位置，默认值为 0。
+    @right: 右侧位置，默认值为 0。
+    @bottom: 底部位置，默认值为 0。
+    @left: 左侧位置，默认值为 0。
+*/
+/* 
+  Mixin: flex-absolute-layout
+  功能描述:
+    创建一个绝对定位的布局，子项在容器内绝对定位，可以灵活调整位置。
+  参数:
+    @position: 子项的位置，默认值为 top-left。
+    @top: 顶部位置，默认值为 0。
+    @right: 右侧位置，默认值为 0。
+    @bottom: 底部位置，默认值为 0。
+    @left: 左侧位置，默认值为 0。
+*/
+/* 
+  Mixin: flex-overlay
+  功能描述:
+    创建一个覆盖层布局，通常用于模态框或覆盖内容。覆盖层在中心位置并覆盖全屏。
+  参数:
+    @background-color: 背景颜色，默认值为 rgba(0, 0, 0, 0.5)。
+    @z-index: 层级值，默认值为 1000。
+*/
+/* 
+  Mixin: flex-stack
+  功能描述:
+    创建一个堆叠布局，所有子项在主轴方向上堆叠，并支持设置间距。
+  参数:
+    @direction: 子项的堆叠方向，默认值为 column。
+    @gap: 子项之间的间距，默认值为 16px。
+*/
+/* 
+  Mixin: flex-overlay-position
+  功能描述:
+    创建一个覆盖层布局，子项绝对定位于覆盖层的不同位置。
+  参数:
+    @overlay-background: 覆盖层背景颜色，默认值为 rgba(0, 0, 0, 0.5)。
+    @z-index: 覆盖层的层级，默认值为 1000。
+    @position: 子项的位置，默认值为 center。
+    @top: 顶部位置，默认值为 0。
+    @right: 右侧位置，默认值为 0。
+    @bottom: 底部位置，默认值为 0。
+    @left: 左侧位置，默认值为 0。
+*/
+/* 
+  Mixin: flex-overlay-position
+  功能描述:
+    创建一个覆盖层布局，子项绝对定位于覆盖层的不同位置。
+  参数:
+    @overlay-background: 覆盖层背景颜色，默认值为 rgba(0, 0, 0, 0.5)。
+    @z-index: 覆盖层的层级，默认值为 1000。
+    @position: 子项的位置，默认值为 center。
+    @top: 顶部位置，默认值为 0。
+    @right: 右侧位置，默认值为 0。
+    @bottom: 底部位置，默认值为 0。
+    @left: 左侧位置，默认值为 0。
+*/
+/* 
+  Mixin: flex-responsive-grid
+  功能描述:
+    创建一个响应式的网格布局，网格项在不同屏幕宽度下有不同的列数。
+  参数:
+    @columns: 默认列数，默认值为 3。
+    @column-small: 小屏幕下的列数，默认值为 1。
+    @column-medium: 中等屏幕下的列数，默认值为 2。
+    @gap: 网格项之间的间距，默认值为 16px。
+    @breakpoint-small: 小屏幕下的宽度，默认值为 576px。
+    @breakpoint-medium: 中等屏幕下的宽度，默认值为 768px。
+*/
+/* 
+  Mixin: flex-grid-gap
+  功能描述:
+    创建一个网格布局，网格项有固定的行间距和列间距。
+  参数:
+    @columns: 列数，默认值为 3。
+    @row-gap: 行间距，默认值为 16px。
+    @column-gap: 列间距，默认值为 16px。
+*/
+/* 
+  Mixin: flex-auto-layout
+  功能描述:
+    创建一个自动布局，子项根据内容自动调整大小，并保持一致的间距。
+  参数:
+    @gap: 子项之间的间距，默认值为 16px。
+*/
+/* 
+  Mixin: flex-multiline-layout
+  功能描述:
+    创建一个多行布局，每行的子项数量在大屏幕上保持不变，但在小屏幕上可以自动换行。
+  参数:
+    @columns: 每行的列数，默认值为4。
+    @gap: 子项之间的间距，默认值为20px。
+    @breakpoint: 切换到自动换行布局的屏幕宽度，默认值为768px。
+*/
+/* 
+  Mixin: flex-masonry-layout
+  功能描述:
+    创建一个瀑布流布局，子项的高度不一致时，能够自动排列以填充空间。
+  参数:
+    @columns: 列数，默认值为3。
+    @gap: 子项之间的间距，默认值为16px。
+*/
+/* 
+  Mixin: flex-fixed-content-layout
+  功能描述:
+    创建一个复杂的布局，包含一个固定宽度的侧边栏和一个具有多个弹性和固定部分的内容区域。
+  参数:
+    @sidebar-width: 侧边栏的宽度，默认值为250px。
+    @header-height: 内容区域的头部高度，默认值为60px。
+    @footer-height: 内容区域的底部高度，默认值为60px。
+*/
+/* 
+  Mixin: flex-nested-container
+  功能描述:
+    创建一个嵌套的Flexbox布局，子项本身也是一个Flexbox容器，支持进一步的嵌套布局。
+  参数:
+    @parent-direction: 父容器的排列方向，默认值为row。
+    @child-direction: 子容器的排列方向，默认值为column。
+    @gap: 子项之间的间距，默认值为16px。
+*/
+/* 
+  Mixin: flex-double-grid-layout
+  功能描述:
+    创建一个双层网格布局，每个子网格有不同的列数和间距设置，支持响应式布局。
+  参数:
+    @columns-top: 上层网格的列数，默认值为3。
+    @columns-bottom: 下层网格的列数，默认值为4。
+    @gap-top: 上层网格的间距，默认值为20px。
+    @gap-bottom: 下层网格的间距，默认值为16px。
+    @breakpoint: 切换布局的屏幕宽度，默认值为768px。
+*/
+/* 
+  Mixin: flex-floating-panel
+  功能描述:
+    创建一个悬浮面板布局，面板固定在容器的特定位置，可以用于导航菜单或工具栏。
+  参数:
+    @position: 面板的位置，默认值为right-bottom。
+    @width: 面板的宽度，默认值为300px。
+    @height: 面板的高度，默认值为auto。
+    @z-index: 面板的层级，默认值为100。
+*/
+/* 
+  Mixin: flex-fullscreen-responsive-layout
+  功能描述:
+    创建一个响应式全屏布局，子项在大屏幕时并排显示，小屏幕时堆叠显示，适合全屏应用界面。
+  参数:
+    @direction-large: 大屏幕下的排列方向，默认值为row。
+    @direction-small: 小屏幕下的排列方向，默认值为column。
+    @breakpoint: 切换布局的屏幕宽度，默认值为768px。
+*/
+/* 
+  Mixin: flex-split-screen-layout
+  功能描述:
+    创建一个分屏布局，屏幕分成左右或上下两个部分，各部分内容可以分别滚动。
+  参数:
+    @split-direction: 分屏方向，默认值为horizontal。
+    @split-ratio: 分屏比例，默认值为50%。
+*/
+/* 
+  Mixin: flex-adaptive-navbar
+  功能描述:
+    创建一个自适应导航栏，当屏幕宽度变窄时，导航栏会折叠成一个下拉菜单。
+  参数:
+    @breakpoint: 折叠导航栏的屏幕宽度，默认值为768px。
+*/
+/* 
+  Mixin: flex-aspect-ratio
+  功能描述:
+    创建一个保持固定宽高比的容器，适合视频播放器或图片展示。
+  参数:
+    @width: 容器的宽度，默认值为100%。
+    @aspect-ratio: 宽高比，默认值为16/9。
+*/
+/* 
+  Mixin: flex-responsive-navbar-content
+  功能描述:
+    创建一个响应式的导航栏与内容布局，导航栏固定在顶部或侧边，内容区域自适应。
+  参数:
+    @navbar-position: 导航栏位置，top 或 left，默认值为top。
+    @navbar-size: 导航栏尺寸，默认值为60px（顶部导航栏）或250px（侧边导航栏）。
+    @breakpoint: 响应式切换的屏幕宽度，默认值为768px。
+*/
+/* 
+  Mixin: flex-collapsible-sidebar
+  功能描述:
+    创建一个可折叠的侧边栏布局，侧边栏可以展开或收起。
+  参数:
+    @sidebar-width: 展开时侧边栏的宽度，默认值为250px。
+    @collapsed-width: 收起时侧边栏的宽度，默认值为50px。
+    @transition-duration: 展开或收起的动画时间，默认值为0.3s。
+*/
+/* 
+  Mixin: flex-multi-layer-responsive-grid
+  功能描述:
+    创建一个多层响应式网格布局，每层在不同屏幕宽度下有不同的列数设置。
+  参数:
+    @columns-default: 默认列数，默认值为3。
+    @columns-medium: 中等屏幕下的列数，默认值为2。
+    @columns-small: 小屏幕下的列数，默认值为1。
+    @gap: 子项之间的间距，默认值为16px。
+    @breakpoint-medium: 中等屏幕的宽度，默认值为1024px。
+    @breakpoint-small: 小屏幕的宽度，默认值为768px。
+*/
+/* 
+  Mixin: flex-diagonal-layout
+  功能描述:
+    创建一个对角线布局，适合用于特殊的视觉效果设计。
+  参数:
+    @width: 布局的宽度，默认值为100%。
+    @height: 布局的高度，默认值为300px。
+    @background-color: 布局的背景颜色，默认值为#f5f5f5。
+    @angle: 对角线的角度，默认值为45deg。
+*/
+/* 
+  Mixin: flex-vertical-horizontal-grid
+  功能描述:
+    创建一个纵向和横向网格结合的布局，适用于内容丰富的页面设计。
+  参数:
+    @vertical-columns: 纵向网格的列数，默认值为2。
+    @horizontal-columns: 横向网格的列数，默认值为3。
+    @gap: 网格间的间距，默认值为16px。
+*/
+/* 
+  Mixin: flex-overlay-content-switch
+  功能描述:
+    创建一个悬浮层与内容切换的布局，适用于不同视图之间的切换。
+  参数:
+    @overlay-color: 悬浮层的背景颜色，默认值为rgba(0, 0, 0, 0.7)。
+    @z-index: 悬浮层的层级，默认值为1000。
+    @transition-duration: 切换动画时间，默认值为0.3s。
+*/
+/* 
+  Mixin: flex-flow-layout
+  功能描述:
+    创建一个流动布局，适用于动态内容或可拖拽的设计。
+  参数:
+    @gap: 子项之间的间距，默认值为10px。
+*/
+/* 
+  Mixin: font-family
+  功能描述:
+    设置字体系列。
+  参数:
+    @font: 字体系列，默认值为 'Arial, sans-serif'。
+*/
+/* 
+  Mixin: font-size
+  功能描述:
+    设置字体大小。
+  参数:
+    @size: 字体大小，默认值为 16px。
+*/
+/* 
+  Mixin: font-weight
+  功能描述:
+    设置字体粗细。
+  参数:
+    @weight: 字体粗细，默认值为 normal。
+*/
+/* 
+  Mixin: line-height
+  功能描述:
+    设置行高。
+  参数:
+    @height: 行高，默认值为 normal。
+*/
+/* 
+  Mixin: text-align
+  功能描述:
+    设置文本对齐方式。
+  参数:
+    @align: 对齐方式，默认值为 left。
+*/
+/* 
+  Mixin: text-transform
+  功能描述:
+    设置文本变换样式。
+  参数:
+    @transform: 文本变换样式，默认值为 none。
+*/
+/* 
+  Mixin: text-decoration
+  功能描述:
+    设置文本装饰。
+  参数:
+    @decoration: 文本装饰，默认值为 none。
+*/
+/* 
+  Mixin: font-style
+  功能描述:
+    设置字体样式。
+  参数:
+    @style: 字体样式，默认值为 normal。
+*/
+/* 
+  Mixin: font-variant
+  功能描述:
+    设置字体变体。
+  参数:
+    @variant: 字体变体，默认值为 normal。
+*/
+/* 
+  Mixin: font-properties
+  功能描述:
+    一次性设置字体的多个属性。
+  参数:
+    @font-family: 字体系列，默认值为 'Arial, sans-serif'。
+    @font-size: 字体大小，默认值为 16px。
+    @font-weight: 字体粗细，默认值为 normal。
+    @line-height: 行高，默认值为 normal。
+    @text-align: 文本对齐方式，默认值为 left。
+    @text-transform: 文本变换样式，默认值为 none。
+    @text-decoration: 文本装饰，默认值为 none。
+    @font-style: 字体样式，默认值为 normal。
+    @font-variant: 字体变体，默认值为 normal。
+*/
+/* 
+  Mixin: font-shadow
+  功能描述:
+    设置字体阴影效果。
+  参数:
+    @h-offset: 水平偏移，默认值为 1px。
+    @v-offset: 垂直偏移，默认值为 1px。
+    @blur: 模糊半径，默认值为 2px。
+    @color: 阴影颜色，默认值为 rgba(0, 0, 0, 0.5)。
+*/
+/* 
+  Mixin: font-responsive-size
+  功能描述:
+    创建响应式字体大小，根据屏幕宽度自动调整。
+  参数:
+    @min-size: 最小字体大小，默认值为 14px。
+    @max-size: 最大字体大小，默认值为 24px。
+    @min-width: 最小屏幕宽度，默认值为 320px。
+    @max-width: 最大屏幕宽度，默认值为 1200px。
+*/
+/* 
+  Mixin: font-smooth
+  功能描述:
+    优化文本平滑显示。
+  参数:
+    @smoothing: 平滑设置，默认值为 antialiased。
+*/
+/* 
+  Mixin: font-clip
+  功能描述:
+    设置字体溢出剪裁效果。
+  参数:
+    @clip: 剪裁方式，默认值为 ellipsis。
+*/
+/* 
+  Mixin: font-spacing
+  功能描述:
+    设置字间距和行间距。
+  参数:
+    @letter-spacing: 字间距，默认值为 0px。
+    @word-spacing: 单词间距，默认值为 0px。
+*/
+/* 
+  Mixin: font-transform
+  功能描述:
+    设置文本的变换样式（包括大写、小写和首字母大写）。
+  参数:
+    @transform: 文本变换样式，默认值为 none。
+*/
+/* 
+  Mixin: font-text-shadow
+  功能描述:
+    设置字体的多层阴影效果。
+  参数:
+    @shadows: 阴影数组，每个阴影用逗号分隔。
+*/
+/* 
+  Mixin: font-hover
+  功能描述:
+    设置字体在悬停时的样式变化。
+  参数:
+    @color: 悬停时的字体颜色，默认值为 #000。
+    @text-decoration: 悬停时的文本装饰，默认值为 underline。
+    @font-style: 悬停时的字体样式，默认值为 italic。
+*/
+/* 
+  Mixin: font-tracking
+  功能描述:
+    设置字母追踪效果，即调整字母之间的间距。
+  参数:
+    @tracking: 字母追踪值，默认值为 0。
+*/
+/* 
+  Mixin: font-gradient
+  功能描述:
+    为字体添加渐变效果。
+  参数:
+    @start-color: 渐变开始颜色，默认值为 #000。
+    @end-color: 渐变结束颜色，默认值为 #fff。
+    @direction: 渐变方向，默认值为 to right。
+*/
+/* 
+  Mixin: font-kerning
+  功能描述:
+    设置字体的字间距调整。
+  参数:
+    @kerning: 字间距调整，默认值为 auto。
+*/
+/* 
+  Mixin: font-smooth
+  功能描述:
+    设置字体平滑处理。
+  参数:
+    @smoothing: 平滑处理方式，默认值为 antialiased。
+*/
+/* 
+  Mixin: font-ellipsis
+  功能描述:
+    设置文本溢出省略号。
+  参数:
+    @lines: 显示的行数，默认值为 1。
+*/
+/* 
+  Mixin: font-hover-gradient
+  功能描述:
+    设置字体在悬停时的渐变效果。
+  参数:
+    @start-color: 渐变开始颜色，默认值为 #000。
+    @end-color: 渐变结束颜色，默认值为 #fff。
+    @direction: 渐变方向，默认值为 to right。
+*/
+/* 
+  Mixin: font-spacing-responsive
+  功能描述:
+    设置响应式字间距。
+  参数:
+    @min-spacing: 最小字间距，默认值为 0px。
+    @max-spacing: 最大字间距，默认值为 2px。
+    @min-width: 最小屏幕宽度，默认值为 320px。
+    @max-width: 最大屏幕宽度，默认值为 1200px。
+*/
+/* 
+  Mixin: font-strikethrough
+  功能描述:
+    设置文本的删除线效果。
+  参数:
+    @color: 删除线颜色，默认值为 rgba(0, 0, 0, 0.5)。
+  */
+/* 
+  Mixin: font-shadow-hover
+  功能描述:
+    设置字体在悬停时的阴影效果。
+  参数:
+    @h-offset: 水平偏移，默认值为 1px。
+    @v-offset: 垂直偏移，默认值为 1px。
+    @blur: 模糊半径，默认值为 2px。
+    @color: 阴影颜色，默认值为 rgba(0, 0, 0, 0.5)。
+*/
+/* 
+  Mixin: font-underline
+  功能描述:
+    设置字体下划线样式。
+  参数:
+    @color: 下划线颜色，默认值为 #000。
+    @style: 下划线样式，默认值为 solid。
+    @thickness: 下划线粗细，默认值为 1px。
+*/
+/* 
+  Mixin: font-background-clip
+  功能描述:
+    设置背景裁剪到字体上，实现文字背景效果。
+  参数:
+    @background: 背景颜色或渐变，默认值为 #000。
+*/
+/* 
+  Mixin: font-opacity
+  功能描述:
+    设置字体的不透明度。
+  参数:
+    @opacity: 字体不透明度，范围从 0 到 1，默认值为 1。
+*/
+/* 
+  Mixin: font-transform-scale
+  功能描述:
+    在字体上应用缩放变换。
+  参数:
+    @scale: 缩放因子，默认值为 1。
+*/
+/* 
+  Mixin: font-letter-spacing-responsive
+  功能描述:
+    设置响应式字母间距。
+  参数:
+    @min-spacing: 最小字母间距，默认值为 0px。
+    @max-spacing: 最大字母间距，默认值为 2px。
+    @min-width: 最小屏幕宽度，默认值为 320px。
+    @max-width: 最大屏幕宽度，默认值为 1200px。
+*/
+/* 
+  Mixin: font-underline-hover
+  功能描述:
+    设置字体悬停时的下划线样式。
+  参数:
+    @color: 下划线颜色，默认值为 #000。
+    @style: 下划线样式，默认值为 solid。
+    @thickness: 下划线粗细，默认值为 1px。
+*/
+/* 
+  Mixin: font-transition
+  功能描述:
+    设置字体样式的过渡效果。
+  参数:
+    @property: 要过渡的属性，默认值为 all。
+    @duration: 过渡时长，默认值为 0.3s。
+    @timing-function: 过渡时间函数，默认值为 ease。
+*/
+/* 
+  Mixin: font-shadow-multi
+  功能描述:
+    设置字体的多重阴影效果。
+  参数:
+    @shadows: 多重阴影值，用逗号分隔，默认值为 1px 1px 2px rgba(0, 0, 0, 0.5)。
+*/
+/* 
+  Mixin: font-ellipsis-multi-line
+  功能描述:
+    设置多行文本溢出省略号。
+  参数:
+    @lines: 显示的行数，默认值为 2。
+*/
+/* 
+  Mixin: font-line-height-responsive
+  功能描述:
+    设置响应式行高。
+  参数:
+    @min-line-height: 最小行高，默认值为 1.2。
+    @max-line-height: 最大行高，默认值为 1.8。
+    @min-width: 最小屏幕宽度，默认值为 320px。
+    @max-width: 最大屏幕宽度，默认值为 1200px。
+*/
+/* 
+  Mixin: font-text-clip
+  功能描述:
+    设置文本裁剪效果。
+  参数:
+    @clip: 裁剪方式，默认值为 ellipse。
+*/
+/* 
+  Mixin: font-transform-rotate
+  功能描述:
+    应用字体旋转效果。
+  参数:
+    @angle: 旋转角度，默认值为 0deg。
+*/
+/* 
+  Mixin: font-blur
+  功能描述:
+    为字体应用模糊效果。
+  参数:
+    @blur-radius: 模糊半径，默认值为 2px。
+*/
+/* 
+  Mixin: font-vertical-align
+  功能描述:
+    设置字体的垂直对齐方式。
+  参数:
+    @align: 垂直对齐方式，默认值为 middle。
+*/
+/* 
+  Mixin: font-background
+  功能描述:
+    为字体设置背景。
+  参数:
+    @background-color: 背景颜色，默认值为 #f0f0f0。
+    @padding: 内边距，默认值为 2px。
+*/
+/* 
+  Mixin: font-translate
+  功能描述:
+    应用字体的平移变换。
+  参数:
+    @x: 水平平移值，默认值为 0。
+    @y: 垂直平移值，默认值为 0。
+*/
+/* 
+  Mixin: font-shadow-custom
+  功能描述:
+    设置自定义的字体阴影效果。
+  参数:
+    @h-offset: 水平偏移，默认值为 1px。
+    @v-offset: 垂直偏移，默认值为 1px。
+    @blur: 模糊半径，默认值为 3px。
+    @color: 阴影颜色，默认值为 rgba(0, 0, 0, 0.3)。
+*/
+/* 
+  Mixin: font-transform-skew
+  功能描述:
+    应用字体的倾斜变换。
+  参数:
+    @x: 水平倾斜角度，默认值为 0deg。
+    @y: 垂直倾斜角度，默认值为 0deg。
+*/
+/* 
+  Mixin: font-outline
+  功能描述:
+    为字体添加轮廓效果。
+  参数:
+    @color: 轮廓颜色，默认值为 #000。
+    @width: 轮廓宽度，默认值为 1px。
+*/
+/* 
+  Mixin: font-letter-spacing-multi
+  功能描述:
+    设置多种字母间距效果。
+  参数:
+    @spacing1: 字母间距1，默认值为 0px。
+    @spacing2: 字母间距2，默认值为 1px。
+    @condition: 条件切换间距，默认值为 default。
+*/
+/* 
+  Mixin: font-letter-spacing
+  功能描述:
+    设置字母间距。
+  参数:
+    @spacing: 字母间距，默认值为 0px。
+*/
+/* 
+  Mixin: font-letter-spacing-default
+  功能描述:
+    应用默认字母间距。
+*/
+/* 
+  Mixin: font-clip-path
+  功能描述:
+    应用字体的剪切路径效果。
+  参数:
+    @path: 剪切路径，默认值为 circle(50% at 50% 50%)。
+*/
+/* 
+  Mixin: font-letter-spacing-animated
+  功能描述:
+    设置动态字母间距变化效果。
+  参数:
+    @start-spacing: 起始字母间距，默认值为 0px。
+    @end-spacing: 结束字母间距，默认值为 1px。
+    @duration: 动画持续时间，默认值为 0.5s。
+    @timing-function: 动画时间函数，默认值为 ease-in-out。
+*/
+/* 
+  Mixin: font-line-height-multi
+  功能描述:
+    设置多种行高。
+  参数:
+    @line-height1: 行高1，默认值为 1.2。
+    @line-height2: 行高2，默认值为 1.5。
+    @condition: 条件选择，默认值为 default。
+*/
+/* 
+  Mixin: font-line-height
+  功能描述:
+    设置行高。
+  参数:
+    @line-height: 行高，默认值为 1.2。
+*/
+/* 
+  Mixin: font-line-height-default
+  功能描述:
+    应用默认行高。
+*/
+/* 
+  Mixin: font-line-height-alternative
+  功能描述:
+    应用替代行高。
+*/
+/* 
+  Mixin: font-text-shadow
+  功能描述:
+    设置文本阴影效果。
+  参数:
+    @shadow-color: 阴影颜色，默认值为 rgba(0, 0, 0, 0.5)。
+    @shadow-offset-x: 阴影水平偏移，默认值为 1px。
+    @shadow-offset-y: 阴影垂直偏移，默认值为 1px。
+    @shadow-blur: 阴影模糊半径，默认值为 2px。
+*/
+/* 
+  Mixin: font-transform-case
+  功能描述:
+    设置文本的大小写转换。
+  参数:
+    @transform: 文本转换类型，默认值为 none。
+*/
+/* 
+  Mixin: font-weight-responsive
+  功能描述:
+    设置响应式字体粗细。
+  参数:
+    @min-weight: 最小字体粗细，默认值为 400。
+    @max-weight: 最大字体粗细，默认值为 700。
+    @min-width: 最小屏幕宽度，默认值为 320px。
+    @max-width: 最大屏幕宽度，默认值为 1200px。
+*/
+/* 
+  Mixin: font-color-gradient
+  功能描述:
+    设置字体的渐变颜色效果。
+  参数:
+    @start-color: 渐变起始颜色，默认值为 #000。
+    @end-color: 渐变结束颜色，默认值为 #fff。
+*/
+/* 
+  Mixin: font-transform-scale-hover
+  功能描述:
+    设置字体悬停时的缩放效果。
+  参数:
+    @scale: 缩放因子，默认值为 1.1。
+*/
+/* 
+  Mixin: font-border
+  功能描述:
+    设置文本的边框效果。
+  参数:
+    @border-color: 边框颜色，默认值为 #000。
+    @border-width: 边框宽度，默认值为 1px。
+    @border-style: 边框样式，默认值为 solid。
+*/
+/* 
+  Mixin: font-background-clip-multi
+  功能描述:
+    设置多种背景裁剪效果。
+  参数:
+    @clip1: 裁剪类型1，默认值为 text。
+    @clip2: 裁剪类型2，默认值为 border-box。
+    @condition: 条件选择，默认值为 default。
+*/
+/* 
+  Mixin: font-background-clip
+  功能描述:
+    设置背景裁剪类型。
+  参数:
+    @clip-type: 背景裁剪类型，默认值为 text。
+*/
+/* 
+  Mixin: font-background-clip-text
+  功能描述:
+    应用背景裁剪为 text。
+*/
+/* 
+  Mixin: font-background-clip-border-box
+  功能描述:
+    应用背景裁剪为 border-box。
+*/
+/* Mixin to generate font size classes */
+/* Generate font size classes from 1 to 100 */
+/* Mixin to apply font size */
+/* Recursive loop to generate font size classes */
+.font1 {
+  font-size: 1px;
+}
+.font2 {
+  font-size: 2px;
+}
+.font3 {
+  font-size: 3px;
+}
+.font4 {
+  font-size: 4px;
+}
+.font5 {
+  font-size: 5px;
+}
+.font6 {
+  font-size: 6px;
+}
+.font7 {
+  font-size: 7px;
+}
+.font8 {
+  font-size: 8px;
+}
+.font9 {
+  font-size: 9px;
+}
+.font10 {
+  font-size: 10px;
+}
+.font11 {
+  font-size: 11px;
+}
+.font12 {
+  font-size: 12px;
+}
+.font13 {
+  font-size: 13px;
+}
+.font14 {
+  font-size: 14px;
+}
+.font15 {
+  font-size: 15px;
+}
+.font16 {
+  font-size: 16px;
+}
+.font17 {
+  font-size: 17px;
+}
+.font18 {
+  font-size: 18px;
+}
+.font19 {
+  font-size: 19px;
+}
+.font20 {
+  font-size: 20px;
+}
+.font21 {
+  font-size: 21px;
+}
+.font22 {
+  font-size: 22px;
+}
+.font23 {
+  font-size: 23px;
+}
+.font24 {
+  font-size: 24px;
+}
+.font25 {
+  font-size: 25px;
+}
+.font26 {
+  font-size: 26px;
+}
+.font27 {
+  font-size: 27px;
+}
+.font28 {
+  font-size: 28px;
+}
+.font29 {
+  font-size: 29px;
+}
+.font30 {
+  font-size: 30px;
+}
+.font31 {
+  font-size: 31px;
+}
+.font32 {
+  font-size: 32px;
+}
+.font33 {
+  font-size: 33px;
+}
+.font34 {
+  font-size: 34px;
+}
+.font35 {
+  font-size: 35px;
+}
+.font36 {
+  font-size: 36px;
+}
+.font37 {
+  font-size: 37px;
+}
+.font38 {
+  font-size: 38px;
+}
+.font39 {
+  font-size: 39px;
+}
+.font40 {
+  font-size: 40px;
+}
+.font41 {
+  font-size: 41px;
+}
+.font42 {
+  font-size: 42px;
+}
+.font43 {
+  font-size: 43px;
+}
+.font44 {
+  font-size: 44px;
+}
+.font45 {
+  font-size: 45px;
+}
+.font46 {
+  font-size: 46px;
+}
+.font47 {
+  font-size: 47px;
+}
+.font48 {
+  font-size: 48px;
+}
+.font49 {
+  font-size: 49px;
+}
+.font50 {
+  font-size: 50px;
+}
+.font51 {
+  font-size: 51px;
+}
+.font52 {
+  font-size: 52px;
+}
+.font53 {
+  font-size: 53px;
+}
+.font54 {
+  font-size: 54px;
+}
+.font55 {
+  font-size: 55px;
+}
+.font56 {
+  font-size: 56px;
+}
+.font57 {
+  font-size: 57px;
+}
+.font58 {
+  font-size: 58px;
+}
+.font59 {
+  font-size: 59px;
+}
+.font60 {
+  font-size: 60px;
+}
+.font61 {
+  font-size: 61px;
+}
+.font62 {
+  font-size: 62px;
+}
+.font63 {
+  font-size: 63px;
+}
+.font64 {
+  font-size: 64px;
+}
+.font65 {
+  font-size: 65px;
+}
+.font66 {
+  font-size: 66px;
+}
+.font67 {
+  font-size: 67px;
+}
+.font68 {
+  font-size: 68px;
+}
+.font69 {
+  font-size: 69px;
+}
+.font70 {
+  font-size: 70px;
+}
+.font71 {
+  font-size: 71px;
+}
+.font72 {
+  font-size: 72px;
+}
+.font73 {
+  font-size: 73px;
+}
+.font74 {
+  font-size: 74px;
+}
+.font75 {
+  font-size: 75px;
+}
+.font76 {
+  font-size: 76px;
+}
+.font77 {
+  font-size: 77px;
+}
+.font78 {
+  font-size: 78px;
+}
+.font79 {
+  font-size: 79px;
+}
+.font80 {
+  font-size: 80px;
+}
+.font81 {
+  font-size: 81px;
+}
+.font82 {
+  font-size: 82px;
+}
+.font83 {
+  font-size: 83px;
+}
+.font84 {
+  font-size: 84px;
+}
+.font85 {
+  font-size: 85px;
+}
+.font86 {
+  font-size: 86px;
+}
+.font87 {
+  font-size: 87px;
+}
+.font88 {
+  font-size: 88px;
+}
+.font89 {
+  font-size: 89px;
+}
+.font90 {
+  font-size: 90px;
+}
+.font91 {
+  font-size: 91px;
+}
+.font92 {
+  font-size: 92px;
+}
+.font93 {
+  font-size: 93px;
+}
+.font94 {
+  font-size: 94px;
+}
+.font95 {
+  font-size: 95px;
+}
+.font96 {
+  font-size: 96px;
+}
+.font97 {
+  font-size: 97px;
+}
+.font98 {
+  font-size: 98px;
+}
+.font99 {
+  font-size: 99px;
+}
+/* Apply the mixin to generate all font size classes */
+/* Mixin to apply margin */
+/* Generate margin classes from 1px to 100px */
+/* Mixin to apply width */
+/* Mixin to apply height */
+/* Generate width and height classes from 1px to 100px */
+/* Mixin to apply border width */
+/* Generate border width classes from 1px to 10px */
+/* Mixin to apply border-radius */
+/* Generate border-radius classes from 1px to 50px */
+/* Mixin to apply background gradient */
+/* Generate gradient classes with different color combinations */
+/* Mixin to apply font weight */
+/* Generate font-weight classes from 100 to 900 */
+/* Mixin to apply text shadow */
+/* Generate text-shadow classes with varying blur */
+/* Mixin to apply line height */
+/* Generate line-height classes from 1 to 3 */
+/* Mixin to apply box sizing */
+/* Generate box-sizing classes with different values */
+.box-sizing-border-box {
+  box-sizing: border-box;
+}
+.box-sizing-content-box {
+  box-sizing: content-box;
+}
+/* Mixin to apply line height */
+/* Generate line-height classes from 1 to 2.5 with 0.1 increment */
+/* Mixin to apply text alignment */
+/* Generate text-align classes */
+.text-align-left {
+  text-align: left;
+}
+.text-align-center {
+  text-align: center;
+}
+.text-align-right {
+  text-align: right;
+}
+.text-align-justify {
+  text-align: justify;
+}
+/* Mixin to apply text decoration */
+/* Generate text-decoration classes */
+.text-decoration-underline {
+  text-decoration: underline;
+}
+.text-decoration-line-through {
+  text-decoration: line-through;
+}
+.text-decoration-none {
+  text-decoration: none;
+}
+/* Mixin to apply text transform */
+/* Generate text-transform classes */
+.text-transform-uppercase {
+  text-transform: uppercase;
+}
+.text-transform-lowercase {
+  text-transform: lowercase;
+}
+.text-transform-capitalize {
+  text-transform: capitalize;
+}
+.text-transform-none {
+  text-transform: none;
+}
+/* Mixin to apply box shadow */
+/* 
+  Mixin: form-input
+  功能描述:
+    设置输入框的基础样式。
+  参数:
+    @border-color: 输入框边框颜色，默认值为浅灰色 (#ccc)。
+    @focus-border-color: 输入框获得焦点时的边框颜色，默认值为主色调 (#3498db)。
+    @padding: 输入框的内边距，默认值为 10px。
+*/
+/* 
+  Mixin: form-checkbox
+  功能描述:
+    设置复选框的基础样式。
+  参数:
+    @border-color: 复选框边框颜色，默认值为浅灰色 (#ccc)。
+    @checked-bg-color: 选中状态的背景颜色，默认值为主色调 (#3498db)。
+*/
+/* 
+  Mixin: form-radio
+  功能描述:
+    设置单选按钮的基础样式。
+  参数:
+    @border-color: 单选按钮边框颜色，默认值为浅灰色 (#ccc)。
+    @checked-bg-color: 选中状态的背景颜色，默认值为主色调 (#3498db)。
+*/
+/* 
+  Mixin: form-select
+  功能描述:
+    设置选择框的基础样式。
+  参数:
+    @border-color: 选择框边框颜色，默认值为浅灰色 (#ccc)。
+    @focus-border-color: 选择框获得焦点时的边框颜色，默认值为主色调 (#3498db)。
+    @padding: 选择框的内边距，默认值为 10px。
+*/
+/* 
+  Mixin: form-switch
+  功能描述:
+    设置切换开关的样式。
+  参数:
+    @bg-color: 开关的背景颜色，默认值为浅灰色 (#ccc)。
+    @checked-bg-color: 选中状态的背景颜色，默认值为主色调 (#3498db)。
+    @switch-color: 滑块的颜色，默认值为白色 (#fff)。
+*/
+/* 
+  Mixin: form-group
+  功能描述:
+    为表单组设置基础样式，包括内边距和排列方式。
+  参数:
+    @margin-bottom: 表单组之间的间距，默认值为 15px。
+*/
+/* 
+  Mixin: input
+  功能描述:
+    设置输入框的基础样式。
+  参数:
+    @border-color: 输入框边框颜色，默认值为浅灰色 (#ccc)。
+    @focus-border-color: 输入框获得焦点时的边框颜色，默认值为主色调 (#3498db)。
+*/
+/* 
+  Mixin: select
+  功能描述:
+    设置选择框的基础样式。
+  参数:
+    @border-color: 选择框边框颜色，默认值为浅灰色 (#ccc)。
+    @focus-border-color: 选择框获得焦点时的边框颜色，默认值为主色调 (#3498db)。
+*/
+/* 
+  Mixin: textarea
+  功能描述:
+    设置文本区域的基础样式。
+  参数:
+    @border-color: 文本区域边框颜色，默认值为浅灰色 (#ccc)。
+    @focus-border-color: 文本区域获得焦点时的边框颜色，默认值为主色调 (#3498db)。
+*/
+/* 
+  Mixin: form-submit
+  功能描述:
+    设置表单提交按钮的样式。
+  参数:
+    @bg-color: 按钮背景颜色，默认值为主色调 (#3498db)。
+    @text-color: 按钮文本颜色，默认值为白色 (#fff)。
+*/
+/* 
+  Mixin: grid-container
+  功能描述:
+    设置网格布局的容器样式，通常用于包裹网格列。
+  参数:
+    @max-width: 网格容器的最大宽度，默认值为 1200px。
+    @padding: 容器的内边距，默认值为 15px。
+*/
+/* 
+  Mixin: grid-column
+  功能描述:
+    设置网格列的宽度。
+  参数:
+    @cols: 列数，默认值为 12。
+    @total-cols: 总列数，默认值为 12。
+*/
+/* 
+  Mixin: grid-gap
+  功能描述:
+    设置网格列之间的间距。
+  参数:
+    @gap: 网格列之间的间距，默认值为 15px。
+*/
+/* 
+  Mixin: grid-offset
+  功能描述:
+    设置网格列的偏移量。
+  参数:
+    @cols: 偏移的列数，默认值为 0。
+    @total-cols: 总列数，默认值为 12。
+*/
+/* 
+  Mixin: grid-align-center
+  功能描述:
+    设置网格列内容的居中对齐。
+  参数:
+    无。
+*/
+.grid-align-center {
+  justify-items: center;
+  align-items: center;
+}
+/* 
+  Mixin: grid-align-top
+  功能描述:
+    设置网格列内容的顶部对齐。
+  参数:
+    无。
+*/
+.grid-align-top {
+  align-items: start;
+}
+/* 
+  Mixin: grid-align-bottom
+  功能描述:
+    设置网格列内容的底部对齐。
+  参数:
+    无。
+*/
+.grid-align-bottom {
+  align-items: end;
+}
+/* 
+  Mixin: flex-center
+  功能描述:
+    创建一个 Flexbox 布局，将子元素居中对齐（水平和垂直）。
+  参数:
+    无。
+*/
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 
+  Mixin: flex-column
+  功能描述:
+    创建一个垂直排列的 Flexbox 布局。
+  参数:
+    @align: 子元素在主轴上的对齐方式，默认值为 center。
+*/
+/* 
+  Mixin: grid
+  功能描述:
+    设置一个简单的栅格系统。
+  参数:
+    @columns: 栅格列数，默认值为 12。
+    @gap: 栅格之间的间距，默认值为 16px。
+*/
+/* 
+  Mixin: aspect-ratio
+  功能描述:
+    创建一个具有固定宽高比的容器，宽度百分比设置，高度自动计算。
+  参数:
+    @ratio: 宽高比（宽/高），默认值为 16/9。
+*/
+/* 
+  Mixin: container
+  功能描述:
+    创建一个响应式的容器，最大宽度为 1200px。
+  参数:
+    @padding: 容器的内边距，默认值为 16px。
+*/
+/* 
+  Mixin: list-group
+  功能描述:
+    设置列表组的基础样式。
+  参数:
+    @border-color: 列表组的边框颜色，默认值为浅灰色 (#ddd)。
+*/
+/* 
+  Mixin: list-group-item
+  功能描述:
+    设置列表项的基础样式。
+  参数:
+    @padding: 列表项的内边距，默认值为 10px 15px。
+    @border-color: 列表项的边框颜色，默认值为浅灰色 (#ddd)。
+*/
+/* 
+  Mixin: list-group-hover
+  功能描述:
+    设置列表项的悬停样式。
+  参数:
+    @hover-bg-color: 悬停时的背景颜色，默认值为浅灰色 (#f5f5f5)。
+*/
+/* 
+  Mixin: list-group-active
+  功能描述:
+    设置列表项的活动样式。
+  参数:
+    @bg-color: 活动项的背景颜色，默认值为主色调 (#3498db)。
+    @text-color: 活动项的文本颜色，默认值为白色 (#fff)。
+*/
+/* 
+  Mixin: list-group-striped
+  功能描述:
+    设置列表组的斑马纹样式（隔行变色）。
+  参数:
+    @stripe-color: 斑马纹颜色，默认值为浅灰色 (#fafafa)。
+*/
+/* 
+  Mixin: list-group-rounded
+  功能描述:
+    设置列表组的圆角样式。
+  参数:
+    无。
+*/
+.list-group-rounded .list-group-item {
+  border-radius: 0;
+}
+.list-group-rounded .list-group-item:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.list-group-rounded .list-group-item:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+/* 
+  Mixin: list-reset
+  功能描述:
+    移除列表的默认样式（如内边距、项目符号等）。
+  参数:
+    无。
+*/
+.list-reset {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* 
+  Mixin: list-spacing
+  功能描述:
+    设置列表项目之间的间距。
+  参数:
+    @spacing: 列表项目之间的间距，默认值为 10px。
+*/
+/* 
+  Mixin: ordered-list
+  功能描述:
+    设置有序列表的样式，包括数字格式和间距。
+  参数:
+    @type: 列表数字格式，默认值为 decimal。
+    @spacing: 列表项之间的间距，默认值为 10px。
+*/
+/* 
+  Mixin: icon-list
+  功能描述:
+    创建一个图标列表，将图标放置在每个列表项的左侧。
+  参数:
+    @icon-url: 图标的 URL，默认值为空。
+    @icon-size: 图标大小，默认值为 16px。
+*/
+/* 
+  Mixin: inline-list
+  功能描述:
+    将列表项水平排列，适用于导航或菜单。
+  参数:
+    @spacing: 列表项之间的间距，默认值为 15px。
+*/
+/* 
+  Mixin: media
+  功能描述:
+    设置媒体对象的基础布局，使用 Flexbox 实现。
+  参数:
+    @spacing: 媒体图像和文本之间的间距，默认值为 10px。
+*/
+/* 
+  Mixin: media-reverse
+  功能描述:
+    设置媒体对象的反转布局，将图像放在右侧。
+  参数:
+    @spacing: 媒体图像和文本之间的间距，默认值为 10px。
+*/
+/* 
+  Mixin: media-img
+  功能描述:
+    设置媒体对象中的图像样式。
+  参数:
+    @width: 图像宽度，默认值为 64px。
+    @height: 图像高度，默认值为 64px。
+    @border-radius: 图像的圆角半径，默认值为 4px。
+*/
+/* 
+  Mixin: media-body
+  功能描述:
+    设置媒体对象中的文本样式。
+  参数:
+    无。
+*/
+.media-body {
+  flex: 1;
+  font-size: 14px;
+}
+/* 
+  Mixin: media-aligned
+  功能描述:
+    设置媒体对象的对齐方式，如顶部对齐、中间对齐等。
+  参数:
+    @align: 对齐方式，默认值为 flex-start（顶部对齐）。
+*/
+/* 
+  Mixin: modal
+  功能描述:
+    设置模态框的基础样式，包括背景色、边框和阴影。
+  参数:
+    @bg-color: 模态框背景颜色，默认值为白色 (#fff)。
+    @border-color: 模态框边框颜色，默认值为浅灰色 (#ddd)。
+    @shadow-color: 模态框阴影颜色，默认值为 rgba(0, 0, 0, 0.2)。
+*/
+/* 
+  Mixin: modal-header
+  功能描述:
+    设置模态框头部的样式，包括背景色和内边距。
+  参数:
+    @bg-color: 头部背景颜色，默认值为浅灰色 (#f5f5f5)。
+    @padding: 内边距，默认值为 15px。
+*/
+/* 
+  Mixin: modal-body
+  功能描述:
+    设置模态框主体内容的样式，包括内边距。
+  参数:
+    @padding: 内边距，默认值为 20px。
+*/
+/* 
+  Mixin: modal-footer
+  功能描述:
+    设置模态框底部的样式，包括背景色和内边距。
+  参数:
+    @bg-color: 底部背景颜色，默认值为浅灰色 (#f5f5f5)。
+    @padding: 内边距，默认值为 15px。
+*/
+/* 
+  Mixin: modal-backdrop
+  功能描述:
+    设置模态框的遮罩层样式。
+  参数:
+    @bg-color: 遮罩层背景颜色，默认值为黑色半透明 (#000, 0.5)。
+*/
+/* 
+  Mixin: modal-close
+  功能描述:
+    设置模态框关闭按钮的样式。
+  参数:
+    @size: 按钮大小，默认值为 24px。
+    @color: 按钮颜色，默认值为黑色 (#333)。
+*/
+/* 
+  Mixin: navbar-menu
+  功能描述:
+    设置导航菜单的基础样式。
+  参数:
+    @bg-color: 菜单背景颜色，默认值为黑色 (#333)。
+    @text-color: 菜单文本颜色，默认值为白色 (#fff)。
+    @padding: 菜单项的内边距，默认值为 10px 20px。
+*/
+/* 
+  Mixin: navbar-menu-inline
+  功能描述:
+    设置导航菜单项水平排列的样式。
+  参数:
+    @spacing: 菜单项之间的间距，默认值为 15px。
+*/
+/* 
+  Mixin: navbar-menu-dropdown
+  功能描述:
+    设置导航菜单下拉菜单的样式。
+  参数:
+    @bg-color: 下拉菜单背景颜色，默认值为黑色 (#333)。
+    @text-color: 下拉菜单文本颜色，默认值为白色 (#fff)。
+    @padding: 下拉菜单项的内边距，默认值为 10px 20px。
+    @hover-bg-color: 悬停时的背景颜色，默认值为灰色 (#444)。
+*/
+/* 
+  Mixin: navbar-menu-item
+  功能描述:
+    设置导航菜单项的样式。
+  参数:
+    @text-color: 菜单项文本颜色，默认值为当前颜色。
+    @hover-text-color: 悬停时的文本颜色，默认值为浅色 (#ddd)。
+*/
+/* 
+  Mixin: navbar-menu-toggler
+  功能描述:
+    设置导航菜单的切换按钮样式，适用于移动端菜单。
+  参数:
+    @size: 切换按钮的大小，默认值为 24px。
+    @color: 按钮颜色，默认值为当前颜色。
+*/
+/* 
+  Mixin: navbar
+  功能描述:
+    设置导航栏的基础样式。
+  参数:
+    @bg-color: 导航栏背景颜色，默认值为黑色 (#333)。
+    @text-color: 导航栏文本颜色，默认值为白色 (#fff)。
+*/
+/* 
+  Mixin: navbar-item
+  功能描述:
+    设置导航栏菜单项的样式。
+  参数:
+    @hover-color: 悬停时的文本颜色，默认值为主色调 (#3498db)。
+*/
+/* 
+  Mixin: navbar-brand
+  功能描述:
+    设置导航栏品牌区域的样式。
+  参数:
+    @font-size: 字体大小，默认值为 24px。
+    @font-weight: 字体粗细，默认值为 bold。
+*/
+/* 
+  Mixin: navbar-dropdown
+  功能描述:
+    设置导航栏下拉菜单的样式。
+  参数:
+    @bg-color: 下拉菜单背景颜色，默认值为白色 (#fff)。
+    @text-color: 下拉菜单文本颜色，默认值为黑色 (#333)。
+    @hover-bg-color: 悬停时的背景颜色，默认值为浅灰色 (#f5f5f5)。
+*/
+/* 
+  Mixin: navbar-toggler
+  功能描述:
+    设置导航栏切换按钮的样式，用于移动端菜单的显示和隐藏。
+  参数:
+    @size: 切换按钮的大小，默认值为 24px。
+    @color: 切换按钮的颜色，默认值为当前文本颜
+
+// 文件名: pagination.less
+
+/* 
+  Mixin: pagination
+  功能描述:
+    设置分页组件的基础样式，包括排列方式和间距。
+  参数:
+    @spacing: 分页按钮之间的间距，默认值为 10px。
+*/
+/* 
+  Mixin: pagination-item
+  功能描述:
+    设置分页按钮的样式。
+  参数:
+    @bg-color: 按钮背景颜色，默认值为白色 (#fff)。
+    @border-color: 按钮边框颜色，默认值为浅灰色 (#ddd)。
+    @text-color: 按钮文本颜色，默认值为黑色 (#333)。
+*/
+/* 
+  Mixin: pagination-active
+  功能描述:
+    设置活动分页按钮的样式。
+  参数:
+    @bg-color: 活动按钮背景颜色，默认值为主色调 (#3498db)。
+    @text-color: 活动按钮文本颜色，默认值为白色 (#fff)。
+*/
+/* 
+  Mixin: pagination-disabled
+  功能描述:
+    设置禁用分页按钮的样式。
+  参数:
+    @bg-color: 禁用按钮背景颜色，默认值为浅灰色 (#f0f0f0)。
+    @text-color: 禁用按钮文本颜色，默认值为深灰色 (#aaa)。
+*/
+/* 
+  Mixin: pagination-ellipsis
+  功能描述:
+    设置分页组件中的省略号样式。
+  参数:
+    @color: 省略号的颜色，默认值为深灰色 (#999)。
+*/
+/* 
+  Mixin: progress-bar
+  功能描述:
+    设置进度条的基础样式。
+  参数:
+    @bg-color: 进度条背景颜色，默认值为浅灰色 (#f0f0f0)。
+    @height: 进度条高度，默认值为 20px。
+*/
+/* 
+  Mixin: progress
+  功能描述:
+    设置进度条的进度部分样式。
+  参数:
+    @progress-color: 进度部分颜色，默认值为蓝色 (#3498db)。
+    @percent: 进度百分比，默认值为 50%。
+*/
+/* 
+  Mixin: progress-striped
+  功能描述:
+    设置条纹样式的进度条。
+  参数:
+    @stripe-color: 条纹颜色，默认值为 rgba(255, 255, 255, 0.15)。
+*/
+/* 
+  Mixin: progress-animated
+  功能描述:
+    为进度条添加动画效果，使其看起来在移动。
+  参数:
+    @animation-duration: 动画持续时间，默认值为 1s。
+*/
+/* 
+  Mixin: progress-rounded
+  功能描述:
+    设置圆形进度条的样式。
+  参数:
+    @size: 进度条的直径，默认值为 100px。
+    @track-color: 进度条轨道颜色，默认值为浅灰色 (#f0f0f0)。
+    @progress-color: 进度部分颜色，默认值为蓝色 (#3498db)。
+    @percent: 进度百分比，默认值为 50%。
+*/
+/* 
+  Mixin: responsive
+  功能描述:
+    创建一个简单的媒体查询 mixin，用于响应式设计。
+  参数:
+    @breakpoint: 响应式断点，默认值为 768px。
+    @content: 媒体查询内的内容。
+*/
+/* 
+  Mixin: hide-on-mobile
+  功能描述:
+    隐藏元素在移动设备上显示。
+  参数:
+    @breakpoint: 响应式断点，默认值为 768px。
+*/
+/* 
+  Mixin: column-width
+  功能描述:
+    快速设置响应式网格系统的列宽。
+  参数:
+    @cols: 列数，默认值为 12。
+    @total-cols: 总列数，默认值为 12。
+*/
+/* 
+  Mixin: full-width-on-mobile
+  功能描述:
+    在移动设备上将元素宽度设置为 100%。
+  参数:
+    @breakpoint: 响应式断点，默认值为 768px。
+*/
+/* 
+  Mixin: responsive-text
+  功能描述:
+    在不同设备上调整文本大小。
+  参数:
+    @base-size: 基础字体大小，默认值为 16px。
+    @mobile-size: 移动设备上的字体大小，默认值为 14px。
+    @breakpoint: 响应式断点，默认值为 768px。
+*/
+/* 
+  Mixin: scrollbar
+  功能描述:
+    自定义滚动条的样式。
+  参数:
+    @width: 滚动条的宽度，默认值为 8px。
+    @track-color: 滚动条轨道的颜色，默认值为浅灰色 (#f0f0f0)。
+    @thumb-color: 滚动条滑块的颜色，默认值为深灰色 (#888)。
+    @thumb-radius: 滚动条滑块的圆角半径，默认值为 4px。
+*/
+/* 
+  Mixin: scrollbar-horizontal
+  功能描述:
+    自定义水平滚动条的样式。
+  参数:
+    @height: 滚动条的高度，默认值为 8px。
+    @track-color: 滚动条轨道的颜色，默认值为浅灰色 (#f0f0f0)。
+    @thumb-color: 滚动条滑块的颜色，默认值为深灰色 (#888)。
+    @thumb-radius: 滚动条滑块的圆角半径，默认值为 4px。
+*/
+/* 
+  Mixin: scrollbar-vertical
+  功能描述:
+    自定义垂直滚动条的样式。
+  参数:
+    @width: 滚动条的宽度，默认值为 8px。
+    @track-color: 滚动条轨道的颜色，默认值为浅灰色 (#f0f0f0)。
+    @thumb-color: 滚动条滑块的颜色，默认值为深灰色 (#888)。
+    @thumb-radius: 滚动条滑块的圆角半径，默认值为 4px。
+*/
+/* 
+  Mixin: scrollbar-rounded
+  功能描述:
+    设置滚动条为圆形滑块样式。
+  参数:
+    @width: 滚动条的宽度，默认值为 8px。
+    @track-color: 滚动条轨道的颜色，默认值为浅灰色 (#f0f0f0)。
+    @thumb-color: 滚动条滑块的颜色，默认值为深灰色 (#888)。
+*/
+/* 
+  Mixin: table-layout
+  功能描述:
+    为表格设置基础布局和样式。
+  参数:
+    @border-color: 表格边框颜色，默认值为浅灰色 (#ddd)。
+*/
+/* 
+  Mixin: table-header
+  功能描述:
+    设置表格表头的样式。
+  参数:
+    @bg-color: 表头背景颜色，默认值为浅灰色 (#f5f5f5)。
+    @text-color: 表头文本颜色，默认值为黑色 (#333)。
+*/
+/* 
+  Mixin: table-row
+  功能描述:
+    设置表格行的样式。
+  参数:
+    @hover-bg-color: 悬停时的背景颜色，默认值为浅灰色 (#f9f9f9)。
+*/
+/* 
+  Mixin: table-striped
+  功能描述:
+    设置表格的斑马纹样式（隔行变色）。
+  参数:
+    @stripe-color: 斑马纹颜色，默认值为浅灰色 (#fafafa)。
+*/
+/* 
+  Mixin: table-bordered
+  功能描述:
+    为表格和单元格添加边框。
+  参数:
+    @border-color: 边框颜色，默认值为浅灰色 (#ddd)。
+*/
+/* 
+  Mixin: tabs
+  功能描述:
+    设置标签页的基础样式，使标签水平排列。
+  参数:
+    @border-color: 标签页边框颜色，默认值为浅灰色 (#ddd)。
+    @active-border-color: 活动标签的边框颜色，默认值为主色调 (#3498db)。
+*/
+/* 
+  Mixin: tabs-vertical
+  功能描述:
+    创建垂直排列的标签页。
+  参数:
+    @border-color: 标签页边框颜色，默认值为浅灰色 (#ddd)。
+    @active-border-color: 活动标签的边框颜色，默认值为主色调 (#3498db)。
+*/
+/* 
+  Mixin: tab-content
+  功能描述:
+    设置标签页内容区域的样式。
+  参数:
+    @padding: 内容区域的内边距，默认值为 20px。
+*/
+/* 
+  Mixin: tab-content-vertical
+  功能描述:
+    设置垂直标签页内容区域的样式。
+  参数:
+    @padding: 内容区域的内边距，默认值为 20px。
+*/
+/* 
+  Mixin: text-color
+  功能描述:
+    快速为文本设置颜色。
+  参数:
+    @color: 文本颜色，默认值为黑色 (#333)。
+*/
+/* 
+  Mixin: text-shadow
+  功能描述:
+    为文本添加阴影效果。
+  参数:
+    @x: 水平方向的阴影偏移，默认值为 1px。
+    @y: 垂直方向的阴影偏移，默认值为 1px。
+    @blur: 模糊半径，默认值为 3px。
+    @color: 阴影颜色，默认值为 rgba(0, 0, 0, 0.5)。
+*/
+/* 
+  Mixin: text-truncate
+  功能描述:
+    实现多行文本截断，并显示省略号。
+  参数:
+    @lines: 最大显示行数，默认值为 2 行。
+    @line-height: 每行的行高，默认值为 1.5。
+*/
+/* 
+  Mixin: text-align
+  功能描述:
+    快速设置文本的对齐方式。
+  参数:
+    @align: 文本对齐方式，默认值为 left。
+*/
+/* 
+  Mixin: bold-text
+  功能描述:
+    设置文本为粗体。
+  参数:
+    @weight: 字体粗细，默认值为 bold。
+*/
+/* 
+  Mixin: tooltip
+  功能描述:
+    设置工具提示的基础样式。
+  参数:
+    @bg-color: 提示背景颜色，默认值为黑色 (#333)。
+    @text-color: 提示文本颜色，默认值为白色 (#fff)。
+    @padding: 提示的内边距，默认值为 5px 10px。
+    @border-radius: 提示的圆角半径，默认值为 4px。
+*/
+/* 
+  Mixin: tooltip-top
+  功能描述:
+    设置工具提示在元素上方显示的样式。
+  参数:
+    @offset: 提示与元素之间的距离，默认值为 8px。
+*/
+/* 
+  Mixin: tooltip-bottom
+  功能描述:
+    设置工具提示在元素下方显示的样式。
+  参数:
+    @offset: 提示与元素之间的距离，默认值为 8px。
+*/
+/* 
+  Mixin: tooltip-left
+  功能描述:
+    设置工具提示在元素左侧显示的样式。
+  参数:
+    @offset: 提示与元素之间的距离，默认值为 8px。
+*/
+/* 
+  Mixin: tooltip-right
+  功能描述:
+    设置工具提示在元素右侧显示的样式。
+  参数:
+    @offset: 提示与元素之间的距离，默认值为 8px。
+*/
+/* 
+  Mixin: tooltip-animated
+  功能描述:
+    为工具提示添加淡入淡出动画效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.3s。
+*/
+/* 
+  Mixin: font-size
+  功能描述:
+    快速设置字体大小。
+  参数:
+    @size: 字体大小，默认值为 16px。
+*/
+/* 
+  Mixin: line-height
+  功能描述:
+    快速设置行高。
+  参数:
+    @height: 行高，默认值为 1.5。
+*/
+/* 
+  Mixin: text-align
+  功能描述:
+    设置文本的对齐方式。
+  参数:
+    @align: 文本对齐方式，默认值为左对齐。
+*/
+/* 
+  Mixin: first-letter
+  功能描述:
+    设置段落的首字母样式，如首字下沉效果。
+  参数:
+    @size: 首字母的字体大小，默认值为 2em。
+    @color: 首字母的颜色，默认值为当前文本颜色。
+    @float: 首字母的浮动方向，默认值为左。
+*/
+/* 
+  Mixin: text-decoration
+  功能描述:
+    设置文本装饰，如下划线、删除线等。
+  参数:
+    @decoration: 装饰类型，默认值为无。
+*/
