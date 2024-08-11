@@ -9,8 +9,11 @@ const mainLessFilePath = path.join(__dirname, '../src/styles/main.less');
 // 获取 animation.less 的绝对路径
 const animationLessPath = path.resolve(__dirname, '../src/mixin/animation.less');
 
-// 正则表达式匹配 mixin 定义
-const mixinRegex = /\.([a-zA-Z0-9_-]+)\(([^)]*)\)\s*\{/g;
+// 正则表达式匹配 mixin 名称（不捕获参数）
+const mixinNameRegex = /\.([a-zA-Z0-9_-]+)\s*\(/g;
+
+// 正则表达式匹配参数
+const mixinParamsRegex = /\(([^)]*)\)\s*\{/;
 
 // 正则表达式匹配注释，包括单行和多行注释
 const commentRegex = /\/\*[\s\S]*?\*\/|\/\/[^\n]*/g;
@@ -26,9 +29,13 @@ function parseLessFile(filePath) {
         const mixins = {};
         let match;
 
-        while ((match = mixinRegex.exec(uncommentedContent)) !== null) {
+        // 使用正则表达式匹配 mixin 名称
+        while ((match = mixinNameRegex.exec(uncommentedContent)) !== null) {
             const mixinName = match[1];
-            const rawParams = match[2].trim();
+
+            // 查找对应的参数
+            const paramsMatch = uncommentedContent.slice(match.index).match(mixinParamsRegex);
+            let rawParams = paramsMatch ? paramsMatch[1].trim() : '';
 
             const parameters = {};
             rawParams.split(',').forEach(param => {
@@ -59,21 +66,17 @@ function generateMainLess(mixins) {
         let classNameBase = `.animation-${mixinName}-${index}`;
         let mixinParameters = mixins[mixinName];
 
-        // 生成不同的参数组合（可以根据需要扩展更多组合）
+        // 生成不同的参数组合
         for (let i = 1; i <= 3; i++) {
             let className = `${classNameBase}-${i}`;
             let mixinArgs = Object.entries(mixinParameters)
                 .map(([key, value]) => {
-                    if (Array.isArray(value)) {
-                        return `@${key}: ${value.join(', ')}`;
-                    } else {
-                        return `@${key}: ${adjustValue(value, i)}`;
-                    }
+                    return `@${key}: ${adjustValue(value, i)}`;
                 })
                 .join(', ');
 
-            // 如果 mixinArgs 为空，则跳过生成该类
-            if (mixinArgs) {
+            // 如果 mixin 没有参数或参数为空，则不传递参数直接调用 mixin
+            if (mixinArgs.trim()) {
                 mainLessContent += `${className} {\n  .${mixinName}(${mixinArgs});\n}\n\n`;
             } else {
                 mainLessContent += `${className} {\n  .${mixinName}();\n}\n\n`;
@@ -96,35 +99,69 @@ function adjustValue(value, factor) {
     return value;
 }
 
-// 生成并编译 LESS 文件为 CSS
+// 尝试编译 LESS 文件，如果失败则重新编译不带参数的 mixin
 function compileLessToCss(lessContent, outputFile) {
     less.render(lessContent, { paths: [path.dirname(mainLessFilePath)] }, (e, output) => {
         if (e) {
             console.error("Error compiling LESS to CSS:", e);
-            throw e;
+            console.log("Retrying by removing parameters...");
+
+            const failedMixinRegex = /\.animation-([a-zA-Z0-9_-]+)-[0-9]+-\d+\s*\{\s*\.[a-zA-Z0-9_-]+\(([^)]*)\);/g;
+            lessContent = lessContent.replace(failedMixinRegex, (match, mixinName, params) => {
+                const invalidParamRegex = /@[a-zA-Z0-9_-]+:\s*[^,);]+/g;
+                let validParams = '';
+                params.replace(invalidParamRegex, (param) => {
+                    try {
+                        less.render(`.${mixinName}(${param});`);
+                        validParams += param + ', ';
+                    } catch {
+                        console.log(`Skipping invalid param: ${param}`);
+                    }
+                });
+
+                if (validParams.trim()) {
+                    return match.replace(params, validParams.slice(0, -2));
+                } else {
+                    return match.replace(/\(([^)]*)\);/, '();');
+                }
+            });
+
+            less.render(lessContent, { paths: [path.dirname(mainLessFilePath)] }, (retryErr, retryOutput) => {
+                if (retryErr) {
+                    console.error("Retrying failed:", retryErr);
+                    throw retryErr;
+                }
+                fs.writeFile(outputFile, retryOutput.css, (err) => {
+                    if (err) {
+                        console.error("Error writing CSS file after retry:", err);
+                        throw err;
+                    }
+                    console.log(`The CSS file has been generated as ${outputFile} after retry.`);
+                });
+            });
+
+        } else {
+            fs.writeFile(outputFile, output.css, (err) => {
+                if (err) {
+                    console.error("Error writing CSS file:", err);
+                    throw err;
+                }
+                console.log(`The CSS file has been generated as ${outputFile}`);
+            });
         }
-        fs.writeFile(outputFile, output.css, (err) => {
-            if (err) {
-                console.error("Error writing CSS file:", err);
-                throw err;
-            }
-            console.log(`The CSS file has been generated as ${outputFile}`);
-        });
     });
 }
 
 // 主流程
 const mixins = parseLessFile(lessFilePath);
+
 if (Object.keys(mixins).length > 0) {
     const mainLessContent = generateMainLess(mixins);
-    const mainLessFile = path.join(__dirname, '../src/styles/main.less');
 
-    // 生成 main.less 文件
-    fs.writeFileSync(mainLessFile, mainLessContent);
-    console.log(`The main.less file has been generated as ${mainLessFile}`);
+    fs.writeFileSync(mainLessFilePath, mainLessContent);
+    console.log(`The main.less file has been generated as ${mainLessFilePath}`);
 
-    // 编译生成的 main.less 文件为 CSS
-    compileLessToCss(mainLessContent, 'style.css');
+    compileLessToCss(mainLessContent, path.join(__dirname, 'style.css'));
 } else {
     console.log("No mixins found or error parsing the LESS file.");
 }
