@@ -148,3 +148,401 @@
 .expand-collapse-demo {
   .expand-collapse(0.75s, 0.5, 1); // 使用 expand-collapse Mixin
 }
+
+
+/* 
+  Mixin: gravity-drop
+  功能描述:
+    为元素添加重力下落效果，模拟物体从高处下落并因重力加速。
+  参数:
+    @duration: 动画持续时间，默认值为 1.5s。
+    @height: 下落高度，默认值为 300px。
+*/
+.gravity-drop(@duration: 1.5s, @height: 300px) {
+  animation: gravityDrop @duration cubic-bezier(0.42, 0, 0.58, 1);
+
+  @keyframes gravityDrop {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(@height / 2);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(@height);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: particle-explosion
+  功能描述:
+    为元素添加粒子爆炸效果，模拟粒子从中心向四周扩散。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @particleColor: 粒子颜色，默认值为 rgba(255, 255, 255, 0.7)。
+    @particleSize: 粒子大小，默认值为 4px。
+    @particleCount: 粒子数量，默认值为 20。
+*/
+.particle-explosion(@duration: 2s, @particleColor: rgba(255, 255, 255, 0.7), @particleSize: 4px, @particleCount: 20) {
+  position: relative;
+  overflow: visible;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: transparent;
+    animation: particleExplosion @duration ease-out;
+  }
+
+  @keyframes particleExplosion {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  // 创建多个粒子
+  &::before {
+    @i: 0;
+    .loop(@i) when (@i < @particleCount) {
+      @angle: (360deg / @particleCount) * @i;
+      @distance: 50px + (20px * @i / @particleCount);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: @particleSize;
+        height: @particleSize;
+        background: @particleColor;
+        border-radius: 50%;
+        transform: rotate(@angle) translate(@distance) rotate(-@angle);
+        animation: particleExplosion @duration ease-out;
+      }
+
+      .loop(@i + 1);
+    }
+  }
+}
+
+/* 
+  Mixin: spring-bounce
+  功能描述:
+    为元素添加弹簧反弹效果，模拟弹性物体的拉伸与压缩。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @amplitude: 振幅，默认值为 20px。
+    @damping: 阻尼系数，默认值为 5。
+*/
+.spring-bounce(@duration: 1s, @amplitude: 20px, @damping: 5) {
+  animation: springBounce @duration ease-in-out;
+
+  @keyframes springBounce {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-@amplitude);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(-(@amplitude / @damping));
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+
+/* 
+  Mixin: vortex
+  功能描述:
+    为元素添加旋涡效果，模拟物体被吸入旋涡的旋转和缩放。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @rotate: 旋转角度，默认值为 720deg。
+    @scale: 缩放比例，默认值为 0。
+*/
+.vortex(@duration: 2s, @rotate: 720deg, @scale: 0) {
+  animation: vortex @duration ease-in-out;
+
+  @keyframes vortex {
+    0% {
+      transform: scale(1) rotate(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(@scale) rotate(@rotate);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: fireworks-display
+  功能描述:
+    为元素添加烟花展示效果，模拟烟花爆炸并散开的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2.5s。
+    @colors: 烟花颜色数组，默认值为 #ff6347, #ffa500, #32cd32, #1e90ff, #ff69b4。
+    @explosionRadius: 爆炸半径，默认值为 100px。
+    @particleSize: 粒子大小，默认值为 5px。
+*/
+.fireworks-display(@duration: 2.5s, @colors: #ff6347, #ffa500, #32cd32, #1e90ff, #ff69b4, @explosionRadius: 100px, @particleSize: 5px) {
+  position: relative;
+  overflow: visible;
+
+  // 烟花爆炸
+  @i: 0;
+  .loop(@i) when (@i < length(@colors)) {
+    @color: extract(@colors, @i + 1);
+    @angle: (360deg / length(@colors)) * @i;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: @particleSize;
+      height: @particleSize;
+      background: @color;
+      border-radius: 50%;
+      transform: rotate(@angle) translate(@explosionRadius) rotate(-@angle);
+      animation: fireworksExplosion @duration ease-out;
+    }
+
+    .loop(@i + 1);
+  }
+
+  @keyframes fireworksExplosion {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: ripple-effect
+  功能描述:
+    为元素添加水波纹效果，模拟涟漪从中心扩展到四周。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @color: 波纹颜色，默认值为 rgba(0, 0, 255, 0.2)。
+    @spread: 波纹扩展距离，默认值为 150px。
+*/
+.ripple-effect(@duration: 2s, @color: rgba(0, 0, 255, 0.2), @spread: 150px) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: @color;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: rippleEffect @duration ease-out;
+    opacity: 0;
+  }
+
+  @keyframes rippleEffect {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(@spread / 10);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: water-drop
+  功能描述:
+    为元素添加水滴效果，模拟水滴落下的轨迹。
+  参数:
+    @duration: 动画持续时间，默认值为 1.5s。
+    @color: 水滴颜色，默认值为 rgba(0, 0, 255, 0.5)。
+    @height: 水滴落下的高度，默认值为 100px。
+*/
+.water-drop(@duration: 1.5s, @color: rgba(0, 0, 255, 0.5), @height: 100px) {
+  position: relative;
+  overflow: visible;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: @color;
+    border-radius: 50%;
+    transform: translate(-50%, 0) scaleY(0.5);
+    animation: waterDrop @duration ease-in-out;
+  }
+
+  @keyframes waterDrop {
+    0% {
+      transform: translate(-50%, 0) scaleY(0.5);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, @height / 2) scaleY(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translate(-50%, @height) scaleY(0.5);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: oscillation
+  功能描述:
+    为元素添加振荡效果，模拟物体在左右摆动中逐渐减弱。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @amplitude: 振荡幅度，默认值为 50px。
+    @damping: 阻尼系数，默认值为 2。
+*/
+.oscillation(@duration: 3s, @amplitude: 50px, @damping: 2) {
+  animation: oscillation @duration ease-in-out;
+
+  @keyframes oscillation {
+    0% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(@amplitude);
+    }
+    40% {
+      transform: translateX(-@amplitude / @damping);
+    }
+    60% {
+      transform: translateX(@amplitude / (@damping * 2));
+    }
+    80% {
+      transform: translateX(-@amplitude / (@damping * 4));
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+/* 
+  Mixin: comet
+  功能描述:
+    为元素添加彗星尾巴效果，模拟彗星划过天空的运动轨迹。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @color: 彗星尾巴颜色，默认值为 rgba(255, 255, 255, 0.7)。
+    @length: 彗星尾巴长度，默认值为 100px。
+*/
+.comet(@duration: 2s, @color: rgba(255, 255, 255, 0.7), @length: 100px) {
+  position: relative;
+  overflow: visible;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: @length;
+    height: 4px;
+    background: linear-gradient(to right, @color, transparent);
+    transform: translateY(-50%);
+    animation: comet @duration ease-in-out;
+  }
+
+  @keyframes comet {
+    0% {
+      transform: translateX(-@length) translateY(-50%);
+      opacity: 0;
+    }
+    50% {
+      transform: translateX(0) translateY(-50%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(@length) translateY(-50%);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: thunderstorm
+  功能描述:
+    为元素添加雷暴效果，模拟闪电的闪烁和震动。
+  参数:
+    @duration: 动画持续时间，默认值为 1.5s。
+    @flashColor: 闪电颜色，默认值为 rgba(255, 255, 255, 0.9)。
+    @shakeIntensity: 震动强度，默认值为 10px。
+*/
+.thunderstorm(@duration: 1.5s, @flashColor: rgba(255, 255, 255, 0.9), @shakeIntensity: 10px) {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: @flashColor;
+    opacity: 0;
+    animation: flash @duration infinite;
+  }
+
+  @keyframes flash {
+    0%, 20%, 40%, 60%, 80%, 100% {
+      opacity: 0;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      opacity: 1;
+    }
+  }
+
+  animation: shake @duration infinite;
+
+  @keyframes shake {
+    0%, 100% {
+      transform: translate(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translate(@shakeIntensity, -@shakeIntensity);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translate(-@shakeIntensity, @shakeIntensity);
+    }
+  }
+}

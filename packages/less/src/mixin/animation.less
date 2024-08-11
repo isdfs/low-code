@@ -329,31 +329,17 @@
     @duration: 动画持续时间，默认值为 1s。
     @intensity: 摆动强度，默认值为 20deg。
 */
-.swing(@duration: 1s, @intensity: 20deg) {
+.swing(@duration: 1s, @amplitude: 20px) {
   animation: swing @duration ease-in-out;
 
   @keyframes swing {
-    0% {
-      transform: rotate(0);
-    }
-    15% {
-      transform: rotate(-@intensity);
-    }
-    30% {
-      transform: rotate(@intensity);
-    }
-    45% {
-      transform: rotate(-@intensity / 2);
-    }
-    60% {
-      transform: rotate(@intensity / 2);
-    }
-    75% {
-      transform: rotate(-@intensity / 4);
-    }
-    100% {
-      transform: rotate(0);
-    }
+      0% { transform: rotate(0); }
+      15% { transform: rotate(-@amplitude); }
+      30% { transform: rotate(@amplitude); }
+      45% { transform: rotate(-@amplitude / 2); }
+      60% { transform: rotate(@amplitude / 2); }
+      75% { transform: rotate(-@amplitude / 4); }
+      100% { transform: rotate(0); }
   }
 }
 
@@ -1237,4 +1223,1979 @@
     }
   }
 }
+/* 
+  Mixin: skew
+  功能描述:
+    为元素添加倾斜效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.5s。
+    @skewX: X轴倾斜角度，默认值为 20deg。
+    @skewY: Y轴倾斜角度，默认值为 0deg。
+*/
+.skew(@duration: 0.5s, @skewX: 20deg, @skewY: 0deg) {
+  animation: skew @duration ease-in-out;
 
+  @keyframes skew {
+    from {
+      transform: skew(0, 0);
+      opacity: 0;
+    }
+    to {
+      transform: skew(@skewX, @skewY);
+      opacity: 1;
+    }
+  }
+}
+
+/* 
+  Mixin: heartbeat
+  功能描述:
+    为元素添加心跳效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1.5s。
+    @scale: 缩放比例，默认值为 1.3。
+*/
+.heartbeat(@duration: 1.5s, @scale: 1.3) {
+  animation: heartbeat @duration infinite;
+
+  @keyframes heartbeat {
+    0% {
+      transform: scale(1);
+    }
+    20% {
+      transform: scale(@scale);
+    }
+    40% {
+      transform: scale(1);
+    }
+    60% {
+      transform: scale(@scale);
+    }
+    80% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+/* 
+  Mixin: zoom-spin
+  功能描述:
+    为元素添加缩放和旋转的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @scaleStart: 初始缩放比例，默认值为 0.5。
+    @scaleEnd: 结束缩放比例，默认值为 1.5。
+    @rotate: 旋转角度，默认值为 360deg。
+*/
+.zoom-spin(@duration: 1s, @scaleStart: 0.5, @scaleEnd: 1.5, @rotate: 360deg) {
+  animation: zoomSpin @duration ease-in-out;
+
+  @keyframes zoomSpin {
+    from {
+      transform: scale(@scaleStart) rotate(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(@scaleEnd) rotate(@rotate);
+      opacity: 1;
+    }
+  }
+}
+
+/* 
+  Mixin: roll-out
+  功能描述:
+    为元素添加滚动退出效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @distance: 滚动距离，默认值为 100px。
+*/
+.roll-out(@duration: 1s, @distance: 100px) {
+  animation: rollOut @duration ease-in-out;
+
+  @keyframes rollOut {
+    from {
+      transform: rotate(0) translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(10deg) translateX(@distance);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: ripple
+  功能描述:
+    为元素添加涟漪效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @scale: 涟漪缩放比例，默认值为 2。
+    @color: 涟漪颜色，默认值为 rgba(0, 0, 0, 0.1)。
+*/
+.ripple(@duration: 2s, @scale: 2, @color: rgba(0, 0, 0, 0.1)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: @color;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple @duration infinite;
+    opacity: 0;
+  }
+
+  @keyframes ripple {
+    from {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-50%, -50%) scale(@scale);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: jitter
+  功能描述:
+    为元素添加抖动效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @intensity: 抖动强度，默认值为 5px。
+*/
+.jitter(@duration: 0.75s, @intensity: 5px) {
+  animation: jitter @duration ease-in-out;
+
+  @keyframes jitter {
+    0% {
+      transform: translate(0);
+    }
+    25% {
+      transform: translate(@intensity, -@intensity);
+    }
+    50% {
+      transform: translate(-@intensity, @intensity);
+    }
+    75% {
+      transform: translate(@intensity, @intensity);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+}
+
+/* 
+  Mixin: flash-text
+  功能描述:
+    为文字添加闪烁效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @colorStart: 起始颜色，默认值为 #ff0000。
+    @colorEnd: 结束颜色，默认值为 #0000ff。
+*/
+.flash-text(@duration: 1s, @colorStart: #ff0000, @colorEnd: #0000ff) {
+  animation: flashText @duration infinite;
+
+  @keyframes flashText {
+    0%, 100% {
+      color: @colorStart;
+    }
+    50% {
+      color: @colorEnd;
+    }
+  }
+}
+
+/* 
+  Mixin: slide-flip
+  功能描述:
+    为元素添加滑动和翻转的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @distance: 滑动距离，默认值为 50px。
+    @flipDirection: 翻转方向，可选值：'horizontal' 或 'vertical'，默认值为 'horizontal'。
+*/
+.slide-flip(@duration: 0.75s, @distance: 50px, @flipDirection: horizontal) {
+  animation: slideFlip @duration ease-in-out;
+
+  @keyframes slideFlip {
+    from {
+      transform: translateX(-@distance) rotateY(0);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0) if(@flipDirection = horizontal, rotateY(360deg), rotateX(360deg));
+      opacity: 1;
+    }
+  }
+}
+
+/* 
+  Mixin: zoom-bounce
+  功能描述:
+    为元素添加缩放和弹跳的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @scale: 缩放比例，默认值为 1.2。
+    @bounceHeight: 弹跳高度，默认值为 20px。
+*/
+.zoom-bounce(@duration: 1s, @scale: 1.2, @bounceHeight: 20px) {
+  animation: zoomBounce @duration ease-in-out;
+
+  @keyframes zoomBounce {
+    0% {
+      transform: scale(@scale) translateY(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1) translateY(-@bounceHeight);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(@scale) translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* 
+  Mixin: rotate-blur
+  功能描述:
+    为元素添加旋转和模糊的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @rotate: 旋转角度，默认值为 360deg。
+    @blur: 模糊程度，默认值为 5px。
+*/
+.rotate-blur(@duration: 1s, @rotate: 360deg, @blur: 5px) {
+  animation: rotateBlur @duration ease-in-out;
+
+  @keyframes rotateBlur {
+    from {
+      transform: rotate(0);
+      filter: blur(0);
+      opacity: 0;
+    }
+    50% {
+      transform: rotate(@rotate);
+      filter: blur(@blur);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(0);
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* 
+  Mixin: wave
+  功能描述:
+    为元素添加波浪效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @amplitude: 波浪幅度，默认值为 20px。
+*/
+.wave(@duration: 2s, @amplitude: 20px) {
+  animation: wave @duration infinite ease-in-out;
+
+  @keyframes wave {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-@amplitude);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    75% {
+      transform: translateX(@amplitude);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+/* 
+  Mixin: rotate-pulse
+  功能描述:
+    为元素添加旋转和脉冲的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @scale: 脉冲缩放比例，默认值为 1.5。
+    @rotate: 旋转角度，默认值为 360deg。
+*/
+.rotate-pulse(@duration: 2s, @scale: 1.5, @rotate: 360deg) {
+  animation: rotatePulse @duration infinite ease-in-out;
+
+  @keyframes rotatePulse {
+    0% {
+      transform: scale(1) rotate(0);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(@scale) rotate(@rotate / 2);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1) rotate(@rotate);
+      opacity: 1;
+    }
+  }
+}
+
+/* 
+  Mixin: shake-y
+  功能描述:
+    为元素添加纵向摇晃效果。
+  参数:
+    @duration: 动画持续时间，默认值为 0.75s。
+    @intensity: 摇晃强度，默认值为 10px。
+*/
+.shake-y(@duration: 0.75s, @intensity: 10px) {
+  animation: shakeY @duration infinite;
+
+  @keyframes shakeY {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    25%, 75% {
+      transform: translateY(-@intensity);
+    }
+    50% {
+      transform: translateY(@intensity);
+    }
+  }
+}
+
+/* 
+  Mixin: stretch
+  功能描述:
+    为元素添加拉伸效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @scaleX: 水平拉伸比例，默认值为 1.5。
+    @scaleY: 垂直拉伸比例，默认值为 1。
+*/
+.stretch(@duration: 1s, @scaleX: 1.5, @scaleY: 1) {
+  animation: stretch @duration ease-in-out;
+
+  @keyframes stretch {
+    0% {
+      transform: scale(1, 1);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(@scaleX, @scaleY);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1, 1);
+      opacity: 1;
+    }
+  }
+}
+
+/* 
+  Mixin: bounce-scale
+  功能描述:
+    为元素添加缩放和弹跳的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @scale: 缩放比例，默认值为 1.2。
+    @bounceHeight: 弹跳高度，默认值为 20px。
+*/
+.bounce-scale(@duration: 1s, @scale: 1.2, @bounceHeight: 20px) {
+  animation: bounceScale @duration ease-in-out;
+
+  @keyframes bounceScale {
+    0% {
+      transform: scale(1) translateY(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(@scale) translateY(-@bounceHeight);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* 
+  Mixin: zigzag
+  功能描述:
+    为元素添加之字形移动效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @amplitude: 移动幅度，默认值为 50px。
+*/
+.zigzag(@duration: 2s, @amplitude: 50px) {
+  animation: zigzag @duration infinite ease-in-out;
+
+  @keyframes zigzag {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-@amplitude) translateY(@amplitude / 2);
+    }
+    50% {
+      transform: translateX(0) translateY(@amplitude);
+    }
+    75% {
+      transform: translateX(@amplitude) translateY(@amplitude / 2);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+/* 
+  Mixin: bounce-skew
+  功能描述:
+    为元素添加弹跳和倾斜的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1.5s。
+    @skewX: X轴倾斜角度，默认值为 15deg。
+    @skewY: Y轴倾斜角度，默认值为 0deg。
+    @bounceHeight: 弹跳高度，默认值为 20px。
+*/
+.bounce-skew(@duration: 1.5s, @skewX: 15deg, @skewY: 0deg, @bounceHeight: 20px) {
+  animation: bounceSkew @duration ease-in-out;
+
+  @keyframes bounceSkew {
+    0% {
+      transform: skew(0, 0) translateY(0);
+      opacity: 0;
+    }
+    50% {
+      transform: skew(@skewX, @skewY) translateY(-@bounceHeight);
+      opacity: 1;
+    }
+    100% {
+      transform: skew(0, 0) translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* 
+  Mixin: flash-background
+  功能描述:
+    为元素添加背景色闪烁效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1.5s。
+    @colorStart: 起始背景色，默认值为 #ffcc00。
+    @colorEnd: 结束背景色，默认值为 #cc00ff。
+*/
+.flash-background(@duration: 1.5s, @colorStart: #ffcc00, @colorEnd: #cc00ff) {
+  animation: flashBackground @duration infinite ease-in-out;
+
+  @keyframes flashBackground {
+    0% {
+      background-color: @colorStart;
+      opacity: 1;
+    }
+    50% {
+      background-color: @colorEnd;
+      opacity: 0.5;
+    }
+    100% {
+      background-color: @colorStart;
+      opacity: 1;
+    }
+  }
+}
+
+/* 
+  Mixin: fade-spin
+  功能描述:
+    为元素添加淡入和旋转的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @rotate: 旋转角度，默认值为 720deg。
+*/
+.fade-spin(@duration: 1s, @rotate: 720deg) {
+  animation: fadeSpin @duration ease-in-out;
+
+  @keyframes fadeSpin {
+    from {
+      opacity: 0;
+      transform: rotate(0);
+    }
+    to {
+      opacity: 1;
+      transform: rotate(@rotate);
+    }
+  }
+}
+
+/* 
+  Mixin: grow-shrink
+  功能描述:
+    为元素添加生长和收缩的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @scaleStart: 初始缩放比例，默认值为 1。
+    @scaleEnd: 结束缩放比例，默认值为 0.8。
+*/
+.grow-shrink(@duration: 2s, @scaleStart: 1, @scaleEnd: 0.8) {
+  animation: growShrink @duration infinite ease-in-out;
+
+  @keyframes growShrink {
+    0% {
+      transform: scale(@scaleStart);
+    }
+    50% {
+      transform: scale(@scaleEnd);
+    }
+    100% {
+      transform: scale(@scaleStart);
+    }
+  }
+}
+
+/* 
+  Mixin: move-in-circle
+  功能描述:
+    为元素添加圆形路径移动效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @radius: 圆的半径，默认值为 50px。
+*/
+.move-in-circle(@duration: 2s, @radius: 50px) {
+  animation: moveInCircle @duration infinite linear;
+
+  @keyframes moveInCircle {
+    0% {
+      transform: translateX(@radius) translateY(0) rotate(0);
+    }
+    25% {
+      transform: translateX(0) translateY(@radius) rotate(90deg);
+    }
+    50% {
+      transform: translateX(-@radius) translateY(0) rotate(180deg);
+    }
+    75% {
+      transform: translateX(0) translateY(-@radius) rotate(270deg);
+    }
+    100% {
+      transform: translateX(@radius) translateY(0) rotate(360deg);
+    }
+  }
+}
+
+/* 
+  Mixin: bounce-rotate
+  功能描述:
+    为元素添加弹跳和旋转的组合效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @bounceHeight: 弹跳高度，默认值为 20px。
+    @rotate: 旋转角度，默认值为 360deg。
+*/
+.bounce-rotate(@duration: 1s, @bounceHeight: 20px, @rotate: 360deg) {
+  animation: bounceRotate @duration ease-in-out;
+
+  @keyframes bounceRotate {
+    0% {
+      transform: translateY(0) rotate(0);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(-@bounceHeight) rotate(@rotate / 2);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0) rotate(@rotate);
+      opacity: 1;
+    }
+  }
+}
+
+/* 
+  Mixin: wave-text
+  功能描述:
+    为文本添加波浪效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @amplitude: 波浪幅度，默认值为 10px。
+*/
+.wave-text(@duration: 2s, @amplitude: 10px) {
+  animation: waveText @duration infinite ease-in-out;
+
+  @keyframes waveText {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-@amplitude);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(@amplitude);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+
+/* 
+  Mixin: complex-slide
+  功能描述:
+    为元素添加复杂的滑动效果，结合多轴滑动、淡入淡出、旋转等效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1.5s。
+    @xDistance: X轴滑动距离，默认值为 100px。
+    @yDistance: Y轴滑动距离，默认值为 100px。
+    @rotate: 旋转角度，默认值为 360deg。
+*/
+.complex-slide(@duration: 1.5s, @xDistance: 100px, @yDistance: 100px, @rotate: 360deg) {
+  animation: complexSlide @duration ease-in-out;
+
+  @keyframes complexSlide {
+    0% {
+      transform: translateX(0) translateY(0) rotate(0);
+      opacity: 0;
+    }
+    25% {
+      transform: translateX(-@xDistance) translateY(@yDistance) rotate(@rotate / 4);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translateX(@xDistance) translateY(-@yDistance) rotate(@rotate / 2);
+      opacity: 1;
+    }
+    75% {
+      transform: translateX(-@xDistance / 2) translateY(@yDistance / 2) rotate(@rotate * 3 / 4);
+      opacity: 0.75;
+    }
+    100% {
+      transform: translateX(0) translateY(0) rotate(@rotate);
+      opacity: 1;
+    }
+  }
+}
+
+/* 
+  Mixin: exploding-fade
+  功能描述:
+    为元素添加“爆炸”效果，从中间扩散并淡出。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @scale: 缩放比例，默认值为 1.5。
+    @blur: 模糊程度，默认值为 10px。
+*/
+.exploding-fade(@duration: 2s, @scale: 1.5, @blur: 10px) {
+  animation: explodingFade @duration ease-in-out;
+
+  @keyframes explodingFade {
+    0% {
+      transform: scale(1);
+      filter: blur(0);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(@scale);
+      filter: blur(@blur / 2);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(2 * @scale);
+      filter: blur(@blur);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: pendulum
+  功能描述:
+    为元素添加钟摆摆动效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @angle: 摆动角度，默认值为 45deg。
+*/
+.pendulum(@duration: 2s, @angle: 45deg) {
+  animation: pendulum @duration infinite ease-in-out;
+
+  @keyframes pendulum {
+    0% {
+      transform: rotate(@angle);
+    }
+    25% {
+      transform: rotate(-@angle / 2);
+    }
+    50% {
+      transform: rotate(0);
+    }
+    75% {
+      transform: rotate(@angle / 2);
+    }
+    100% {
+      transform: rotate(-@angle);
+    }
+  }
+}
+
+/* 
+  Mixin: exploding-box
+  功能描述:
+    为元素添加“盒子爆炸”效果，模拟盒子从中心扩展和分裂。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @scale: 缩放比例，默认值为 2。
+    @spreadDistance: 扩展距离，默认值为 200px。
+*/
+.exploding-box(@duration: 3s, @scale: 2, @spreadDistance: 200px) {
+  position: relative;
+  animation: explodingBox @duration ease-in-out;
+
+  @keyframes explodingBox {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(@scale);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transition: all @duration ease-in-out;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    transform: translate(-@spreadDistance, -@spreadDistance);
+    opacity: 0;
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+    transform: translate(@spreadDistance, @spreadDistance);
+    opacity: 0;
+  }
+}
+
+/* 
+  Mixin: 3d-flip
+  功能描述:
+    为元素添加 3D 翻转效果。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @rotateX: X轴旋转角度，默认值为 180deg。
+    @rotateY: Y轴旋转角度，默认值为 180deg。
+    @perspective: 视距，默认值为 1000px。
+*/
+// .3d1-flip(@duration: 1s, @rotateX: 180deg, @rotateY: 180deg, @perspective: 1000px) {
+//   animation: flip3d @duration ease-in-out;
+//   transform-style: preserve-3d;
+//   perspective: @perspective;
+
+//   @keyframes flip3d {
+//     0% {
+//       transform: rotateX(0) rotateY(0);
+//       opacity: 0;
+//     }
+//     50% {
+//       transform: rotateX(@rotateX / 2) rotateY(@rotateY / 2);
+//       opacity: 0.5;
+//     }
+//     100% {
+//       transform: rotateX(@rotateX) rotateY(@rotateY);
+//       opacity: 1;
+//     }
+//   }
+// }
+
+/* 
+  Mixin: starburst
+  功能描述:
+    为元素添加“星爆”效果，从中心点发出光芒四射的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2.5s。
+    @scale: 缩放比例，默认值为 3。
+    @blur: 模糊程度，默认值为 20px。
+    @color: 光芒颜色，默认值为 rgba(255, 255, 0, 0.7)。
+*/
+.starburst(@duration: 2.5s, @scale: 3, @blur: 20px, @color: rgba(255, 255, 0, 0.7)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, @color, transparent);
+    transform: translate(-50%, -50%) scale(0);
+    animation: starburst @duration ease-in-out;
+  }
+
+  @keyframes starburst {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      filter: blur(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(@scale);
+      filter: blur(@blur / 2);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0);
+      filter: blur(@blur);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: earthquake
+  功能描述:
+    为元素添加“地震”效果，模拟地震时的剧烈抖动。
+  参数:
+    @duration: 动画持续时间，默认值为 1s。
+    @intensity: 抖动强度，默认值为 10px。
+*/
+.earthquake(@duration: 1s, @intensity: 10px) {
+  animation: earthquake @duration infinite;
+
+  @keyframes earthquake {
+    0% {
+      transform: translate(0, 0);
+    }
+    10% {
+      transform: translate(-@intensity, @intensity / 2);
+    }
+    20% {
+      transform: translate(@intensity, -@intensity / 2);
+    }
+    30% {
+      transform: translate(-@intensity / 2, @intensity);
+    }
+    40% {
+      transform: translate(@intensity / 2, -@intensity);
+    }
+    50% {
+      transform: translate(0, 0);
+    }
+    60% {
+      transform: translate(-@intensity, @intensity / 2);
+    }
+    70% {
+      transform: translate(@intensity, -@intensity / 2);
+    }
+    80% {
+      transform: translate(-@intensity / 2, @intensity);
+    }
+    90% {
+      transform: translate(@intensity / 2, -@intensity);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+}
+
+/* 
+  Mixin: morphing-shape
+  功能描述:
+    为元素添加形状变化效果，模拟从一种形状平滑过渡到另一种形状。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @shapeStart: 初始形状的 clip-path 值。
+    @shapeEnd: 结束形状的 clip-path 值。
+*/
+.morphing-shape(@duration: 2s, @shapeStart: polygon(50% 0%, 100% 100%, 0% 100%), @shapeEnd: circle(50% at 50% 50%)) {
+  animation: morphingShape @duration ease-in-out;
+
+  @keyframes morphingShape {
+    0% {
+      clip-path: @shapeStart;
+      opacity: 0;
+    }
+    50% {
+      clip-path: @shapeEnd;
+      opacity: 1;
+    }
+    100% {
+      clip-path: @shapeStart;
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: spotlight
+  功能描述:
+    为元素添加聚光灯效果，模拟光线从中心点扩展并聚焦。
+  参数:
+    @duration: 动画持续时间，默认值为 2.5s。
+    @color: 聚光灯颜色，默认值为 rgba(255, 255, 255, 0.8)。
+    @blur: 模糊程度，默认值为 30px。
+*/
+.spotlight(@duration: 2.5s, @color: rgba(255, 255, 255, 0.8), @blur: 30px) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, @color, transparent);
+    transform: translate(-50%, -50%) scale(0);
+    filter: blur(@blur);
+    animation: spotlight @duration ease-in-out;
+  }
+
+  @keyframes spotlight {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: liquid-flow
+  功能描述:
+    为元素添加液体流动效果，模拟液体从一边流向另一边的波浪效果。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @colorStart: 起始颜色，默认值为 rgba(0, 123, 255, 0.8)。
+    @colorEnd: 结束颜色，默认值为 rgba(0, 123, 255, 0.2)。
+*/
+.liquid-flow(@duration: 3s, @colorStart: rgba(0, 123, 255, 0.8), @colorEnd: rgba(0, 123, 255, 0.2)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, @colorStart, @colorEnd);
+    transform: translateX(-100%);
+    animation: liquidFlow @duration infinite ease-in-out;
+  }
+
+  @keyframes liquidFlow {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+/* 
+  Mixin: firework
+  功能描述:
+    为元素添加“烟火”效果，模拟元素从一个点发散并消失的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @colors: 烟火颜色数组，默认值为 #ff5733, #ffbd33, #75ff33。
+
+// .firework(@duration: 2s, @colors: #ff5733, #ffbd33, #75ff33) {
+//   position: relative;
+//   overflow: visible;
+
+//   &::before, &::after {
+//     content: '';
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     width: 10px;
+//     height: 10px;
+//     background: radial-gradient(circle, @colors...);
+//     border-radius: 50%;
+//     transform: translate(-50%, -50%) scale(0);
+//     animation: firework @duration ease-out;
+//   }
+
+//   &::after {
+//     animation-delay: 0.2s;
+//   }
+
+//   @keyframes firework {
+//     0% {
+//       transform: translate(-50%, -50%) scale(0);
+//       opacity: 1;
+//     }
+//     50% {
+//       transform: translate(-50%, -50%) scale(5);
+//       opacity: 0.7;
+//     }
+//     100% {
+//       transform: translate(-50%, -50%) scale(0);
+//       opacity: 0;
+//     }
+//   }
+// }
+
+
+*/
+
+
+/* 
+  Mixin: hologram
+  功能描述:
+    为元素添加全息投影效果，模拟光的反射和折射。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @colorStart: 初始颜色，默认值为 #00ffcc。
+    @colorEnd: 结束颜色，默认值为 #ff66cc。
+*/
+.hologram(@duration: 3s, @colorStart: #00ffcc, @colorEnd: #ff66cc) {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, @colorStart, @colorEnd);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, @colorEnd, @colorStart);
+    mix-blend-mode: screen;
+    opacity: 0.5;
+    animation: hologramShimmer @duration infinite ease-in-out;
+  }
+
+  @keyframes hologramShimmer {
+    0% {
+      transform: translateX(-100%) translateY(-100%);
+    }
+    50% {
+      transform: translateX(100%) translateY(100%);
+    }
+    100% {
+      transform: translateX(-100%) translateY(-100%);
+    }
+  }
+}
+
+/* 
+  Mixin: nebula
+  功能描述:
+    为元素添加星云效果，模拟元素周围充满旋转的光雾和星星。
+  参数:
+    @duration: 动画持续时间，默认值为 4s。
+    @color1: 星云颜色1，默认值为 rgba(255, 69, 0, 0.7)。
+    @color2: 星云颜色2，默认值为 rgba(148, 0, 211, 0.7)。
+*/
+.nebula(@duration: 4s, @color1: rgba(255, 69, 0, 0.7), @color2: rgba(148, 0, 211, 0.7)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, @color1, @color2);
+    animation: nebulaRotate @duration infinite linear;
+    filter: blur(50px);
+    opacity: 0.5;
+  }
+
+  @keyframes nebulaRotate {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.5);
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+    }
+  }
+}
+
+/* 
+  Mixin: particle-swarm
+  功能描述:
+    为元素添加粒子群效果，模拟粒子在空间中随机运动。
+  参数:
+    @duration: 动画持续时间，默认值为 5s。
+    @particleColor: 粒子颜色，默认值为 rgba(255, 255, 255, 0.8)。
+    @particleSize: 粒子大小，默认值为 3px。
+    @particleCount: 粒子数量，默认值为 50。
+*/
+.particle-swarm(@duration: 5s, @particleColor: rgba(255, 255, 255, 0.8), @particleSize: 3px, @particleCount: 50) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, @particleColor 50%, transparent 50%);
+    background-size: @particleSize @particleSize;
+    animation: particleSwarm @duration infinite linear;
+    opacity: 0.8;
+  }
+
+  @keyframes particleSwarm {
+    0% {
+      background-position: 0 0, 50% 50%;
+    }
+    100% {
+      background-position: 100% 100%, 0 0;
+    }
+  }
+}
+
+/* 
+  Mixin: aura
+  功能描述:
+    为元素添加光环效果，模拟一种柔和的光晕围绕元素。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @color: 光环颜色，默认值为 rgba(0, 255, 0, 0.5)。
+    @blur: 模糊程度，默认值为 15px。
+*/
+.aura(@duration: 2s, @color: rgba(0, 255, 0, 0.5), @blur: 15px) {
+  position: relative;
+  overflow: visible;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, @color, transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: auraPulse @duration infinite ease-in-out;
+    filter: blur(@blur);
+    opacity: 0.8;
+  }
+
+  @keyframes auraPulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.4;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0.8;
+    }
+  }
+}
+
+/* 
+  Mixin: fractal-zoom
+  功能描述:
+    为元素添加分形缩放效果，模拟无限缩放的分形图案。
+  参数:
+    @duration: 动画持续时间，默认值为 4s。
+    @fractalColor: 分形颜色，默认值为 rgba(0, 191, 255, 0.5)。
+    @scale: 缩放比例，默认值为 2。
+*/
+.fractal-zoom(@duration: 4s, @fractalColor: rgba(0, 191, 255, 0.5), @scale: 2) {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle, @fractalColor, transparent);
+  transform-origin: center center;
+  animation: fractalZoom @duration infinite ease-in-out;
+
+  @keyframes fractalZoom {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(@scale);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+/* 
+  Mixin: galaxy-spin
+  功能描述:
+    为元素添加银河旋转效果，模拟星星围绕中心旋转。
+  参数:
+    @duration: 动画持续时间，默认值为 5s。
+    @starColor: 星星颜色，默认值为 rgba(255, 255, 255, 0.7)。
+    @starSize: 星星大小，默认值为 2px。
+    @starCount: 星星数量，默认值为 100。
+*/
+.galaxy-spin(@duration: 5s, @starColor: rgba(255, 255, 255, 0.7), @starSize: 2px, @starCount: 100) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, transparent 90%, @starColor 90%) no-repeat center/1px 1px;
+    background-size: @starSize @starSize;
+    animation: galaxyRotate @duration infinite linear;
+  }
+
+  @keyframes galaxyRotate {
+    0% {
+      transform: rotate(0deg) translateX(0) translateY(0);
+    }
+    50% {
+      transform: rotate(180deg) translateX(50%) translateY(-50%);
+    }
+    100% {
+      transform: rotate(360deg) translateX(0) translateY(0);
+    }
+  }
+}
+
+/* 
+  Mixin: holographic-shine
+  功能描述:
+    为元素添加全息光泽效果，模拟光线在表面反射和移动的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @shineColor: 光泽颜色，默认值为 rgba(255, 255, 255, 0.3)。
+*/
+.holographic-shine(@duration: 3s, @shineColor: rgba(255, 255, 255, 0.3)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(135deg, transparent 50%, @shineColor 50%);
+    transform: translateX(-100%);
+    animation: holographicMove @duration infinite ease-in-out;
+  }
+
+  @keyframes holographicMove {
+    0% {
+      transform: translateX(-100%) rotate(0);
+    }
+    50% {
+      transform: translateX(100%) rotate(180deg);
+    }
+    100% {
+      transform: translateX(-100%) rotate(360deg);
+    }
+  }
+}
+
+/* 
+  Mixin: plasma-flow
+  功能描述:
+    为元素添加等离子流动效果，模拟等离子体在元素周围流动和变化。
+  参数:
+    @duration: 动画持续时间，默认值为 4s。
+    @plasmaColorStart: 等离子体颜色起始值，默认值为 rgba(255, 0, 255, 0.7)。
+    @plasmaColorEnd: 等离子体颜色结束值，默认值为 rgba(0, 255, 255, 0.7)。
+*/
+.plasma-flow(@duration: 4s, @plasmaColorStart: rgba(255, 0, 255, 0.7), @plasmaColorEnd: rgba(0, 255, 255, 0.7)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(135deg, @plasmaColorStart, @plasmaColorEnd);
+    transform: translateX(-100%);
+    animation: plasmaFlow @duration infinite ease-in-out;
+    filter: blur(20px);
+  }
+
+  @keyframes plasmaFlow {
+    0% {
+      transform: translateX(-100%) rotate(0);
+    }
+    50% {
+      transform: translateX(100%) rotate(180deg);
+    }
+    100% {
+      transform: translateX(-100%) rotate(360deg);
+    }
+  }
+}
+
+/* 
+  Mixin: cosmic-pulse
+  功能描述:
+    为元素添加宇宙脉动效果，模拟宇宙能量从中心向外扩散。
+  参数:
+    @duration: 动画持续时间，默认值为 4s。
+    @color1: 第一脉冲颜色，默认值为 rgba(255, 215, 0, 0.7)。
+    @color2: 第二脉冲颜色，默认值为 rgba(0, 191, 255, 0.7)。
+*/
+.cosmic-pulse(@duration: 4s, @color1: rgba(255, 215, 0, 0.7), @color2: rgba(0, 191, 255, 0.7)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, @color1, @color2);
+    transform: translate(-50%, -50%) scale(0);
+    animation: cosmicPulse @duration infinite ease-in-out;
+    filter: blur(50px);
+  }
+
+  @keyframes cosmicPulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+  }
+}
+
+
+/* 
+  Mixin: pulse-glow
+  功能描述:
+    为元素添加脉冲光效，模拟元素的光晕随时间脉动。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @glowColor: 光晕颜色，默认值为 rgba(255, 255, 0, 0.7)。
+    @glowSize: 光晕大小，默认值为 20px。
+*/
+.pulse-glow(@duration: 2s, @glowColor: rgba(255, 255, 0, 0.7), @glowSize: 20px) {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 @glowSize @glowColor;
+  animation: pulseGlow @duration infinite ease-in-out;
+
+  @keyframes pulseGlow {
+    0% {
+      box-shadow: 0 0 0px @glowColor;
+    }
+    50% {
+      box-shadow: 0 0 @glowSize @glowColor;
+    }
+    100% {
+      box-shadow: 0 0 0px @glowColor;
+    }
+  }
+}
+
+/* 
+  Mixin: shifting-hue
+  功能描述:
+    为元素添加颜色变换效果，模拟颜色的连续过渡。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @startColor: 起始颜色，默认值为 #ff0000。
+    @endColor: 结束颜色，默认值为 #0000ff。
+*/
+.shifting-hue(@duration: 3s, @startColor: #ff0000, @endColor: #0000ff) {
+  animation: hueShift @duration infinite alternate ease-in-out;
+  background-color: @startColor;
+
+  @keyframes hueShift {
+    0% {
+      background-color: @startColor;
+    }
+    100% {
+      background-color: @endColor;
+    }
+  }
+}
+
+/* 
+  Mixin: glass-reflection
+  功能描述:
+    为元素添加玻璃反光效果，模拟光线在玻璃表面的反射。
+  参数:
+    @duration: 动画持续时间，默认值为 2.5s。
+    @reflectionColor: 反射颜色，默认值为 rgba(255, 255, 255, 0.5)。
+    @reflectionAngle: 反射角度，默认值为 45deg。
+*/
+.glass-reflection(@duration: 2.5s, @reflectionColor: rgba(255, 255, 255, 0.5), @reflectionAngle: 45deg) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(@reflectionAngle, transparent, @reflectionColor, transparent);
+    transform: translateX(-100%);
+    animation: reflectionSlide @duration infinite ease-in-out;
+  }
+
+  @keyframes reflectionSlide {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+/* 
+  Mixin: infinite-spiral
+  功能描述:
+    为元素添加无限旋转效果，模拟元素围绕中心点的无尽旋转。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @rotationAngle: 旋转角度，默认值为 720deg。
+*/
+.infinite-spiral(@duration: 3s, @rotationAngle: 720deg) {
+  animation: infiniteSpiral @duration infinite linear;
+
+  @keyframes infiniteSpiral {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(@rotationAngle);
+    }
+  }
+}
+
+/* 
+  Mixin: shimmer
+  功能描述:
+    为元素添加闪光效果，模拟光线在元素表面的掠过。
+  参数:
+    @duration: 动画持续时间，默认值为 1.5s。
+    @shimmerColor: 闪光颜色，默认值为 rgba(255, 255, 255, 0.6)。
+*/
+.shimmer(@duration: 1.5s, @shimmerColor: rgba(255, 255, 255, 0.6)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, @shimmerColor, transparent);
+    transform: translateX(-100%);
+    animation: shimmerEffect @duration infinite ease-in-out;
+  }
+
+  @keyframes shimmerEffect {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+/* 
+  Mixin: light-beam
+  功能描述:
+    为元素添加光束效果，模拟从元素中心向外发射的光束。
+  参数:
+    @duration: 动画持续时间，默认值为 2s。
+    @beamColor: 光束颜色，默认值为 rgba(255, 255, 255, 0.7)。
+*/
+.light-beam(@duration: 2s, @beamColor: rgba(255, 255, 255, 0.7)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, @beamColor, transparent);
+    transform: translate(-50%, -50%) scale(0);
+    animation: beamPulse @duration infinite ease-in-out;
+  }
+
+  @keyframes beamPulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: crystalize
+  功能描述:
+    为元素添加结晶效果，模拟结晶的形成和消失。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @crystalColor: 结晶颜色，默认值为 rgba(173, 216, 230, 0.7)。
+*/
+.crystalize(@duration: 3s, @crystalColor: rgba(173, 216, 230, 0.7)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, @crystalColor, transparent);
+    transform: translate(-50%, -50%) scale(0);
+    animation: crystalGrow @duration infinite ease-in-out;
+    filter: blur(20px);
+  }
+
+  @keyframes crystalGrow {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: solar-flare
+  功能描述:
+    为元素添加太阳耀斑效果，模拟光线从中心向外爆发。
+  参数:
+    @duration: 动画持续时间，默认值为 2.5s。
+    @flareColor: 耀斑颜色，默认值为 rgba(255, 140, 0, 0.8)。
+*/
+.solar-flare(@duration: 2.5s, @flareColor: rgba(255, 140, 0, 0.8)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, @flareColor, transparent);
+    transform: translate(-50%, -50%) scale(0);
+    animation: flareBurst @duration infinite ease-in-out;
+  }
+
+  @keyframes flareBurst {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: frost-effect
+  功能描述:
+    为元素添加冰霜效果，模拟冰晶覆盖元素表面的过程。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @frostColor: 冰霜颜色，默认值为 rgba(135, 206, 250, 0.6)。
+*/
+.frost-effect(@duration: 3s, @frostColor: rgba(135, 206, 250, 0.6)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(@frostColor, transparent);
+    transform: translateY(-100%);
+    animation: frostSpread @duration infinite ease-in-out;
+  }
+
+  @keyframes frostSpread {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: aurora
+  功能描述:
+    为元素添加极光效果，模拟北极光的柔和变化。
+  参数:
+    @duration: 动画持续时间，默认值为 4s。
+    @auroraColor1: 极光颜色1，默认值为 rgba(0, 255, 127, 0.7)。
+    @auroraColor2: 极光颜色2，默认值为 rgba(0, 191, 255, 0.7)。
+*/
+.aurora(@duration: 4s, @auroraColor1: rgba(0, 255, 127, 0.7), @auroraColor2: rgba(0, 191, 255, 0.7)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, @auroraColor1, @auroraColor2);
+    animation: auroraFlow @duration infinite ease-in-out;
+    opacity: 0.7;
+  }
+
+  @keyframes auroraFlow {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+/* 
+  Mixin: lava-flow
+  功能描述:
+    为元素添加熔岩流动效果，模拟熔岩在元素表面流动。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @lavaColor1: 熔岩颜色1，默认值为 rgba(255, 69, 0, 0.8)。
+    @lavaColor2: 熔岩颜色2，默认值为 rgba(255, 140, 0, 0.8)。
+*/
+.lava-flow(@duration: 3s, @lavaColor1: rgba(255, 69, 0, 0.8), @lavaColor2: rgba(255, 140, 0, 0.8)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, @lavaColor1, @lavaColor2);
+    transform: translateY(-100%);
+    animation: lavaFlow @duration infinite ease-in-out;
+  }
+
+  @keyframes lavaFlow {
+    0% {
+      transform: translateY(-100%);
+    }
+    50% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+}
+
+/* 
+  Mixin: dimensional-warp
+  功能描述:
+    为元素添加维度扭曲效果，模拟空间的拉伸和扭曲。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @warpColor1: 扭曲颜色1，默认值为 rgba(138, 43, 226, 0.8)。
+    @warpColor2: 扭曲颜色2，默认值为 rgba(75, 0, 130, 0.8)。
+*/
+.dimensional-warp(@duration: 3s, @warpColor1: rgba(138, 43, 226, 0.8), @warpColor2: rgba(75, 0, 130, 0.8)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, @warpColor1, @warpColor2);
+    transform: translate(-50%, -50%) scale(1);
+    animation: dimensionalWarp @duration infinite ease-in-out;
+    filter: blur(20px);
+  }
+
+  @keyframes dimensionalWarp {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+/* 
+  Mixin: meteor-shower
+  功能描述:
+    为元素添加流星雨效果，模拟流星划过天空。
+  参数:
+    @duration: 动画持续时间，默认值为 4s。
+    @meteorColor: 流星颜色，默认值为 rgba(255, 255, 255, 0.8)。
+*/
+.meteor-shower(@duration: 4s, @meteorColor: rgba(255, 255, 255, 0.8)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, @meteorColor);
+    transform: translateX(-100%) translateY(-100%);
+    animation: meteorFall @duration infinite linear;
+  }
+
+  @keyframes meteorFall {
+    0% {
+      transform: translateX(-100%) translateY(-100%);
+    }
+    100% {
+      transform: translateX(100%) translateY(100%);
+    }
+  }
+}
+
+/* 
+  Mixin: radioactive-glow
+  功能描述:
+    为元素添加放射性光效，模拟辐射发光的效果。
+  参数:
+    @duration: 动画持续时间，默认值为 2.5s。
+    @glowColor: 光效颜色，默认值为 rgba(0, 255, 0, 0.7)。
+    @glowSize: 光效大小，默认值为 30px。
+*/
+.radioactive-glow(@duration: 2.5s, @glowColor: rgba(0, 255, 0, 0.7), @glowSize: 30px) {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 @glowSize @glowColor;
+  animation: radioactivePulse @duration infinite ease-in-out;
+
+  @keyframes radioactivePulse {
+    0% {
+      box-shadow: 0 0 0px @glowColor;
+    }
+    50% {
+      box-shadow: 0 0 @glowSize @glowColor;
+    }
+    100% {
+      box-shadow: 0 0 0px @glowColor;
+    }
+  }
+}
+
+/* 
+  Mixin: temporal-distortion
+  功能描述:
+    为元素添加时间扭曲效果，模拟时间流动的不连续性。
+  参数:
+    @duration: 动画持续时间，默认值为 5s。
+    @distortColor: 扭曲颜色，默认值为 rgba(255, 255, 255, 0.8)。
+*/
+.temporal-distortion(@duration: 5s, @distortColor: rgba(255, 255, 255, 0.8)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, @distortColor);
+    transform: scaleX(0) scaleY(0);
+    animation: timeWarp @duration infinite ease-in-out;
+  }
+
+  @keyframes timeWarp {
+    0% {
+      transform: scaleX(0) scaleY(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scaleX(1) scaleY(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scaleX(0) scaleY(0);
+      opacity: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: cosmic-ray
+  功能描述:
+    为元素添加宇宙射线效果，模拟高速运动的光线穿过元素。
+  参数:
+    @duration: 动画持续时间，默认值为 3s。
+    @rayColor: 射线颜色，默认值为 rgba(255, 255, 255, 0.8)。
+*/
+.cosmic-ray(@duration: 3s, @rayColor: rgba(255, 255, 255, 0.8)) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, @rayColor, transparent);
+    transform: translateX(-100%) rotate(0deg);
+    animation: rayBurst @duration infinite ease-in-out;
+  }
+
+  @keyframes rayBurst {
+    0% {
+      transform: translateX(-100%) rotate(0deg);
+      opacity: 0;
+    }
+    50% {
+      transform: translateX(100%) rotate(180deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-100%) rotate(360deg);
+      opacity: 0;
+    }
+  }
+}
