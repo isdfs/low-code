@@ -1,7 +1,7 @@
 {
   "name": "@isdfs-low-code/less",
   "version": "0.0.1",
-  "main": "dist/index.css",
+  "main": "dist/index.less",
   "license": "MIT",
   "scripts": {
     "build": "lessc src/mixin/index.less dist/index.css --clean-css",
@@ -11,5 +11,17 @@
   "devDependencies": {
     "less": "^4.1.2",
     "less-plugin-clean-css": "^1.5.1"
-  }
+  },
+  "author": {
+    "name": "Your Name",
+    "email": "1129445935@qq.com"
+  },
+  "description": "low code mixin.now is test",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isdfs/low-code.git"
+  },
+  "files": [
+    "dist"
+  ]
 }
