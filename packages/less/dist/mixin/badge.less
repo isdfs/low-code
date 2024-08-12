@@ -1,0 +1,96 @@
+// 文件名: badge.less
+
+/* 
+  Mixin: badge
+  功能描述:
+    设置徽章的基础样式。
+  参数:
+    @bg-color: 徽章背景颜色，默认值为红色 (#e74c3c)。
+    @text-color: 徽章文本颜色，默认值为白色 (#fff)。
+    @padding: 徽章的内边距，默认值为 5px 10px。
+*/
+.badge(@bg-color: #e74c3c, @text-color: #fff, @padding: 5px 10px) {
+  background-color: @bg-color;
+  color: @text-color;
+  padding: @padding;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+/* 
+  Mixin: badge-large
+  功能描述:
+    设置较大的徽章样式。
+  参数:
+    @bg-color: 徽章背景颜色，默认值为红色 (#e74c3c)。
+    @text-color: 徽章文本颜色，默认值为白色 (#fff)。
+    @padding: 徽章的内边距，默认值为 8px 15px。
+*/
+.badge-large(@bg-color: #e74c3c, @text-color: #fff, @padding: 8px 15px) {
+  background-color: @bg-color;
+  color: @text-color;
+  padding: @padding;
+  border-radius: 15px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+/* 
+  Mixin: badge-rounded
+  功能描述:
+    设置圆形徽章的样式。
+  参数:
+    @bg-color: 徽章背景颜色，默认值为红色 (#e74c3c)。
+    @text-color: 徽章文本颜色，默认值为白色 (#fff)。
+    @size: 徽章的大小，默认值为 20px。
+*/
+.badge-rounded(@bg-color: #e74c3c, @text-color: #fff, @size: 20px) {
+  background-color: @bg-color;
+  color: @text-color;
+  width: @size;
+  height: @size;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* 
+  Mixin: badge-pill
+  功能描述:
+    设置药丸形状的徽章样式。
+  参数:
+    @bg-color: 徽章背景颜色，默认值为蓝色 (#3498db)。
+    @text-color: 徽章文本颜色，默认值为白色 (#fff)。
+    @padding: 徽章的内边距，默认值为 5px 15px。
+*/
+.badge-pill(@bg-color: #3498db, @text-color: #fff, @padding: 5px 15px) {
+  background-color: @bg-color;
+  color: @text-color;
+  padding: @padding;
+  border-radius: 9999px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+/* 
+  Mixin: badge-outline
+  功能描述:
+    设置轮廓徽章的样式。
+  参数:
+    @border-color: 徽章边框颜色，默认值为蓝色 (#3498db)。
+    @text-color: 徽章文本颜色，默认值为蓝色 (#3498db)。
+    @padding: 徽章的内边距，默认值为 5px 10px。
+*/
+.badge-outline(@border-color: #3498db, @text-color: #3498db, @padding: 5px 10px) {
+  background-color: transparent;
+  color: @text-color;
+  padding: @padding;
+  border: 1px solid @border-color;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+}

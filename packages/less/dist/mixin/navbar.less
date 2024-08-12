@@ -1,0 +1,83 @@
+// 文件名: navbar.less
+
+/* 
+  Mixin: navbar
+  功能描述:
+    设置导航栏的基础样式。
+  参数:
+    @bg-color: 导航栏背景颜色，默认值为黑色 (#333)。
+    @text-color: 导航栏文本颜色，默认值为白色 (#fff)。
+*/
+.navbar(@bg-color: #333, @text-color: #fff) {
+  background-color: @bg-color;
+  color: @text-color;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 
+  Mixin: navbar-item
+  功能描述:
+    设置导航栏菜单项的样式。
+  参数:
+    @hover-color: 悬停时的文本颜色，默认值为主色调 (#3498db)。
+*/
+.navbar-item(@hover-color: #3498db) {
+  color: inherit;
+  padding: 10px 15px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: @hover-color;
+  }
+}
+
+/* 
+  Mixin: navbar-brand
+  功能描述:
+    设置导航栏品牌区域的样式。
+  参数:
+    @font-size: 字体大小，默认值为 24px。
+    @font-weight: 字体粗细，默认值为 bold。
+*/
+.navbar-brand(@font-size: 24px, @font-weight: bold) {
+  font-size: @font-size;
+  font-weight: @font-weight;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 
+  Mixin: navbar-dropdown
+  功能描述:
+    设置导航栏下拉菜单的样式。
+  参数:
+    @bg-color: 下拉菜单背景颜色，默认值为白色 (#fff)。
+    @text-color: 下拉菜单文本颜色，默认值为黑色 (#333)。
+    @hover-bg-color: 悬停时的背景颜色，默认值为浅灰色 (#f5f5f5)。
+*/
+.navbar-dropdown(@bg-color: #fff, @text-color: #333, @hover-bg-color: #f5f5f5) {
+  background-color: @bg-color;
+  color: @text-color;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: none;
+
+  li {
+    padding: 10px 20px;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: @hover-bg-color;
+    }
+  }
+
+  .navbar-item:hover & {
+    display: block;
+  }
+}

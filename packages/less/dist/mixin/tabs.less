@@ -1,0 +1,94 @@
+// 文件名: tabs.less
+
+/* 
+  Mixin: tabs
+  功能描述:
+    设置标签页的基础样式，使标签水平排列。
+  参数:
+    @border-color: 标签页边框颜色，默认值为浅灰色 (#ddd)。
+    @active-border-color: 活动标签的边框颜色，默认值为主色调 (#3498db)。
+*/
+.tabs(@border-color: #ddd, @active-border-color: #3498db) {
+  display: flex;
+  border-bottom: 1px solid @border-color;
+
+  .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-bottom: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+      background-color: lighten(@border-color, 30%);
+    }
+
+    &.active {
+      background-color: #fff;
+      border-color: @active-border-color @active-border-color transparent @active-border-color;
+      border-bottom-color: transparent;
+    }
+  }
+}
+
+/* 
+  Mixin: tabs-vertical
+  功能描述:
+    创建垂直排列的标签页。
+  参数:
+    @border-color: 标签页边框颜色，默认值为浅灰色 (#ddd)。
+    @active-border-color: 活动标签的边框颜色，默认值为主色调 (#3498db)。
+*/
+.tabs-vertical(@border-color: #ddd, @active-border-color: #3498db) {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid @border-color;
+
+  .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-right: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+      background-color: lighten(@border-color, 30%);
+    }
+
+    &.active {
+      background-color: #fff;
+      border-color: @active-border-color @active-border-color @active-border-color transparent;
+      border-right-color: transparent;
+    }
+  }
+}
+
+/* 
+  Mixin: tab-content
+  功能描述:
+    设置标签页内容区域的样式。
+  参数:
+    @padding: 内容区域的内边距，默认值为 20px。
+*/
+.tab-content(@padding: 20px) {
+  padding: @padding;
+  border: 1px solid #ddd;
+  border-top: none;
+  background-color: #fff;
+  border-radius: 0 0 4px 4px;
+}
+
+/* 
+  Mixin: tab-content-vertical
+  功能描述:
+    设置垂直标签页内容区域的样式。
+  参数:
+    @padding: 内容区域的内边距，默认值为 20px。
+*/
+.tab-content-vertical(@padding: 20px) {
+  padding: @padding;
+  border: 1px solid #ddd;
+  border-left: none;
+  background-color: #fff;
+  border-radius: 0 4px 4px 0;
+}

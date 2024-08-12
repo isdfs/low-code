@@ -1,0 +1,66 @@
+// 文件名: background.less
+
+/* 
+  Mixin: background-color
+  功能描述:
+    快速为元素设置背景颜色。
+  参数:
+    @color: 背景颜色，默认值为浅灰色 (#f0f0f0)。
+*/
+.background-color(@color: #f0f0f0) {
+  background-color: @color;
+}
+
+/* 
+  Mixin: gradient-background
+  功能描述:
+    为元素添加线性渐变背景，默认从左到右的灰色渐变。
+  参数:
+    @start-color: 渐变开始的颜色，默认值为浅灰色 (#eee)。
+    @end-color: 渐变结束的颜色，默认值为深灰色 (#333)。
+    @angle: 渐变角度，默认值为 90 度（从左到右）。
+*/
+.gradient-background(@start-color: #eee, @end-color: #333, @angle: 90deg) {
+  background: linear-gradient(@angle, @start-color, @end-color);
+}
+
+/* 
+  Mixin: full-width-background
+  功能描述:
+    将背景颜色或图像设置为全宽度。
+  参数:
+    @bg: 背景颜色或图像，默认值为浅灰色 (#f0f0f0)。
+*/
+.full-width-background(@bg: #f0f0f0) {
+  width: 100%;
+  background: @bg;
+  background-size: cover;
+  background-position: center;
+}
+
+/* 
+  Mixin: image-background
+  功能描述:
+    为元素设置背景图像，并根据需要进行调整。
+  参数:
+    @image-url: 背景图像的 URL，默认无图像。
+    @size: 背景图像的尺寸，默认值为 cover。
+    @position: 背景图像的位置，默认值为 center。
+*/
+.image-background(@image-url: none, @size: cover, @position: center) {
+  background-image: url(@image-url);
+  background-size: @size;
+  background-position: @position;
+  background-repeat: no-repeat;
+}
+
+/* 
+  Mixin: transparent-background
+  功能描述:
+    设置透明背景。
+  参数:
+    @opacity: 透明度，默认值为 0.5。
+*/
+.transparent-background(@opacity: 0.5) {
+  background-color: rgba(0, 0, 0, @opacity);
+}

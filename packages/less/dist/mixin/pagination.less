@@ -1,0 +1,91 @@
+// 文件名: pagination.less
+
+/* 
+  Mixin: pagination
+  功能描述:
+    设置分页组件的基础样式，包括排列方式和间距。
+  参数:
+    @spacing: 分页按钮之间的间距，默认值为 10px。
+*/
+.pagination(@spacing: 10px) {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-right: @spacing;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+/* 
+  Mixin: pagination-item
+  功能描述:
+    设置分页按钮的样式。
+  参数:
+    @bg-color: 按钮背景颜色，默认值为白色 (#fff)。
+    @border-color: 按钮边框颜色，默认值为浅灰色 (#ddd)。
+    @text-color: 按钮文本颜色，默认值为黑色 (#333)。
+*/
+.pagination-item(@bg-color: #fff, @border-color: #ddd, @text-color: #333) {
+  background-color: @bg-color;
+  border: 1px solid @border-color;
+  color: @text-color;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    background-color: lighten(@bg-color, 10%);
+    border-color: darken(@border-color, 10%);
+  }
+}
+
+/* 
+  Mixin: pagination-active
+  功能描述:
+    设置活动分页按钮的样式。
+  参数:
+    @bg-color: 活动按钮背景颜色，默认值为主色调 (#3498db)。
+    @text-color: 活动按钮文本颜色，默认值为白色 (#fff)。
+*/
+.pagination-active(@bg-color: #3498db, @text-color: #fff) {
+  background-color: @bg-color;
+  color: @text-color;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* 
+  Mixin: pagination-disabled
+  功能描述:
+    设置禁用分页按钮的样式。
+  参数:
+    @bg-color: 禁用按钮背景颜色，默认值为浅灰色 (#f0f0f0)。
+    @text-color: 禁用按钮文本颜色，默认值为深灰色 (#aaa)。
+*/
+.pagination-disabled(@bg-color: #f0f0f0, @text-color: #aaa) {
+  background-color: @bg-color;
+  color: @text-color;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* 
+  Mixin: pagination-ellipsis
+  功能描述:
+    设置分页组件中的省略号样式。
+  参数:
+    @color: 省略号的颜色，默认值为深灰色 (#999)。
+*/
+.pagination-ellipsis(@color: #999) {
+  color: @color;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+}

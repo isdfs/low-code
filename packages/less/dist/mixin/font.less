@@ -1,0 +1,1193 @@
+/* 
+  Mixin: font-family
+  功能描述:
+    设置字体系列。
+  参数:
+    @font: 字体系列，默认值为 'Arial, sans-serif'。
+*/
+.font-family(@font: 'Arial, sans-serif') {
+  font-family: @font;
+}
+
+/* 
+  Mixin: font-size
+  功能描述:
+    设置字体大小。
+  参数:
+    @size: 字体大小，默认值为 16px。
+*/
+.font-size(@size: 16px) {
+  font-size: @size;
+}
+
+/* 
+  Mixin: font-weight
+  功能描述:
+    设置字体粗细。
+  参数:
+    @weight: 字体粗细，默认值为 normal。
+*/
+.font-weight(@weight: normal) {
+  font-weight: @weight;
+}
+
+/* 
+  Mixin: line-height
+  功能描述:
+    设置行高。
+  参数:
+    @height: 行高，默认值为 normal。
+*/
+.line-height(@aaa: 1.2) {
+  line-height: @aaa;
+}
+
+/* 
+  Mixin: text-align
+  功能描述:
+    设置文本对齐方式。
+  参数:
+    @align: 对齐方式，默认值为 left。
+*/
+.text-align(@align: left) {
+  text-align: @align;
+}
+
+/* 
+  Mixin: text-transform
+  功能描述:
+    设置文本变换样式。
+  参数:
+    @transform: 文本变换样式，默认值为 none。
+*/
+.text-transform(@transform: none) {
+  text-transform: @transform;
+}
+
+/* 
+  Mixin: text-decoration
+  功能描述:
+    设置文本装饰。
+  参数:
+    @decoration: 文本装饰，默认值为 none。
+*/
+.text-decoration(@decoration: none) {
+  text-decoration: @decoration;
+}
+
+/* 
+  Mixin: font-style
+  功能描述:
+    设置字体样式。
+  参数:
+    @style: 字体样式，默认值为 normal。
+*/
+.font-style(@style: normal) {
+  font-style: @style;
+}
+
+/* 
+  Mixin: font-variant
+  功能描述:
+    设置字体变体。
+  参数:
+    @variant: 字体变体，默认值为 normal。
+*/
+.font-variant(@variant: normal) {
+  font-variant: @variant;
+}
+
+/* 
+  Mixin: font-properties
+  功能描述:
+    一次性设置字体的多个属性。
+  参数:
+    @font-family: 字体系列，默认值为 'Arial, sans-serif'。
+    @font-size: 字体大小，默认值为 16px。
+    @font-weight: 字体粗细，默认值为 normal。
+    @line-height: 行高，默认值为 normal。
+    @text-align: 文本对齐方式，默认值为 left。
+    @text-transform: 文本变换样式，默认值为 none。
+    @text-decoration: 文本装饰，默认值为 none。
+    @font-style: 字体样式，默认值为 normal。
+    @font-variant: 字体变体，默认值为 normal。
+*/
+.font-properties(
+  @font-family: 'Arial, sans-serif',
+  @font-size: 16px,
+  @font-weight: normal,
+  @line-height: normal,
+  @text-align: left,
+  @text-transform: none,
+  @text-decoration: none,
+  @font-style: normal,
+  @font-variant: normal
+) {
+  .font-family(@font-family);
+  .font-size(@font-size);
+  .font-weight(@font-weight);
+  .line-height(@line-height);
+  .text-align(@text-align);
+  .text-transform(@text-transform);
+  .text-decoration(@text-decoration);
+  .font-style(@font-style);
+  .font-variant(@font-variant);
+}
+
+/* 
+  Mixin: font-shadow
+  功能描述:
+    设置字体阴影效果。
+  参数:
+    @h-offset: 水平偏移，默认值为 1px。
+    @v-offset: 垂直偏移，默认值为 1px。
+    @blur: 模糊半径，默认值为 2px。
+    @color: 阴影颜色，默认值为 rgba(0, 0, 0, 0.5)。
+*/
+.font-shadow(@h-offset: 1px, @v-offset: 1px, @blur: 2px, @color: rgba(0, 0, 0, 0.5)) {
+  text-shadow: @h-offset @v-offset @blur @color;
+}
+
+/* 
+  Mixin: font-responsive-size
+  功能描述:
+    创建响应式字体大小，根据屏幕宽度自动调整。
+  参数:
+    @min-size: 最小字体大小，默认值为 14px。
+    @max-size: 最大字体大小，默认值为 24px。
+    @min-width: 最小屏幕宽度，默认值为 320px。
+    @max-width: 最大屏幕宽度，默认值为 1200px。
+*/
+.font-responsive-size(
+  @min-size: 14px,
+  @max-size: 24px,
+  @min-width: 320px,
+  @max-width: 1200px
+) {
+  font-size: calc(@min-size + (@max-size - @min-size) * ((100vw - @min-width) / (@max-width - @min-width)));
+}
+
+/* 
+  Mixin: font-smooth
+  功能描述:
+    优化文本平滑显示。
+  参数:
+    @smoothing: 平滑设置，默认值为 antialiased。
+*/
+.font-smooth(@smoothing: antialiased) {
+  -webkit-font-smoothing: @smoothing;
+  -moz-osx-font-smoothing: @smoothing;
+}
+
+/* 
+  Mixin: font-clip
+  功能描述:
+    设置字体溢出剪裁效果。
+  参数:
+    @clip: 剪裁方式，默认值为 ellipsis。
+*/
+.font-clip(@clip: ellipsis) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: @clip;
+}
+
+/* 
+  Mixin: font-spacing
+  功能描述:
+    设置字间距和行间距。
+  参数:
+    @letter-spacing: 字间距，默认值为 0px。
+    @word-spacing: 单词间距，默认值为 0px。
+*/
+.font-spacing(@letter-spacing: 0px, @word-spacing: 0px) {
+  letter-spacing: @letter-spacing;
+  word-spacing: @word-spacing;
+}
+
+/* 
+  Mixin: font-transform
+  功能描述:
+    设置文本的变换样式（包括大写、小写和首字母大写）。
+  参数:
+    @transform: 文本变换样式，默认值为 none。
+*/
+.font-transform(@transform: none) {
+  text-transform: @transform;
+}
+
+/* 
+  Mixin: font-text-shadow
+  功能描述:
+    设置字体的多层阴影效果。
+  参数:
+    @shadows: 阴影数组，每个阴影用逗号分隔。
+*/
+.font-text-shadow(@shadows: 0px 0px 0px rgba(0, 0, 0, 0)) {
+  text-shadow: @shadows;
+}
+
+/* 
+  Mixin: font-hover
+  功能描述:
+    设置字体在悬停时的样式变化。
+  参数:
+    @color: 悬停时的字体颜色，默认值为 #000。
+    @text-decoration: 悬停时的文本装饰，默认值为 underline。
+    @font-style: 悬停时的字体样式，默认值为 italic。
+*/
+.font-hover(@color: #000, @text-decoration: underline, @font-style: italic) {
+  &:hover {
+    color: @color;
+    text-decoration: @text-decoration;
+    font-style: @font-style;
+  }
+}
+
+/* 
+  Mixin: font-tracking
+  功能描述:
+    设置字母追踪效果，即调整字母之间的间距。
+  参数:
+    @tracking: 字母追踪值，默认值为 0。
+*/
+.font-tracking(@tracking: 0) {
+  letter-spacing: @tracking;
+}
+
+/* 
+  Mixin: font-gradient
+  功能描述:
+    为字体添加渐变效果。
+  参数:
+    @start-color: 渐变开始颜色，默认值为 #000。
+    @end-color: 渐变结束颜色，默认值为 #fff。
+    @direction: 渐变方向，默认值为 to right。
+*/
+.font-gradient(@start-color: #000, @end-color: #fff, @direction: to right) {
+  background: -webkit-linear-gradient(@direction, @start-color, @end-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(@direction, @start-color, @end-color);
+  background-clip: text;
+  color: transparent;
+}
+
+/* 
+  Mixin: font-kerning
+  功能描述:
+    设置字体的字间距调整。
+  参数:
+    @kerning: 字间距调整，默认值为 auto。
+*/
+.font-kerning(@kerning: auto) {
+  font-kerning: @kerning;
+}
+
+/* 
+  Mixin: font-smooth
+  功能描述:
+    设置字体平滑处理。
+  参数:
+    @smoothing: 平滑处理方式，默认值为 antialiased。
+*/
+.font-smooth(@smoothing: antialiased) {
+  -webkit-font-smoothing: @smoothing;
+  -moz-osx-font-smoothing: @smoothing;
+}
+
+/* 
+  Mixin: font-ellipsis
+  功能描述:
+    设置文本溢出省略号。
+  参数:
+    @lines: 显示的行数，默认值为 1。
+*/
+.font-ellipsis(@lines: 1) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @lines;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 
+  Mixin: font-hover-gradient
+  功能描述:
+    设置字体在悬停时的渐变效果。
+  参数:
+    @start-color: 渐变开始颜色，默认值为 #000。
+    @end-color: 渐变结束颜色，默认值为 #fff。
+    @direction: 渐变方向，默认值为 to right。
+*/
+.font-hover-gradient(@start-color: #000, @end-color: #fff, @direction: to right) {
+  &:hover {
+    background: -webkit-linear-gradient(@direction, @start-color, @end-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(@direction, @start-color, @end-color);
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* 
+  Mixin: font-spacing-responsive
+  功能描述:
+    设置响应式字间距。
+  参数:
+    @min-spacing: 最小字间距，默认值为 0px。
+    @max-spacing: 最大字间距，默认值为 2px。
+    @min-width: 最小屏幕宽度，默认值为 320px。
+    @max-width: 最大屏幕宽度，默认值为 1200px。
+*/
+.font-spacing-responsive(
+  @min-spacing: 0px,
+  @max-spacing: 2px,
+  @min-width: 320px,
+  @max-width: 1200px
+) {
+  letter-spacing: calc(@min-spacing + (@max-spacing - @min-spacing) * ((100vw - @min-width) / (@max-width - @min-width)));
+}
+
+/* 
+  Mixin: font-strikethrough
+  功能描述:
+    设置文本的删除线效果。
+  参数:
+    @color: 删除线颜色，默认值为 rgba(0, 0, 0, 0.5)。
+  */
+.font-strikethrough(@color: rgba(0, 0, 0, 0.5)) {
+  text-decoration: line-through;
+  text-decoration-color: @color;
+}
+
+/* 
+  Mixin: font-shadow-hover
+  功能描述:
+    设置字体在悬停时的阴影效果。
+  参数:
+    @h-offset: 水平偏移，默认值为 1px。
+    @v-offset: 垂直偏移，默认值为 1px。
+    @blur: 模糊半径，默认值为 2px。
+    @color: 阴影颜色，默认值为 rgba(0, 0, 0, 0.5)。
+*/
+.font-shadow-hover(@h-offset: 1px, @v-offset: 1px, @blur: 2px, @color: rgba(0, 0, 0, 0.5)) {
+  &:hover {
+    text-shadow: @h-offset @v-offset @blur @color;
+  }
+}
+
+/* 
+  Mixin: font-underline
+  功能描述:
+    设置字体下划线样式。
+  参数:
+    @color: 下划线颜色，默认值为 #000。
+    @style: 下划线样式，默认值为 solid。
+    @thickness: 下划线粗细，默认值为 1px。
+*/
+.font-underline(@color: #000, @style: solid, @thickness: 1px) {
+  text-decoration: underline;
+  text-decoration-color: @color;
+  text-decoration-style: @style;
+  text-decoration-thickness: @thickness;
+}
+
+/* 
+  Mixin: font-background-clip
+  功能描述:
+    设置背景裁剪到字体上，实现文字背景效果。
+  参数:
+    @background: 背景颜色或渐变，默认值为 #000。
+*/
+.font-background-clip(@background: #000) {
+  background: @background;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 
+  Mixin: font-opacity
+  功能描述:
+    设置字体的不透明度。
+  参数:
+    @opacity: 字体不透明度，范围从 0 到 1，默认值为 1。
+*/
+.font-opacity(@opacity: 1) {
+  opacity: @opacity;
+}
+
+/* 
+  Mixin: font-transform-scale
+  功能描述:
+    在字体上应用缩放变换。
+  参数:
+    @scale: 缩放因子，默认值为 1。
+*/
+.font-transform-scale(@scale: 1) {
+  transform: scale(@scale);
+}
+
+/* 
+  Mixin: font-letter-spacing-responsive
+  功能描述:
+    设置响应式字母间距。
+  参数:
+    @min-spacing: 最小字母间距，默认值为 0px。
+    @max-spacing: 最大字母间距，默认值为 2px。
+    @min-width: 最小屏幕宽度，默认值为 320px。
+    @max-width: 最大屏幕宽度，默认值为 1200px。
+*/
+.font-letter-spacing-responsive(
+  @min-spacing: 0px,
+  @max-spacing: 2px,
+  @min-width: 320px,
+  @max-width: 1200px
+) {
+  letter-spacing: calc(@min-spacing + (@max-spacing - @min-spacing) * ((100vw - @min-width) / (@max-width - @min-width)));
+}
+
+/* 
+  Mixin: font-underline-hover
+  功能描述:
+    设置字体悬停时的下划线样式。
+  参数:
+    @color: 下划线颜色，默认值为 #000。
+    @style: 下划线样式，默认值为 solid。
+    @thickness: 下划线粗细，默认值为 1px。
+*/
+.font-underline-hover(@color: #000, @style: solid, @thickness: 1px) {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: @color;
+    text-decoration-style: @style;
+    text-decoration-thickness: @thickness;
+  }
+}
+
+/* 
+  Mixin: font-transition
+  功能描述:
+    设置字体样式的过渡效果。
+  参数:
+    @property: 要过渡的属性，默认值为 all。
+    @duration: 过渡时长，默认值为 0.3s。
+    @timing-function: 过渡时间函数，默认值为 ease。
+*/
+.font-transition(@property: all, @duration: 0.3s, @timing-function: ease) {
+  transition: @property @duration @timing-function;
+}
+
+/* 
+  Mixin: font-shadow-multi
+  功能描述:
+    设置字体的多重阴影效果。
+  参数:
+    @shadows: 多重阴影值，用逗号分隔，默认值为 1px 1px 2px rgba(0, 0, 0, 0.5)。
+*/
+.font-shadow-multi(@shadows: 1px 1px 2px rgba(0, 0, 0, 0.5)) {
+  text-shadow: @shadows;
+}
+
+/* 
+  Mixin: font-ellipsis-multi-line
+  功能描述:
+    设置多行文本溢出省略号。
+  参数:
+    @lines: 显示的行数，默认值为 2。
+*/
+.font-ellipsis-multi-line(@lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: @lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 
+  Mixin: font-line-height-responsive
+  功能描述:
+    设置响应式行高。
+  参数:
+    @min-line-height: 最小行高，默认值为 1.2。
+    @max-line-height: 最大行高，默认值为 1.8。
+    @min-width: 最小屏幕宽度，默认值为 320px。
+    @max-width: 最大屏幕宽度，默认值为 1200px。
+*/
+.font-line-height-responsive(
+  @min-line-height: 1.2,
+  @max-line-height: 1.8,
+  @min-width: 320px,
+  @max-width: 1200px
+) {
+  line-height: calc(@min-line-height + (@max-line-height - @min-line-height) * ((100vw - @min-width) / (@max-width - @min-width)));
+}
+
+/* 
+  Mixin: font-text-clip
+  功能描述:
+    设置文本裁剪效果。
+  参数:
+    @clip: 裁剪方式，默认值为 ellipse。
+*/
+.font-text-clip(@clip: ellipse) {
+  text-overflow: @clip;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* 
+  Mixin: font-transform-rotate
+  功能描述:
+    应用字体旋转效果。
+  参数:
+    @angle: 旋转角度，默认值为 0deg。
+*/
+.font-transform-rotate(@angle: 0deg) {
+  transform: rotate(@angle);
+}
+
+/* 
+  Mixin: font-blur
+  功能描述:
+    为字体应用模糊效果。
+  参数:
+    @blur-radius: 模糊半径，默认值为 2px。
+*/
+.font-blur(@blur-radius: 2px) {
+  text-shadow: 0 0 @blur-radius rgba(0, 0, 0, 0.5);
+}
+
+/* 
+  Mixin: font-vertical-align
+  功能描述:
+    设置字体的垂直对齐方式。
+  参数:
+    @align: 垂直对齐方式，默认值为 middle。
+*/
+.font-vertical-align(@align: middle) {
+  vertical-align: @align;
+}
+
+/* 
+  Mixin: font-background
+  功能描述:
+    为字体设置背景。
+  参数:
+    @background-color: 背景颜色，默认值为 #f0f0f0。
+    @padding: 内边距，默认值为 2px。
+*/
+.font-background(@background-color: #f0f0f0, @padding: 2px) {
+  background-color: @background-color;
+  padding: @padding;
+  display: inline;
+}
+
+/* 
+  Mixin: font-translate
+  功能描述:
+    应用字体的平移变换。
+  参数:
+    @x: 水平平移值，默认值为 0。
+    @y: 垂直平移值，默认值为 0。
+*/
+.font-transform-translate(@x: 0, @y: 0) {
+  transform: translate(@x, @y);
+}
+
+/* 
+  Mixin: font-shadow-custom
+  功能描述:
+    设置自定义的字体阴影效果。
+  参数:
+    @h-offset: 水平偏移，默认值为 1px。
+    @v-offset: 垂直偏移，默认值为 1px。
+    @blur: 模糊半径，默认值为 3px。
+    @color: 阴影颜色，默认值为 rgba(0, 0, 0, 0.3)。
+*/
+.font-shadow-custom(@h-offset: 1px, @v-offset: 1px, @blur: 3px, @color: rgba(0, 0, 0, 0.3)) {
+  text-shadow: @h-offset @v-offset @blur @color;
+}
+
+/* 
+  Mixin: font-transform-skew
+  功能描述:
+    应用字体的倾斜变换。
+  参数:
+    @x: 水平倾斜角度，默认值为 0deg。
+    @y: 垂直倾斜角度，默认值为 0deg。
+*/
+.font-transform-skew(@x: 0deg, @y: 0deg) {
+  transform: skew(@x, @y);
+}
+
+/* 
+  Mixin: font-outline
+  功能描述:
+    为字体添加轮廓效果。
+  参数:
+    @color: 轮廓颜色，默认值为 #000。
+    @width: 轮廓宽度，默认值为 1px。
+*/
+.font-outline(@color: #000, @width: 1px) {
+  text-shadow: 0 0 @width @color;
+}
+
+/* 
+  Mixin: font-letter-spacing-multi
+  功能描述:
+    设置多种字母间距效果。
+  参数:
+    @spacing1: 字母间距1，默认值为 0px。
+    @spacing2: 字母间距2，默认值为 1px。
+    @condition: 条件切换间距，默认值为 default。
+*/
+/* 
+  Mixin: font-letter-spacing
+  功能描述:
+    设置字母间距。
+  参数:
+    @spacing: 字母间距，默认值为 0px。
+*/
+.font-letter-spacing(@spacing: 0px) {
+  letter-spacing: @spacing;
+}
+
+/* 
+  Mixin: font-letter-spacing-default
+  功能描述:
+    应用默认字母间距。
+*/
+.font-letter-spacing-default() {
+  .font-letter-spacing(0px);
+}
+
+
+.font-letter-spacing-alternative() {
+  .font-letter-spacing(1px);
+}
+
+
+/* 
+  Mixin: font-clip-path
+  功能描述:
+    应用字体的剪切路径效果。
+  参数:
+    @path: 剪切路径，默认值为 circle(50% at 50% 50%)。
+*/
+.font-clip-path(@path: circle(50% at 50% 50%)) {
+  clip-path: @path;
+  -webkit-clip-path: @path;
+}
+
+
+/* 
+  Mixin: font-letter-spacing-animated
+  功能描述:
+    设置动态字母间距变化效果。
+  参数:
+    @start-spacing: 起始字母间距，默认值为 0px。
+    @end-spacing: 结束字母间距，默认值为 1px。
+    @duration: 动画持续时间，默认值为 0.5s。
+    @timing-function: 动画时间函数，默认值为 ease-in-out。
+*/
+.font-letter-spacing-animated(
+  @start-spacing: 0px,
+  @end-spacing: 1px,
+  @duration: 0.5s,
+  @timing-function: ease-in-out
+) {
+  letter-spacing: @start-spacing;
+  transition: letter-spacing @duration @timing-function;
+  
+  &:hover {
+    letter-spacing: @end-spacing;
+  }
+}
+
+/* 
+  Mixin: font-line-height-multi
+  功能描述:
+    设置多种行高。
+  参数:
+    @line-height1: 行高1，默认值为 1.2。
+    @line-height2: 行高2，默认值为 1.5。
+    @condition: 条件选择，默认值为 default。
+*/
+/* 
+  Mixin: font-line-height
+  功能描述:
+    设置行高。
+  参数:
+    @line-height: 行高，默认值为 1.2。
+*/
+.font-line-height(@line-height: 1.2) {
+  line-height: @line-height;
+}
+
+/* 
+  Mixin: font-line-height-default
+  功能描述:
+    应用默认行高。
+*/
+.font-line-height-default() {
+  .font-line-height(1.2);
+}
+
+/* 
+  Mixin: font-line-height-alternative
+  功能描述:
+    应用替代行高。
+*/
+.font-line-height-alternative() {
+  .font-line-height(1.5);
+}
+
+
+/* 
+  Mixin: font-text-shadow
+  功能描述:
+    设置文本阴影效果。
+  参数:
+    @shadow-color: 阴影颜色，默认值为 rgba(0, 0, 0, 0.5)。
+    @shadow-offset-x: 阴影水平偏移，默认值为 1px。
+    @shadow-offset-y: 阴影垂直偏移，默认值为 1px。
+    @shadow-blur: 阴影模糊半径，默认值为 2px。
+*/
+.font-text-shadow(
+  @shadow-color: rgba(0, 0, 0, 0.5),
+  @shadow-offset-x: 1px,
+  @shadow-offset-y: 1px,
+  @shadow-blur: 2px
+) {
+  text-shadow: @shadow-offset-x @shadow-offset-y @shadow-blur @shadow-color;
+}
+
+/* 
+  Mixin: font-transform-case
+  功能描述:
+    设置文本的大小写转换。
+  参数:
+    @transform: 文本转换类型，默认值为 none。
+*/
+.font-transform-case(@transform: none) {
+  text-transform: @transform;
+}
+
+/* 
+  Mixin: font-weight-responsive
+  功能描述:
+    设置响应式字体粗细。
+  参数:
+    @min-weight: 最小字体粗细，默认值为 400。
+    @max-weight: 最大字体粗细，默认值为 700。
+    @min-width: 最小屏幕宽度，默认值为 320px。
+    @max-width: 最大屏幕宽度，默认值为 1200px。
+*/
+.font-weight-responsive(
+  @min-weight: 400,
+  @max-weight: 700,
+  @min-width: 320px,
+  @max-width: 1200px
+) {
+  font-weight: calc(
+    @min-weight + (@max-weight - @min-weight) * ((100vw - @min-width) / (@max-width - @min-width))
+  );
+}
+
+/* 
+  Mixin: font-color-gradient
+  功能描述:
+    设置字体的渐变颜色效果。
+  参数:
+    @start-color: 渐变起始颜色，默认值为 #000。
+    @end-color: 渐变结束颜色，默认值为 #fff。
+*/
+.font-color-gradient(@start-color: #000, @end-color: #fff) {
+  background: linear-gradient(@start-color, @end-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 
+  Mixin: font-transform-scale-hover
+  功能描述:
+    设置字体悬停时的缩放效果。
+  参数:
+    @scale: 缩放因子，默认值为 1.1。
+*/
+.font-transform-scale-hover(@scale: 1.1) {
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(@scale);
+  }
+}
+
+/* 
+  Mixin: font-border
+  功能描述:
+    设置文本的边框效果。
+  参数:
+    @border-color: 边框颜色，默认值为 #000。
+    @border-width: 边框宽度，默认值为 1px。
+    @border-style: 边框样式，默认值为 solid。
+*/
+.font-border(@border-color: #000, @border-width: 1px, @border-style: solid) {
+  border: @border-width @border-style @border-color;
+  display: inline-block;
+  padding: 2px;
+}
+
+/* 
+  Mixin: font-background-clip-multi
+  功能描述:
+    设置多种背景裁剪效果。
+  参数:
+    @clip1: 裁剪类型1，默认值为 text。
+    @clip2: 裁剪类型2，默认值为 border-box。
+    @condition: 条件选择，默认值为 default。
+*/
+/* 
+  Mixin: font-background-clip
+  功能描述:
+    设置背景裁剪类型。
+  参数:
+    @clip-type: 背景裁剪类型，默认值为 text。
+*/
+.font-background-clip(@clip-type: text) {
+  -webkit-background-clip: @clip-type;
+  background-clip: @clip-type;
+  color: transparent;
+}
+
+/* 
+  Mixin: font-background-clip-text
+  功能描述:
+    应用背景裁剪为 text。
+*/
+.font-background-clip-text() {
+  .font-background-clip(text);
+}
+
+/* 
+  Mixin: font-background-clip-border-box
+  功能描述:
+    应用背景裁剪为 border-box。
+*/
+.font-background-clip-border-box() {
+  .font-background-clip(border-box);
+}
+
+
+/* Mixin to generate font size classes */
+.font-size(@size: 16px) {
+  font-size: @size;
+}
+
+/* Generate font size classes from 1 to 100 */
+/* Mixin to apply font size */
+.font-size(@size: 16px) {
+  font-size: @size;
+}
+
+
+/* Recursive loop to generate font size classes */
+//字体大小循环
+.loop(@index) when (@index < 100) {
+  .font@{index} {
+    font-size: unit(@index, px);
+  }
+.loop(@index + 1);
+}
+.loop(1);
+
+
+
+/* Apply the mixin to generate all font size classes */
+// .generate-font-sizes();
+
+
+/* Mixin to apply margin */
+.margin(@value) {
+  margin: @value;
+}
+
+/* Generate margin classes from 1px to 100px */
+.generate-margins() {
+  .loop(@i) when (@i <= 100) {
+    .margin-@{i} {
+      .margin(unit(@i, px));
+    }
+    .loop(@i + 1);
+  }
+}
+
+.generate-margins();
+
+
+/* Mixin to apply width */
+.width(@value) {
+  width: @value;
+}
+
+/* Mixin to apply height */
+.height(@value) {
+  height: @value;
+}
+
+/* Generate width and height classes from 1px to 100px */
+.generate-dimensions() {
+  .loop(@i) when (@i <= 100) {
+    .width-@{i} {
+      .width(unit(@i, px));
+    }
+    .height-@{i} {
+      .height(unit(@i, px));
+    }
+    .loop(@i + 1);
+  }
+}
+
+.generate-dimensions();
+
+
+/* Mixin to apply border width */
+.border-width(@value: 12px) {
+  border-width: @value;
+}
+
+/* Generate border width classes from 1px to 10px */
+.generate-border-widths() {
+  .loop(@i) when (@i <= 10) {
+    .border-width-@{i} {
+      .border-width(unit(@i, px));
+    }
+    .loop(@i + 1);
+  }
+}
+
+.generate-border-widths();
+
+
+/* Mixin to apply border-radius */
+.border-radius(@value) {
+  border-radius: @value;
+}
+
+/* Generate border-radius classes from 1px to 50px */
+.generate-border-radius() {
+  .loop(@i) when (@i <= 50) {
+    .border-radius-@{i} {
+      .border-radius(unit(@i, px));
+    }
+    .loop(@i + 1);
+  }
+}
+
+.generate-border-radius();
+
+
+/* Mixin to apply background gradient */
+.background-gradient(@start-color, @end-color) {
+  background: linear-gradient(@start-color, @end-color);
+}
+
+/* Generate gradient classes with different color combinations */
+// .generate-gradients() {
+//   @colors: #ff0000, #00ff00, #0000ff;
+
+//   .each(@colors, {
+//     @color1: @value;
+//     .each(@colors, {
+//       @color2: @value;
+//       .gradient-@{color1}-@{color2} {
+//         .background-gradient(@color1, @color2);
+//       }
+//     });
+//   });
+// }
+
+// .generate-gradients();
+
+
+/* Mixin to apply font weight */
+.font-weight(@weight) {
+  font-weight: @weight;
+}
+
+/* Generate font-weight classes from 100 to 900 */
+.generate-font-weights() {
+  .loop(@i) when (@i <= 900) {
+    .font-weight-@{i} {
+      .font-weight(@i);
+    }
+    .loop(@i + 100);
+  }
+}
+
+.generate-font-weights();
+
+
+/* Mixin to apply text shadow */
+.text-shadow(@x, @y, @blur, @color) {
+  text-shadow: @x @y @blur @color;
+}
+
+/* Generate text-shadow classes with varying blur */
+.generate-text-shadows() {
+  .loop(@i) when (@i <= 10) {
+    .text-shadow-@{i} {
+      .text-shadow(1px, 1px, @ipx, rgba(0, 0, 0, 0.5));
+    }
+    .loop(@i + 1);
+  }
+}
+
+.generate-text-shadows();
+
+
+/* Mixin to apply line height */
+.line-height(@value) {
+  line-height: @value;
+}
+
+/* Generate line-height classes from 1 to 3 */
+.generate-line-heights() {
+  .loop(@i) when (@i <= 3) {
+    .line-height-@{i} {
+      .line-height(@i);
+    }
+    .loop(@i + 0.1);
+  }
+}
+
+.generate-line-heights();
+
+
+/* Mixin to apply box sizing */
+.box-sizing(@value) {
+  box-sizing: @value;
+}
+
+/* Generate box-sizing classes with different values */
+.generate-box-sizings() {
+  .box-sizing-border-box {
+    .box-sizing(border-box);
+  }
+  
+  .box-sizing-content-box {
+    .box-sizing(content-box);
+  }
+}
+
+.generate-box-sizings();
+
+
+/* Mixin to apply line height */
+.line-height(@value) {
+  line-height: @value;
+}
+
+/* Generate line-height classes from 1 to 2.5 with 0.1 increment */
+.generate-line-heights() {
+  .loop(@i) when (@i <= 25) {
+    .line-height-@{i} {
+      .line-height(i / 10);
+    }
+    .loop(@i + 1);
+  }
+}
+
+.generate-line-heights();
+
+
+/* Mixin to apply text alignment */
+.text-align(@value) {
+  text-align: @value;
+}
+
+/* Generate text-align classes */
+.generate-text-aligns() {
+  .text-align-left {
+    .text-align(left);
+  }
+
+  .text-align-center {
+    .text-align(center);
+  }
+
+  .text-align-right {
+    .text-align(right);
+  }
+
+  .text-align-justify {
+    .text-align(justify);
+  }
+}
+
+.generate-text-aligns();
+
+
+/* Mixin to apply text decoration */
+.text-decoration(@value) {
+  text-decoration: @value;
+}
+
+/* Generate text-decoration classes */
+.generate-text-decorations() {
+  .text-decoration-underline {
+    .text-decoration(underline);
+  }
+
+  .text-decoration-line-through {
+    .text-decoration(line-through);
+  }
+
+  .text-decoration-none {
+    .text-decoration(none);
+  }
+}
+
+.generate-text-decorations();
+
+
+/* Mixin to apply text transform */
+.text-transform(@value) {
+  text-transform: @value;
+}
+
+/* Generate text-transform classes */
+.generate-text-transforms() {
+  .text-transform-uppercase {
+    .text-transform(uppercase);
+  }
+
+  .text-transform-lowercase {
+    .text-transform(lowercase);
+  }
+
+  .text-transform-capitalize {
+    .text-transform(capitalize);
+  }
+
+  .text-transform-none {
+    .text-transform(none);
+  }
+}
+
+.generate-text-transforms();
+
+
+/* Mixin to apply box shadow */
+.box-shadow(@h-offset, @v-offset, @blur, @spread, @color) {
+  box-shadow: @h-offset @v-offset @blur @spread @color;
+}
+
+

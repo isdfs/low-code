@@ -1,0 +1,156 @@
+// 文件名: form-controls.less
+
+/* 
+  Mixin: form-input
+  功能描述:
+    设置输入框的基础样式。
+  参数:
+    @border-color: 输入框边框颜色，默认值为浅灰色 (#ccc)。
+    @focus-border-color: 输入框获得焦点时的边框颜色，默认值为主色调 (#3498db)。
+    @padding: 输入框的内边距，默认值为 10px。
+*/
+.form-input(@border-color: #ccc, @focus-border-color: #3498db, @padding: 10px) {
+  border: 1px solid @border-color;
+  padding: @padding;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: @focus-border-color;
+    outline: none;
+  }
+}
+
+/* 
+  Mixin: form-checkbox
+  功能描述:
+    设置复选框的基础样式。
+  参数:
+    @border-color: 复选框边框颜色，默认值为浅灰色 (#ccc)。
+    @checked-bg-color: 选中状态的背景颜色，默认值为主色调 (#3498db)。
+*/
+.form-checkbox(@border-color: #ccc, @checked-bg-color: #3498db) {
+  width: 16px;
+  height: 16px;
+  border: 1px solid @border-color;
+  border-radius: 4px;
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+
+  &:checked {
+    background-color: @checked-bg-color;
+
+    &::before {
+      content: '✔';
+      color: #fff;
+      font-size: 12px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+/* 
+  Mixin: form-radio
+  功能描述:
+    设置单选按钮的基础样式。
+  参数:
+    @border-color: 单选按钮边框颜色，默认值为浅灰色 (#ccc)。
+    @checked-bg-color: 选中状态的背景颜色，默认值为主色调 (#3498db)。
+*/
+.form-radio(@border-color: #ccc, @checked-bg-color: #3498db) {
+  width: 16px;
+  height: 16px;
+  border: 1px solid @border-color;
+  border-radius: 50%;
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+
+  &:checked {
+    background-color: @checked-bg-color;
+
+    &::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+/* 
+  Mixin: form-select
+  功能描述:
+    设置选择框的基础样式。
+  参数:
+    @border-color: 选择框边框颜色，默认值为浅灰色 (#ccc)。
+    @focus-border-color: 选择框获得焦点时的边框颜色，默认值为主色调 (#3498db)。
+    @padding: 选择框的内边距，默认值为 10px。
+*/
+.form-select(@border-color: #ccc, @focus-border-color: #3498db, @padding: 10px) {
+  border: 1px solid @border-color;
+  padding: @padding;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  appearance: none;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: @focus-border-color;
+    outline: none;
+  }
+}
+
+/* 
+  Mixin: form-switch
+  功能描述:
+    设置切换开关的样式。
+  参数:
+    @bg-color: 开关的背景颜色，默认值为浅灰色 (#ccc)。
+    @checked-bg-color: 选中状态的背景颜色，默认值为主色调 (#3498db)。
+    @switch-color: 滑块的颜色，默认值为白色 (#fff)。
+*/
+.form-switch(@bg-color: #ccc, @checked-bg-color: #3498db, @switch-color: #fff) {
+  width: 40px;
+  height: 20px;
+  background-color: @bg-color;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background-color: @switch-color;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    transition: left 0.3s ease;
+  }
+
+  &:checked {
+    background-color: @checked-bg-color;
+
+    &::before {
+      left: calc(100% - 19px);
+    }
+  }
+}

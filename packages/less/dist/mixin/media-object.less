@@ -1,0 +1,74 @@
+// 文件名: media-object.less
+
+/* 
+  Mixin: media
+  功能描述:
+    设置媒体对象的基础布局，使用 Flexbox 实现。
+  参数:
+    @spacing: 媒体图像和文本之间的间距，默认值为 10px。
+*/
+.media(@spacing: 10px) {
+  display: flex;
+  align-items: flex-start;
+
+  .media-img {
+    margin-right: @spacing;
+  }
+}
+
+/* 
+  Mixin: media-reverse
+  功能描述:
+    设置媒体对象的反转布局，将图像放在右侧。
+  参数:
+    @spacing: 媒体图像和文本之间的间距，默认值为 10px。
+*/
+.media-reverse(@spacing: 10px) {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+
+  .media-img {
+    margin-left: @spacing;
+    margin-right: 0;
+  }
+}
+
+/* 
+  Mixin: media-img
+  功能描述:
+    设置媒体对象中的图像样式。
+  参数:
+    @width: 图像宽度，默认值为 64px。
+    @height: 图像高度，默认值为 64px。
+    @border-radius: 图像的圆角半径，默认值为 4px。
+*/
+.media-img(@width: 64px, @height: 64px, @border-radius: 4px) {
+  width: @width;
+  height: @height;
+  border-radius: @border-radius;
+  object-fit: cover;
+}
+
+/* 
+  Mixin: media-body
+  功能描述:
+    设置媒体对象中的文本样式。
+  参数:
+    无。
+*/
+.media-body {
+  flex: 1;
+  font-size: 14px;
+}
+
+/* 
+  Mixin: media-aligned
+  功能描述:
+    设置媒体对象的对齐方式，如顶部对齐、中间对齐等。
+  参数:
+    @align: 对齐方式，默认值为 flex-start（顶部对齐）。
+*/
+.media-aligned(@align: flex-start) {
+  align-items: @align;
+}

@@ -1,0 +1,65 @@
+// 文件名: text.less
+
+/* 
+  Mixin: text-color
+  功能描述:
+    快速为文本设置颜色。
+  参数:
+    @color: 文本颜色，默认值为黑色 (#333)。
+*/
+.text-color(@color: #333) {
+  color: @color;
+}
+
+/* 
+  Mixin: text-shadow
+  功能描述:
+    为文本添加阴影效果。
+  参数:
+    @x: 水平方向的阴影偏移，默认值为 1px。
+    @y: 垂直方向的阴影偏移，默认值为 1px。
+    @blur: 模糊半径，默认值为 3px。
+    @color: 阴影颜色，默认值为 rgba(0, 0, 0, 0.5)。
+*/
+.text-shadow(@x: 1px, @y: 1px, @blur: 3px, @color: rgba(0, 0, 0, 0.5)) {
+  text-shadow: @x @y @blur @color;
+}
+
+/* 
+  Mixin: text-truncate
+  功能描述:
+    实现多行文本截断，并显示省略号。
+  参数:
+    @lines: 最大显示行数，默认值为 2 行。
+    @line-height: 每行的行高，默认值为 1.5。
+*/
+.text-truncate(@lines: 2, @line-height: 1.5) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: @lines;
+  -webkit-box-orient: vertical;
+  line-height: @line-height;
+  max-height: @line-height * @lines;
+}
+
+/* 
+  Mixin: text-align
+  功能描述:
+    快速设置文本的对齐方式。
+  参数:
+    @align: 文本对齐方式，默认值为 left。
+*/
+.text-align(@align: left) {
+  text-align: @align;
+}
+
+/* 
+  Mixin: bold-text
+  功能描述:
+    设置文本为粗体。
+  参数:
+    @weight: 字体粗细，默认值为 bold。
+*/
+.bold-text(@weight: bold) {
+  font-weight: @weight;
+}
