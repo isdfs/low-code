@@ -29,7 +29,7 @@
  */
 export function trackFormSubmit(form: HTMLFormElement, url: string = '/track'): void {
   form.addEventListener('submit', (event) => {
-      const formData = new FormData(form);
+      const formData: any = new FormData(form);
       const data = {
           event: 'form_submit',
           formId: form.id,

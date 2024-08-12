@@ -30,9 +30,9 @@ export async function multiTrackVideo(videoTracks: HTMLVideoElement[], audioTrac
   };
 
   // 将音频轨道添加到流中
-  audioTracks.forEach(audioTrack => {
+  audioTracks.forEach((audioTrack: any) => {
       const audioStream = audioTrack.captureStream();
-      audioStream.getAudioTracks().forEach(track => stream.addTrack(track));
+      audioStream.getAudioTracks().forEach((track: any) => stream.addTrack(track));
   });
 
   mediaRecorder.start();

@@ -62,7 +62,7 @@ class GestureDrivenAnimation {
   /**
    * getDistance 方法计算两个触摸点之间的距离。
    */
-  private getDistance(touches: TouchList) {
+  private getDistance(touches: TouchList | any) {
       const [touch1, touch2] = touches;
       const dx = touch2.clientX - touch1.clientX;
       const dy = touch2.clientY - touch1.clientY;

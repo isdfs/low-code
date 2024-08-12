@@ -16,7 +16,7 @@ interface DataDrivenAnimationOptions<T> {
 class DataDrivenAnimation<T> {
   private element: HTMLElement;
   private options: DataDrivenAnimationOptions<T>;
-  private intervalId: number | null = null;
+  private intervalId: any | number | null = null;
 
   constructor(element: HTMLElement, options: DataDrivenAnimationOptions<T>) {
       this.element = element;

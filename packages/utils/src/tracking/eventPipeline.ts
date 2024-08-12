@@ -40,7 +40,7 @@ export class EventPipeline {
      * @returns {void}
      */
     track(eventName: string, eventData: Record<string, any>): void {
-        let event = {
+        let event: any = {
             event: eventName,
             timestamp: new Date().toISOString(),
             ...eventData,

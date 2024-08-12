@@ -32,6 +32,10 @@ export { monitorDeviceOrientation } from './deviceOrientation';
 
 export { stopDeviceOrientationMonitoring } from './deviceOrientation';
 
+export { disableNavigation } from './disableNavigation';
+
+export { enableNavigation } from './disableNavigation';
+
 
 
 
@@ -65,6 +69,18 @@ export { getLocalStorage } from './localStorageManager';
 export { removeLocalStorage } from './localStorageManager';
 
 
+
+export { navigateTo } from './navigationController';
+
+export { goBack } from './navigationController';
+
+export { goForward } from './navigationController';
+
+export { reloadPage } from './navigationController';
+
+export { addNavigationInterceptor } from './navigationInterceptor';
+
+export { removeNavigationInterceptor } from './navigationInterceptor';
 
 export { monitorNetworkSpeed } from './networkSpeed';
 
@@ -108,7 +124,15 @@ export { scrollToTop } from './scroll';
 
 export { scrollToBottom } from './scroll';
 
+export { scrollToAnchor } from './scrollToAnchor';
 
+
+
+export { getUrlParam } from './urlParamsNavigator';
+
+export { setUrlParam } from './urlParamsNavigator';
+
+export { removeUrlParam } from './urlParamsNavigator';
 
 
 

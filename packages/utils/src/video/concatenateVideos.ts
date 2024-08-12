@@ -72,9 +72,9 @@ export async function concatenateVideos(videoBlobs: Blob[], mimeType: string): P
 import { concatenateVideos } from './concatenateVideos';
 
 // const videoBlobs = [
-//   new Blob([/* 第一个视频的数据 */], { type: 'video/mp4' }),
-//   new Blob([/* 第二个视频的数据 */], { type: 'video/mp4' }),
-//   new Blob([/* 第三个视频的数据 */], { type: 'video/mp4' })
+//   new Blob([/* 第一个视频的数据 ], { type: 'video/mp4' }),
+//   new Blob([/* 第二个视频的数据 ], { type: 'video/mp4' }),
+//   new Blob([/* 第三个视频的数据 ], { type: 'video/mp4' })
 // ];
 
 // concatenateVideos(videoBlobs, 'video/webm').then(concatenatedBlob => {

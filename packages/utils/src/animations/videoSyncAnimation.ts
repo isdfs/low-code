@@ -5,7 +5,7 @@
  */
 interface VideoSyncAnimationOptions {
   videoElement: HTMLVideoElement;
-  animation: KeyframeAnimation;
+  animation: any;
 }
 
 /**
@@ -13,7 +13,7 @@ interface VideoSyncAnimationOptions {
 */
 class VideoSyncAnimation {
   private videoElement: HTMLVideoElement;
-  private animation: KeyframeAnimation;
+  private animation: any;
 
   constructor(options: VideoSyncAnimationOptions) {
       this.videoElement = options.videoElement;
@@ -58,3 +58,4 @@ class VideoSyncAnimation {
 /**
 * 使用示例：
 * const videoElement = document.querySelector('video#myVideo') as HTMLVideoElement
+*/

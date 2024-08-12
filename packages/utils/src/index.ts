@@ -88,6 +88,8 @@ export * from './string';
 
 export * from './sync';
 
+export * from './tracking';
+
 export * from './ui';
 
 export * from './utility';
